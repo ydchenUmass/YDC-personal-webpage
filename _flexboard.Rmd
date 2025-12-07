@@ -1,0 +1,75 @@
+---
+title: "Sustainability Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(scales) 
+
+df_raw <- read_csv("604Assignment5Sample.csv")
+
+plot_data <- df_raw %>%
+  select(Year = year, 
+         AuditorRaw = contains("extern")) %>%
+  mutate(
+    Year = as.numeric(Year),
+    AuditorLabel = ifelse(AuditorRaw == 1, "Audited", "Not Audited"),
+    AuditorLabel = factor(AuditorLabel, levels = c("Not Audited", "Audited"))
+  ) %>%
+  filter(!is.na(Year)) %>%
+  group_by(Year, AuditorLabel) %>%
+  summarise(Count = n(), .groups = "drop")
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+```{r}
+if(nrow(plot_data) > 0) {
+  
+  ggplot(plot_data, aes(x = Year, y = Count, fill = fct_rev(AuditorLabel))) +
+    geom_col(width = 0.65) + 
+    
+    scale_fill_manual(values = c("Not Audited" = "#A5D6A7", "Audited" = "#2E8B57")) +
+    
+    scale_x_continuous(breaks = seq(min(plot_data$Year), max(plot_data$Year), 1)) +
+    
+    scale_y_continuous(expand = c(0, 0), limits = c(0, NA)) +
+    
+    theme_minimal(base_size = 14) +
+    theme(
+      legend.position = "top", 
+      legend.justification = "left",
+      legend.title = element_blank(),
+      
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor = element_blank(),
+      
+      plot.title = element_text(face = "bold", size = 18),
+      plot.subtitle = element_text(size = 12, color = "grey30")
+    ) +
+    
+    labs(
+      title = "The Sustainability Reporting Boom",
+      subtitle = "Number of S&P 500 firms publishing sustainability reports",
+      x = "",
+      y = "Number of Companies"
+    )
+    
+} else {
+  print("Error: No data found.")
+}
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Description
+
+* **Observation**: The chart shows the trend of firms publishing sustainability report and adopting external auditing over the years.
+* **Trend**: We can observe that the number of "Audited" firms (Dark Green) is increasing compared to "Not Audited" firms.
+* **Conclusion**: This suggests a growing emphasis on sustainability verification in the corporate sector.

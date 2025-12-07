@@ -1,0 +1,16 @@
+---
+title: "Academic Projects"
+---
+
+## Project 1: Sustainability Reporting Analysis
+
+This is a data-driven project exploring the trends of sustainability reporting and external auditing among S&P 500 companies.
+
+You can view the interactive dashboard for this project here: [**Click to Open Dashboard**](flexboard.html)
+
+**Project Description:**
+The project analyzes data from the past decade to understand how major corporations are adopting sustainability practices. The visualization highlights a significant "reporting boom" and a growing preference for externally audited reports, suggesting a shift towards higher transparency and credibility in the corporate sector.
+
+## Other Works
+
+-   **Coming Soon**

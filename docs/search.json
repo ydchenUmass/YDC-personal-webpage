@@ -100,9 +100,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Dong Yu (Erico)",
+    "title": "Yongdong Chen",
     "section": "",
-    "text": "Welcome to visit my website. I am a lecturer in Data Analytics and Computational Social Science Program(DACSS) at the University of Massachusetts Amherst. Trained as a political scientist, my research interests include court and judicial politics, comparative public opinion, and political participation with a specific focus in China and the US. You can find more information in my CV and Google Scholar) for my recent research and teaching.\n\n\n\nM.A. and Ph.D. in Political Science, the University of Iowa\nM.A. International Affairs, the University of Pittsburgh\nB.A. Law, Sun Yat-sen University\n\n\n\n\nBefore joining DACSS, I taught in the Department of Political Science at Grinnell College. I also served as a research intern at the Institute for Policy Studies in Washington, D.C., and The Carter Center in Atlanta. Additionally, I worked as an assistant in a law clinic at Sun Yat-sen University.\nBeyond academia, I contributed to a Podcast on American Politics and Elections and wrote for various media outlets and newspapers, including The New York Times, covering US presidential and midterm elections.\nThis website features my latest teaching materials in DACSS. I welcome comments or suggestions. If you have any questions, feel free to email me. Looking for my old website? You can still access it here."
+    "text": "Welcome to my website! I am a PhD student in Operations Management in UMass Amherst. My research interest is sustainable operations management.\nYou can find more details in my Curriculum Vitae(FileSample).\n\n\n\n\nPh.D. Operations Management, UMass Amherst 2024.09-\nM.A. Business Administration, Central University of Finance and Economics\nB.A. Logistics Management, Central University of Finance and Economics\n\n\n\n\nI have worked on several data-driven projects. Please verify the Project page for more details.\nThank you for visiting"
   },
   {
     "objectID": "index.html#goals",
@@ -114,9 +114,9 @@
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
-    "title": "Dong Yu (Erico)",
+    "title": "Yongdong Chen",
     "section": "",
-    "text": "M.A. and Ph.D. in Political Science, the University of Iowa\nM.A. International Affairs, the University of Pittsburgh\nB.A. Law, Sun Yat-sen University"
+    "text": "Ph.D. Operations Management, UMass Amherst 2024.09-\nM.A. Business Administration, Central University of Finance and Economics\nB.A. Logistics Management, Central University of Finance and Economics"
   },
   {
     "objectID": "index.html#experience",
@@ -128,9 +128,9 @@
   {
     "objectID": "flexboard.html",
     "href": "flexboard.html",
-    "title": "Storyboard Commentary",
+    "title": "Sustainability Dashboard",
     "section": "",
-    "text": "Frame 1\n\nSome commentary about Frame 1.\n\n\nFrame 2\n\nSome commentary about Frame 2."
+    "text": "if(nrow(plot_data) &gt; 0) {\n  \n  ggplot(plot_data, aes(x = Year, y = Count, fill = fct_rev(AuditorLabel))) +\n    geom_col(width = 0.65) + \n    \n    scale_fill_manual(values = c(\"Not Audited\" = \"#A5D6A7\", \"Audited\" = \"#2E8B57\")) +\n    \n    scale_x_continuous(breaks = seq(min(plot_data$Year), max(plot_data$Year), 1)) +\n    \n    scale_y_continuous(expand = c(0, 0), limits = c(0, NA)) +\n    \n    theme_minimal(base_size = 14) +\n    theme(\n      legend.position = \"top\", \n      legend.justification = \"left\",\n      legend.title = element_blank(),\n      \n      panel.grid.major.x = element_blank(),\n      panel.grid.minor = element_blank(),\n      \n      plot.title = element_text(face = \"bold\", size = 18),\n      plot.subtitle = element_text(size = 12, color = \"grey30\")\n    ) +\n    \n    labs(\n      title = \"The Sustainability Reporting Boom\",\n      subtitle = \"Number of S&P 500 firms publishing sustainability reports\",\n      x = \"\",\n      y = \"Number of Companies\"\n    )\n    \n} else {\n  print(\"Error: No data found.\")\n}"
   },
   {
     "objectID": "Input Sidebar.html",
@@ -333,7 +333,7 @@
     "href": "teaching_Examples.html",
     "title": "Example Graphs for Teaching",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(smss)\nlibrary(stargazer)\n\n\nPlease cite as: \n\n Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.\n R package version 5.2.3. https://CRAN.R-project.org/package=stargazer \n\nlibrary(mlbench)"
+    "text": "library(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   4.0.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(smss)\nlibrary(stargazer)\n\n\nPlease cite as: \n\n Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.\n R package version 5.2.3. https://CRAN.R-project.org/package=stargazer \n\nlibrary(mlbench)"
   },
   {
     "objectID": "teaching_Examples.html#spurious-relationship",
@@ -502,5 +502,61 @@
     "title": "Legel 393E Spring 2025: Group Project Lab(1)",
     "section": "Final Section: Group Project Lab (2) Preview",
     "text": "Final Section: Group Project Lab (2) Preview\nFor your group project, you will work with your own experimental questions. This week, we are practicing using simulated data. But you can still start writing the codes.\nEach group should:\n\nIdentify your experimental variables (the dependent variable questions that measure the attitude and behavior in your experiment) from the survey\nWrite the code to recode your group’s DVs in a proper form using mutate() + case_when().\nDon’t worry about the demographic, socioeconomic and personal-other variables, I will clean them for you.\nApply the same cleaning and checking habits from today:\n\n\n-   Try out the codes for summary stats\n\n-   Write the codes for plotting distribution graphs. \n\n\nSave your codes with the .R file.\n\nOn Friday (real data release day):\nYou will reuse your cleaned code on the real dataset.\n\nThen, you will perform:\n\nSimple regressions or t-tests (depending on design)\nMultiple regression including all control variables.\nHypothesis testing and results interpretation"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Yongdong Chen",
+    "section": "",
+    "text": "Welcome to my website! I am a PhD student in Operations Management in UMass Amherst. My research interest is sustainable operations management.\nYou can find more details in my Curriculum Vitae(FileSample)."
+  },
+  {
+    "objectID": "index.html#project",
+    "href": "index.html#project",
+    "title": "Yongdong Chen",
+    "section": "",
+    "text": "I have worked on several data-driven projects. Please verify the Project page for more details."
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Academic Projects",
+    "section": "",
+    "text": "This is a data-driven project exploring the trends of sustainability reporting and external auditing among S&P 500 companies.\nYou can view the interactive dashboard for this project here: Click to Open Dashboard\nProject Description: The project analyzes data from the past decade to understand how major corporations are adopting sustainability practices. The visualization highlights a significant “reporting boom” and a growing preference for externally audited reports, suggesting a shift towards higher transparency and credibility in the corporate sector."
+  },
+  {
+    "objectID": "project.html#project-1-这里写你的项目名称",
+    "href": "project.html#project-1-这里写你的项目名称",
+    "title": "Sample Projects",
+    "section": "",
+    "text": "This is a data-driven project exploring (这里写一句简短的描述，比如研究了什么问题).\nYou can view the interactive dashboard for this project here: Dashboard Link\nBrief description no more than 100 words."
+  },
+  {
+    "objectID": "project.html#other-works",
+    "href": "project.html#other-works",
+    "title": "Academic Projects",
+    "section": "Other Works",
+    "text": "Other Works\n\nComing Soon"
+  },
+  {
+    "objectID": "flexboard.html#column",
+    "href": "flexboard.html#column",
+    "title": "Sustainability Dashboard",
+    "section": "",
+    "text": "if(nrow(plot_data) &gt; 0) {\n  \n  ggplot(plot_data, aes(x = Year, y = Count, fill = fct_rev(AuditorLabel))) +\n    geom_col(width = 0.65) + \n    \n    scale_fill_manual(values = c(\"Not Audited\" = \"#A5D6A7\", \"Audited\" = \"#2E8B57\")) +\n    \n    scale_x_continuous(breaks = seq(min(plot_data$Year), max(plot_data$Year), 1)) +\n    \n    scale_y_continuous(expand = c(0, 0), limits = c(0, NA)) +\n    \n    theme_minimal(base_size = 14) +\n    theme(\n      legend.position = \"top\", \n      legend.justification = \"left\",\n      legend.title = element_blank(),\n      \n      panel.grid.major.x = element_blank(),\n      panel.grid.minor = element_blank(),\n      \n      plot.title = element_text(face = \"bold\", size = 18),\n      plot.subtitle = element_text(size = 12, color = \"grey30\")\n    ) +\n    \n    labs(\n      title = \"The Sustainability Reporting Boom\",\n      subtitle = \"Number of S&P 500 firms publishing sustainability reports\",\n      x = \"\",\n      y = \"Number of Companies\"\n    )\n    \n} else {\n  print(\"Error: No data found.\")\n}"
+  },
+  {
+    "objectID": "flexboard.html#column-1",
+    "href": "flexboard.html#column-1",
+    "title": "Sustainability Dashboard",
+    "section": "Column",
+    "text": "Column\n\nDescription\n\nObservation: The chart shows the trend of firms publishing sustainability report and adopting external auditing over the years.\nTrend: We can observe that the number of “Audited” firms (Dark Green) is increasing compared to “Not Audited” firms.\nConclusion: This suggests a growing emphasis on sustainability verification in the corporate sector."
+  },
+  {
+    "objectID": "project.html#project-1-sustainability-reporting-analysis",
+    "href": "project.html#project-1-sustainability-reporting-analysis",
+    "title": "Academic Projects",
+    "section": "",
+    "text": "This is a data-driven project exploring the trends of sustainability reporting and external auditing among S&P 500 companies.\nYou can view the interactive dashboard for this project here: Click to Open Dashboard\nProject Description: The project analyzes data from the past decade to understand how major corporations are adopting sustainability practices. The visualization highlights a significant “reporting boom” and a growing preference for externally audited reports, suggesting a shift towards higher transparency and credibility in the corporate sector."
   }
 ]

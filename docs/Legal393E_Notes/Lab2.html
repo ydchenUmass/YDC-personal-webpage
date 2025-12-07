@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="EricoYu">
+<meta name="dcterms.date" content="2024-02-24">
+<meta name="description" content="R Project, Loading Dataset, Data Structure">
+
+<title>Legel 393E Spring 2025: Lab Meeting#2: Tutorial#2 Quiz Solutions; R Project; Loading Dataset &amp; Data Structure – Erico Yu’s Home Page</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Erico Yu’s Home Page</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/dongericoyu" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://x.com/DY_erico" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#loading-a-dataset." id="toc-loading-a-dataset." class="nav-link active" data-scroll-target="#loading-a-dataset.">Loading a dataset.</a>
+  <ul class="collapse">
+  <li><a href="#first-check-your-data-path-and-working-directory." id="toc-first-check-your-data-path-and-working-directory." class="nav-link" data-scroll-target="#first-check-your-data-path-and-working-directory.">First, check your data path and working directory.</a></li>
+  <li><a href="#using-a-relative-path" id="toc-using-a-relative-path" class="nav-link" data-scroll-target="#using-a-relative-path"><strong>(2) Using a Relative Path</strong></a></li>
+  <li><a href="#second-preview-the-dataset-before-loading-it-see-if-it-needs-to-be-adjusted." id="toc-second-preview-the-dataset-before-loading-it-see-if-it-needs-to-be-adjusted." class="nav-link" data-scroll-target="#second-preview-the-dataset-before-loading-it-see-if-it-needs-to-be-adjusted.">Second, preview the dataset before loading it, see if it needs to be adjusted.</a></li>
+  </ul></li>
+  <li><a href="#tutorial2-quiz-answers" id="toc-tutorial2-quiz-answers" class="nav-link" data-scroll-target="#tutorial2-quiz-answers">Tutorial#2 Quiz Answers</a>
+  <ul class="collapse">
+  <li><a href="#question-1.-what-percentage-of-afghanistan-had-access-to-electricity-in-1990-according-to-the-electric-dataset" id="toc-question-1.-what-percentage-of-afghanistan-had-access-to-electricity-in-1990-according-to-the-electric-dataset" class="nav-link" data-scroll-target="#question-1.-what-percentage-of-afghanistan-had-access-to-electricity-in-1990-according-to-the-electric-dataset">Question 1. What percentage of Afghanistan had access to electricity in 1990, according to the electric dataset?</a></li>
+  <li><a href="#question-2.-how-many-rows-are-in-the-pseo-dataset" id="toc-question-2.-how-many-rows-are-in-the-pseo-dataset" class="nav-link" data-scroll-target="#question-2.-how-many-rows-are-in-the-pseo-dataset"><strong>Question 2. How many rows are in the pseo dataset?</strong></a></li>
+  <li><a href="#question-3.-how-many-observations-are-in-the-pseo-dataset-for-the-university-of-colorado-denver" id="toc-question-3.-how-many-observations-are-in-the-pseo-dataset-for-the-university-of-colorado-denver" class="nav-link" data-scroll-target="#question-3.-how-many-observations-are-in-the-pseo-dataset-for-the-university-of-colorado-denver">Question 3. How many observations are in the pseo dataset for the University of Colorado Denver?</a></li>
+  <li><a href="#question-4.-which-of-the-following-functions-could-be-used-on-a-dataset-to-return-the-names-of-all-the-variables-in-the-dataset" id="toc-question-4.-which-of-the-following-functions-could-be-used-on-a-dataset-to-return-the-names-of-all-the-variables-in-the-dataset" class="nav-link" data-scroll-target="#question-4.-which-of-the-following-functions-could-be-used-on-a-dataset-to-return-the-names-of-all-the-variables-in-the-dataset">Question 4. Which of the following functions could be used on a dataset to return the names of all the variables in the dataset?</a></li>
+  <li><a href="#question-5.-imagine-i-had-a-class-roster-stored-in-r-that-included-a-variable-called-year-that-featured-the-year-of-entry-for-each-student.-if-i-wanted-to-how-many-students-fell-into-each-year-i.e.-a-count-of-how-many-students-entered-in-each-year-which-of-the-following-would-return-a-table-with-those-values" id="toc-question-5.-imagine-i-had-a-class-roster-stored-in-r-that-included-a-variable-called-year-that-featured-the-year-of-entry-for-each-student.-if-i-wanted-to-how-many-students-fell-into-each-year-i.e.-a-count-of-how-many-students-entered-in-each-year-which-of-the-following-would-return-a-table-with-those-values" class="nav-link" data-scroll-target="#question-5.-imagine-i-had-a-class-roster-stored-in-r-that-included-a-variable-called-year-that-featured-the-year-of-entry-for-each-student.-if-i-wanted-to-how-many-students-fell-into-each-year-i.e.-a-count-of-how-many-students-entered-in-each-year-which-of-the-following-would-return-a-table-with-those-values">Question 5. Imagine I had a class roster stored in R that included a variable called “year” that featured the year of entry for each student. If I wanted to how many students fell into each year (i.e., a count of how many students entered in each year), which of the following would return a table with those values?</a></li>
+  </ul></li>
+  <li><a href="#additional-introduction-to-r-basic-operations-r-project" id="toc-additional-introduction-to-r-basic-operations-r-project" class="nav-link" data-scroll-target="#additional-introduction-to-r-basic-operations-r-project">Additional Introduction to R Basic Operations: R Project</a>
+  <ul class="collapse">
+  <li><a href="#introduction-to-r-projects-why-you-need-to-create-one-when-working-on-a-project." id="toc-introduction-to-r-projects-why-you-need-to-create-one-when-working-on-a-project." class="nav-link" data-scroll-target="#introduction-to-r-projects-why-you-need-to-create-one-when-working-on-a-project."><strong>Introduction to R Projects: why you need to create one when working on a project.</strong></a></li>
+  <li><a href="#best-practices-when-using-r-projects" id="toc-best-practices-when-using-r-projects" class="nav-link" data-scroll-target="#best-practices-when-using-r-projects"><strong>Best Practices When Using R Projects</strong></a></li>
+  </ul></li>
+  <li><a href="#data-structure-and-object-types" id="toc-data-structure-and-object-types" class="nav-link" data-scroll-target="#data-structure-and-object-types">Data Structure and Object Types</a></li>
+  <li><a href="#rbuilt-in-datasets" id="toc-rbuilt-in-datasets" class="nav-link" data-scroll-target="#rbuilt-in-datasets">RBuilt-in Datasets</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Legel 393E Spring 2025: Lab Meeting#2: Tutorial#2 Quiz Solutions; R Project; Loading Dataset &amp; Data Structure</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">lab meeting</div>
+    <div class="quarto-category">Additional practices and materials</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    R Project, Loading Dataset, Data Structure
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>EricoYu </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 24, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This week, we talk about data collection and coding. In today’s lab, in addition to the functions in Tutorial#2, let’s explore some basic operations of loading a dataset and coding some data.</p>
+<section id="loading-a-dataset." class="level2">
+<h2 class="anchored" data-anchor-id="loading-a-dataset.">Loading a dataset.</h2>
+<p>In Tutorial#2, all the three datasets are pre-loading for you already. However, these datasets are not pre-loaded in the RStudio console on our devices. How can we load them?</p>
+<p>First, you need to go to the sources of the datasets (<a href="https://lehd.ces.census.gov/data/pseo_experimental.html">pseo</a>: select “View Files” and download the .CSV file; <a href="https://data.worldbank.org/indicator/EG.ELC.ACCS.ZS?view=chart">electric</a>: download the .CSV file) and download them to the local device manually.</p>
+<p>The next step is to read these downloaded data files into R. Since data files can be stored in different formats:</p>
+<ul>
+<li><p>spreadsheets: comma-separated values (.csv file), excel and Google Sheets (.xls file);</p></li>
+<li><p>other statistical software (SPSS, STATA, SAS);</p></li>
+<li><p>text files (.txt);</p></li>
+<li><p>database (.sql);</p></li>
+<li><p>other unstructured data: image, text, audio, video;</p></li>
+<li><p>You can even ask R to read a data files online.</p></li>
+</ul>
+<p>We don’t usually encounter the last two types of data files in legal studies, and they require specific R packages to be read. With the first two types of data, we primarily use the following functions with the two pre-installed packages to read.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl) <span class="co">#for spreadsheets</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) <span class="co">#also for spreadsheets</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven) <span class="co">#for SPSS, STATA, and SAS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we know what packges we need to use for a project, we can load them all at once:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a vector contains the names of the needed packages, and assign a name "needed.packages" for it.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>needed.packages<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">'readxl'</span>,<span class="st">'readr'</span>,<span class="st">'haven'</span>,<span class="st">'dplyr'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#lapply() allows us to loop over and execute every element in the object "needed.packages".</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(needed.packages, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: dplyr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] TRUE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] TRUE
+
+[[4]]
+[1] TRUE</code></pre>
+</div>
+</div>
+<p>For .txt files, we have multiple function options to use. For example:</p>
+<p>read.table(): General function for reading tabular data from a text file.</p>
+<p>read.delim(): Specialized function for tab-separated files (.txt with tab separation).</p>
+<p>Before I load the two datasets into R, there are two more things I want to introduce.</p>
+<section id="first-check-your-data-path-and-working-directory." class="level3">
+<h3 class="anchored" data-anchor-id="first-check-your-data-path-and-working-directory.">First, check your data path and working directory.</h3>
+<p>When loading a dataset in R, you need to specify the file path correctly. There are two ways to do this:</p>
+<section id="using-an-absolute-path" class="level4">
+<h4 class="anchored" data-anchor-id="using-an-absolute-path"><strong>(1) Using an Absolute Path</strong></h4>
+<p>If your dataset is stored <strong>outside</strong> the working mustdirectory, you must provide the <strong>full file path</strong> (absolute path) to load it.</p>
+</section>
+<section id="example-absolute-path-.csv-file" class="level4">
+<h4 class="anchored" data-anchor-id="example-absolute-path-.csv-file"><strong>Example: Absolute Path</strong> (.csv file)</h4>
+<p>In windows:</p>
+<p><code>data&lt;-read.csv("C:/Users/YourName/Documents/data.csv")</code></p>
+<p>On macOS/Linux:</p>
+<p><code>data &lt;- read.csv("/Users/YourName/Documents/data.csv")</code></p>
+<p>Using the absolute path, you don’t have to worry about the current working directory. However, the path is specific to your computer and will not work if the R script is shared with someone else. In addition, it may not work if the file is moved to a different location.</p>
+</section>
+</section>
+<section id="using-a-relative-path" class="level3">
+<h3 class="anchored" data-anchor-id="using-a-relative-path"><strong>(2) Using a Relative Path</strong></h3>
+<p>If your dataset is stored <strong>inside the working directory</strong>, you can simply use the <strong>relative path</strong>.</p>
+<section id="example-relative-path" class="level4">
+<h4 class="anchored" data-anchor-id="example-relative-path">Example: Relative Path:</h4>
+<p>data &lt;- read.csv(“data.csv”)</p>
+</section>
+<section id="or-if-its-inside-a-subfolder" class="level4">
+<h4 class="anchored" data-anchor-id="or-if-its-inside-a-subfolder">or if it’s inside a subfolder:</h4>
+<p>data &lt;- read.csv(“data/my_data.csv”)</p>
+<p>Personally, I prefer to the second method since I generally work on my data in different R projects (see the introduction of R Project after the Quiz Solutions), my datasets are always stored within the working directory.</p>
+</section>
+</section>
+<section id="second-preview-the-dataset-before-loading-it-see-if-it-needs-to-be-adjusted." class="level3">
+<h3 class="anchored" data-anchor-id="second-preview-the-dataset-before-loading-it-see-if-it-needs-to-be-adjusted.">Second, preview the dataset before loading it, see if it needs to be adjusted.</h3>
+<p>If the data file is a spreadsheet, open it in Excel to preview its structure because many of the original data spreadsheets are not <strong>“tidy data”</strong>(each row is a case of observation, and each column represents a specific variable), which we can be directly load and use it.use it.</p>
+<p>Now I am opening the data file for electricity (file name: API_EG.ELC.ACCS.ZS_DS2_en_csv_v2_76137.csv). Wow, the data looks very different from the one we loaded in tutorial#2: there are headers, titles, notes, and some columns/variables that are not in the tutorial (Indicator Name, Indicator Code). It also includes columns from 1960 to 2023.</p>
+<p><img src="images/untidy_data.png" class="img-fluid"></p>
+<p>But I want to read just the data of <u>the percentage of the population with access to electricity from every country between 1990 and 2016.</u> How can we make it look like the data we load in tutorial#2? Here, we need to do some data transformation and tidying, including using some of the functions included in tutorial#2. You can also refer to the <a href="https://r4ds.had.co.nz/transform.html">textbook</a> I suggested.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>electric <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/API_EG.ELC.ACCS.ZS_DS2_en_csv_v2_76137.csv"</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">skip =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 266 Columns: 69
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," chr
+(4): Country Name, Country Code, Indicator Name, Indicator Code dbl (33): 1990,
+1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, ... lgl (32): 1960,
+1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, ...
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...69`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(electric) <span class="co">#preview the dataset and the types of each column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Country Name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Country Code"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Indicator Name"],"name":[3],"type":["chr"],"align":["left"]},{"label":["Indicator Code"],"name":[4],"type":["chr"],"align":["left"]},{"label":["1960"],"name":[5],"type":["lgl"],"align":["right"]},{"label":["1961"],"name":[6],"type":["lgl"],"align":["right"]},{"label":["1962"],"name":[7],"type":["lgl"],"align":["right"]},{"label":["1963"],"name":[8],"type":["lgl"],"align":["right"]},{"label":["1964"],"name":[9],"type":["lgl"],"align":["right"]},{"label":["1965"],"name":[10],"type":["lgl"],"align":["right"]},{"label":["1966"],"name":[11],"type":["lgl"],"align":["right"]},{"label":["1967"],"name":[12],"type":["lgl"],"align":["right"]},{"label":["1968"],"name":[13],"type":["lgl"],"align":["right"]},{"label":["1969"],"name":[14],"type":["lgl"],"align":["right"]},{"label":["1970"],"name":[15],"type":["lgl"],"align":["right"]},{"label":["1971"],"name":[16],"type":["lgl"],"align":["right"]},{"label":["1972"],"name":[17],"type":["lgl"],"align":["right"]},{"label":["1973"],"name":[18],"type":["lgl"],"align":["right"]},{"label":["1974"],"name":[19],"type":["lgl"],"align":["right"]},{"label":["1975"],"name":[20],"type":["lgl"],"align":["right"]},{"label":["1976"],"name":[21],"type":["lgl"],"align":["right"]},{"label":["1977"],"name":[22],"type":["lgl"],"align":["right"]},{"label":["1978"],"name":[23],"type":["lgl"],"align":["right"]},{"label":["1979"],"name":[24],"type":["lgl"],"align":["right"]},{"label":["1980"],"name":[25],"type":["lgl"],"align":["right"]},{"label":["1981"],"name":[26],"type":["lgl"],"align":["right"]},{"label":["1982"],"name":[27],"type":["lgl"],"align":["right"]},{"label":["1983"],"name":[28],"type":["lgl"],"align":["right"]},{"label":["1984"],"name":[29],"type":["lgl"],"align":["right"]},{"label":["1985"],"name":[30],"type":["lgl"],"align":["right"]},{"label":["1986"],"name":[31],"type":["lgl"],"align":["right"]},{"label":["1987"],"name":[32],"type":["lgl"],"align":["right"]},{"label":["1988"],"name":[33],"type":["lgl"],"align":["right"]},{"label":["1989"],"name":[34],"type":["lgl"],"align":["right"]},{"label":["1990"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["1991"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["1992"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["1993"],"name":[38],"type":["dbl"],"align":["right"]},{"label":["1994"],"name":[39],"type":["dbl"],"align":["right"]},{"label":["1995"],"name":[40],"type":["dbl"],"align":["right"]},{"label":["1996"],"name":[41],"type":["dbl"],"align":["right"]},{"label":["1997"],"name":[42],"type":["dbl"],"align":["right"]},{"label":["1998"],"name":[43],"type":["dbl"],"align":["right"]},{"label":["1999"],"name":[44],"type":["dbl"],"align":["right"]},{"label":["2000"],"name":[45],"type":["dbl"],"align":["right"]},{"label":["2001"],"name":[46],"type":["dbl"],"align":["right"]},{"label":["2002"],"name":[47],"type":["dbl"],"align":["right"]},{"label":["2003"],"name":[48],"type":["dbl"],"align":["right"]},{"label":["2004"],"name":[49],"type":["dbl"],"align":["right"]},{"label":["2005"],"name":[50],"type":["dbl"],"align":["right"]},{"label":["2006"],"name":[51],"type":["dbl"],"align":["right"]},{"label":["2007"],"name":[52],"type":["dbl"],"align":["right"]},{"label":["2008"],"name":[53],"type":["dbl"],"align":["right"]},{"label":["2009"],"name":[54],"type":["dbl"],"align":["right"]},{"label":["2010"],"name":[55],"type":["dbl"],"align":["right"]},{"label":["2011"],"name":[56],"type":["dbl"],"align":["right"]},{"label":["2012"],"name":[57],"type":["dbl"],"align":["right"]},{"label":["2013"],"name":[58],"type":["dbl"],"align":["right"]},{"label":["2014"],"name":[59],"type":["dbl"],"align":["right"]},{"label":["2015"],"name":[60],"type":["dbl"],"align":["right"]},{"label":["2016"],"name":[61],"type":["dbl"],"align":["right"]},{"label":["2017"],"name":[62],"type":["dbl"],"align":["right"]},{"label":["2018"],"name":[63],"type":["dbl"],"align":["right"]},{"label":["2019"],"name":[64],"type":["dbl"],"align":["right"]},{"label":["2020"],"name":[65],"type":["dbl"],"align":["right"]},{"label":["2021"],"name":[66],"type":["dbl"],"align":["right"]},{"label":["2022"],"name":[67],"type":["dbl"],"align":["right"]},{"label":["2023"],"name":[68],"type":["lgl"],"align":["right"]},{"label":["...69"],"name":[69],"type":["lgl"],"align":["right"]}],"data":[{"1":"Aruba","2":"ABW","3":"Access to electricity (% of population)","4":"EG.ELC.ACCS.ZS","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"100","36":"99.15366","37":"99.19713","38":"99.23991","39":"100.00000","40":"100.00000","41":"100.00000","42":"100.00000","43":"100.0000","44":"100.00000","45":"91.70000","46":"100.00000","47":"100.00000","48":"100.00000","49":"100.00000","50":"100.00000","51":"100.00000","52":"100.00000","53":"100.00000","54":"100.00000","55":"93.40000","56":"100.00000","57":"100.00000","58":"100.00000","59":"100.00000","60":"100.00000","61":"100.00000","62":"100.00000","63":"100.00000","64":"100.00000","65":"100.00000","66":"100.00000","67":"99.90000","68":"NA","69":"NA"},{"1":"Africa Eastern and Southern","2":"AFE","3":"Access to electricity (% of population)","4":"EG.ELC.ACCS.ZS","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"NA","39":"NA","40":"NA","41":"NA","42":"NA","43":"NA","44":"NA","45":"19.91726","46":"19.94428","47":"21.54865","48":"22.49322","49":"23.72445","50":"23.44954","51":"25.17248","52":"26.79514","53":"25.90885","54":"26.18785","55":"27.41495","56":"28.90976","57":"31.67343","58":"31.72357","59":"31.87196","60":"33.92228","61":"38.85960","62":"40.22374","63":"43.03507","64":"44.39086","65":"46.28237","66":"48.12721","67":"48.74204","68":"NA","69":"NA"},{"1":"Afghanistan","2":"AFG","3":"Access to electricity (% of population)","4":"EG.ELC.ACCS.ZS","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"NA","39":"NA","40":"NA","41":"NA","42":"NA","43":"NA","44":"NA","45":"4.40000","46":"9.30000","47":"14.10000","48":"19.00000","49":"23.80000","50":"28.70000","51":"33.50000","52":"38.40000","53":"42.40000","54":"48.30000","55":"42.70000","56":"43.20000","57":"69.10000","58":"68.00000","59":"89.50000","60":"71.50000","61":"97.70000","62":"97.70000","63":"93.40000","64":"97.70000","65":"97.70000","66":"97.70000","67":"85.30000","68":"NA","69":"NA"},{"1":"Africa Western and Central","2":"AFW","3":"Access to electricity (% of population)","4":"EG.ELC.ACCS.ZS","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"31.65347","39":"32.69221","40":"33.69484","41":"32.69739","42":"32.52392","43":"33.5135","44":"34.89386","45":"34.24612","46":"35.32327","47":"35.80911","48":"39.96025","49":"37.59450","50":"37.93591","51":"39.95290","52":"40.86486","53":"41.86601","54":"42.00249","55":"41.95199","56":"46.06197","57":"44.18650","58":"47.19450","59":"47.76736","60":"46.86242","61":"51.04513","62":"48.90073","63":"51.33583","64":"51.29158","65":"51.85604","66":"54.36860","67":"55.58891","68":"NA","69":"NA"},{"1":"Angola","2":"AGO","3":"Access to electricity (% of population)","4":"EG.ELC.ACCS.ZS","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"NA","36":"NA","37":"NA","38":"NA","39":"NA","40":"NA","41":"NA","42":"NA","43":"NA","44":"NA","45":"24.20000","46":"20.00000","47":"26.30000","48":"27.40000","49":"28.40000","50":"29.40000","51":"30.50000","52":"37.50000","53":"38.50000","54":"33.80000","55":"35.00000","56":"34.60000","57":"37.30000","58":"38.40000","59":"32.00000","60":"42.00000","61":"41.80000","62":"42.90000","63":"45.30000","64":"45.60000","65":"47.00000","66":"48.20000","67":"48.50000","68":"NA","69":"NA"},{"1":"Albania","2":"ALB","3":"Access to electricity (% of population)","4":"EG.ELC.ACCS.ZS","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"NA","21":"NA","22":"NA","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA","28":"NA","29":"NA","30":"NA","31":"NA","32":"NA","33":"NA","34":"NA","35":"100","36":"100.00000","37":"100.00000","38":"100.00000","39":"100.00000","40":"100.00000","41":"100.00000","42":"100.00000","43":"100.0000","44":"100.00000","45":"99.40000","46":"99.40000","47":"99.40000","48":"99.40000","49":"99.40000","50":"99.40000","51":"99.40000","52":"99.40000","53":"100.00000","54":"99.60000","55":"99.60000","56":"99.70000","57":"99.90000","58":"99.90000","59":"100.00000","60":"100.00000","61":"99.90000","62":"99.90000","63":"100.00000","64":"100.00000","65":"100.00000","66":"100.00000","67":"100.00000","68":"NA","69":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using dplyr packages (a tidyverse family package)to help to edit and change dataset. Since we have loaded the package above, we don't have to load it again.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>electric <span class="ot">&lt;-</span> electric <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"Country Name"</span>, <span class="st">"Country Code"</span>, <span class="fu">as.character</span>(<span class="dv">1990</span><span class="sc">:</span><span class="dv">2016</span>)) <span class="co"># using select() for us to keep only the columns we want.</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#"|&gt;" or "%&gt;%" is the pipe operator. It is used to pass the output of one function directly as the input to the next, making code more readable and reducing the need for nested function calls.</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Preview the data again</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(electric)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Country Name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Country Code"],"name":[2],"type":["chr"],"align":["left"]},{"label":["1990"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["1991"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["1992"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["1993"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["1994"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["1995"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["1996"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["1997"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["1998"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["1999"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["2000"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["2001"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["2002"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["2003"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["2004"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["2005"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["2006"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["2007"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["2008"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["2009"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["2010"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["2011"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["2012"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["2013"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["2014"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["2015"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["2016"],"name":[29],"type":["dbl"],"align":["right"]}],"data":[{"1":"Aruba","2":"ABW","3":"100","4":"99.15366","5":"99.19713","6":"99.23991","7":"100.00000","8":"100.00000","9":"100.00000","10":"100.00000","11":"100.0000","12":"100.00000","13":"91.70000","14":"100.00000","15":"100.00000","16":"100.00000","17":"100.00000","18":"100.00000","19":"100.00000","20":"100.00000","21":"100.00000","22":"100.00000","23":"93.40000","24":"100.00000","25":"100.00000","26":"100.00000","27":"100.00000","28":"100.00000","29":"100.00000"},{"1":"Africa Eastern and Southern","2":"AFE","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"19.91726","14":"19.94428","15":"21.54865","16":"22.49322","17":"23.72445","18":"23.44954","19":"25.17248","20":"26.79514","21":"25.90885","22":"26.18785","23":"27.41495","24":"28.90976","25":"31.67343","26":"31.72357","27":"31.87196","28":"33.92228","29":"38.85960"},{"1":"Afghanistan","2":"AFG","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"4.40000","14":"9.30000","15":"14.10000","16":"19.00000","17":"23.80000","18":"28.70000","19":"33.50000","20":"38.40000","21":"42.40000","22":"48.30000","23":"42.70000","24":"43.20000","25":"69.10000","26":"68.00000","27":"89.50000","28":"71.50000","29":"97.70000"},{"1":"Africa Western and Central","2":"AFW","3":"NA","4":"NA","5":"NA","6":"31.65347","7":"32.69221","8":"33.69484","9":"32.69739","10":"32.52392","11":"33.5135","12":"34.89386","13":"34.24612","14":"35.32327","15":"35.80911","16":"39.96025","17":"37.59450","18":"37.93591","19":"39.95290","20":"40.86486","21":"41.86601","22":"42.00249","23":"41.95199","24":"46.06197","25":"44.18650","26":"47.19450","27":"47.76736","28":"46.86242","29":"51.04513"},{"1":"Angola","2":"AGO","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"NA","13":"24.20000","14":"20.00000","15":"26.30000","16":"27.40000","17":"28.40000","18":"29.40000","19":"30.50000","20":"37.50000","21":"38.50000","22":"33.80000","23":"35.00000","24":"34.60000","25":"37.30000","26":"38.40000","27":"32.00000","28":"42.00000","29":"41.80000"},{"1":"Albania","2":"ALB","3":"100","4":"100.00000","5":"100.00000","6":"100.00000","7":"100.00000","8":"100.00000","9":"100.00000","10":"100.00000","11":"100.0000","12":"100.00000","13":"99.40000","14":"99.40000","15":"99.40000","16":"99.40000","17":"99.40000","18":"99.40000","19":"99.40000","20":"99.40000","21":"100.00000","22":"99.60000","23":"99.60000","24":"99.70000","25":"99.90000","26":"99.90000","27":"100.00000","28":"100.00000","29":"99.90000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Show the dataset dimension</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(electric)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 266  29</code></pre>
+</div>
+</div>
+<p>Use <code>dim()</code> , we can see the dataset contains 266 countries (rows) and 29 columns. It has more countries (rows) than the one preloaded in tutorial#2 because this dataset has been updated since tutorial#2 wa made.</p>
+<p>Since we will be using the pseo dataset in the tutorial#2, let me load it here.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pseo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/RosemaryPang/Data-for-teaching/main/pseo_601.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 18783 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): institution_name, deglevl, ciptitle, grad_cohort_label, state
+dbl (9): institution_id, deglevl_code, degcip_4dig, grad_cohort, year_postgr...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pseo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["institution_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["institution_name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["deglevl_code"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["deglevl"],"name":[4],"type":["chr"],"align":["left"]},{"label":["degcip_4dig"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["ciptitle"],"name":[6],"type":["chr"],"align":["left"]},{"label":["grad_cohort"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["grad_cohort_label"],"name":[8],"type":["chr"],"align":["left"]},{"label":["year_postgrad"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["p25_earnings"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["p50_earnings"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["p75_earnings"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["cellcount"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["state"],"name":[14],"type":["chr"],"align":["left"]}],"data":[{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2001","8":"2001-2005","9":"1","10":"17794","11":"25774","12":"32213","13":"46","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2001","8":"2001-2005","9":"5","10":"27763","11":"36398","12":"51928","13":"79","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2001","8":"2001-2005","9":"10","10":"31012","11":"43798","12":"64121","13":"85","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2006","8":"2006-2010","9":"1","10":"15288","11":"22094","12":"31857","13":"40","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2006","8":"2006-2010","9":"5","10":"22329","11":"31236","12":"44914","13":"68","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2011","8":"2011-2015","9":"1","10":"14923","11":"20225","12":"26616","13":"133","14":"CO"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(pseo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18783    14</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="tutorial2-quiz-answers" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial2-quiz-answers">Tutorial#2 Quiz Answers</h2>
+<section id="question-1.-what-percentage-of-afghanistan-had-access-to-electricity-in-1990-according-to-the-electric-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="question-1.-what-percentage-of-afghanistan-had-access-to-electricity-in-1990-according-to-the-electric-dataset">Question 1. What percentage of Afghanistan had access to electricity in 1990, according to the electric dataset?</h3>
+<p>Answer: we will use select() to get Afghanistan and the column of 1990.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">select</span>(electric, <span class="st">"Country Name"</span>, <span class="st">"1990"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Country Name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["1990"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Aruba","2":"100.00000"},{"1":"Africa Eastern and Southern","2":"NA"},{"1":"Afghanistan","2":"NA"},{"1":"Africa Western and Central","2":"NA"},{"1":"Angola","2":"NA"},{"1":"Albania","2":"100.00000"},{"1":"Andorra","2":"100.00000"},{"1":"Arab World","2":"NA"},{"1":"United Arab Emirates","2":"100.00000"},{"1":"Argentina","2":"92.15480"},{"1":"Armenia","2":"NA"},{"1":"American Samoa","2":"NA"},{"1":"Antigua and Barbuda","2":"95.76305"},{"1":"Australia","2":"100.00000"},{"1":"Austria","2":"100.00000"},{"1":"Azerbaijan","2":"NA"},{"1":"Burundi","2":"NA"},{"1":"Belgium","2":"100.00000"},{"1":"Benin","2":"NA"},{"1":"Burkina Faso","2":"NA"},{"1":"Bangladesh","2":"NA"},{"1":"Bulgaria","2":"100.00000"},{"1":"Bahrain","2":"99.94140"},{"1":"Bahamas, The","2":"100.00000"},{"1":"Bosnia and Herzegovina","2":"100.00000"},{"1":"Belarus","2":"100.00000"},{"1":"Belize","2":"NA"},{"1":"Bermuda","2":"100.00000"},{"1":"Bolivia","2":"NA"},{"1":"Brazil","2":"87.47512"},{"1":"Barbados","2":"99.98425"},{"1":"Brunei Darussalam","2":"100.00000"},{"1":"Bhutan","2":"NA"},{"1":"Botswana","2":"NA"},{"1":"Central African Republic","2":"NA"},{"1":"Canada","2":"100.00000"},{"1":"Central Europe and the Baltics","2":"100.00000"},{"1":"Switzerland","2":"100.00000"},{"1":"Channel Islands","2":"100.00000"},{"1":"Chile","2":"92.25743"},{"1":"China","2":"NA"},{"1":"Cote d'Ivoire","2":"NA"},{"1":"Cameroon","2":"NA"},{"1":"Congo, Dem. Rep.","2":"NA"},{"1":"Congo, Rep.","2":"NA"},{"1":"Colombia","2":"89.90000"},{"1":"Comoros","2":"NA"},{"1":"Cabo Verde","2":"NA"},{"1":"Costa Rica","2":"NA"},{"1":"Caribbean small states","2":"NA"},{"1":"Cuba","2":"NA"},{"1":"Curacao","2":"100.00000"},{"1":"Cayman Islands","2":"99.84692"},{"1":"Cyprus","2":"100.00000"},{"1":"Czechia","2":"100.00000"},{"1":"Germany","2":"100.00000"},{"1":"Djibouti","2":"NA"},{"1":"Dominica","2":"NA"},{"1":"Denmark","2":"100.00000"},{"1":"Dominican Republic","2":"NA"},{"1":"Algeria","2":"NA"},{"1":"East Asia & Pacific (excluding high income)","2":"NA"},{"1":"Early-demographic dividend","2":"NA"},{"1":"East Asia & Pacific","2":"NA"},{"1":"Europe & Central Asia (excluding high income)","2":"NA"},{"1":"Europe & Central Asia","2":"100.00000"},{"1":"Ecuador","2":"NA"},{"1":"Egypt, Arab Rep.","2":"NA"},{"1":"Euro area","2":"100.00000"},{"1":"Eritrea","2":"NA"},{"1":"Spain","2":"100.00000"},{"1":"Estonia","2":"100.00000"},{"1":"Ethiopia","2":"NA"},{"1":"European Union","2":"100.00000"},{"1":"Fragile and conflict affected situations","2":"NA"},{"1":"Finland","2":"100.00000"},{"1":"Fiji","2":"NA"},{"1":"France","2":"100.00000"},{"1":"Faroe Islands","2":"100.00000"},{"1":"Micronesia, Fed. Sts.","2":"NA"},{"1":"Gabon","2":"NA"},{"1":"United Kingdom","2":"100.00000"},{"1":"Georgia","2":"NA"},{"1":"Ghana","2":"NA"},{"1":"Gibraltar","2":"100.00000"},{"1":"Guinea","2":"NA"},{"1":"Gambia, The","2":"NA"},{"1":"Guinea-Bissau","2":"NA"},{"1":"Equatorial Guinea","2":"NA"},{"1":"Greece","2":"100.00000"},{"1":"Grenada","2":"NA"},{"1":"Greenland","2":"100.00000"},{"1":"Guatemala","2":"NA"},{"1":"Guam","2":"99.84431"},{"1":"Guyana","2":"NA"},{"1":"High income","2":"99.84105"},{"1":"Hong Kong SAR, China","2":"100.00000"},{"1":"Honduras","2":"NA"},{"1":"Heavily indebted poor countries (HIPC)","2":"NA"},{"1":"Croatia","2":"100.00000"},{"1":"Haiti","2":"NA"},{"1":"Hungary","2":"100.00000"},{"1":"IBRD only","2":"NA"},{"1":"IDA & IBRD total","2":"NA"},{"1":"IDA total","2":"NA"},{"1":"IDA blend","2":"NA"},{"1":"Indonesia","2":"NA"},{"1":"IDA only","2":"NA"},{"1":"Isle of Man","2":"100.00000"},{"1":"India","2":"NA"},{"1":"Not classified","2":"NA"},{"1":"Ireland","2":"100.00000"},{"1":"Iran, Islamic Rep.","2":"NA"},{"1":"Iraq","2":"NA"},{"1":"Iceland","2":"100.00000"},{"1":"Israel","2":"100.00000"},{"1":"Italy","2":"100.00000"},{"1":"Jamaica","2":"70.33459"},{"1":"Jordan","2":"96.80000"},{"1":"Japan","2":"100.00000"},{"1":"Kazakhstan","2":"NA"},{"1":"Kenya","2":"NA"},{"1":"Kyrgyz Republic","2":"NA"},{"1":"Cambodia","2":"NA"},{"1":"Kiribati","2":"NA"},{"1":"St. Kitts and Nevis","2":"91.30682"},{"1":"Korea, Rep.","2":"99.88284"},{"1":"Kuwait","2":"100.00000"},{"1":"Latin America & Caribbean (excluding high income)","2":"NA"},{"1":"Lao PDR","2":"NA"},{"1":"Lebanon","2":"NA"},{"1":"Liberia","2":"NA"},{"1":"Libya","2":"NA"},{"1":"St. Lucia","2":"NA"},{"1":"Latin America & Caribbean","2":"NA"},{"1":"Least developed countries: UN classification","2":"NA"},{"1":"Low income","2":"NA"},{"1":"Liechtenstein","2":"100.00000"},{"1":"Sri Lanka","2":"NA"},{"1":"Lower middle income","2":"NA"},{"1":"Low & middle income","2":"NA"},{"1":"Lesotho","2":"NA"},{"1":"Late-demographic dividend","2":"NA"},{"1":"Lithuania","2":"100.00000"},{"1":"Luxembourg","2":"100.00000"},{"1":"Latvia","2":"100.00000"},{"1":"Macao SAR, China","2":"99.84928"},{"1":"St. Martin (French part)","2":"100.00000"},{"1":"Morocco","2":"NA"},{"1":"Monaco","2":"100.00000"},{"1":"Moldova","2":"100.00000"},{"1":"Madagascar","2":"NA"},{"1":"Maldives","2":"NA"},{"1":"Middle East & North Africa","2":"NA"},{"1":"Mexico","2":"NA"},{"1":"Marshall Islands","2":"NA"},{"1":"Middle income","2":"NA"},{"1":"North Macedonia","2":"100.00000"},{"1":"Mali","2":"NA"},{"1":"Malta","2":"100.00000"},{"1":"Myanmar","2":"NA"},{"1":"Middle East & North Africa (excluding high income)","2":"NA"},{"1":"Montenegro","2":"100.00000"},{"1":"Mongolia","2":"NA"},{"1":"Northern Mariana Islands","2":"99.85326"},{"1":"Mozambique","2":"NA"},{"1":"Mauritania","2":"NA"},{"1":"Mauritius","2":"99.04156"},{"1":"Malawi","2":"NA"},{"1":"Malaysia","2":"NA"},{"1":"North America","2":"100.00000"},{"1":"Namibia","2":"NA"},{"1":"New Caledonia","2":"99.84431"},{"1":"Niger","2":"NA"},{"1":"Nigeria","2":"27.30000"},{"1":"Nicaragua","2":"NA"},{"1":"Netherlands","2":"100.00000"},{"1":"Norway","2":"100.00000"},{"1":"Nepal","2":"NA"},{"1":"Nauru","2":"98.99908"},{"1":"New Zealand","2":"100.00000"},{"1":"OECD members","2":"99.54780"},{"1":"Oman","2":"100.00000"},{"1":"Other small states","2":"NA"},{"1":"Pakistan","2":"NA"},{"1":"Panama","2":"70.19000"},{"1":"Peru","2":"NA"},{"1":"Philippines","2":"NA"},{"1":"Palau","2":"96.62535"},{"1":"Papua New Guinea","2":"NA"},{"1":"Poland","2":"100.00000"},{"1":"Pre-demographic dividend","2":"NA"},{"1":"Puerto Rico","2":"99.98343"},{"1":"Korea, Dem. People's Rep.","2":"NA"},{"1":"Portugal","2":"100.00000"},{"1":"Paraguay","2":"NA"},{"1":"West Bank and Gaza","2":"NA"},{"1":"Pacific island small states","2":"NA"},{"1":"Post-demographic dividend","2":"99.99440"},{"1":"French Polynesia","2":"100.00000"},{"1":"Qatar","2":"100.00000"},{"1":"Romania","2":"100.00000"},{"1":"Russian Federation","2":"100.00000"},{"1":"Rwanda","2":"NA"},{"1":"South Asia","2":"NA"},{"1":"Saudi Arabia","2":"100.00000"},{"1":"Sudan","2":"32.80000"},{"1":"Senegal","2":"NA"},{"1":"Singapore","2":"100.00000"},{"1":"Solomon Islands","2":"NA"},{"1":"Sierra Leone","2":"NA"},{"1":"El Salvador","2":"NA"},{"1":"San Marino","2":"100.00000"},{"1":"Somalia","2":"NA"},{"1":"Serbia","2":"100.00000"},{"1":"Sub-Saharan Africa (excluding high income)","2":"NA"},{"1":"South Sudan","2":"NA"},{"1":"Sub-Saharan Africa","2":"NA"},{"1":"Small states","2":"NA"},{"1":"Sao Tome and Principe","2":"NA"},{"1":"Suriname","2":"NA"},{"1":"Slovak Republic","2":"100.00000"},{"1":"Slovenia","2":"100.00000"},{"1":"Sweden","2":"100.00000"},{"1":"Eswatini","2":"NA"},{"1":"Sint Maarten (Dutch part)","2":"100.00000"},{"1":"Seychelles","2":"NA"},{"1":"Syrian Arab Republic","2":"NA"},{"1":"Turks and Caicos Islands","2":"88.70000"},{"1":"Chad","2":"NA"},{"1":"East Asia & Pacific (IDA & IBRD countries)","2":"NA"},{"1":"Europe & Central Asia (IDA & IBRD countries)","2":"100.00000"},{"1":"Togo","2":"NA"},{"1":"Thailand","2":"NA"},{"1":"Tajikistan","2":"NA"},{"1":"Turkmenistan","2":"NA"},{"1":"Latin America & the Caribbean (IDA & IBRD countries)","2":"NA"},{"1":"Timor-Leste","2":"NA"},{"1":"Middle East & North Africa (IDA & IBRD countries)","2":"NA"},{"1":"Tonga","2":"NA"},{"1":"South Asia (IDA & IBRD)","2":"NA"},{"1":"Sub-Saharan Africa (IDA & IBRD countries)","2":"NA"},{"1":"Trinidad and Tobago","2":"NA"},{"1":"Tunisia","2":"NA"},{"1":"Turkiye","2":"NA"},{"1":"Tuvalu","2":"NA"},{"1":"Tanzania","2":"NA"},{"1":"Uganda","2":"NA"},{"1":"Ukraine","2":"100.00000"},{"1":"Upper middle income","2":"NA"},{"1":"Uruguay","2":"NA"},{"1":"United States","2":"100.00000"},{"1":"Uzbekistan","2":"NA"},{"1":"St. Vincent and the Grenadines","2":"NA"},{"1":"Venezuela, RB","2":"NA"},{"1":"British Virgin Islands","2":"94.60656"},{"1":"Virgin Islands (U.S.)","2":"100.00000"},{"1":"Viet Nam","2":"NA"},{"1":"Vanuatu","2":"NA"},{"1":"World","2":"NA"},{"1":"Samoa","2":"NA"},{"1":"Kosovo","2":"100.00000"},{"1":"Yemen, Rep.","2":"NA"},{"1":"South Africa","2":"NA"},{"1":"Zambia","2":"13.90000"},{"1":"Zimbabwe","2":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>A more straightfoward way to see a particualr country is to use <code>filter()</code> to get the particular row.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>afghanistan_data <span class="ot">&lt;-</span> electric <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">"Country Name"</span>, <span class="st">"1990"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Country Name</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Afghanistan"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>afghanistan_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Country Name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["1990"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Afghanistan","2":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Well, since the dataset I load here is not entirely the same as the one in tutorial#2, the results is different. But you should get the correct answer using these codes.</p>
+</section>
+<section id="question-2.-how-many-rows-are-in-the-pseo-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="question-2.-how-many-rows-are-in-the-pseo-dataset"><strong>Question 2. How many rows are in the pseo dataset?</strong></h3>
+<p>Answer:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Two options:</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#1.Using dim()</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(pseo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18783    14</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2.nrow()</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(pseo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18783</code></pre>
+</div>
+</div>
+</section>
+<section id="question-3.-how-many-observations-are-in-the-pseo-dataset-for-the-university-of-colorado-denver" class="level3">
+<h3 class="anchored" data-anchor-id="question-3.-how-many-observations-are-in-the-pseo-dataset-for-the-university-of-colorado-denver">Question 3. How many observations are in the pseo dataset for the University of Colorado Denver?</h3>
+<p>Answer: According to Tutotiral#2, we can use table() to get the anawer.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>school<span class="ot">&lt;-</span><span class="fu">select</span>(pseo,institution_name)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(school)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>institution_name
+                     ADAMS STATE COLLEGE 
+                                     208 
+                  AIMS COMMUNITY COLLEGE 
+                                     365 
+              ARAPAHOE COMMUNITY COLLEGE 
+                                     452 
+                COLORADO MESA UNIVERSITY 
+                                     418 
+               COLORADO MOUNTAIN COLLEGE 
+                                     330 
+ COLORADO NORTHWESTERN COMMUNITY COLLEGE 
+                                     242 
+                COLORADO SCHOOL OF MINES 
+                                     174 
+               COLORADO STATE UNIVERSITY 
+                                     885 
+        COLORADO STATE UNIVERSITY-PUEBLO 
+                                     331 
+COLORADO STATE UNIVERSITY - GLOBAL CAMPU 
+                                      28 
+             COMMUNITY COLLEGE OF AURORA 
+                                     267 
+             COMMUNITY COLLEGE OF DENVER 
+                                     393 
+        EMILY GRIFFITH TECHNICAL COLLEGE 
+                                     140 
+                      FORT LEWIS COLLEGE 
+                                     280 
+           FRONT RANGE COMMUNITY COLLEGE 
+                                     449 
+                 LAMAR COMMUNITY COLLEGE 
+                                     126 
+ METROPOLITAN STATE UNIVERSITY OF DENVER 
+                                     514 
+                MORGAN COMMUNITY COLLEGE 
+                                     223 
+             NORTHEASTERN JUNIOR COLLEGE 
+                                     195 
+                    OTERO JUNIOR COLLEGE 
+                                     190 
+               PICKENS TECHNICAL COLLEGE 
+                                     144 
+            PIKES PEAK COMMUNITY COLLEGE 
+                                     523 
+                PUEBLO COMMUNITY COLLEGE 
+                                     416 
+             RED ROCKS COMMUNITY COLLEGE 
+                                     516 
+               TRINIDAD STATE JR COLLEGE 
+                                     348 
+        UNIV OF COLORADO AT COLO SPRINGS 
+                                     370 
+     UNIV OF TEXAS HEALTH SCIENCE CENTER 
+                                      82 
+            UNIV OF TEXAS MEDICAL BRANCH 
+                                      80 
+      UNIV OF TEXAS SOUTHWESTERN MED CTR 
+                                      88 
+       UNIV OF TX MD ANDERSON CANCER CTR 
+                                      30 
+          UNIVERSITY OF COLORADO-BOULDER 
+                                     770 
+           UNIVERSITY OF COLORADO DENVER 
+                                     519 
+      UNIVERSITY OF MICHIGAN - ANN ARBOR 
+                                    1168 
+         UNIVERSITY OF NORTHERN COLORADO 
+                                     528 
+           UNIVERSITY OF TEXAS-ARLINGTON 
+                                     720 
+              UNIVERSITY OF TEXAS-AUSTIN 
+                                    1025 
+             UNIVERSITY OF TEXAS-EL PASO 
+                                     667 
+       UNIVERSITY OF TEXAS-PERMIAN BASIN 
+                                     337 
+         UNIVERSITY OF TEXAS-SAN ANTONIO 
+                                     690 
+       UNIVERSITY OF TEXAS - BROWNSVILLE 
+                                     351 
+      UNIVERSITY OF TEXAS - PAN AMERICAN 
+                                     578 
+           UNIVERSITY OF TEXAS AT DALLAS 
+                                     490 
+            UNIVERSITY OF TEXAS AT TYLER 
+                                     428 
+UNIVERSITY OF TEXAS HEALTH SCIENCE CENTE 
+                                       1 
+         UNIVERSITY OF WISCONSIN-MADISON 
+                                    1353 
+            UT HEALTH CENTER-SAN ANTONIO 
+                                     118 
+       WESTERN STATE COLORADO UNIVERSITY 
+                                     233 </code></pre>
+</div>
+</div>
+<p>We can also use the filter() function to keep only the rows of the school, so you don’t have to browse the table and find the number yourself.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pseo <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(institution_name <span class="sc">==</span> <span class="st">"UNIVERSITY OF COLORADO DENVER"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["n"],"name":[1],"type":["int"],"align":["right"]}],"data":[{"1":"519"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4.-which-of-the-following-functions-could-be-used-on-a-dataset-to-return-the-names-of-all-the-variables-in-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="question-4.-which-of-the-following-functions-could-be-used-on-a-dataset-to-return-the-names-of-all-the-variables-in-the-dataset">Question 4. Which of the following functions could be used on a dataset to return the names of all the variables in the dataset?</h3>
+<p>Answer: all the variables in a “tidy” data in R are listed as columns. So the answer is <code>colnames()</code> .</p>
+</section>
+<section id="question-5.-imagine-i-had-a-class-roster-stored-in-r-that-included-a-variable-called-year-that-featured-the-year-of-entry-for-each-student.-if-i-wanted-to-how-many-students-fell-into-each-year-i.e.-a-count-of-how-many-students-entered-in-each-year-which-of-the-following-would-return-a-table-with-those-values" class="level3">
+<h3 class="anchored" data-anchor-id="question-5.-imagine-i-had-a-class-roster-stored-in-r-that-included-a-variable-called-year-that-featured-the-year-of-entry-for-each-student.-if-i-wanted-to-how-many-students-fell-into-each-year-i.e.-a-count-of-how-many-students-entered-in-each-year-which-of-the-following-would-return-a-table-with-those-values">Question 5. Imagine I had a class roster stored in R that included a variable called “year” that featured the year of entry for each student. If I wanted to how many students fell into each year (i.e., a count of how many students entered in each year), which of the following would return a table with those values?</h3>
+<p>Answer: like Question 3, we use the table function: <code>table(year)</code> .</p>
+</section>
+</section>
+<section id="additional-introduction-to-r-basic-operations-r-project" class="level2">
+<h2 class="anchored" data-anchor-id="additional-introduction-to-r-basic-operations-r-project">Additional Introduction to R Basic Operations: R Project</h2>
+<p>Although this is not an R coding course, I suggest you do more research to learn R, including reading this suggested textbook. Besides providing you with the tutorials and the lab days, I will also provide some additional notes on R coding practices.</p>
+<p>This week, I want to introduce you to the following things: R project, Data Recoding, and Data Editing.</p>
+<section id="introduction-to-r-projects-why-you-need-to-create-one-when-working-on-a-project." class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-r-projects-why-you-need-to-create-one-when-working-on-a-project."><strong>Introduction to R Projects: why you need to create one when working on a project.</strong></h3>
+<p>When working with R, it’s crucial to maintain an organized workflow, especially as your project contains multiple files (datasets, r scripts, graphs, etc.) and the analyses become more complex. One of the best ways to do this is using <strong>R Projects</strong> in RStudio.</p>
+<section id="what-is-an-r-project" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-an-r-project"><strong>What is an R Project?</strong></h4>
+<p>An <strong>R Project</strong> is a self-contained working environment managed by RStudio. It helps you keep all related files (scripts, data, plots, and outputs) in one place, making it easier to manage your work. When you open an R Project, R automatically sets the working directory to the project folder, ensuring consistency in file paths and data loading.</p>
+</section>
+<section id="why-use-an-r-project" class="level4">
+<h4 class="anchored" data-anchor-id="why-use-an-r-project"><strong>Why Use an R Project?</strong></h4>
+<ol type="1">
+<li><p><strong>Organized Workflow</strong> – Keeps all files related to a project in a single directory, preventing confusion and lost files.</p></li>
+<li><p><strong>Consistent Working Directory</strong> – Automatically sets the working directory when you open the project, eliminating the need to use <code>setwd()</code>, which can cause problems across different computers.</p></li>
+<li><p><strong>Reproducibility</strong> – Helps ensure your scripts work reliably without hard-coded paths that break when shared with others.</p></li>
+<li><p><strong>Seamless Collaboration</strong> – Makes it easier to share your work with others (e.g., through GitHub) since all necessary files are contained within the project.</p></li>
+<li><p><strong>Integrated with Version Control</strong> – Works well with Git and GitHub, allowing for easy version tracking and collaboration.</p></li>
+</ol>
+</section>
+<section id="how-to-create-an-r-project-in-rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-create-an-r-project-in-rstudio"><strong>How to Create an R Project in RStudio</strong></h4>
+<ol type="1">
+<li><p>In <strong>RStudio</strong>, go to <strong>File</strong> &gt; <strong>New Project</strong>.</p></li>
+<li><p>Choose one of the following options:</p>
+<ul>
+<li><p><strong>New Directory</strong>: Create a new folder for your project.</p></li>
+<li><p><strong>Existing Directory</strong>: Turn an existing folder into an R Project.</p></li>
+<li><p>Version Control: Clone a project from GitHub. (You don’t need to learn this now)</p></li>
+</ul></li>
+<li><p>Name your project and select a location to save it.</p></li>
+<li><p>Click <strong>Create Project</strong>.</p></li>
+</ol>
+<p>Once the project is created, you’ll see a <code>.Rproj</code> file inside the project folder. RStudio uses this file to manage your project environment.</p>
+</section>
+</section>
+<section id="best-practices-when-using-r-projects" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices-when-using-r-projects"><strong>Best Practices When Using R Projects</strong></h3>
+<ul>
+<li><p><strong>Always use relative paths</strong> when referencing files (e.g., <code>"data/mydata.csv"</code>) instead of absolute paths (<code>"C:/Users/.../mydata.csv"</code>).</p></li>
+<li><p><strong>Keep your scripts, data, and outputs organized</strong> in separate subfolders within your project.</p></li>
+<li><p><strong>Use version control</strong> (Git/GitHub) to track changes and collaborate with others effectively.</p></li>
+<li><p><strong>Regularly document your work</strong> using a <code>README.md</code> file or R Markdown.</p></li>
+</ul>
+</section>
+</section>
+<section id="data-structure-and-object-types" class="level2">
+<h2 class="anchored" data-anchor-id="data-structure-and-object-types">Data Structure and Object Types</h2>
+<p><strong>#Object Types</strong> <strong>1. Please create the four different types of atomic vectors. Make sure they at least have 4 elements (length = 4). You can double-check their types by function typeof()</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>logical <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>integer<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>double <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="fl">2.8</span>, pi)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>character <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"this"</span>, <span class="st">"is"</span>, <span class="st">"a character"</span>, <span class="st">"vector"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hmm, you may find the R classified the “integer vector” you created as “double”. This is because a number by default is considered double in R. So can we make this vector as integer? Two options:(1)adding “L” after each number you enter; and (2)coersion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#option 1:</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>new_integer<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>L, <span class="dv">10</span>L)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(new_integer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#option 2:</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>coercion_integer<span class="ot">&lt;-</span><span class="fu">as.integer</span>(integer)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(coercion_integer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>Now, try to extract the following things from each of the above vectors: (1) the first element; (2)the second to third element; (3) the last element</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#the first element</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>double[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#the second to third element</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>double[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.800000 3.141593</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#the last element</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(double, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.141593</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>Let’s create a list combing the above four atomic vectors.</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>my_list<span class="ot">&lt;-</span><span class="fu">list</span>(integer, double, character, logical)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1]  3 10
+
+[[2]]
+[1] 1.500000 2.800000 3.141593
+
+[[3]]
+[1] "this"        "is"          "a character" "vector"     
+
+[[4]]
+[1]  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li><strong>Next, create a simple n by n tibble of your own. You can use the previous vectors you created above.</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>my_tibble<span class="ot">&lt;-</span><span class="fu">tibble</span>(logical, double)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>my_tibble</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["logical"],"name":[1],"type":["lgl"],"align":["right"]},{"label":["double"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"TRUE","2":"1.500000"},{"1":"FALSE","2":"2.800000"},{"1":"FALSE","2":"3.141593"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>And this is the very first dataframe we create!</p>
+</section>
+<section id="rbuilt-in-datasets" class="level1">
+<h1>RBuilt-in Datasets</h1>
+<p><strong>R has many built-in datasets that you can call to browse and practice with. Let’s take a quick look</strong>.</p>
+<ol type="1">
+<li><strong>First, browse the list of the built-int dataset by this function: data()</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><strong>Now, load the dataset “mtcars”: data(dataset_name);</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>A very useful function to open a window to take a look at the dataset is View().</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(mtcars)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><strong>Let’s just browse the first a few entries of the dataset. Remember what function we can use?</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"21.0","2":"6","3":"160","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4"},{"1":"21.0","2":"6","3":"160","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","_rn_":"Datsun 710"},{"1":"21.4","2":"6","3":"258","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","_rn_":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","_rn_":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","_rn_":"Valiant"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li><strong>By looking at the data and the headers, can you tell what this dataset is about? What is the basic data structure (numbers of row and columns)? What do each row and column mean?</strong></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Erico Yu. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

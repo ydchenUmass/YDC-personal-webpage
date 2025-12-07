@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="EricoYu">
+<meta name="dcterms.date" content="2024-04-23">
+<meta name="description" content="Regression: Results Explanation and Visualization">
+
+<title>Legel 393E Spring 2025: Lab Meeting#4: Tutorial#5 Quiz Solutions – Erico Yu’s Home Page</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Erico Yu’s Home Page</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/dongericoyu" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://x.com/DY_erico" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#loading-the-necessary-datasets." id="toc-loading-the-necessary-datasets." class="nav-link active" data-scroll-target="#loading-the-necessary-datasets.">Loading the necessary datasets.</a>
+  <ul class="collapse">
+  <li><a href="#loading-anes-data" id="toc-loading-anes-data" class="nav-link" data-scroll-target="#loading-anes-data">Loading anes data</a></li>
+  <li><a href="#loading-pseo-data" id="toc-loading-pseo-data" class="nav-link" data-scroll-target="#loading-pseo-data">Loading pseo data</a></li>
+  </ul></li>
+  <li><a href="#tutorial5-quiz-answers" id="toc-tutorial5-quiz-answers" class="nav-link" data-scroll-target="#tutorial5-quiz-answers">Tutorial#5 Quiz Answers</a>
+  <ul class="collapse">
+  <li><a href="#question-1.-there-is-a-significant-difference-in-the-group-means-of-feeling-thermometer-measure-towards-rich-people-between-democrats-and-republican-respondents." id="toc-question-1.-there-is-a-significant-difference-in-the-group-means-of-feeling-thermometer-measure-towards-rich-people-between-democrats-and-republican-respondents." class="nav-link" data-scroll-target="#question-1.-there-is-a-significant-difference-in-the-group-means-of-feeling-thermometer-measure-towards-rich-people-between-democrats-and-republican-respondents.">Question 1. There is a significant difference in the group means of feeling thermometer measure towards “Rich People” between Democrats and Republican respondents.</a></li>
+  <li><a href="#question-2.-relative-to-the-baseline-a-post-baccalaureate-certificate-is-associated-with-significantly-increased-median-earnings-p-0.05-among-survey-respondents-in-our-regression-model." id="toc-question-2.-relative-to-the-baseline-a-post-baccalaureate-certificate-is-associated-with-significantly-increased-median-earnings-p-0.05-among-survey-respondents-in-our-regression-model." class="nav-link" data-scroll-target="#question-2.-relative-to-the-baseline-a-post-baccalaureate-certificate-is-associated-with-significantly-increased-median-earnings-p-0.05-among-survey-respondents-in-our-regression-model."><strong>Question 2. Relative to the baseline, a post-baccalaureate certificate is associated with significantly increased median earnings (p &lt; 0.05) among survey respondents in our regression model.</strong></a></li>
+  <li><a href="#question-3.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-increases-by-what-amount-each-year-after-graduation-on-average" id="toc-question-3.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-increases-by-what-amount-each-year-after-graduation-on-average" class="nav-link" data-scroll-target="#question-3.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-increases-by-what-amount-each-year-after-graduation-on-average">Question 3. <strong>According to our bivariate regression model, median earnings (p50_earnings) for graduates increases by what amount each year after graduation, on average?</strong></a></li>
+  <li><a href="#question-4.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-in-the-year-after-they-graduate-year_postgrad-0-is-on-average" id="toc-question-4.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-in-the-year-after-they-graduate-year_postgrad-0-is-on-average" class="nav-link" data-scroll-target="#question-4.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-in-the-year-after-they-graduate-year_postgrad-0-is-on-average">Question 4. According to our bivariate regression model, median earnings (p50_earnings) for graduates in the year after they graduate (year_postgrad == 0) is on average:</a></li>
+  <li><a href="#question-5.-say-we-have-two-variables-x-and-y.-what-function-would-calculate-the-correlation-between-those-two-variables" id="toc-question-5.-say-we-have-two-variables-x-and-y.-what-function-would-calculate-the-correlation-between-those-two-variables" class="nav-link" data-scroll-target="#question-5.-say-we-have-two-variables-x-and-y.-what-function-would-calculate-the-correlation-between-those-two-variables">Question 5. Say we have two variables, X and Y. What function would calculate the correlation between those two variables?</a></li>
+  </ul></li>
+  <li><a href="#additional-introduction-to-present-regression-results." id="toc-additional-introduction-to-present-regression-results." class="nav-link" data-scroll-target="#additional-introduction-to-present-regression-results.">Additional Introduction to Present Regression Results.</a>
+  <ul class="collapse">
+  <li><a href="#creating-dot-whisker-plots-to-visually-present-regression-results." id="toc-creating-dot-whisker-plots-to-visually-present-regression-results." class="nav-link" data-scroll-target="#creating-dot-whisker-plots-to-visually-present-regression-results.">1. Creating dot-whisker plots to visually present regression results.</a></li>
+  <li><a href="#visualizing-the-effect-of-degree-level-on-predicted-earnings-marginal-effects" id="toc-visualizing-the-effect-of-degree-level-on-predicted-earnings-marginal-effects" class="nav-link" data-scroll-target="#visualizing-the-effect-of-degree-level-on-predicted-earnings-marginal-effects">2. Visualizing the effect of degree level on predicted earnings (Marginal effects)</a></li>
+  <li><a href="#explaining-logistic-regression-week-9-and-week-10" id="toc-explaining-logistic-regression-week-9-and-week-10" class="nav-link" data-scroll-target="#explaining-logistic-regression-week-9-and-week-10">3. Explaining logistic regression (Week 9 and Week 10)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Legel 393E Spring 2025: Lab Meeting#4: Tutorial#5 Quiz Solutions</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">lab meeting</div>
+    <div class="quarto-category">Additional practices and materials</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Regression: Results Explanation and Visualization
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>EricoYu </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 23, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This week, we will go over the solutions for Quiz 5 and some additional notes on how to explain regression results.</p>
+<section id="loading-the-necessary-datasets." class="level2">
+<h2 class="anchored" data-anchor-id="loading-the-necessary-datasets.">Loading the necessary datasets.</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a vector contains the names of the needed packages, and assign a name "needed.packages" for it.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>needed.packages<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">'readxl'</span>,<span class="st">'readr'</span>,<span class="st">'haven'</span>,<span class="st">'dplyr'</span>,<span class="st">'broom'</span>,<span class="st">'ggplot2'</span>, <span class="st">'dotwhisker'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#lapply() allows us to loop over and execute every element in the object "needed.packages".</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(needed.packages, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: readxl</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: readr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: haven</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: dplyr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: broom</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: dotwhisker</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] TRUE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] TRUE
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] TRUE
+
+[[6]]
+[1] TRUE
+
+[[7]]
+[1] TRUE</code></pre>
+</div>
+</div>
+<p>We will need to load ANES and PSEO dataset. The other datasets (sleep, infert, faithful, chickwts, and cars) are preinstalled in R. For these pre-installed data, we can use data() to call up the datasets and load them in the R memory.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Check working directory</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/donge/OneDrive/Desktop/GitHub/webpage/Legal393E_Notes"</code></pre>
+</div>
+</div>
+<section id="loading-anes-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-anes-data">Loading anes data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>anes<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/RosemaryPang/Data-for-teaching/main/anes_601.csv"</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 4271 Columns: 440
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (440): CASEID, v162002, v162003, v162004, v162005, v162006, v162007, v16...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(anes)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["CASEID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["v162002"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["v162003"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["v162004"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["v162005"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["v162006"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["v162007"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["v162007a"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["v162008"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["v162009"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["v162010"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["v162011"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["v162012"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["v162013"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["v162014"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["v162014a"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["v162014b"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["v162016"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["v162016a"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["v162016b"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["v162017"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["v162018a"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["v162018b"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["v162018c"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["v162018d"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["v162018e"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["v162019"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["v162020a"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["v162020c"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["v162020b"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["v162020d"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["v162021a"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["v162021b"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["v162021c"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["v162022"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["v162022a"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["v162023"],"name":[37],"type":["dbl"],"align":["right"]},{"label":["v162024a"],"name":[38],"type":["dbl"],"align":["right"]},{"label":["v162024b"],"name":[39],"type":["dbl"],"align":["right"]},{"label":["v162025"],"name":[40],"type":["dbl"],"align":["right"]},{"label":["v162026a"],"name":[41],"type":["dbl"],"align":["right"]},{"label":["v162026b"],"name":[42],"type":["dbl"],"align":["right"]},{"label":["v162026c"],"name":[43],"type":["dbl"],"align":["right"]},{"label":["v162026d"],"name":[44],"type":["dbl"],"align":["right"]},{"label":["v162026e"],"name":[45],"type":["dbl"],"align":["right"]},{"label":["v162027"],"name":[46],"type":["dbl"],"align":["right"]},{"label":["v162028"],"name":[47],"type":["dbl"],"align":["right"]},{"label":["v162028x"],"name":[48],"type":["dbl"],"align":["right"]},{"label":["v162029"],"name":[49],"type":["dbl"],"align":["right"]},{"label":["v162029x"],"name":[50],"type":["dbl"],"align":["right"]},{"label":["v162030"],"name":[51],"type":["dbl"],"align":["right"]},{"label":["v162030x"],"name":[52],"type":["dbl"],"align":["right"]},{"label":["v162031"],"name":[53],"type":["dbl"],"align":["right"]},{"label":["v162031x"],"name":[54],"type":["dbl"],"align":["right"]},{"label":["v162032x"],"name":[55],"type":["dbl"],"align":["right"]},{"label":["v162033"],"name":[56],"type":["dbl"],"align":["right"]},{"label":["v162033a"],"name":[57],"type":["dbl"],"align":["right"]},{"label":["v162033x"],"name":[58],"type":["dbl"],"align":["right"]},{"label":["v162034"],"name":[59],"type":["dbl"],"align":["right"]},{"label":["v162034a"],"name":[60],"type":["dbl"],"align":["right"]},{"label":["v162035"],"name":[61],"type":["dbl"],"align":["right"]},{"label":["v162036"],"name":[62],"type":["dbl"],"align":["right"]},{"label":["v162036a"],"name":[63],"type":["dbl"],"align":["right"]},{"label":["v162037"],"name":[64],"type":["dbl"],"align":["right"]},{"label":["v162037a"],"name":[65],"type":["dbl"],"align":["right"]},{"label":["v162038"],"name":[66],"type":["dbl"],"align":["right"]},{"label":["v162038x"],"name":[67],"type":["dbl"],"align":["right"]},{"label":["v162039"],"name":[68],"type":["dbl"],"align":["right"]},{"label":["v162040"],"name":[69],"type":["dbl"],"align":["right"]},{"label":["v162041"],"name":[70],"type":["dbl"],"align":["right"]},{"label":["v162042"],"name":[71],"type":["dbl"],"align":["right"]},{"label":["v162043"],"name":[72],"type":["dbl"],"align":["right"]},{"label":["v162044"],"name":[73],"type":["dbl"],"align":["right"]},{"label":["v162045x"],"name":[74],"type":["dbl"],"align":["right"]},{"label":["v162046"],"name":[75],"type":["dbl"],"align":["right"]},{"label":["v162047"],"name":[76],"type":["dbl"],"align":["right"]},{"label":["v162048"],"name":[77],"type":["dbl"],"align":["right"]},{"label":["v162049"],"name":[78],"type":["dbl"],"align":["right"]},{"label":["v162050"],"name":[79],"type":["dbl"],"align":["right"]},{"label":["v162051"],"name":[80],"type":["dbl"],"align":["right"]},{"label":["v162052"],"name":[81],"type":["dbl"],"align":["right"]},{"label":["v162053"],"name":[82],"type":["dbl"],"align":["right"]},{"label":["v162054"],"name":[83],"type":["dbl"],"align":["right"]},{"label":["v162055"],"name":[84],"type":["dbl"],"align":["right"]},{"label":["v162056"],"name":[85],"type":["dbl"],"align":["right"]},{"label":["v162057"],"name":[86],"type":["dbl"],"align":["right"]},{"label":["v162058x"],"name":[87],"type":["dbl"],"align":["right"]},{"label":["v162059x"],"name":[88],"type":["dbl"],"align":["right"]},{"label":["v162060x"],"name":[89],"type":["dbl"],"align":["right"]},{"label":["v162061x"],"name":[90],"type":["dbl"],"align":["right"]},{"label":["v162062x"],"name":[91],"type":["dbl"],"align":["right"]},{"label":["v162063x"],"name":[92],"type":["dbl"],"align":["right"]},{"label":["v162064x"],"name":[93],"type":["dbl"],"align":["right"]},{"label":["v162065x"],"name":[94],"type":["dbl"],"align":["right"]},{"label":["v162066x"],"name":[95],"type":["dbl"],"align":["right"]},{"label":["v162067x"],"name":[96],"type":["dbl"],"align":["right"]},{"label":["v162068x"],"name":[97],"type":["dbl"],"align":["right"]},{"label":["v162069x"],"name":[98],"type":["dbl"],"align":["right"]},{"label":["v162072"],"name":[99],"type":["dbl"],"align":["right"]},{"label":["v162073a"],"name":[100],"type":["dbl"],"align":["right"]},{"label":["v162073b"],"name":[101],"type":["dbl"],"align":["right"]},{"label":["v162074a"],"name":[102],"type":["dbl"],"align":["right"]},{"label":["v162074b"],"name":[103],"type":["dbl"],"align":["right"]},{"label":["v162075a"],"name":[104],"type":["dbl"],"align":["right"]},{"label":["v162075b"],"name":[105],"type":["dbl"],"align":["right"]},{"label":["v162076a"],"name":[106],"type":["dbl"],"align":["right"]},{"label":["v162076b"],"name":[107],"type":["dbl"],"align":["right"]},{"label":["v162078"],"name":[108],"type":["dbl"],"align":["right"]},{"label":["v162079"],"name":[109],"type":["dbl"],"align":["right"]},{"label":["v162080"],"name":[110],"type":["dbl"],"align":["right"]},{"label":["v162081"],"name":[111],"type":["dbl"],"align":["right"]},{"label":["v162082"],"name":[112],"type":["dbl"],"align":["right"]},{"label":["v162083"],"name":[113],"type":["dbl"],"align":["right"]},{"label":["v162084"],"name":[114],"type":["dbl"],"align":["right"]},{"label":["v162085"],"name":[115],"type":["dbl"],"align":["right"]},{"label":["v162086"],"name":[116],"type":["dbl"],"align":["right"]},{"label":["v162087"],"name":[117],"type":["dbl"],"align":["right"]},{"label":["v162088"],"name":[118],"type":["dbl"],"align":["right"]},{"label":["v162089"],"name":[119],"type":["dbl"],"align":["right"]},{"label":["v162090"],"name":[120],"type":["dbl"],"align":["right"]},{"label":["v162091"],"name":[121],"type":["dbl"],"align":["right"]},{"label":["v162092"],"name":[122],"type":["dbl"],"align":["right"]},{"label":["v162093"],"name":[123],"type":["dbl"],"align":["right"]},{"label":["v162094"],"name":[124],"type":["dbl"],"align":["right"]},{"label":["v162095"],"name":[125],"type":["dbl"],"align":["right"]},{"label":["v162096"],"name":[126],"type":["dbl"],"align":["right"]},{"label":["v162097"],"name":[127],"type":["dbl"],"align":["right"]},{"label":["v162098"],"name":[128],"type":["dbl"],"align":["right"]},{"label":["v162099"],"name":[129],"type":["dbl"],"align":["right"]},{"label":["v162100"],"name":[130],"type":["dbl"],"align":["right"]},{"label":["v162101"],"name":[131],"type":["dbl"],"align":["right"]},{"label":["v162102"],"name":[132],"type":["dbl"],"align":["right"]},{"label":["v162103"],"name":[133],"type":["dbl"],"align":["right"]},{"label":["v162104"],"name":[134],"type":["dbl"],"align":["right"]},{"label":["v162105"],"name":[135],"type":["dbl"],"align":["right"]},{"label":["v162106"],"name":[136],"type":["dbl"],"align":["right"]},{"label":["v162107"],"name":[137],"type":["dbl"],"align":["right"]},{"label":["v162108"],"name":[138],"type":["dbl"],"align":["right"]},{"label":["v162109"],"name":[139],"type":["dbl"],"align":["right"]},{"label":["v162110"],"name":[140],"type":["dbl"],"align":["right"]},{"label":["v162111"],"name":[141],"type":["dbl"],"align":["right"]},{"label":["v162112"],"name":[142],"type":["dbl"],"align":["right"]},{"label":["v162113"],"name":[143],"type":["dbl"],"align":["right"]},{"label":["v162114"],"name":[144],"type":["dbl"],"align":["right"]},{"label":["v162114a"],"name":[145],"type":["dbl"],"align":["right"]},{"label":["v162114b"],"name":[146],"type":["dbl"],"align":["right"]},{"label":["v162114x"],"name":[147],"type":["dbl"],"align":["right"]},{"label":["v162115"],"name":[148],"type":["dbl"],"align":["right"]},{"label":["v162116a"],"name":[149],"type":["dbl"],"align":["right"]},{"label":["v162117"],"name":[150],"type":["dbl"],"align":["right"]},{"label":["v162118a"],"name":[151],"type":["dbl"],"align":["right"]},{"label":["v162119"],"name":[152],"type":["dbl"],"align":["right"]},{"label":["v162120a"],"name":[153],"type":["dbl"],"align":["right"]},{"label":["v162121"],"name":[154],"type":["dbl"],"align":["right"]},{"label":["v162122a"],"name":[155],"type":["dbl"],"align":["right"]},{"label":["v162123"],"name":[156],"type":["dbl"],"align":["right"]},{"label":["v162124"],"name":[157],"type":["dbl"],"align":["right"]},{"label":["v162125"],"name":[158],"type":["dbl"],"align":["right"]},{"label":["v162125x"],"name":[159],"type":["dbl"],"align":["right"]},{"label":["v162126"],"name":[160],"type":["dbl"],"align":["right"]},{"label":["v162127"],"name":[161],"type":["dbl"],"align":["right"]},{"label":["v162128"],"name":[162],"type":["dbl"],"align":["right"]},{"label":["v162129"],"name":[163],"type":["dbl"],"align":["right"]},{"label":["v162130"],"name":[164],"type":["dbl"],"align":["right"]},{"label":["v162131"],"name":[165],"type":["dbl"],"align":["right"]},{"label":["v162132"],"name":[166],"type":["dbl"],"align":["right"]},{"label":["v162133"],"name":[167],"type":["dbl"],"align":["right"]},{"label":["v162134"],"name":[168],"type":["dbl"],"align":["right"]},{"label":["v162135"],"name":[169],"type":["dbl"],"align":["right"]},{"label":["v162136"],"name":[170],"type":["dbl"],"align":["right"]},{"label":["v162136x"],"name":[171],"type":["dbl"],"align":["right"]},{"label":["v162137"],"name":[172],"type":["dbl"],"align":["right"]},{"label":["v162138"],"name":[173],"type":["dbl"],"align":["right"]},{"label":["v162139"],"name":[174],"type":["dbl"],"align":["right"]},{"label":["v162140"],"name":[175],"type":["dbl"],"align":["right"]},{"label":["v162141"],"name":[176],"type":["dbl"],"align":["right"]},{"label":["v162142"],"name":[177],"type":["dbl"],"align":["right"]},{"label":["v162143"],"name":[178],"type":["dbl"],"align":["right"]},{"label":["v162144"],"name":[179],"type":["dbl"],"align":["right"]},{"label":["v162145"],"name":[180],"type":["dbl"],"align":["right"]},{"label":["v162146"],"name":[181],"type":["dbl"],"align":["right"]},{"label":["v162147"],"name":[182],"type":["dbl"],"align":["right"]},{"label":["v162147x"],"name":[183],"type":["dbl"],"align":["right"]},{"label":["v162161"],"name":[184],"type":["dbl"],"align":["right"]},{"label":["v162162"],"name":[185],"type":["dbl"],"align":["right"]},{"label":["v162162x"],"name":[186],"type":["dbl"],"align":["right"]},{"label":["v162163"],"name":[187],"type":["dbl"],"align":["right"]},{"label":["v162164"],"name":[188],"type":["dbl"],"align":["right"]},{"label":["v162148"],"name":[189],"type":["dbl"],"align":["right"]},{"label":["v162149"],"name":[190],"type":["dbl"],"align":["right"]},{"label":["v162150"],"name":[191],"type":["dbl"],"align":["right"]},{"label":["v162150x"],"name":[192],"type":["dbl"],"align":["right"]},{"label":["v162152a"],"name":[193],"type":["dbl"],"align":["right"]},{"label":["v162152b"],"name":[194],"type":["dbl"],"align":["right"]},{"label":["v162153"],"name":[195],"type":["dbl"],"align":["right"]},{"label":["v162154a"],"name":[196],"type":["dbl"],"align":["right"]},{"label":["v162154b"],"name":[197],"type":["dbl"],"align":["right"]},{"label":["v162155a"],"name":[198],"type":["dbl"],"align":["right"]},{"label":["v162155b"],"name":[199],"type":["dbl"],"align":["right"]},{"label":["v162155x"],"name":[200],"type":["dbl"],"align":["right"]},{"label":["v162156x"],"name":[201],"type":["dbl"],"align":["right"]},{"label":["v162157"],"name":[202],"type":["dbl"],"align":["right"]},{"label":["v162158"],"name":[203],"type":["dbl"],"align":["right"]},{"label":["v162159"],"name":[204],"type":["dbl"],"align":["right"]},{"label":["v162160"],"name":[205],"type":["dbl"],"align":["right"]},{"label":["v162151"],"name":[206],"type":["dbl"],"align":["right"]},{"label":["v162165"],"name":[207],"type":["dbl"],"align":["right"]},{"label":["v162166"],"name":[208],"type":["dbl"],"align":["right"]},{"label":["v162167"],"name":[209],"type":["dbl"],"align":["right"]},{"label":["v162168"],"name":[210],"type":["dbl"],"align":["right"]},{"label":["v162169"],"name":[211],"type":["dbl"],"align":["right"]},{"label":["v162170"],"name":[212],"type":["dbl"],"align":["right"]},{"label":["v162171"],"name":[213],"type":["dbl"],"align":["right"]},{"label":["v162171a"],"name":[214],"type":["dbl"],"align":["right"]},{"label":["v162172"],"name":[215],"type":["dbl"],"align":["right"]},{"label":["v162173"],"name":[216],"type":["dbl"],"align":["right"]},{"label":["v162174"],"name":[217],"type":["dbl"],"align":["right"]},{"label":["v162174a"],"name":[218],"type":["dbl"],"align":["right"]},{"label":["v162175"],"name":[219],"type":["dbl"],"align":["right"]},{"label":["v162176"],"name":[220],"type":["dbl"],"align":["right"]},{"label":["v162176a"],"name":[221],"type":["dbl"],"align":["right"]},{"label":["v162176x"],"name":[222],"type":["dbl"],"align":["right"]},{"label":["v162177"],"name":[223],"type":["dbl"],"align":["right"]},{"label":["v162178"],"name":[224],"type":["dbl"],"align":["right"]},{"label":["v162179"],"name":[225],"type":["dbl"],"align":["right"]},{"label":["v162180"],"name":[226],"type":["dbl"],"align":["right"]},{"label":["v162180a"],"name":[227],"type":["dbl"],"align":["right"]},{"label":["v162180x"],"name":[228],"type":["dbl"],"align":["right"]},{"label":["v162186"],"name":[229],"type":["dbl"],"align":["right"]},{"label":["v162181"],"name":[230],"type":["dbl"],"align":["right"]},{"label":["v162182"],"name":[231],"type":["dbl"],"align":["right"]},{"label":["v162183"],"name":[232],"type":["dbl"],"align":["right"]},{"label":["v162184"],"name":[233],"type":["dbl"],"align":["right"]},{"label":["v162185"],"name":[234],"type":["dbl"],"align":["right"]},{"label":["v162188"],"name":[235],"type":["dbl"],"align":["right"]},{"label":["v162188a"],"name":[236],"type":["dbl"],"align":["right"]},{"label":["v162188x"],"name":[237],"type":["dbl"],"align":["right"]},{"label":["v162189"],"name":[238],"type":["dbl"],"align":["right"]},{"label":["v162189a"],"name":[239],"type":["dbl"],"align":["right"]},{"label":["v162189x"],"name":[240],"type":["dbl"],"align":["right"]},{"label":["v162190"],"name":[241],"type":["dbl"],"align":["right"]},{"label":["v162191"],"name":[242],"type":["dbl"],"align":["right"]},{"label":["v162191a"],"name":[243],"type":["dbl"],"align":["right"]},{"label":["v162192"],"name":[244],"type":["dbl"],"align":["right"]},{"label":["v162193"],"name":[245],"type":["dbl"],"align":["right"]},{"label":["v162193a"],"name":[246],"type":["dbl"],"align":["right"]},{"label":["v162193x"],"name":[247],"type":["dbl"],"align":["right"]},{"label":["v162194"],"name":[248],"type":["dbl"],"align":["right"]},{"label":["v162195"],"name":[249],"type":["dbl"],"align":["right"]},{"label":["v162196"],"name":[250],"type":["dbl"],"align":["right"]},{"label":["v162197"],"name":[251],"type":["dbl"],"align":["right"]},{"label":["v162198"],"name":[252],"type":["dbl"],"align":["right"]},{"label":["v162199a"],"name":[253],"type":["dbl"],"align":["right"]},{"label":["v162200"],"name":[254],"type":["dbl"],"align":["right"]},{"label":["v162201a"],"name":[255],"type":["dbl"],"align":["right"]},{"label":["v162202"],"name":[256],"type":["dbl"],"align":["right"]},{"label":["v162203a"],"name":[257],"type":["dbl"],"align":["right"]},{"label":["v162204"],"name":[258],"type":["dbl"],"align":["right"]},{"label":["v162205a"],"name":[259],"type":["dbl"],"align":["right"]},{"label":["v162207"],"name":[260],"type":["dbl"],"align":["right"]},{"label":["v162208"],"name":[261],"type":["dbl"],"align":["right"]},{"label":["v162209"],"name":[262],"type":["dbl"],"align":["right"]},{"label":["v162210"],"name":[263],"type":["dbl"],"align":["right"]},{"label":["v162211"],"name":[264],"type":["dbl"],"align":["right"]},{"label":["v162212"],"name":[265],"type":["dbl"],"align":["right"]},{"label":["v162213"],"name":[266],"type":["dbl"],"align":["right"]},{"label":["v162214"],"name":[267],"type":["dbl"],"align":["right"]},{"label":["v162215"],"name":[268],"type":["dbl"],"align":["right"]},{"label":["v162216"],"name":[269],"type":["dbl"],"align":["right"]},{"label":["v162217"],"name":[270],"type":["dbl"],"align":["right"]},{"label":["v162218"],"name":[271],"type":["dbl"],"align":["right"]},{"label":["v162219"],"name":[272],"type":["dbl"],"align":["right"]},{"label":["v162220"],"name":[273],"type":["dbl"],"align":["right"]},{"label":["v162221"],"name":[274],"type":["dbl"],"align":["right"]},{"label":["v162222"],"name":[275],"type":["dbl"],"align":["right"]},{"label":["v162223"],"name":[276],"type":["dbl"],"align":["right"]},{"label":["v162224"],"name":[277],"type":["dbl"],"align":["right"]},{"label":["v162225"],"name":[278],"type":["dbl"],"align":["right"]},{"label":["v162226"],"name":[279],"type":["dbl"],"align":["right"]},{"label":["v162227"],"name":[280],"type":["dbl"],"align":["right"]},{"label":["v162228"],"name":[281],"type":["dbl"],"align":["right"]},{"label":["v162229a"],"name":[282],"type":["dbl"],"align":["right"]},{"label":["v162229b"],"name":[283],"type":["dbl"],"align":["right"]},{"label":["v162229x"],"name":[284],"type":["dbl"],"align":["right"]},{"label":["v162230"],"name":[285],"type":["dbl"],"align":["right"]},{"label":["v162230a"],"name":[286],"type":["dbl"],"align":["right"]},{"label":["v162230b"],"name":[287],"type":["dbl"],"align":["right"]},{"label":["v162230x"],"name":[288],"type":["dbl"],"align":["right"]},{"label":["v162231"],"name":[289],"type":["dbl"],"align":["right"]},{"label":["v162231a"],"name":[290],"type":["dbl"],"align":["right"]},{"label":["v162231b"],"name":[291],"type":["dbl"],"align":["right"]},{"label":["v162231x"],"name":[292],"type":["dbl"],"align":["right"]},{"label":["v162232"],"name":[293],"type":["dbl"],"align":["right"]},{"label":["v162233"],"name":[294],"type":["dbl"],"align":["right"]},{"label":["v162234"],"name":[295],"type":["dbl"],"align":["right"]},{"label":["v162235"],"name":[296],"type":["dbl"],"align":["right"]},{"label":["v162236"],"name":[297],"type":["dbl"],"align":["right"]},{"label":["v162238"],"name":[298],"type":["dbl"],"align":["right"]},{"label":["v162238a"],"name":[299],"type":["dbl"],"align":["right"]},{"label":["v162238b"],"name":[300],"type":["dbl"],"align":["right"]},{"label":["v162238x"],"name":[301],"type":["dbl"],"align":["right"]},{"label":["v162239"],"name":[302],"type":["dbl"],"align":["right"]},{"label":["v162240"],"name":[303],"type":["dbl"],"align":["right"]},{"label":["v162241"],"name":[304],"type":["dbl"],"align":["right"]},{"label":["v162242"],"name":[305],"type":["dbl"],"align":["right"]},{"label":["v162243"],"name":[306],"type":["dbl"],"align":["right"]},{"label":["v162244"],"name":[307],"type":["dbl"],"align":["right"]},{"label":["v162245"],"name":[308],"type":["dbl"],"align":["right"]},{"label":["v162246"],"name":[309],"type":["dbl"],"align":["right"]},{"label":["v162248"],"name":[310],"type":["dbl"],"align":["right"]},{"label":["v162249"],"name":[311],"type":["dbl"],"align":["right"]},{"label":["v162250"],"name":[312],"type":["dbl"],"align":["right"]},{"label":["v162251"],"name":[313],"type":["dbl"],"align":["right"]},{"label":["v162252"],"name":[314],"type":["dbl"],"align":["right"]},{"label":["v162253"],"name":[315],"type":["dbl"],"align":["right"]},{"label":["v162254"],"name":[316],"type":["dbl"],"align":["right"]},{"label":["v162255"],"name":[317],"type":["dbl"],"align":["right"]},{"label":["v162255a"],"name":[318],"type":["dbl"],"align":["right"]},{"label":["v162255x"],"name":[319],"type":["dbl"],"align":["right"]},{"label":["v162256"],"name":[320],"type":["dbl"],"align":["right"]},{"label":["v162257"],"name":[321],"type":["dbl"],"align":["right"]},{"label":["v162258"],"name":[322],"type":["dbl"],"align":["right"]},{"label":["v162259"],"name":[323],"type":["dbl"],"align":["right"]},{"label":["v162260"],"name":[324],"type":["dbl"],"align":["right"]},{"label":["v162261"],"name":[325],"type":["dbl"],"align":["right"]},{"label":["v162262"],"name":[326],"type":["dbl"],"align":["right"]},{"label":["v162263"],"name":[327],"type":["dbl"],"align":["right"]},{"label":["v162264"],"name":[328],"type":["dbl"],"align":["right"]},{"label":["v162265"],"name":[329],"type":["dbl"],"align":["right"]},{"label":["v162266"],"name":[330],"type":["dbl"],"align":["right"]},{"label":["v162267"],"name":[331],"type":["dbl"],"align":["right"]},{"label":["v162268"],"name":[332],"type":["dbl"],"align":["right"]},{"label":["v162269"],"name":[333],"type":["dbl"],"align":["right"]},{"label":["v162270"],"name":[334],"type":["dbl"],"align":["right"]},{"label":["v162271"],"name":[335],"type":["dbl"],"align":["right"]},{"label":["v162272"],"name":[336],"type":["dbl"],"align":["right"]},{"label":["v162273"],"name":[337],"type":["dbl"],"align":["right"]},{"label":["v162274"],"name":[338],"type":["dbl"],"align":["right"]},{"label":["v162275"],"name":[339],"type":["dbl"],"align":["right"]},{"label":["v162276"],"name":[340],"type":["dbl"],"align":["right"]},{"label":["v162277"],"name":[341],"type":["dbl"],"align":["right"]},{"label":["v162278"],"name":[342],"type":["dbl"],"align":["right"]},{"label":["v162279"],"name":[343],"type":["dbl"],"align":["right"]},{"label":["v162280"],"name":[344],"type":["dbl"],"align":["right"]},{"label":["v162281"],"name":[345],"type":["dbl"],"align":["right"]},{"label":["v162282"],"name":[346],"type":["dbl"],"align":["right"]},{"label":["v162283"],"name":[347],"type":["dbl"],"align":["right"]},{"label":["v162284"],"name":[348],"type":["dbl"],"align":["right"]},{"label":["v162285"],"name":[349],"type":["dbl"],"align":["right"]},{"label":["v162286"],"name":[350],"type":["dbl"],"align":["right"]},{"label":["v162287"],"name":[351],"type":["dbl"],"align":["right"]},{"label":["v162288"],"name":[352],"type":["dbl"],"align":["right"]},{"label":["v162289"],"name":[353],"type":["dbl"],"align":["right"]},{"label":["v162290"],"name":[354],"type":["dbl"],"align":["right"]},{"label":["v162291"],"name":[355],"type":["dbl"],"align":["right"]},{"label":["v162292a"],"name":[356],"type":["dbl"],"align":["right"]},{"label":["v162293"],"name":[357],"type":["dbl"],"align":["right"]},{"label":["v162292b"],"name":[358],"type":["dbl"],"align":["right"]},{"label":["v162294"],"name":[359],"type":["dbl"],"align":["right"]},{"label":["v162295"],"name":[360],"type":["dbl"],"align":["right"]},{"label":["v162295a"],"name":[361],"type":["dbl"],"align":["right"]},{"label":["v162295b"],"name":[362],"type":["dbl"],"align":["right"]},{"label":["v162295x"],"name":[363],"type":["dbl"],"align":["right"]},{"label":["v162296a"],"name":[364],"type":["dbl"],"align":["right"]},{"label":["v162296b"],"name":[365],"type":["dbl"],"align":["right"]},{"label":["v162296c"],"name":[366],"type":["dbl"],"align":["right"]},{"label":["v162296x"],"name":[367],"type":["dbl"],"align":["right"]},{"label":["v162297"],"name":[368],"type":["dbl"],"align":["right"]},{"label":["v162298"],"name":[369],"type":["dbl"],"align":["right"]},{"label":["v162299"],"name":[370],"type":["dbl"],"align":["right"]},{"label":["v162299a"],"name":[371],"type":["dbl"],"align":["right"]},{"label":["v162300"],"name":[372],"type":["dbl"],"align":["right"]},{"label":["v162301"],"name":[373],"type":["dbl"],"align":["right"]},{"label":["v162302"],"name":[374],"type":["dbl"],"align":["right"]},{"label":["v162303"],"name":[375],"type":["dbl"],"align":["right"]},{"label":["v162304"],"name":[376],"type":["dbl"],"align":["right"]},{"label":["v162305"],"name":[377],"type":["dbl"],"align":["right"]},{"label":["v162306"],"name":[378],"type":["dbl"],"align":["right"]},{"label":["v162307"],"name":[379],"type":["dbl"],"align":["right"]},{"label":["v162308"],"name":[380],"type":["dbl"],"align":["right"]},{"label":["v162309x"],"name":[381],"type":["dbl"],"align":["right"]},{"label":["v162310"],"name":[382],"type":["dbl"],"align":["right"]},{"label":["v162311"],"name":[383],"type":["dbl"],"align":["right"]},{"label":["v162312"],"name":[384],"type":["dbl"],"align":["right"]},{"label":["v162313"],"name":[385],"type":["dbl"],"align":["right"]},{"label":["v162314"],"name":[386],"type":["dbl"],"align":["right"]},{"label":["v162316"],"name":[387],"type":["dbl"],"align":["right"]},{"label":["v162317"],"name":[388],"type":["dbl"],"align":["right"]},{"label":["v162318"],"name":[389],"type":["dbl"],"align":["right"]},{"label":["v162319"],"name":[390],"type":["dbl"],"align":["right"]},{"label":["v162320"],"name":[391],"type":["dbl"],"align":["right"]},{"label":["v162321"],"name":[392],"type":["dbl"],"align":["right"]},{"label":["v162322"],"name":[393],"type":["dbl"],"align":["right"]},{"label":["v162323"],"name":[394],"type":["dbl"],"align":["right"]},{"label":["v162324"],"name":[395],"type":["dbl"],"align":["right"]},{"label":["v162325"],"name":[396],"type":["dbl"],"align":["right"]},{"label":["v162326"],"name":[397],"type":["dbl"],"align":["right"]},{"label":["v162327"],"name":[398],"type":["dbl"],"align":["right"]},{"label":["v162328"],"name":[399],"type":["dbl"],"align":["right"]},{"label":["v162329"],"name":[400],"type":["dbl"],"align":["right"]},{"label":["v162330"],"name":[401],"type":["dbl"],"align":["right"]},{"label":["v162331"],"name":[402],"type":["dbl"],"align":["right"]},{"label":["v162332"],"name":[403],"type":["dbl"],"align":["right"]},{"label":["v162333"],"name":[404],"type":["dbl"],"align":["right"]},{"label":["v162334"],"name":[405],"type":["dbl"],"align":["right"]},{"label":["v162335"],"name":[406],"type":["dbl"],"align":["right"]},{"label":["v162336"],"name":[407],"type":["dbl"],"align":["right"]},{"label":["v162337"],"name":[408],"type":["dbl"],"align":["right"]},{"label":["v162338"],"name":[409],"type":["dbl"],"align":["right"]},{"label":["v162339"],"name":[410],"type":["dbl"],"align":["right"]},{"label":["v162340"],"name":[411],"type":["dbl"],"align":["right"]},{"label":["v162341"],"name":[412],"type":["dbl"],"align":["right"]},{"label":["v162342"],"name":[413],"type":["dbl"],"align":["right"]},{"label":["v162343"],"name":[414],"type":["dbl"],"align":["right"]},{"label":["v162344"],"name":[415],"type":["dbl"],"align":["right"]},{"label":["v162345"],"name":[416],"type":["dbl"],"align":["right"]},{"label":["v162346"],"name":[417],"type":["dbl"],"align":["right"]},{"label":["v162347"],"name":[418],"type":["dbl"],"align":["right"]},{"label":["v162348"],"name":[419],"type":["dbl"],"align":["right"]},{"label":["v162349"],"name":[420],"type":["dbl"],"align":["right"]},{"label":["v162350"],"name":[421],"type":["dbl"],"align":["right"]},{"label":["v162351"],"name":[422],"type":["dbl"],"align":["right"]},{"label":["v162352"],"name":[423],"type":["dbl"],"align":["right"]},{"label":["v162353"],"name":[424],"type":["dbl"],"align":["right"]},{"label":["v162354"],"name":[425],"type":["dbl"],"align":["right"]},{"label":["v162355"],"name":[426],"type":["dbl"],"align":["right"]},{"label":["v162356"],"name":[427],"type":["dbl"],"align":["right"]},{"label":["v162357"],"name":[428],"type":["dbl"],"align":["right"]},{"label":["v162358"],"name":[429],"type":["dbl"],"align":["right"]},{"label":["v162359"],"name":[430],"type":["dbl"],"align":["right"]},{"label":["v162360"],"name":[431],"type":["dbl"],"align":["right"]},{"label":["v162361"],"name":[432],"type":["dbl"],"align":["right"]},{"label":["v162362"],"name":[433],"type":["dbl"],"align":["right"]},{"label":["v162363"],"name":[434],"type":["dbl"],"align":["right"]},{"label":["v162364"],"name":[435],"type":["dbl"],"align":["right"]},{"label":["v162365"],"name":[436],"type":["dbl"],"align":["right"]},{"label":["v162366"],"name":[437],"type":["dbl"],"align":["right"]},{"label":["v162367"],"name":[438],"type":["dbl"],"align":["right"]},{"label":["v162368"],"name":[439],"type":["dbl"],"align":["right"]},{"label":["v162369"],"name":[440],"type":["dbl"],"align":["right"]}],"data":[{"1":"300001","2":"4","3":"3","4":"3","5":"1","6":"2","7":"2","8":"-1","9":"2","10":"2","11":"2","12":"2","13":"2","14":"2","15":"2","16":"-1","17":"-3","18":"2","19":"-1","20":"-3","21":"2","22":"2","23":"2","24":"2","25":"2","26":"1","27":"2","28":"-1","29":"-1","30":"-1","31":"-1","32":"2","33":"1","34":"0","35":"-1","36":"-1","37":"-1","38":"-1","39":"-1","40":"-1","41":"22","42":"1","43":"1","44":"0","45":"1","46":"-1","47":"-1","48":"1","49":"-1","50":"1","51":"-1","52":"2","53":"4","54":"1","55":"3","56":"3","57":"2","58":"3","59":"1","60":"2","61":"1","62":"-2","63":"-2","64":"-1","65":"-1","66":"-1","67":"-1","68":"2","69":"-1","70":"-1","71":"-1","72":"-1","73":"-1","74":"11","75":"1","76":"-1","77":"2","78":"-1","79":"-1","80":"-1","81":"-1","82":"-1","83":"-1","84":"-1","85":"-1","86":"-1","87":"11","88":"-1","89":"11","90":"-1","91":"2","92":"-2","93":"-2","94":"-2","95":"21","96":"-1","97":"2","98":"-1","99":"1","100":"0","101":"0.0","102":"0","103":"0","104":"1","105":"1","106":"0","107":"0","108":"15","109":"85","110":"50","111":"40","112":"-1","113":"-1","114":"-1","115":"-1","116":"-1","117":"-1","118":"-1","119":"-1","120":"-1","121":"15","122":"60","123":"998","124":"60","125":"70","126":"50","127":"50","128":"50","129":"70","130":"70","131":"70","132":"70","133":"15","134":"70","135":"50","136":"15","137":"100","138":"50","139":"50","140":"70","141":"50","142":"70","143":"15","144":"1","145":"1","146":"-1","147":"1","148":"2","149":"-2","150":"2","151":"-2","152":"2","153":"-2","154":"-1","155":"-2","156":"2","157":"1","158":"1","159":"1","160":"1","161":"5","162":"1","163":"2","164":"-1","165":"2","166":"-1","167":"-1","168":"2","169":"3","170":"-1","171":"4","172":"4","173":"7.50","174":"2","175":"1","176":"1","177":"2","178":"1","179":"1","180":"1","181":"1","182":"2","183":"2","184":"3","185":"-1","186":"4","187":"2","188":"5","189":"2","190":"1","191":"2","192":"2","193":"1","194":"-1","195":"2","196":"-1","197":"-1","198":"4","199":"4","200":"4","201":"-6","202":"4","203":"2","204":"1","205":"1","206":"3","207":"3","208":"-1","209":"2","210":"2","211":"1","212":"1","213":"6","214":"-1","215":"1","216":"-1","217":"1","218":"4","219":"1","220":"1","221":"2","222":"2","223":"1","224":"3","225":"2","226":"1","227":"2","228":"2","229":"3","230":"4","231":"2","232":"1","233":"1","234":"2","235":"2","236":"2","237":"6","238":"3","239":"-1","240":"4","241":"1","242":"1","243":"2","244":"2","245":"3","246":"-1","247":"4","248":"0","249":"2","250":"2","251":"2","252":"2","253":"-2","254":"2","255":"-2","256":"2","257":"-2","258":"2","259":"-2","260":"4","261":"1","262":"4","263":"2","264":"1","265":"5","266":"5","267":"1","268":"4","269":"2","270":"4","271":"3","272":"1","273":"4","274":"3","275":"-1","276":"-1","277":"-1","278":"-1","279":"-1","280":"3","281":"3","282":"-1","283":"-1","284":"4","285":"3","286":"-1","287":"-1","288":"4","289":"3","290":"-1","291":"-1","292":"4","293":"4","294":"3","295":"2","296":"3","297":"2","298":"2","299":"-1","300":"1","301":"5","302":"2","303":"2","304":"1","305":"1","306":"2","307":"1","308":"4","309":"4","310":"3","311":"4","312":"4","313":"-1","314":"-1","315":"4","316":"2","317":"2","318":"5","319":"6","320":"2","321":"2","322":"2","323":"4","324":"4","325":"2","326":"2","327":"2","328":"2","329":"2","330":"2","331":"2","332":"4","333":"2","334":"2","335":"1","336":"1","337":"2","338":"1","339":"2","340":"4","341":"3","342":"2","343":"-1","344":"4","345":"5","346":"5","347":"1","348":"9","349":"1","350":"9","351":"1","352":"9","353":"9","354":"4","355":"5","356":"-1","357":"-8","358":"-1","359":"1","360":"3","361":"-1","362":"-1","363":"4","364":"1","365":"-1","366":"-1","367":"1","368":"2","369":"2","370":"-3","371":"-1","372":"-1","373":"-1","374":"-1","375":"-1","376":"-1","377":"-1","378":"-1","379":"-1","380":"-1","381":"-1","382":"30","383":"30","384":"60","385":"0","386":"60","387":"4","388":"2","389":"2","390":"-1","391":"2","392":"-1","393":"2","394":"2","395":"2","396":"2","397":"-1","398":"2","399":"-1","400":"-1","401":"-1","402":"-1","403":"2","404":"6","405":"5","406":"6","407":"5","408":"6","409":"5","410":"5","411":"2","412":"6","413":"3","414":"3","415":"3","416":"4","417":"7","418":"4","419":"4","420":"2","421":"6","422":"6","423":"3","424":"6","425":"2","426":"7","427":"2","428":"4","429":"4","430":"4","431":"4","432":"4","433":"4","434":"3","435":"4","436":"4","437":"4","438":"-4","439":"3","440":"4"},{"1":"300002","2":"3","3":"3","4":"3","5":"3","6":"2","7":"2","8":"-1","9":"2","10":"1","11":"2","12":"2","13":"2","14":"2","15":"2","16":"-1","17":"-3","18":"2","19":"-1","20":"-3","21":"2","22":"2","23":"2","24":"2","25":"2","26":"2","27":"2","28":"-1","29":"-1","30":"-1","31":"-1","32":"1","33":"1","34":"1","35":"-1","36":"-1","37":"-1","38":"-1","39":"-1","40":"-1","41":"5","42":"1","43":"1","44":"0","45":"1","46":"-1","47":"-1","48":"2","49":"-1","50":"1","51":"-1","52":"4","53":"4","54":"1","55":"3","56":"1","57":"1","58":"1","59":"1","60":"2","61":"1","62":"-2","63":"-2","64":"-1","65":"-1","66":"-1","67":"-1","68":"1","69":"2","70":"-1","71":"-1","72":"-1","73":"-1","74":"11","75":"1","76":"2","77":"-1","78":"-1","79":"-1","80":"-1","81":"-1","82":"-1","83":"-1","84":"-1","85":"-1","86":"-1","87":"11","88":"11","89":"11","90":"-1","91":"2","92":"-2","93":"-2","94":"-2","95":"21","96":"2","97":"2","98":"-1","99":"1","100":"0","101":"0.5","102":"0","103":"0","104":"1","105":"0","106":"0","107":"0","108":"50","109":"60","110":"70","111":"999","112":"-1","113":"50","114":"-1","115":"50","116":"50","117":"-1","118":"-1","119":"-1","120":"50","121":"999","122":"60","123":"50","124":"50","125":"50","126":"50","127":"50","128":"50","129":"50","130":"40","131":"60","132":"50","133":"50","134":"50","135":"50","136":"50","137":"50","138":"50","139":"50","140":"40","141":"50","142":"70","143":"50","144":"-8","145":"-1","146":"-1","147":"-8","148":"-8","149":"-2","150":"2","151":"-2","152":"-1","153":"-2","154":"-1","155":"-2","156":"3","157":"1","158":"1","159":"1","160":"1","161":"5","162":"-1","163":"-1","164":"-1","165":"-1","166":"3","167":"1","168":"4","169":"2","170":"2","171":"6","172":"-8","173":"7.25","174":"1","175":"1","176":"1","177":"2","178":"1","179":"1","180":"1","181":"1","182":"1","183":"1","184":"1","185":"1","186":"1","187":"2","188":"1","189":"1","190":"1","191":"1","192":"1","193":"-8","194":"-1","195":"1","196":"3","197":"3","198":"-1","199":"-1","200":"3","201":"-6","202":"5","203":"2","204":"1","205":"5","206":"2","207":"5","208":"-1","209":"2","210":"1","211":"2","212":"3","213":"5","214":"-1","215":"1","216":"-8","217":"1","218":"7","219":"1","220":"3","221":"-1","222":"4","223":"1","224":"1","225":"1","226":"3","227":"-1","228":"4","229":"3","230":"4","231":"3","232":"1","233":"1","234":"1","235":"1","236":"2","237":"2","238":"3","239":"-1","240":"4","241":"1","242":"1","243":"2","244":"2","245":"1","246":"2","247":"2","248":"0","249":"2","250":"2","251":"1","252":"2","253":"-2","254":"2","255":"-2","256":"2","257":"-2","258":"2","259":"-2","260":"1","261":"3","262":"1","263":"3","264":"3","265":"2","266":"4","267":"3","268":"3","269":"4","270":"4","271":"3","272":"5","273":"2","274":"5","275":"-1","276":"-1","277":"-1","278":"-1","279":"-1","280":"5","281":"2","282":"-1","283":"1","284":"7","285":"3","286":"-1","287":"-1","288":"4","289":"3","290":"-1","291":"-1","292":"4","293":"3","294":"3","295":"3","296":"3","297":"2","298":"2","299":"-1","300":"1","301":"5","302":"1","303":"2","304":"2","305":"1","306":"1","307":"4","308":"4","309":"3","310":"5","311":"2","312":"5","313":"-1","314":"-1","315":"4","316":"2","317":"1","318":"4","319":"4","320":"1","321":"2","322":"2","323":"3","324":"3","325":"5","326":"3","327":"4","328":"1","329":"4","330":"1","331":"5","332":"4","333":"5","334":"2","335":"1","336":"2","337":"1","338":"2","339":"1","340":"3","341":"2","342":"1","343":"7","344":"3","345":"5","346":"5","347":"4","348":"6","349":"4","350":"6","351":"3","352":"7","353":"6","354":"2","355":"5","356":"-1","357":"3","358":"-1","359":"4","360":"2","361":"-1","362":"1","363":"7","364":"3","365":"-1","366":"-1","367":"4","368":"1","369":"1","370":"-3","371":"-1","372":"-1","373":"-1","374":"-1","375":"-1","376":"-1","377":"-1","378":"-1","379":"-1","380":"-1","381":"-1","382":"50","383":"30","384":"50","385":"0","386":"50","387":"3","388":"4","389":"1","390":"3","391":"1","392":"1","393":"2","394":"2","395":"1","396":"2","397":"-1","398":"4","399":"-1","400":"-1","401":"-1","402":"-1","403":"1","404":"6","405":"5","406":"5","407":"5","408":"6","409":"6","410":"5","411":"5","412":"4","413":"1","414":"5","415":"5","416":"4","417":"5","418":"1","419":"1","420":"5","421":"5","422":"7","423":"2","424":"6","425":"7","426":"3","427":"1","428":"1","429":"1","430":"3","431":"4","432":"1","433":"3","434":"3","435":"1","436":"4","437":"1","438":"-4","439":"3","440":"4"},{"1":"300003","2":"1","3":"1","4":"1","5":"1","6":"-1","7":"2","8":"-1","9":"2","10":"2","11":"2","12":"2","13":"2","14":"2","15":"2","16":"-1","17":"-3","18":"2","19":"-1","20":"-3","21":"2","22":"2","23":"2","24":"2","25":"2","26":"2","27":"2","28":"-1","29":"-1","30":"-1","31":"-1","32":"1","33":"1","34":"1","35":"3","36":"-1","37":"-1","38":"-1","39":"-1","40":"-1","41":"-1","42":"-1","43":"-1","44":"-1","45":"-1","46":"-1","47":"-1","48":"-1","49":"-1","50":"-1","51":"-1","52":"-1","53":"-1","54":"-1","55":"1","56":"1","57":"1","58":"2","59":"-1","60":"-1","61":"-1","62":"-2","63":"-2","64":"2","65":"-1","66":"-1","67":"-1","68":"-1","69":"-1","70":"-1","71":"2","72":"-1","73":"-1","74":"0","75":"-1","76":"-1","77":"-1","78":"-1","79":"-1","80":"-1","81":"-1","82":"-1","83":"-1","84":"-1","85":"-1","86":"-1","87":"-1","88":"-1","89":"-1","90":"-1","91":"-1","92":"-2","93":"-2","94":"-2","95":"-1","96":"-1","97":"-1","98":"-1","99":"0","100":"0","101":"0.0","102":"0","103":"0","104":"0","105":"0","106":"0","107":"0","108":"50","109":"70","110":"999","111":"999","112":"999","113":"999","114":"-1","115":"-1","116":"-1","117":"-1","118":"999","119":"999","120":"-1","121":"999","122":"999","123":"999","124":"999","125":"40","126":"50","127":"50","128":"60","129":"60","130":"70","131":"50","132":"50","133":"70","134":"50","135":"50","136":"60","137":"50","138":"60","139":"50","140":"70","141":"50","142":"70","143":"30","144":"-8","145":"-1","146":"-1","147":"-8","148":"3","149":"-2","150":"-1","151":"-2","152":"-1","153":"-2","154":"-1","155":"-2","156":"3","157":"1","158":"2","159":"2","160":"1","161":"4","162":"1","163":"2","164":"-1","165":"1","166":"-1","167":"-1","168":"2","169":"2","170":"2","171":"6","172":"4","173":"10.15","174":"3","175":"2","176":"4","177":"2","178":"3","179":"3","180":"3","181":"1","182":"1","183":"1","184":"2","185":"3","186":"5","187":"2","188":"3","189":"2","190":"1","191":"1","192":"1","193":"1","194":"-1","195":"3","196":"-1","197":"-1","198":"3","199":"3","200":"3","201":"-6","202":"3","203":"1","204":"3","205":"4","206":"3","207":"4","208":"1","209":"2","210":"2","211":"1","212":"1","213":"99","214":"1","215":"1","216":"-1","217":"2","218":"-1","219":"1","220":"2","221":"2","222":"6","223":"3","224":"1","225":"1","226":"1","227":"2","228":"2","229":"3","230":"3","231":"2","232":"1","233":"2","234":"2","235":"2","236":"2","237":"6","238":"1","239":"2","240":"2","241":"-8","242":"1","243":"2","244":"2","245":"1","246":"2","247":"2","248":"0","249":"2","250":"2","251":"2","252":"2","253":"-2","254":"2","255":"-2","256":"2","257":"-2","258":"2","259":"-2","260":"2","261":"1","262":"2","263":"3","264":"1","265":"5","266":"5","267":"1","268":"1","269":"2","270":"2","271":"4","272":"4","273":"2","274":"3","275":"-1","276":"-1","277":"-1","278":"-1","279":"-1","280":"4","281":"1","282":"3","283":"-1","284":"3","285":"1","286":"1","287":"-1","288":"1","289":"3","290":"-1","291":"-1","292":"4","293":"4","294":"4","295":"1","296":"3","297":"4","298":"2","299":"-1","300":"1","301":"5","302":"1","303":"2","304":"2","305":"2","306":"1","307":"1","308":"3","309":"1","310":"5","311":"-1","312":"5","313":"5","314":"5","315":"-1","316":"3","317":"1","318":"3","319":"3","320":"3","321":"2","322":"5","323":"1","324":"1","325":"5","326":"2","327":"1","328":"3","329":"1","330":"1","331":"1","332":"3","333":"1","334":"3","335":"2","336":"2","337":"1","338":"1","339":"1","340":"1","341":"2","342":"1","343":"5","344":"3","345":"4","346":"3","347":"3","348":"6","349":"4","350":"6","351":"3","352":"6","353":"5","354":"2","355":"5","356":"-1","357":"-8","358":"-1","359":"3","360":"1","361":"1","362":"-1","363":"1","364":"2","365":"-1","366":"-1","367":"2","368":"2","369":"1","370":"-3","371":"-1","372":"-1","373":"-1","374":"-1","375":"-1","376":"-1","377":"-1","378":"-1","379":"-1","380":"-1","381":"-1","382":"50","383":"15","384":"30","385":"15","386":"60","387":"3","388":"2","389":"2","390":"-1","391":"1","392":"2","393":"2","394":"2","395":"2","396":"2","397":"-1","398":"3","399":"-1","400":"-1","401":"-1","402":"-1","403":"2","404":"6","405":"4","406":"7","407":"5","408":"5","409":"2","410":"2","411":"4","412":"5","413":"4","414":"3","415":"2","416":"4","417":"3","418":"4","419":"5","420":"4","421":"6","422":"2","423":"3","424":"4","425":"2","426":"4","427":"4","428":"2","429":"2","430":"3","431":"3","432":"2","433":"2","434":"3","435":"1","436":"2","437":"1","438":"-4","439":"2","440":"4"},{"1":"300004","2":"4","3":"1","4":"1","5":"1","6":"-1","7":"2","8":"-1","9":"2","10":"1","11":"1","12":"2","13":"2","14":"2","15":"2","16":"-1","17":"-3","18":"2","19":"-1","20":"-3","21":"1","22":"2","23":"2","24":"1","25":"1","26":"2","27":"2","28":"-1","29":"-1","30":"-1","31":"-1","32":"2","33":"1","34":"1","35":"-1","36":"-1","37":"-1","38":"-1","39":"-1","40":"-1","41":"-1","42":"-1","43":"-1","44":"-1","45":"-1","46":"-1","47":"-1","48":"3","49":"-1","50":"1","51":"-1","52":"-1","53":"-1","54":"1","55":"-1","56":"-1","57":"-1","58":"-1","59":"-1","60":"-1","61":"-1","62":"-2","63":"-2","64":"-1","65":"-1","66":"-1","67":"-1","68":"-1","69":"-1","70":"-1","71":"-1","72":"-1","73":"-1","74":"-1","75":"-1","76":"-1","77":"-1","78":"-1","79":"-1","80":"-1","81":"-1","82":"-1","83":"-1","84":"-1","85":"-1","86":"-1","87":"-1","88":"-1","89":"-1","90":"-1","91":"2","92":"-2","93":"-2","94":"-2","95":"21","96":"-1","97":"-1","98":"-1","99":"1","100":"1","101":"1.0","102":"0","103":"0","104":"1","105":"1","106":"0","107":"0","108":"15","109":"60","110":"50","111":"999","112":"999","113":"70","114":"-1","115":"-1","116":"-1","117":"-1","118":"85","119":"60","120":"-1","121":"30","122":"60","123":"40","124":"50","125":"60","126":"50","127":"50","128":"40","129":"50","130":"40","131":"50","132":"50","133":"50","134":"50","135":"50","136":"50","137":"85","138":"50","139":"50","140":"70","141":"50","142":"50","143":"50","144":"1","145":"1","146":"-1","147":"1","148":"2","149":"-2","150":"2","151":"-2","152":"2","153":"-2","154":"2","155":"-2","156":"4","157":"1","158":"1","159":"1","160":"1","161":"3","162":"2","163":"-1","164":"2","165":"1","166":"-1","167":"-1","168":"2","169":"3","170":"-1","171":"4","172":"2","173":"7.50","174":"2","175":"2","176":"2","177":"2","178":"1","179":"1","180":"3","181":"3","182":"-1","183":"4","184":"3","185":"-1","186":"4","187":"2","188":"1","189":"1","190":"1","191":"2","192":"2","193":"1","194":"-1","195":"3","196":"-1","197":"-1","198":"4","199":"3","200":"3","201":"-6","202":"4","203":"2","204":"1","205":"3","206":"2","207":"5","208":"-1","209":"2","210":"4","211":"2","212":"2","213":"6","214":"-1","215":"1","216":"6","217":"1","218":"5","219":"1","220":"3","221":"-1","222":"4","223":"2","224":"1","225":"2","226":"3","227":"-1","228":"4","229":"3","230":"4","231":"2","232":"1","233":"1","234":"2","235":"3","236":"-1","237":"4","238":"3","239":"-1","240":"4","241":"1","242":"1","243":"2","244":"1","245":"2","246":"2","247":"6","248":"2","249":"1","250":"1","251":"1","252":"2","253":"-2","254":"2","255":"-2","256":"1","257":"-2","258":"2","259":"-2","260":"4","261":"2","262":"2","263":"1","264":"2","265":"4","266":"4","267":"2","268":"2","269":"4","270":"2","271":"3","272":"2","273":"4","274":"5","275":"-1","276":"-1","277":"-1","278":"-1","279":"-1","280":"4","281":"2","282":"-1","283":"2","284":"6","285":"1","286":"1","287":"-1","288":"1","289":"3","290":"-1","291":"-1","292":"4","293":"4","294":"4","295":"1","296":"3","297":"4","298":"2","299":"-1","300":"1","301":"5","302":"2","303":"1","304":"2","305":"1","306":"1","307":"2","308":"2","309":"2","310":"2","311":"2","312":"2","313":"-1","314":"-1","315":"4","316":"3","317":"2","318":"5","319":"6","320":"2","321":"2","322":"3","323":"3","324":"4","325":"2","326":"4","327":"4","328":"4","329":"4","330":"2","331":"2","332":"4","333":"4","334":"4","335":"2","336":"4","337":"2","338":"2","339":"2","340":"4","341":"2","342":"1","343":"5","344":"3","345":"4","346":"5","347":"4","348":"8","349":"2","350":"6","351":"3","352":"7","353":"7","354":"2","355":"5","356":"-1","357":"3","358":"-1","359":"3","360":"3","361":"-1","362":"-1","363":"4","364":"1","365":"2","366":"-1","367":"3","368":"2","369":"2","370":"-3","371":"-1","372":"-1","373":"-1","374":"-1","375":"-1","376":"-1","377":"-1","378":"-1","379":"-1","380":"-1","381":"-1","382":"50","383":"50","384":"50","385":"40","386":"50","387":"2","388":"2","389":"2","390":"-1","391":"1","392":"3","393":"2","394":"1","395":"2","396":"2","397":"-1","398":"3","399":"-1","400":"-1","401":"-1","402":"-1","403":"2","404":"6","405":"2","406":"6","407":"2","408":"4","409":"4","410":"6","411":"2","412":"6","413":"4","414":"5","415":"4","416":"4","417":"4","418":"3","419":"3","420":"4","421":"5","422":"4","423":"3","424":"5","425":"3","426":"5","427":"3","428":"3","429":"3","430":"4","431":"3","432":"2","433":"3","434":"3","435":"2","436":"3","437":"2","438":"-4","439":"4","440":"4"},{"1":"300006","2":"1","3":"2","4":"3","5":"3","6":"1","7":"1","8":"5","9":"1","10":"2","11":"2","12":"2","13":"2","14":"2","15":"2","16":"-1","17":"-3","18":"2","19":"-1","20":"-3","21":"2","22":"2","23":"2","24":"2","25":"2","26":"2","27":"2","28":"-1","29":"-1","30":"-1","31":"-1","32":"2","33":"1","34":"1","35":"-1","36":"-1","37":"-1","38":"-1","39":"-1","40":"-1","41":"39","42":"1","43":"1","44":"0","45":"0","46":"-1","47":"-1","48":"3","49":"-1","50":"1","51":"-1","52":"-1","53":"4","54":"1","55":"3","56":"1","57":"1","58":"1","59":"1","60":"4","61":"1","62":"-2","63":"-2","64":"-1","65":"-1","66":"-1","67":"-1","68":"1","69":"1","70":"-1","71":"-1","72":"-1","73":"-1","74":"11","75":"1","76":"1","77":"-1","78":"-1","79":"-1","80":"-1","81":"-1","82":"-1","83":"-1","84":"-1","85":"-1","86":"-1","87":"12","88":"10","89":"10","90":"-1","91":"4","92":"-2","93":"-2","94":"-2","95":"41","96":"1","97":"1","98":"-1","99":"1","100":"0","101":"0.0","102":"0","103":"0","104":"1","105":"1","106":"0","107":"0","108":"30","109":"15","110":"40","111":"70","112":"50","113":"50","114":"-1","115":"60","116":"50","117":"-1","118":"-1","119":"-1","120":"50","121":"50","122":"40","123":"50","124":"100","125":"85","126":"70","127":"70","128":"85","129":"85","130":"50","131":"70","132":"70","133":"85","134":"50","135":"70","136":"85","137":"85","138":"85","139":"50","140":"85","141":"85","142":"85","143":"15","144":"1","145":"2","146":"-1","147":"2","148":"2","149":"-2","150":"3","151":"-2","152":"3","153":"-2","154":"3","155":"-2","156":"5","157":"1","158":"1","159":"1","160":"1","161":"3","162":"-1","163":"-1","164":"-1","165":"-1","166":"1","167":"-1","168":"5","169":"2","170":"1","171":"7","172":"4","173":"8.10","174":"1","175":"1","176":"1","177":"3","178":"2","179":"3","180":"3","181":"3","182":"-1","183":"4","184":"1","185":"2","186":"2","187":"2","188":"5","189":"3","190":"1","191":"1","192":"1","193":"-1","194":"99","195":"3","196":"4","197":"4","198":"-1","199":"-1","200":"4","201":"-6","202":"3","203":"4","204":"2","205":"3","206":"2","207":"3","208":"1","209":"2","210":"4","211":"2","212":"2","213":"4","214":"3","215":"4","216":"4","217":"2","218":"-1","219":"3","220":"3","221":"-1","222":"4","223":"1","224":"1","225":"2","226":"3","227":"-1","228":"4","229":"3","230":"4","231":"1","232":"2","233":"1","234":"2","235":"1","236":"1","237":"1","238":"3","239":"-1","240":"4","241":"1","242":"2","243":"-1","244":"1","245":"2","246":"1","247":"7","248":"0","249":"2","250":"2","251":"2","252":"2","253":"-2","254":"2","255":"-2","256":"2","257":"-2","258":"2","259":"-2","260":"2","261":"2","262":"3","263":"2","264":"2","265":"3","266":"4","267":"3","268":"2","269":"2","270":"4","271":"4","272":"4","273":"4","274":"3","275":"-1","276":"-1","277":"-1","278":"-1","279":"-1","280":"4","281":"2","282":"-1","283":"3","284":"5","285":"3","286":"-1","287":"-1","288":"4","289":"3","290":"-1","291":"-1","292":"4","293":"2","294":"4","295":"3","296":"3","297":"4","298":"-8","299":"-1","300":"-1","301":"-8","302":"2","303":"2","304":"1","305":"2","306":"2","307":"2","308":"3","309":"1","310":"4","311":"2","312":"4","313":"-1","314":"-1","315":"4","316":"3","317":"1","318":"4","319":"4","320":"3","321":"3","322":"3","323":"3","324":"4","325":"3","326":"4","327":"4","328":"4","329":"3","330":"4","331":"3","332":"3","333":"3","334":"4","335":"2","336":"2","337":"4","338":"3","339":"3","340":"3","341":"3","342":"2","343":"-1","344":"4","345":"3","346":"5","347":"10","348":"2","349":"5","350":"1","351":"-8","352":"8","353":"5","354":"1","355":"1","356":"1","357":"-1","358":"2","359":"3","360":"3","361":"-1","362":"-1","363":"4","364":"2","365":"-1","366":"-1","367":"2","368":"2","369":"2","370":"-3","371":"-1","372":"-1","373":"-1","374":"-1","375":"-1","376":"-1","377":"-1","378":"-1","379":"-1","380":"-1","381":"-1","382":"85","383":"85","384":"85","385":"50","386":"85","387":"4","388":"4","389":"2","390":"-1","391":"2","392":"-1","393":"2","394":"2","395":"2","396":"2","397":"-1","398":"5","399":"-1","400":"-1","401":"-1","402":"-1","403":"2","404":"5","405":"3","406":"7","407":"3","408":"5","409":"7","410":"6","411":"3","412":"6","413":"2","414":"5","415":"5","416":"4","417":"4","418":"4","419":"4","420":"4","421":"4","422":"4","423":"4","424":"4","425":"4","426":"4","427":"4","428":"2","429":"4","430":"4","431":"3","432":"3","433":"2","434":"4","435":"3","436":"2","437":"3","438":"-4","439":"2","440":"5"},{"1":"300007","2":"4","3":"3","4":"4","5":"3","6":"2","7":"1","8":"3","9":"2","10":"2","11":"1","12":"2","13":"2","14":"2","15":"2","16":"-1","17":"-3","18":"2","19":"-1","20":"-3","21":"2","22":"2","23":"2","24":"1","25":"1","26":"2","27":"2","28":"-1","29":"-1","30":"-1","31":"-1","32":"1","33":"1","34":"1","35":"-1","36":"-1","37":"-1","38":"-1","39":"-1","40":"-1","41":"34","42":"1","43":"0","44":"0","45":"1","46":"-1","47":"-1","48":"3","49":"-1","50":"1","51":"-1","52":"4","53":"4","54":"1","55":"3","56":"3","57":"0","58":"3","59":"1","60":"2","61":"2","62":"-2","63":"-2","64":"-1","65":"-1","66":"-1","67":"-1","68":"1","69":"-1","70":"2","71":"-1","72":"-1","73":"-1","74":"1","75":"-1","76":"-1","77":"-1","78":"-1","79":"-1","80":"-1","81":"-1","82":"-1","83":"-1","84":"-1","85":"-1","86":"-1","87":"11","88":"11","89":"-1","90":"-1","91":"2","92":"-2","93":"-2","94":"-2","95":"20","96":"2","97":"-1","98":"-1","99":"1","100":"1","101":"1.0","102":"1","103":"1","104":"1","105":"0","106":"0","107":"0","108":"0","109":"65","110":"50","111":"50","112":"999","113":"999","114":"-1","115":"-1","116":"-1","117":"-1","118":"5","119":"35","120":"-1","121":"30","122":"80","123":"50","124":"85","125":"50","126":"50","127":"15","128":"2","129":"50","130":"70","131":"50","132":"30","133":"50","134":"0","135":"50","136":"50","137":"50","138":"50","139":"75","140":"85","141":"50","142":"50","143":"0","144":"-8","145":"-1","146":"-1","147":"-8","148":"4","149":"-2","150":"2","151":"-2","152":"3","153":"-2","154":"2","155":"-2","156":"3","157":"1","158":"1","159":"1","160":"1","161":"4","162":"2","163":"-1","164":"1","165":"2","166":"-1","167":"-1","168":"3","169":"2","170":"1","171":"7","172":"2","173":"7.50","174":"2","175":"3","176":"1","177":"3","178":"3","179":"1","180":"1","181":"1","182":"2","183":"2","184":"1","185":"1","186":"1","187":"2","188":"1","189":"2","190":"1","191":"2","192":"2","193":"-1","194":"99","195":"3","196":"4","197":"4","198":"-1","199":"-1","200":"4","201":"-6","202":"3","203":"3","204":"1","205":"1","206":"-8","207":"4","208":"1","209":"2","210":"1","211":"-8","212":"-8","213":"7","214":"-1","215":"1","216":"-1","217":"1","218":"1","219":"3","220":"1","221":"1","222":"1","223":"1","224":"-8","225":"2","226":"2","227":"2","228":"6","229":"3","230":"4","231":"2","232":"1","233":"2","234":"1","235":"3","236":"-1","237":"4","238":"1","239":"3","240":"3","241":"1","242":"1","243":"2","244":"1","245":"-8","246":"-1","247":"-8","248":"4","249":"1","250":"1","251":"1","252":"2","253":"-2","254":"2","255":"-2","256":"2","257":"-2","258":"2","259":"-2","260":"3","261":"1","262":"2","263":"1","264":"2","265":"5","266":"3","267":"-8","268":"1","269":"3","270":"5","271":"1","272":"1","273":"2","274":"5","275":"-1","276":"-1","277":"-1","278":"-1","279":"-1","280":"5","281":"3","282":"-1","283":"-1","284":"4","285":"3","286":"-1","287":"-1","288":"4","289":"2","290":"-1","291":"1","292":"7","293":"2","294":"4","295":"1","296":"2","297":"2","298":"2","299":"-1","300":"1","301":"5","302":"3","303":"3","304":"3","305":"3","306":"1","307":"1","308":"2","309":"5","310":"5","311":"-1","312":"5","313":"3","314":"5","315":"-1","316":"4","317":"-8","318":"-1","319":"-8","320":"1","321":"1","322":"2","323":"3","324":"2","325":"4","326":"3","327":"3","328":"-8","329":"2","330":"1","331":"3","332":"4","333":"3","334":"3","335":"3","336":"4","337":"2","338":"1","339":"1","340":"5","341":"4","342":"1","343":"7","344":"3","345":"5","346":"3","347":"2","348":"8","349":"0","350":"7","351":"1","352":"8","353":"9","354":"4","355":"1","356":"3","357":"-1","358":"2","359":"1","360":"2","361":"-1","362":"1","363":"7","364":"2","365":"-1","366":"-1","367":"2","368":"2","369":"2","370":"-3","371":"-1","372":"-1","373":"-1","374":"-1","375":"-1","376":"-1","377":"-1","378":"-1","379":"-1","380":"-1","381":"-1","382":"50","383":"50","384":"50","385":"25","386":"50","387":"-1","388":"-1","389":"-9","390":"-1","391":"-9","392":"-1","393":"-9","394":"-9","395":"-9","396":"-9","397":"-1","398":"-1","399":"-1","400":"-1","401":"-1","402":"-1","403":"1","404":"5","405":"5","406":"7","407":"2","408":"4","409":"6","410":"4","411":"3","412":"6","413":"6","414":"5","415":"-9","416":"-9","417":"-9","418":"-9","419":"-9","420":"-9","421":"-9","422":"-9","423":"-9","424":"-9","425":"-9","426":"-9","427":"-9","428":"-9","429":"-9","430":"-9","431":"-9","432":"-9","433":"-9","434":"-9","435":"-9","436":"-9","437":"-9","438":"-4","439":"-9","440":"-9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(anes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4271  440</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#recode v162136x as Econ_Mobility, v162034a as Vote_16 and v162132 as Class.</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>anes<span class="ot">&lt;-</span>anes<span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Econ_Mobility =</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>         v162136x <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Much Easier"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>         v162136x <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Moderately Easier"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>         v162136x <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Slightly Easier"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>         v162136x <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"The Same"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>         v162136x <span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Slightly Harder"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>         v162136x <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Moderately Harder"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>         v162136x <span class="sc">==</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"Much Harder"</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>         )) <span class="sc">%&gt;%</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Vote_16 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>         v162034a <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Clinton"</span>,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>         v162034a <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Trump"</span>,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>         v162034a <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Johnson"</span>,</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>         v162034a <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Stein"</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>         )) <span class="sc">%&gt;%</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Class =</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    v162132 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Lower Class"</span>,</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    v162132 <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Working Class"</span>,</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    v162132 <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Middle Class"</span>,</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    v162132 <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Upper Class"</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">party =</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>         v162030 <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Democratic"</span>,</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>         v162030 <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Republican"</span></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>         )) <span class="sc">%&gt;%</span></span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">business =</span> v162100) <span class="sc">%&gt;%</span></span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">liberals =</span> v162097) <span class="sc">%&gt;%</span></span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rich =</span> v162105)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-pseo-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-pseo-data">Loading pseo data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pseo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/RosemaryPang/Data-for-teaching/main/pseo_601.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 18783 Columns: 14
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): institution_name, deglevl, ciptitle, grad_cohort_label, state
+dbl (9): institution_id, deglevl_code, degcip_4dig, grad_cohort, year_postgr...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pseo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["institution_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["institution_name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["deglevl_code"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["deglevl"],"name":[4],"type":["chr"],"align":["left"]},{"label":["degcip_4dig"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["ciptitle"],"name":[6],"type":["chr"],"align":["left"]},{"label":["grad_cohort"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["grad_cohort_label"],"name":[8],"type":["chr"],"align":["left"]},{"label":["year_postgrad"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["p25_earnings"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["p50_earnings"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["p75_earnings"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["cellcount"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["state"],"name":[14],"type":["chr"],"align":["left"]}],"data":[{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2001","8":"2001-2005","9":"1","10":"17794","11":"25774","12":"32213","13":"46","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2001","8":"2001-2005","9":"5","10":"27763","11":"36398","12":"51928","13":"79","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2001","8":"2001-2005","9":"10","10":"31012","11":"43798","12":"64121","13":"85","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2006","8":"2006-2010","9":"1","10":"15288","11":"22094","12":"31857","13":"40","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2006","8":"2006-2010","9":"5","10":"22329","11":"31236","12":"44914","13":"68","14":"CO"},{"1":"1345","2":"ADAMS STATE COLLEGE","3":"3","4":"Associates","5":"2401","6":"LIBERAL ARTS AND SCIENCES, GENERAL STUDIES AND HUMANITIES","7":"2011","8":"2011-2015","9":"1","10":"14923","11":"20225","12":"26616","13":"133","14":"CO"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(pseo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18783    14</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="tutorial5-quiz-answers" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial5-quiz-answers">Tutorial#5 Quiz Answers</h2>
+<section id="question-1.-there-is-a-significant-difference-in-the-group-means-of-feeling-thermometer-measure-towards-rich-people-between-democrats-and-republican-respondents." class="level3">
+<h3 class="anchored" data-anchor-id="question-1.-there-is-a-significant-difference-in-the-group-means-of-feeling-thermometer-measure-towards-rich-people-between-democrats-and-republican-respondents.">Question 1. There is a significant difference in the group means of feeling thermometer measure towards “Rich People” between Democrats and Republican respondents.</h3>
+<p>Answer: this question is about the ANES data. Since it is testing the “statistical difference” between groups, we know that we will need to conduct a t test. You can refer to the slides of Week6 on how to do two-sample t-test step by step.</p>
+<p>First, unlike the tutorial, I want to do an F-test to test whether the two samples have the same variance. We need to do this test before t-test because we need to determine what types of t-test we need to do (Student’s t for two groups have the SAME population variance (homoskedasticity); Welch’s t for otherwise).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(rich<span class="sc">~</span>party, <span class="at">data =</span> anes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    F test to compare two variances
+
+data:  rich by party
+F = 0.58166, num df = 36, denom df = 20, p-value = 0.1537
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.2520175 1.2271383
+sample estimates:
+ratio of variances 
+         0.5816633 </code></pre>
+</div>
+</div>
+<p>The p-value of the F-test is 0.1537, meaning that we cannot reject the null hypothesis that the two groups have the same variance. So, we should proceed with student’s t-test as tutorial teaches us.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(rich<span class="sc">~</span>party, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">data=</span>anes) <span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  rich by party
+t = -0.54888, df = 56, p-value = 0.5853
+alternative hypothesis: true difference in means between group Democratic and group Republican is not equal to 0
+95 percent confidence interval:
+ -123.60921   70.44061
+sample estimates:
+mean in group Democratic mean in group Republican 
+                71.89189                 98.47619 </code></pre>
+</div>
+</div>
+<p>Agian, the p-value is greater than 0.05 and we cannot reject the null hypothesis: there is no significant difference in the group means between Democrat and Republican respondents on the rich people. Interestingly, this result has been repeatedly confirmed by numerous studies, including a few recent published ones.</p>
+</section>
+<section id="question-2.-relative-to-the-baseline-a-post-baccalaureate-certificate-is-associated-with-significantly-increased-median-earnings-p-0.05-among-survey-respondents-in-our-regression-model." class="level3">
+<h3 class="anchored" data-anchor-id="question-2.-relative-to-the-baseline-a-post-baccalaureate-certificate-is-associated-with-significantly-increased-median-earnings-p-0.05-among-survey-respondents-in-our-regression-model."><strong>Question 2. Relative to the baseline, a post-baccalaureate certificate is associated with significantly increased median earnings (p &lt; 0.05) among survey respondents in our regression model.</strong></h3>
+<p>Answer:</p>
+<p>(Noted that since the question only asks you to investigate a bivariate relationship, so you can actually use either ANOVA or regression to investigate the statistical significance).</p>
+<p>The difficult part of this study is to explain the regression results, not the method itself. Let’s run the codes first:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>model1<span class="ot">&lt;-</span><span class="fu">lm</span>(p50_earnings <span class="sc">~</span> deglevl, <span class="at">data =</span> pseo)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = p50_earnings ~ deglevl, data = pseo)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-55250 -13514  -3396   9121 271072 
+
+Coefficients:
+                                        Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)                              40849.2      804.9  50.751  &lt; 2e-16
+deglevlBaccalaureate                      7347.8      843.6   8.710  &lt; 2e-16
+deglevlCertificate, &lt;1 year              -3550.2     1186.7  -2.992  0.00278
+deglevlCertificate,1-2 years              -641.8     1345.4  -0.477  0.63334
+deglevlDoctoral - Professional Practice  62507.5     1856.5  33.670  &lt; 2e-16
+deglevlDoctoral - Research/Scholarship   38132.6     1187.9  32.101  &lt; 2e-16
+deglevlMasters                           20700.5      981.0  21.101  &lt; 2e-16
+deglevlPost-Bacc Certificate             14540.7     7216.1   2.015  0.04393
+                                           
+(Intercept)                             ***
+deglevlBaccalaureate                    ***
+deglevlCertificate, &lt;1 year             ** 
+deglevlCertificate,1-2 years               
+deglevlDoctoral - Professional Practice ***
+deglevlDoctoral - Research/Scholarship  ***
+deglevlMasters                          ***
+deglevlPost-Bacc Certificate            *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 20280 on 9964 degrees of freedom
+  (8811 observations deleted due to missingness)
+Multiple R-squared:  0.2307,    Adjusted R-squared:  0.2302 
+F-statistic: 426.9 on 7 and 9964 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Noted the regression results: it looks very different from other regression results of two continous variables. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>model2<span class="ot">&lt;-</span><span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mpg ~ wt, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.5432 -2.3647 -0.1252  1.4096  6.8727 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  37.2851     1.8776  19.858  &lt; 2e-16 ***
+wt           -5.3445     0.5591  -9.559 1.29e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.046 on 30 degrees of freedom
+Multiple R-squared:  0.7528,    Adjusted R-squared:  0.7446 
+F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10</code></pre>
+</div>
+</div>
+<p>Why?</p>
+<p>Because the independent variable of <code>deglevl</code> is categorical (an ordinal variable of degree level), not a continuous variable like <code>wt</code> (weight of a car). When interpreting the results of a categorical independent variable in an OLS linear regression, each coefficient represents the <strong>difference in the outcome variable</strong> between that category and the <strong>reference (baseline) category</strong>, which is automatically chosen by the software (usually the first alphabetically unless specified). The <strong>intercept</strong> gives the predicted value of the dependent variable for the reference group. Each coefficient tells us how much <strong>higher or lower</strong> the predicted value is for that group <strong>compared to the reference</strong>, holding all else constant.</p>
+<p>Therefore, the results of Model 1 show the effects of the specific IV value (degree level) in contrast to the baseline degree level. Recall Question#2: it is about comparing the “baseline” and the “post-baccalaureate certificate”. So what is the baseline degree level in this model? We will need to check the coding of <code>deglevl:</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(pseo<span class="sc">$</span>deglevl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#opps, it seems like deglevel is coded by characters, not in numerical values. So we will have to convert it to factor (integer) so that we can present the different "values" of it.</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>pseo<span class="sc">$</span>deglevl <span class="ot">&lt;-</span> <span class="fu">factor</span>(pseo<span class="sc">$</span>deglevl)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(pseo<span class="sc">$</span>deglevl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use levels() to present different values given the variable is labeled by characters.</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(pseo<span class="sc">$</span>deglevl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Associates"                       "Baccalaureate"                   
+ [3] "Certificate, &lt;1 year"             "Certificate,1-2 years"           
+ [5] "Certificate,2-4 years"            "Doctoral - Professional Practice"
+ [7] "Doctoral - Research/Scholarship"  "Masters"                         
+ [9] "Post-Bacc Certificate"            "Post-Masters Certificate"        </code></pre>
+</div>
+</div>
+<p>Ok. Now we can see in our regression results, which category is missing? The missing category is the baseline category.</p>
+<p>So here is how we explain the results (comparing post-baccalaureate certificate and associate degree):</p>
+<p>“Individuals whose highest degree is a <strong>Post-Baccalaureate Certificate</strong> earn, on average, <strong>$14,541 more (the coefficient)</strong> in median earnings than those in the <strong>baseline group</strong> (<strong>associate degree).</strong> The difference is statistically significant at the 0.05 level (p &lt; 0.05).”</p>
+<p>Additional note: we can easily change the baseline level by using the relevel() function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pseo<span class="sc">$</span>deglevl <span class="ot">&lt;-</span> <span class="fu">factor</span>(pseo<span class="sc">$</span>deglevl)  <span class="co"># Ensure it's a factor</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>pseo<span class="sc">$</span>deglevl <span class="ot">&lt;-</span> <span class="fu">relevel</span>(pseo<span class="sc">$</span>deglevl, <span class="at">ref =</span> <span class="st">"Baccalaureate"</span>) <span class="co">#set Baccalaureate as the new baseline</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>model1_bacc <span class="ot">&lt;-</span> <span class="fu">lm</span>(p50_earnings <span class="sc">~</span> deglevl, <span class="at">data =</span> pseo)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1_bacc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = p50_earnings ~ deglevl, data = pseo)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-55250 -13514  -3396   9121 271072 
+
+Coefficients:
+                                        Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)                              48196.9      252.7 190.693  &lt; 2e-16
+deglevlAssociates                        -7347.8      843.6  -8.710  &lt; 2e-16
+deglevlCertificate, &lt;1 year             -10898.0      907.9 -12.003  &lt; 2e-16
+deglevlCertificate,1-2 years             -7989.5     1107.3  -7.216 5.76e-13
+deglevlDoctoral - Professional Practice  55159.7     1691.9  32.603  &lt; 2e-16
+deglevlDoctoral - Research/Scholarship   30784.9      909.5  33.849  &lt; 2e-16
+deglevlMasters                           13352.8      615.1  21.707  &lt; 2e-16
+deglevlPost-Bacc Certificate              7192.9     7175.5   1.002    0.316
+                                           
+(Intercept)                             ***
+deglevlAssociates                       ***
+deglevlCertificate, &lt;1 year             ***
+deglevlCertificate,1-2 years            ***
+deglevlDoctoral - Professional Practice ***
+deglevlDoctoral - Research/Scholarship  ***
+deglevlMasters                          ***
+deglevlPost-Bacc Certificate               
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 20280 on 9964 degrees of freedom
+  (8811 observations deleted due to missingness)
+Multiple R-squared:  0.2307,    Adjusted R-squared:  0.2302 
+F-statistic: 426.9 on 7 and 9964 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>One more thing:</p>
+<p>You may also realize I assign names for models (model 1, model 1.1, model 2), instead of just running the R functions and calling the results. There are two reasons why I do so: (1) you can type the model name to call the model without retyping the model specification and methods you apply to the model, this saves a lot of time especially if your model contains multiple variables; and (2) when we applying other functions to plot graphs (such as dot-whisker plot) and present results in a table (such as presenting multiple models in one table), calling models by their assigned names makes your coding easier and more tidy.</p>
+</section>
+<section id="question-3.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-increases-by-what-amount-each-year-after-graduation-on-average" class="level3">
+<h3 class="anchored" data-anchor-id="question-3.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-increases-by-what-amount-each-year-after-graduation-on-average">Question 3. <strong>According to our bivariate regression model, median earnings (p50_earnings) for graduates increases by what amount each year after graduation, on average?</strong></h3>
+<p>Answer: this is similar to the last question, but we are runnign a bivariate regression model with two continuous variables (earning and years after graduation).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>model3<span class="ot">&lt;-</span><span class="fu">lm</span>(p50_earnings <span class="sc">~</span> year_postgrad, <span class="at">data =</span> pseo)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = p50_earnings ~ year_postgrad, data = pseo)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-44670 -13861  -5236   8851 250178 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   39880.13     319.76  124.72   &lt;2e-16 ***
+year_postgrad  2921.09      62.87   46.46   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 20960 on 9970 degrees of freedom
+  (8811 observations deleted due to missingness)
+Multiple R-squared:  0.178, Adjusted R-squared:  0.1779 
+F-statistic:  2159 on 1 and 9970 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>The answer is 2,981.09.</p>
+</section>
+<section id="question-4.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-in-the-year-after-they-graduate-year_postgrad-0-is-on-average" class="level3">
+<h3 class="anchored" data-anchor-id="question-4.-according-to-our-bivariate-regression-model-median-earnings-p50_earnings-for-graduates-in-the-year-after-they-graduate-year_postgrad-0-is-on-average">Question 4. According to our bivariate regression model, median earnings (p50_earnings) for graduates in the year after they graduate (year_postgrad == 0) is on average:</h3>
+<p>Answer: this is a simple one. So the above regression formula can be written in the following way: <span class="math inline">\(earnings = \alpha + \beta*years\)</span>, or <span class="math inline">\(earnings = intercept + slope * years\)</span>, thus <span class="math inline">\(earnings = 39880.13 + 2921.09*years\)</span>. If year_postgrad = 0, the predicted earning is $39,880.13.</p>
+</section>
+<section id="question-5.-say-we-have-two-variables-x-and-y.-what-function-would-calculate-the-correlation-between-those-two-variables" class="level3">
+<h3 class="anchored" data-anchor-id="question-5.-say-we-have-two-variables-x-and-y.-what-function-would-calculate-the-correlation-between-those-two-variables">Question 5. Say we have two variables, X and Y. What function would calculate the correlation between those two variables?</h3>
+<p>Just simple as <code>cor(X, Y)</code>.</p>
+</section>
+</section>
+<section id="additional-introduction-to-present-regression-results." class="level2">
+<h2 class="anchored" data-anchor-id="additional-introduction-to-present-regression-results.">Additional Introduction to Present Regression Results.</h2>
+<section id="creating-dot-whisker-plots-to-visually-present-regression-results." class="level3">
+<h3 class="anchored" data-anchor-id="creating-dot-whisker-plots-to-visually-present-regression-results.">1. Creating dot-whisker plots to visually present regression results.</h3>
+<p>You may remember we introduced a few graphs to visualize the results in week#10. Among them, the dot-whisker plot with the reference level (the dasheded line of 0) and the bands of the confidence interval for each variable is a great way to present regression results. In R, we can easily apply a function in the <code>dotwhisker</code> pacakge (an extension based on ggplot2) to do so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dotwhisker)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Tidy the model</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>m1_tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(model1) <span class="co">#The tidy() function converts a model object (like lm, glm, etc.) into a clean, easy-to-read data frame — with one row per model term (e.g., intercept, predictors).</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Relabel the variable so it looks clear. This step is optional, but strongly suggested, especially for continous/numerical values.</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>m1_tidy <span class="ot">&lt;-</span> m1_tidy <span class="sc">%&gt;%</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">recode</span>(term,</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"(Intercept)"</span> <span class="ot">=</span> <span class="st">"Baseline: Associate Degree"</span>,</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"deglevlBaccalaureate"</span> <span class="ot">=</span> <span class="st">"Bachelor's Degree"</span>,</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"deglevlMasters"</span> <span class="ot">=</span> <span class="st">"Master's Degree"</span>,</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"deglevlDoctoral - Professional Practice"</span> <span class="ot">=</span> <span class="st">"Doctoral (Professional)"</span>,</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"deglevlDoctoral - Research/Scholarship"</span> <span class="ot">=</span> <span class="st">"Doctoral (Research)"</span>,</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"deglevlCertificate, &lt;1 year"</span> <span class="ot">=</span> <span class="st">"Certificate (&lt;1 year)"</span>,</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"deglevlCertificate,1-2 years"</span> <span class="ot">=</span> <span class="st">"Certificate (1–2 years)"</span>,</span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"deglevlPost-Bacc Certificate"</span> <span class="ot">=</span> <span class="st">"Post-Bacc Certificate"</span></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Finally, plot the graph</span></span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a><span class="fu">dwplot</span>(m1_tidy, <span class="at">by_2sd =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Model 1: Reference Group = Associate Degree"</span>,</span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Coefficient Estimate (in dollars)"</span>,</span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span>,</span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Each point shows the estimated difference in median earnings"</span></span>
+<span id="cb44-33"><a href="#cb44-33" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb44-34"><a href="#cb44-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab4_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can also plot two models on the same graph:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tidy both models</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>model1_tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(model1) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"Reference: Associate"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>model2_tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(model1_bacc) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">model =</span> <span class="st">"Reference: Baccalaureate"</span>)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine models</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>combined_models <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(model1_tidy, model2_tidy)</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot dot-whisker plot</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dwplot</span>(combined_models, <span class="at">by_2sd =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Effect of Degree Level on Median Earnings"</span>,</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Coefficient Estimate (in dollars)"</span>,</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span>,</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Based on OLS regressions with two different reference groups"</span></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"gray"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab4_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can check out the <a href="https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html">user mannual here</a> to see how to cutomize the colors, labels, position of legends, and adding a reference line.</p>
+</section>
+<section id="visualizing-the-effect-of-degree-level-on-predicted-earnings-marginal-effects" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-the-effect-of-degree-level-on-predicted-earnings-marginal-effects">2. Visualizing the effect of degree level on predicted earnings (Marginal effects)</h3>
+<p>A <strong>marginal effect</strong> tells us how the <strong>expected value of the dependent variable</strong> (e.g., earnings) <strong>changes</strong> when we <strong>change one independent variable</strong>, while <strong>holding all others constant</strong>.</p>
+<ul>
+<li><p>For <strong>categorical variables</strong> (like degree level), it shows the <strong>expected difference in outcomes</strong> between each category and a <strong>baseline.</strong></p></li>
+<li><p>For <strong>continuous variables</strong>, it represents the <strong>slope</strong> — the expected change in the outcome for each unit increase in the predictor.</p></li>
+</ul>
+<p>In general, presenting a marginal effect plot allows us to see the differences more intuitively. This is especially helpful when we try to interpret the results of models with binary or catetgorical dependent variables.</p>
+<p>Let’s take a look at the pseo example of earning and years of graduation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Step#1: run the linear regression (we already ran it above)</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model3 &lt;- lm(p50_earnings ~ year_postgrad, data = pseo)</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co">#step#2: create a prediction datase contains a sequence of values for year_postgrad (e.g., 0, 1, 2, ..., 10) </span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year_postgrad =</span> <span class="fu">seq</span>(<span class="fu">min</span>(pseo<span class="sc">$</span>year_postgrad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>                                          <span class="fu">max</span>(pseo<span class="sc">$</span>year_postgrad, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">by =</span> <span class="dv">1</span>)) <span class="co">#we specify the interval of year is 1.</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Step#3: Use predict() to Get Fitted Values and Confidence Intervals </span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(model3, <span class="at">newdata =</span> newdata, <span class="at">interval =</span> <span class="st">"confidence"</span>)</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>predicted_df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(newdata, <span class="fu">as.data.frame</span>(predicted))</span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Step#4: Plot it with ggplot2 using scatterplot geom_point():</span></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(predicted_df, <span class="fu">aes</span>(<span class="at">x =</span> year_postgrad, <span class="at">y =</span> fit)) <span class="sc">+</span></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">#fit = the predicted average earnings (based on your model)</span></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>)  <span class="sc">+</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lwr, <span class="at">ymax =</span> upr), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)  <span class="sc">+</span></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">#lwr and upr = lower and upper bounds of the 95% confidence interval</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Predicted Median Earnings by Years Post-Graduation"</span>,</span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Years After Graduation"</span>,</span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Predicted Median Earnings (USD)"</span></span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab4_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Some of you may ask why don’t use <code>geom_point()</code> ? The reason is that the years of graduation is a continous variable with fixed interval (each gap is a full year, not fractional like earnings (1.7, 300.2); or we call this a discrete variable). If we plot it using geom_point() plot each <strong>predicted value as a dot</strong> (instead of a connected line). And it emphasizes the <strong>individual predictions</strong> more than the trend.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(predicted_df, <span class="fu">aes</span>(<span class="at">x =</span> year_postgrad, <span class="at">y =</span> fit)) <span class="sc">+</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lwr, <span class="at">ymax =</span> upr), <span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Predicted Median Earnings by Years Post-Graduation"</span>,</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Years After Graduation"</span>,</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Predicted Median Earnings (USD)"</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Lab4_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="explaining-logistic-regression-week-9-and-week-10" class="level3">
+<h3 class="anchored" data-anchor-id="explaining-logistic-regression-week-9-and-week-10">3. Explaining logistic regression (Week 9 and Week 10)</h3>
+<p>Let’s take a look at an example of the dataset which we didn’t cover briefly in the class.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlbench)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"PimaIndiansDiabetes"</span>, <span class="at">package =</span> <span class="st">"mlbench"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>pima<span class="ot">&lt;-</span>PimaIndiansDiabetes <span class="co">#use the abbreiviation</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pima)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["pregnant"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["glucose"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["pressure"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["triceps"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["insulin"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["mass"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["pedigree"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["age"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["diabetes"],"name":[9],"type":["fct"],"align":["left"]}],"data":[{"1":"6","2":"148","3":"72","4":"35","5":"0","6":"33.6","7":"0.627","8":"50","9":"pos","_rn_":"1"},{"1":"1","2":"85","3":"66","4":"29","5":"0","6":"26.6","7":"0.351","8":"31","9":"neg","_rn_":"2"},{"1":"8","2":"183","3":"64","4":"0","5":"0","6":"23.3","7":"0.672","8":"32","9":"pos","_rn_":"3"},{"1":"1","2":"89","3":"66","4":"23","5":"94","6":"28.1","7":"0.167","8":"21","9":"neg","_rn_":"4"},{"1":"0","2":"137","3":"40","4":"35","5":"168","6":"43.1","7":"2.288","8":"33","9":"pos","_rn_":"5"},{"1":"5","2":"116","3":"74","4":"0","5":"0","6":"25.6","7":"0.201","8":"30","9":"neg","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pima)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    pregnant         glucose         pressure         triceps     
+ Min.   : 0.000   Min.   :  0.0   Min.   :  0.00   Min.   : 0.00  
+ 1st Qu.: 1.000   1st Qu.: 99.0   1st Qu.: 62.00   1st Qu.: 0.00  
+ Median : 3.000   Median :117.0   Median : 72.00   Median :23.00  
+ Mean   : 3.845   Mean   :120.9   Mean   : 69.11   Mean   :20.54  
+ 3rd Qu.: 6.000   3rd Qu.:140.2   3rd Qu.: 80.00   3rd Qu.:32.00  
+ Max.   :17.000   Max.   :199.0   Max.   :122.00   Max.   :99.00  
+    insulin           mass          pedigree           age        diabetes 
+ Min.   :  0.0   Min.   : 0.00   Min.   :0.0780   Min.   :21.00   neg:500  
+ 1st Qu.:  0.0   1st Qu.:27.30   1st Qu.:0.2437   1st Qu.:24.00   pos:268  
+ Median : 30.5   Median :32.00   Median :0.3725   Median :29.00            
+ Mean   : 79.8   Mean   :31.99   Mean   :0.4719   Mean   :33.24            
+ 3rd Qu.:127.2   3rd Qu.:36.60   3rd Qu.:0.6262   3rd Qu.:41.00            
+ Max.   :846.0   Max.   :67.10   Max.   :2.4200   Max.   :81.00            </code></pre>
+</div>
+</div>
+<p>The data set&nbsp;<code>PimaIndiansDiabetes2</code>&nbsp;contains a corrected version of the original data set. While the UCI repository index claims that there are no missing values, closer inspection of the data shows several physical impossibilities, e.g., blood pressure or body mass index of 0. In&nbsp;<code>PimaIndiansDiabetes2</code>, all zero values of&nbsp;<code>glucose</code>,&nbsp;<code>pressure</code>,&nbsp;<code>triceps</code>,&nbsp;<code>insulin</code>&nbsp;and&nbsp;<code>mass</code>&nbsp;have been set to&nbsp;<code>NA</code>, see also Wahba et al (1995) and Ripley (1996).</p>
+<p>Suppose we are studying how glucose level and body mass affect <strong>the probability of getting diabete</strong>, we can model the regression below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>model_diabete<span class="ot">&lt;-</span><span class="fu">glm</span>(diabetes <span class="sc">~</span> glucose <span class="sc">+</span> mass, <span class="at">data =</span> pima,</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_diabete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = diabetes ~ glucose + mass, family = binomial(link = "logit"), 
+    data = pima)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -7.515639   0.605236 -12.418  &lt; 2e-16 ***
+glucose      0.035169   0.003289  10.694  &lt; 2e-16 ***
+mass         0.076334   0.013338   5.723 1.05e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 993.48  on 767  degrees of freedom
+Residual deviance: 771.40  on 765  degrees of freedom
+AIC: 777.4
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p><strong>Note: since we are doing log-odd transformation for the dependent variable to fit a lienar regression model, we cannot use the same way to explain the coefficients of the logistic regression.</strong></p>
+<p>In other words, what the result presented here is corresponding to this model:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1731553282.png" class="img-fluid figure-img"></p>
+<figcaption>And we want to get <span class="math inline">\(p\)</span>.</figcaption>
+</figure>
+</div>
+<p><img src="images/clipboard-1848559080.png" class="img-fluid"></p>
+<p>Suppose someone has glucose = 120 and mass = 35. To calculate the probability of getting diabete, we can do manually calculation by</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1944980661.png" class="img-fluid figure-img"></p>
+<figcaption><img src="images/clipboard-1158562396.png" class="img-fluid figure-img"></figcaption>
+</figure>
+</div>
+<p>So how do we explain this? it means that: “For an individual with a <strong>glucose level of 120</strong> and <strong>BMI of 35</strong>, the <strong>model predicts</strong> that they have a <strong>34.1% chance of having diabetes</strong>.”</p>
+<p>We can also do this in R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>newdata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">glucose =</span> <span class="dv">120</span>, <span class="at">mass =</span> <span class="dv">35</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model_diabete, <span class="at">newdata =</span> newdata, <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        1 
+0.3489477 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>newdata<span class="sc">$</span>predicted_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(model_diabete, <span class="at">newdata =</span> newdata, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(newdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  glucose mass predicted_prob
+1     120   35      0.3489477</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Erico Yu. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,27 @@
+---
+title: "Dong Yu (Erico)"
+about:
+  id: me
+  template: broadside
+  image: img/profile_Fall22.jpg
+---
+
+::: {#me}
+Welcome to visit my website. I am a lecturer in [Data Analytics and Computational Social Science Program(DACSS)](https://www.umass.edu/social-sciences/academics/dacss) at the University of Massachusetts Amherst. Trained as a political scientist, my research interests include court and judicial politics, comparative public opinion, and political participation with a specific focus in China and the US. You can find more information in my [CV](files/CV_Yu.pdf) and [Google Scholar](https://scholar.google.com/citations?user=9ODvxwQAAAAJ&hl=en&oi=ao)) for my recent research and teaching.
+
+## Education
+
+-   M.A. and Ph.D. in Political Science, the University of Iowa
+
+-   M.A. International Affairs, the University of Pittsburgh
+
+-   B.A. Law, Sun Yat-sen University
+
+## Experience
+
+Before joining DACSS, I taught in the Department of Political Science at Grinnell College. I also served as a research intern at the Institute for Policy Studies in Washington, D.C., and The Carter Center in Atlanta. Additionally, I worked as an assistant in a law clinic at Sun Yat-sen University.
+
+Beyond academia, I contributed to [a Podcast on American Politics and Elections](https://podcasts.apple.com/us/podcast/%E9%80%89-%E7%BE%8E/id1030831931) and wrote for various media outlets and newspapers, including [The New York Times](https://cn.nytimes.com/world/20161107/chinese-voters-election-trump-clinton/), covering US presidential and midterm elections.
+:::
+
+This website features my latest teaching materials in DACSS. I welcome comments or suggestions. If you have any questions, feel free to [email me](#0){style="font-size: 11pt;"}. Looking for my old website? You can still access it [here.](http://dongericoyu.com/)

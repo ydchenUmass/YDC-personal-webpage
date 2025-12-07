@@ -1,0 +1,43 @@
+---
+title: "Teaching"
+---
+
+Below are syllabi and teaching materials for the recent courses I teach at UMass Amherst:
+
+## Legal-393E: Empirical Legal Studies
+
+From academic research on the impact of landmark court cases to the judge reading a brief loaded with social policy arguments, the study of law frequently involves empirical data. In this course, students will both learn how to digest empirical legal research and be equipped with the skills to conduct their own empirical research. Using readings and accompanying data from a variety of areas of legal studies research, the course covers topics including constructing empirical legal research questions, collecting and generating data appropriate for testing those questions, visualizing data, and conducting descriptive and inferential analyses. Students will leave the course with a firm understanding of the centrality of data in twenty-first-century law.
+
+-   <a href="files/Legal_393E_SP25.pdf" target="_blank">Open Syllabus</a>
+-   Quiz Solutions and Additional Teaching Notes:
+    1.  [Tutorial 1: Quiz#1 & R Basics](Legal393E_Notes/Lab1.html)
+    2.  [Tutorial 2: Quiz#2, Reading Data & R Project](Legal393E_Notes/Lab2.html)
+    3.  [Tutorials 3 and 4: Quiz#3 and 4; Summary Statistics & User-written Functions in R.](Legal393E_Notes/Lab3.html)
+    4.  [Tutorial 5 and Quiz#5: t-test, Regression; Visualization & Interpretation](Legal393E_Notes/Lab4.html)
+-   Group Project Labs:
+
+1.  [Group Project Lab(1): Data Cleaning and Descriptive Statistics](Legal393E_Notes/legal393_data_cleaning_guide_v2.html)
+
+## DACSS-601: Data Science Fundamentals
+
+This course provides an essential introduction to R programming, designed for students with no prior programming or statistical experience. As a foundational tool in the DACSS program, R is widely used across core courses and technical electives. The course covers fundamental skills in data management, wrangling, and visualization, preparing students for advanced quantitative analysis. Beyond technical proficiency, it emphasizes data-driven storytelling, fostering technological and data literacy to enhance analytical thinking, argumentation, and communication. Students will learn to interpret data effectively and create compelling tables and figures to support their arguments.
+
+-   <a href="files/DACSS 601 Fall23.pdf" target="_blank">Open Syllabus</a>
+
+-   [Google Colab Tutorials for R Basics and Data Analysis (Example)](https://colab.research.google.com/drive/14ejaI6nZ_Ab7E6YXB36ZJsfGTpx4eidy?usp=sharing)
+
+## DACSS-603: Introduction to Quantitative Analysis
+
+This course provides a rigorous introduction to quantitative empirical research methods, designed for doctoral students in the social sciences and master’s students in data analytics or computational social science. It covers probability, hypothesis testing, and regression analysis, with a strong focus on simple and multiple linear regression, as well as logistic regression and generalized linear models. The course also critically examines conventional statistical practices, addressing issues such as the replication crisis, p-values, and limitations of null hypothesis testing. Students will engage in simulations and data analysis using R, developing both technical proficiency and a deeper understanding of statistical methodologies.
+
+-   <a href="files/DACSS 603 SP24.pdf" target="_blank">Open Syllabus</a>
+
+## DACSS-604: Advanced Data-driven Storytelling
+
+This hands-on course provides students with the knowledge and skills needed to generate strong, data-driven communication. We will emphasize graphic and visualization theory and practices, clear interpretation of data patterns, quantitative analyses, and statistical inferences, using precise and accessible language appropriate for one’s audience.
+
+-   <a href="files/DACSS 603 SP24.pdf" target="_blank">Open Syllabus</a>
+-   <a href="files/multiple_pages.html" target="_blank">Dashboard for Class Demo</a>
+-   [Live Map and Animated GIF for Class Demo](Project1/starbucks.html)
+
+## [Other Teaching Materials: Politics of China](http://dongericoyu.com/interactive-new.html)

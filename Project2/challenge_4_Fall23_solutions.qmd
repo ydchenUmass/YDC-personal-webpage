@@ -1,0 +1,499 @@
+---
+title: "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs"
+author: "Erico Yu"
+description: "Solutions"
+date: "10/18/2023"
+format:
+  html:
+    df-print: paged
+    css: "styles.css"
+    embed-resources: true
+    self-contained-math: true
+categories:
+  - weekly_challenges
+  - challenge_4
+---
+
+**Make sure you change the author's name in the above YAML header.**
+
+## Setup
+
+If you have not installed the following packages, please install them before loading them.
+
+```{r}
+#| label: setup
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(readxl)
+library(haven) #for loading other datafiles (SAS, STATA, SPSS, etc.)
+library(stringr) # if you have not installed this package, please install it.
+library(ggplot2) # if you have not installed this package, please install it.
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+## Challenge Overview
+
+In this challenge, we will practice with the data we worked on in the previous challenges and the data you choose to do some simple data visualizations using the `ggplot2` package.
+
+There will be coding components and writing components. Please read the instructions for each part and complete your challenges.
+
+## Datasets
+
+-   Part 1 the ESS_Polity Data (created in Challenge#3) ⭐⭐
+-   Part 2: the Australia Data⭐⭐
+-   Part 3: see [Part 3. Practice plotting with a dataset of your choice (25% of the total grade)](#part-3.-practice-plotting-with-a-dataset-of-your-choice-25-of-the-total-grade). For online platforms of free data, see [Appendix: sources for data to be used in Part 3].
+
+Find the `_data` folder, then read the datasets using the correct R command.
+
+## Part 1. Univariate and Multivariate Graphs (45% of the total grade)
+
+We have been working with these two data in the previous three challenges. Suppose we have a research project that studies European citizens' social behaviors and public opinions, and we are interested in how the countries that respondents live in influence their behavior and opinion. In this challenge, let's work with the combined dataset *ESS_Polity* and create some visualizations.
+
+1.  **Read the combined data you created last time. (2.5%)**
+
+```{r}
+#read the data: 
+ESS_Polity <- read_csv("ESS_Polity.csv")
+```
+
+**Suppose we are interested in the central tendencies and distributions of the following variables. At the individual level:** *age, male, edu, income_10,* and *vote*. **At the country level**: *democ*.
+
+\(1\) Recode the "vote" column: if the value is 1, recode it as 1; if the value is 2, recode it as 0; if the value is 3, recode it as NA. **Make sure to include a sanity check for the recoded data. (2.5%)**
+
+```{r}
+#recoding the vote column: 1.5%
+ESS_Polity<-ESS_Polity|>
+  mutate(vote = case_when(
+    vote == 1 ~ 1,
+    vote == 2 ~ 0,
+    vote == 3 ~ NA,
+    TRUE ~ vote))
+
+#Sanity check for if vote is correctly coded: 1%
+unique(ESS_Polity$vote)
+
+
+```
+
+\(2\) For each of the five variables (*age, edu, income_10,* *vote,* and *democ)*, please choose an appropriate type of univariate graph to plot the central tendencies and distribution of the variables. Explain why you choose this type of graph to present a particular variable (for example: "For example, I use a histogram to plot *age* because it is a continuous numeric variable"). **(25%)**
+
+**(Note: You should use at least two types of univariate graphs covered in the lecture.)**
+
+*Answer:* First, I do summary statistics for the five variables to check their range, number of values, and measurement. This step would help me to determine which type of graph I should choose. **This is optional, but strongly recommended when you are working on any data projects.**
+
+```{r}
+
+
+##I am using a user-defined function created in Challenge#3, but you can use other descriptive statistics functions along with the baseR (such as summary()) or other packages.
+
+sum_stat <- function(x){
+  stat <- tibble(
+    range=range(x, na.rm = T),
+    mean=mean(x, na.rm = T),
+    sd=sd(x,na.rm=T),
+    na = sum(is.na(x)),
+    unique = length(unique(x)),
+    class = typeof(x)
+  )
+  return(stat)
+}
+
+sum_stat(ESS_Polity$age) #has 88 unique values and it is numeric (double): continous variable. Appropriate univariate graph type: boxplot, violin chart, density, histogram
+
+sum_stat(ESS_Polity$edu) #has 4 unique values and it is numeric (double): continous or ordinal categorial variable (depends on if it is originally coded as the level of education or the years of education). Appropriate univariate graph type: histogram or barplot 
+
+sum_stat(ESS_Polity$income_10) #has 10 unique values and it is numeric (double):orordinal categorial variable (10 income groups, so can be treated as a contionus variable). Appropriate univariate graph type: boxplot, violin chart, histogram
+
+sum_stat(ESS_Polity$vote)#has 2 unique values and it is numeric (double): binary variable (only 1 and 0). Appropriate univariate graph type: scatterplot or barplot
+
+sum_stat(ESS_Polity$democ)#has 6 unique values and it is numeric (double): ordinal categorial variable (originally a contionus variable, but since there are less than 10 values, we can treat it as an ordinal categorical variable when plotting): bar plot 
+
+
+
+
+
+```
+
+If you only plotted the figure without explaining why you chose the specific type of figure, and if you chose an inappropriate type of figure for a variable: - 4%.
+
+If you give explanations on why you chose the specific type of figure, and it is not an inappropriate type of figure for that variable: - 2%.
+
+-   Age:
+
+```{r}
+#For age, I choose a box plot. Noted that when we plot a boxplot, NA are automatically removed.
+
+age_boxplot<-ggplot(ESS_Polity) +
+  geom_boxplot(aes(x = age), fill="slateblue", alpha=0.2)+
+    labs(title = "Distribution of Respondents' Age",
+       x = "Age",
+       caption = "source: combined dataset of ESS (round 2010) and Polity V")
+  
+
+age_boxplot
+
+
+```
+
+Or I can do a histogram. Note that it is important to select an appropriate bin size. In this example, a bin size between 4 and 8 should show a similar distirbution pattern. If you use a different bin size: - 1%
+
+```{r}
+#Noted that when we plot a histogram, NA are automatically removed.
+age_hist<-ggplot(ESS_Polity) +
+  geom_histogram(binwidth=4, aes(x = age), fill="slateblue", alpha=0.2)+
+    labs(title = "Distribution of Respondents' Age",
+       x = "Age",
+       caption = "source: combined dataset of ESS (round 2010) and Polity V")
+  
+
+age_hist
+
+
+```
+
+-   Education:
+
+```{r}
+#For edu, I can also choose a bar plot:
+edu_bar <- ggplot(ESS_Polity, aes(x=edu)) + 
+  geom_bar()+
+  labs(title = "Distribution of Respondents' Levels of Education",
+       x = "Levels of Education",
+       caption = "source: combined dataset of ESS (round 2010) and Polity V")
+edu_bar
+```
+
+**Noted that when we plot a bar plot, NAs are not automatically removed (the warning message showing 150).** NA has no numerical meaning (and should not be ranked as the highest in visualization). Generally for plots showing data distribution, we should remove it from the graphs (if not removing NA in a barplot orf showing data distribution, we can remove it from the graphs (if not removing NA in a barplot or : -1%).
+
+```{r}
+edu_bar <- ggplot(data = subset(ESS_Polity, !is.na(edu)), aes(x = as.factor(edu))) + 
+  geom_bar()+
+  labs(title = "Distribution of Respondents' Levels of Education",
+       x = "Levels of Education (na removed)",
+       caption = "source: combined dataset of ESS (round 2010) and Polity V")
+  
+edu_bar
+
+```
+
+As we can see, the shape of the bars is similar to the graph without removing NA, since there are few NAs in education.
+
+-   Income:
+
+```{r}
+#For income groups, I can also choose a bar plot:
+
+income_bar <- ggplot(ESS_Polity, aes(x=as.factor(income_10))) + #I use as.factor to force R to recognize income_10 as an ordinal category, so that the x-axis tick mark labels can automatically represent all categories.
+  geom_bar(fill="#69b3a2", color="#e9ecef", alpha=0.8)+
+  labs(title = "Distribution of Respondents' Income Levels",
+       x = "Income Levels (10 ordinal groups)",
+       caption = "source: combined dataset of ESS (round 2010) and Polity V")
+
+income_bar
+
+ 
+```
+
+-   In this graph, we can see that a huge proportion of the income data is NAs. They actually affect the presentation by making the shape of the distribution not so obvious. Let's remove them.
+
+```{r}
+income_bar <- ggplot(subset(ESS_Polity, !is.na(income_10)), aes(x=as.factor(income_10))) + 
+  geom_bar(fill="#69b3a2", color="#e9ecef", alpha=0.8)+
+  labs(title = "Distribution of Respondents' Income Levels",
+       x = "Income Levels (10 ordinal groups, na removed)",
+       caption = "source: combined dataset of ESS (round 2010) and Polity V")
+
+income_bar
+```
+
+-   Vote:
+
+```{r}
+#For vote, I choose a bar plot.
+
+vote_bar <- ggplot(subset(ESS_Polity, !is.na(vote)), aes(x=as.factor(vote))) + 
+  geom_bar(fill="blue", color="grey", alpha=0.8)+
+  labs(title = "Distribution of Respondents' Voter Turnout",
+       x = "Vote Choice (binary, na removed)",
+       caption = "source: combined dataset of ESS (round 2010) and Polity V")+
+  scale_x_discrete(labels=c("0" = "Didn't Vote", "1" = "Voted"))
+
+vote_bar
+```
+
+-   Democracy:
+
+```{r}
+#For democ, I choose a bar plot.
+
+democracy_bar <- ESS_Polity|>
+  subset(!is.na(democ))|>
+  ggplot(aes(x=as.factor(democ))) + 
+  geom_bar(fill="red", color="grey", alpha=0.8)+
+  labs(title = "Distribution of the Democracy Score of Countries by Respondents",
+       x = "Democracy Score (na removed)",
+       y = "Count of Respondents", 
+       caption = "source: combined dataset of ESS (round 2010) and Polity V")
+
+democracy_bar 
+
+```
+
+2.  **We want to test two hypotheses on the relationships of two pairs of variables**. **Please use the appropriate type of graphs we learned to visualize these two pairs of variables. Briefly describe the graph you plot, and answer: Does the graph we create from the data support the hypothesis?**
+
+<!-- -->
+
+1.  \(1\) Hypothesis#1: The more years of education (edu) a person completed, the higher income (income_10) they earn. **(7.5%)**
+
+    *Answer:* edu is a variable with only four values. We can treat it as an ordinal categorical variable. Income has 10 values, and we can treat it as either a continuous or an ordinal categorical variable. I**n this case, we have several options: a stacked bar or a groupped bar.**
+
+    ```{r}
+    #don't forget to remove NAs (if not, -2%)
+    edu_income<-ESS_Polity|>
+      subset(!is.na(income_10))|> #remove na in income
+      subset(!is.na(edu))|> #remove na in edu
+      ggplot(aes(x = as.factor(income_10), fill = as.factor(edu))) + 
+        geom_bar()
+
+    edu_income
+    ```
+
+    We can clearly see as in the higher income group, the proportion of highest education level (4) increases. This is more obvious if we do a stacked percentage bar plot.
+
+    ```{r}
+    edu_income<-ESS_Polity|>
+      subset(!is.na(income_10))|> #remove na in income
+      subset(!is.na(edu))|> #remove na in edu
+      ggplot(aes(x = as.factor(income_10), fill = as.factor(edu))) + 
+        geom_bar(position="fill")
+
+    edu_income
+    ```
+
+    We can also do a boxplot of income grouped (since income has 10 values, we can treat it as a continous variable) by education level:
+
+    ```{r}
+    edu_income<-ESS_Polity|>
+      subset(!is.na(income_10))|> #remove na in income
+      subset(!is.na(edu))|> 
+      ggplot(aes (x = as.factor(edu), y = income_10)) +
+      geom_boxplot(fill="slateblue", alpha=0.2) 
+
+    edu_income
+    ```
+
+    **However, scatter plots will look very strange and it is hard to estimate the pattern of variables with less than 10 values.**
+
+    ```{r}
+    edu_income<-ESS_Polity|>
+      subset(!is.na(income_10))|> #remove na in income
+      subset(!is.na(edu))|> 
+      ggplot(aes(x = as.factor(income_10), y = as.factor(edu))) + 
+      geom_point()+
+      geom_smooth()
+
+    edu_income
+
+    ```
+
+    **So in conclusion, this hypothesis is supportive.**
+
+    \(2\) Hypothesis#2: There is a gender disparity (male) in voting behavior (vote). (Either men are more likely to vote, or women are more likely to vote). **(7.5%)**
+
+    *Answer:* both gender and vote are binary variables. So our option is either bar plots or .
+
+    ```{r}
+    male_vote<-ESS_Polity|>
+      subset(!is.na(male))|> #remove na in income
+      subset(!is.na(vote))|> 
+      ggplot(aes(x = as.factor(male), fill = as.factor(vote))) + 
+        geom_bar(position="fill")
+
+    male_vote
+    ```
+
+Hmm, the average turnouts of male voters and female voters are very similar. It does seem that gender determines people's voting decisions. In fact, if you use group_by and summarise(), you will find that one is 0.767 (female), and another is 0.759 (male). **In conclusion, the second hypothesis does seem to be valid.**
+
+```{r}
+ESS_Polity|>
+  group_by(male)|>
+  subset(!is.na(male))|> #remove na in income
+  subset(!is.na(vote))|>
+  summarise(mean(vote))
+```
+
+## Part 2. Comparing between Partial and Whole, and among Groups (30% of the total grade)
+
+In this part, we will use the clean version of the Australian public opinion poll on Same-Sex Marriage to generate graphs and plots. **You may need to do the data transformation or mutation needed to help graphing.**
+
+1.  Read in data. **(2.5%)**
+
+    ```{r}
+    australian_data <- read_csv("australian_data.csv")
+    ```
+
+2.  Use a barplot to graph the Australian data based on their responses: yes, no, illegible, and no response. The y-axis should be the count of responses, and each response should be represented by one individual bar (so there should be four bars). **(7.5%)**
+
+    (you can use either geom_bar() or geom_col())
+
+    *Answer:* First we need to reshape the data to convert it:
+
+    ```{r}
+
+
+    aus_long <- australian_data |>
+      pivot_longer(
+    cols = Yes:`No Response`,
+    names_to = "Response",
+    values_to = "Count"
+      )
+    head(aus_long)
+
+    ```
+
+    After reshaping the data, we can plot it now:
+
+    ```{r}
+
+    #Plot the barchart for repsonses:
+
+    response_bar<-ggplot(aus_long, aes(x=Response, y=Count))+
+      geom_bar(stat="identity",fill="purple")
+
+    response_bar
+     
+    ```
+
+    We can customize the bar plot by reordering the bars, presenting the raw numbers of each response, and editing title and labels. We even change the y-axis tick marks from count to percentage (not required in the question).
+
+```{r}
+response_bar<-aus_long|>
+  mutate(Response = as_factor(Response), #we need to first force R to recognize "Response" as factor
+         Response = fct_relevel(Response, "Yes", "No", "Illegible"))|> #then we can use fct_relvel to specify the order of the bars.
+  group_by(Response)|>
+  summarise(Count = sum(Count))|> # try without specifying group_by and ungroup, what do we got?
+  ungroup()|> 
+  mutate(perc = Count/sum(Count))|>
+  ggplot(aes(y=perc, x=Response))+
+  geom_col()+
+  labs(title = "The National Distribution of Resesponse")+
+  scale_y_continuous(name= "Percent of Citizens", 
+                     label = scales::percent) +
+  geom_text(aes(label = Count), size=3, vjust=-.5)
+  
+response_bar
+  
+
+```
+
+3.  The previous graph only shows the difference in amount. Let's create a stacked-to-100% barplot to show the proportion of each of the four responses (by % of the total response). **(7.5%)**
+
+    (you can use either geom_bar() or geom_col())
+
+    ```{r}
+    #We will use the original data to plot this stacked-to-100% bar.
+
+    response_stack<-ggplot(aus_long, aes(fill = Response, x = '', y = Count)) + 
+      geom_bar(stat = "identity", position = "fill") +
+      labs(title = "The National Distribution of Resesponse", x = NULL, y = "Proportion") +
+      scale_y_continuous(labels = scales::percent_format(scale = 100))
+
+    response_stack
+    ```
+
+4.  Let's see if there's a relationship between Division and Response - that is, are certain divisions more likely to respond one way compared to other divisions? Again, we will use barplot(s) to present the visualization. **(12.5%)**
+
+    (you can use either geom_bar() or geom_col())
+
+    ```{r}
+
+    division_stack<- ggplot(aus_long, aes(fill = Response, x = Division, y = Count)) + 
+      geom_bar(stat = "identity", position = "fill") +
+      labs(title = "The National Distribution of Resesponse", x = NULL, y = "Proportion") +
+      scale_y_continuous(labels = scales::percent_format(scale = 100)) +
+      theme(axis.text.x=element_text(angle=60, hjust=1))
+
+    division_stack
+    ```
+
+    Maybe it is difficult to see in stacked bars. Let's plot regular side-by-side bar plots for each devision and use facet to combine multiple plots.
+
+    ```{r}
+    division_facet<-aus_long|>
+      mutate(Response = as_factor(Response),
+             Response = fct_relevel(Response, "Yes", "No", "Illegible"),
+             Division=str_remove(Division," Divisions")) |>
+      group_by(Division,Response)|>
+      summarise(Count = sum(Count))|>
+      group_by(Division)|>
+      mutate(perc = Count/sum(Count))|>
+      ggplot(aes(y=perc, x=Response,fill=Response))+
+      geom_col()+
+      facet_wrap(vars(Division))+
+      labs(title = "The Distribution of Resesponse by Division") +
+      scale_y_continuous(name= "Percent of Citizens", 
+                         label = scales::percent)+
+      theme(axis.text.x=element_text(angle = 60, hjust=1))
+
+    division_facet
+    ```
+
+## Part 3. Practice plotting with a dataset of your choice (25% of the total grade) {#part-3.-practice-plotting-with-a-dataset-of-your-choice-25-of-the-total-grade}
+
+In this part, you will choose data of your interests for graphing and plotting. This data can be tidy/ready-to-be-used or raw data that needs cleaning. If the data is very large (for example, more than 20 columns), you should definitely subset the data by selecting less than 10 variables of your interests to avoid taking too much room in your R memory.
+
+1.  Include a link to the data page (this page should include the introduction or description and the link to download this dataset). **(2%)**
+
+2.  Read the data you choose and briefly answer the following questions. (Optional: you may need to subset, clean, and transform the data if necessary). **(8%)**
+
+    ```{r}
+    #type of your code/command here.
+    ```
+
+    \(1\) what is the structure (dimension) of the data;
+
+    \(2\) what is the unit of observation?
+
+    \(3\) what does each column mean in this data?
+
+3.  Choose two columns/variables of your interests. Plot one univariate graph for each of the variables. **(5%)**
+
+    ```{r}
+    #type of your code/command here.
+    ```
+
+<!-- -->
+
+4.  Choose a pair of variables you suspect or hypothesize may be correlated and a graph (scatter plot or barplot) using them. Based on the visual evidence, do you see any potential correlation between the two variables **(10%)**
+
+    ```{r}
+    #type of your code/command here.
+    ```
+
+## Appendix: sources for data to be used in Part 3
+
+**Here are some online sources and popular Online Dataset Hub:**
+
+1.  Many US governments (usually at the federal and state levels),  bureaus, and departments have open data archives on their websites, allowing the public to access, download, and use them. Just use Google to search for them.
+
+<!-- -->
+
+2.  [**The Harvard Dataverse Repository**](https://dataverse.harvard.edu/) is a free data repository open to all researchers from any discipline, inside and outside the Harvard community, where you can share, archive, cite, access, and explore research data. Each individual Dataverse collection is a customizable collection of datasets (or a virtual repository) for organizing, managing, and showcasing datasets.
+
+<!-- -->
+
+3.  [**Inter-university Consortium for Political and Social Research (ICPSR)**](https://www.icpsr.umich.edu/web/pages/ICPSR/index.html) of the University of Michigan-Ann Arbor provides leadership and training in data access, curation, and methods of analysis for the social science research community. 
+
+<!-- -->
+
+4.  **UN: <https://data.un.org/>**
+
+<!-- -->
+
+5.  [**OECD Data**](https://data.oecd.org/):  economic and development data of the most developed countries in the world.
+
+<!-- -->
+
+6.  The upper five sources are mainly for social science data; **there is another very big community and open data archives for machine-learning and data science: [Kaggle](https://www.kaggle.com/datasets).**

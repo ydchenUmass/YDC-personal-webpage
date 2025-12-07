@@ -1,0 +1,132 @@
+---
+title: "Example Graphs for Teaching"
+author: "EricoYu"
+description: "Examples"
+date: "02/11/2025"
+format:
+  html:
+    df-print: paged
+    css: "styles.css"
+categories:
+  - lab meeting practice
+  - solution
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(smss)
+library(stargazer)
+library(mlbench)
+```
+
+## Spurious Relationship
+
+1.  First, let's start with some simple tasks to refresh the basics of R & RStudio. 1.Check your working directory (type your code below and run it)
+
+```{r}
+library(ggplot2)
+
+# Create the dataset
+set.seed(42)  # For reproducibility
+data <- data.frame(
+  Temperature = seq(60, 100, length.out = 20),  # Temperature (Z) as the true driver
+  Bottle_Water_Sales = seq(50, 200, length.out = 20) + rnorm(20, 0, 10),  # X: Water bottles sold
+  Sentencing_Length = seq(5, 15, length.out = 20) + rnorm(20, 0, 2)  # Y: Sentence length (years)
+)
+
+# Plot the spurious relationship (ignoring temperature)
+ggplot(data, aes(x = Bottle_Water_Sales, y = Sentencing_Length)) +
+  geom_point(color = "blue", size = 3) +  # Scatter points
+  geom_smooth(method = "lm", color = "red", linetype = "dashed") +  # Fake trend line
+  labs(
+    title = "Bottle Water Sales & Sentencing Length",
+    x = "Bottle Water Sold in Courtrooms",
+    y = "Sentencing Length (Years)",
+    caption = "Note: Simulated Data Enlightened by Blair, IV et.al. (2004) and Craigie, Terry-Ann et.al(2023)."
+  ) +
+  theme_minimal()
+
+
+```
+
+## Collider
+
+```{r}
+set.seed(123)
+
+n <- 500  
+
+# Generate exercise levels (hours per week)
+exercise <- rnorm(n, mean = 5, sd = 2)
+
+# Generate blood pressure - Randomly generated, NO relationship with exercise
+blood_pressure <- rnorm(n, mean = 120, sd = 5)
+
+# Obesity is influenced by both exercise and blood pressure (collider)
+obesity <- ifelse(exercise < 5 | blood_pressure > 120, 1, 0)
+
+# Modify Blood Pressure to create group-specific effects
+blood_pressure[obesity == 0] <- blood_pressure[obesity == 0] - 2 * exercise[obesity == 0]  # Exercise LOWERS BP for non-obese
+blood_pressure[obesity == 1] <- blood_pressure[obesity == 1] + 2 * exercise[obesity == 1]  # Exercise RAISES BP for obese
+
+# Create dataframe
+data <- data.frame(exercise, blood_pressure, obesity)
+```
+
+Modeling:
+
+```{r}
+# Overall regression (ignoring obesity)
+overall <- lm(blood_pressure ~ exercise, data = data)
+
+# Regression within subgroup
+obese <- lm(blood_pressure ~ exercise, data = data %>% filter(obesity == 1))
+non_obese <- lm(blood_pressure ~ exercise, data = data %>% filter(obesity == 0))
+
+# Controlling for obesity
+control <- lm(blood_pressure ~ exercise + obesity, data = data)
+
+stargazer(overall, control,
+          type = "text")
+```
+
+Plotting
+
+```{r}
+library(ggplot2)
+
+# Fit regression models
+overall <- lm(blood_pressure ~ exercise, data = data)  
+control <- lm(blood_pressure ~ exercise + obesity, data = data)
+
+# Create a new dataset for predictions
+exercise_seq <- seq(min(data$exercise), max(data$exercise), length.out = 100)
+pred_data <- data.frame(exercise = exercise_seq, obesity = 0)  # Default obesity = 0
+pred_data$overall_pred <- predict(overall, newdata = pred_data)  # Predictions from model without obesity
+pred_data$control_pred <- predict(control, newdata = pred_data)  # Predictions from model with obesity
+
+# Plot the observed data
+ggplot(data, aes(x = exercise, y = blood_pressure)) +
+  
+  # Scatter plot of actual data
+  geom_point(alpha = 0.5, color = "gray") +
+  
+  # Regression line for overall model (ignoring obesity)
+  geom_line(data = pred_data, aes(x = exercise, y = overall_pred), color = "black", linetype = "dashed", size = 1) +
+  
+  # Regression line for controlled model (including obesity)
+  geom_line(data = pred_data, aes(x = exercise, y = control_pred), color = "red", size = 1) +
+  
+  # Labels and formatting
+  labs(
+    title = "Collider Bias: Exercise & Blood Pressure",
+    subtitle = "Dashed Black Line = Overall Model, Red Line = Controlling for Obesity",
+    x = "Exercise (Hours per Week)",
+    y = "Blood Pressure (mmHg)"
+  ) +
+  theme_minimal()
+
+
+```

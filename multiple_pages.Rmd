@@ -1,0 +1,91 @@
+---
+title: "Multiple Pages"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(readxl)
+library(haven) #for loading other datafiles (SAS, STATA, SPSS, etc.)
+library(stringr) # if you have not installed this package, please install it.
+library(ggplot2) # if you have not installed this package, please install it.
+library(sf) 
+library(mapview)
+#Loading colorblind-friendly color map package: viridisLite
+library(viridis)
+```
+
+# Page 1
+
+## Column {data-width="650"}
+
+### Starbuck Location Live Map
+
+```{r}
+#read the data: 
+starbucks <- read_csv("https://raw.githubusercontent.com/libjohn/mapping-with-R/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv", show_col_types = FALSE)
+#head(starbucks)
+
+##Create a column of "gross profit" and assign random numbers to it:
+starbucks <- starbucks |>
+  mutate(gross_profit = sample(1000:10000, size = n(), replace = TRUE))
+#head(starbucks)
+
+starbucksMA <- starbucks  |>
+  filter(State %in% c("MA"))
+
+starbucks_sf <- starbucksMA |>
+  st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326)
+
+mapview(starbucks_sf, col.regions = "red", cex = "gross_profit", legend = TRUE, map.types = "OpenStreetMap")
+#col.region: Sets all bubbles to a fixed color
+#cex:sets the bubble size to be proportional to a specific column
+
+
+```
+
+## Column {data-width="350"}
+
+### Dataset
+
+Source: [Starbucks Location in the US](https://raw.githubusercontent.com/libjohn/mapping-with-R/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv)
+
+In this visualization, we subset the data by keeping only starbucks in Massachusetts.
+
+```{r}
+
+```
+
+### Findings
+
+Starbucks are more condensed in urban area, such as the greater Boston and Springfield.
+
+```{r}
+
+```
+
+# Page 2 {data-orientation="rows"}
+
+## Row {data-height="600"}
+
+### Chart 1
+
+```{r}
+```
+
+## Row {data-height="400"}
+
+### Chart 2
+
+```{r}
+```
+
+### Chart 3
+
+```{r}
+```

@@ -1,0 +1,601 @@
+"Brand","Store Number","Name","Ownership Type","Facility ID","Features - Products","Features - Service","Features - Stations","Food Region","Venue Type","Phone Number","Location","Street Address","Street Line 1","Street Line 2","City","State","Zip","Country","Coordinates","Latitude","Longitude","Insert Date","gross_profit"
+"Starbucks",11182,"Haverhill, 1116 Main St","Company Owned",18106,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","978-372-3485","1116 Main Street
+Haverhill, MA 01830-1413
+(42.807206, -71.102071)","1116 Main Street","1116 Main Street",NA,"Haverhill","MA","01830-1413","US","(42.807206, -71.102071)",42.807206,-71.102071,"06/22/2012 06:17:10 PM",7111
+"Starbucks",7329,"Newburyport","Company Owned",16075,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-462-4475","23 Market Square
+Newburyport, MA 01950-2571
+(42.811138, -70.869501)","23 Market Square","23 Market Square",NA,"Newburyport","MA","01950-2571","US","(42.811138, -70.869501)",42.811138,-70.869501,"06/22/2012 06:17:10 PM",5811
+"Starbucks",76864,"Target Haverhill T-2325","Licensed",6510,NA,"Starbucks Card Mobile",NA,9999,"Unknown","978-377-9003","35 Computer Dr
+Haverhill, MA 01832-1236
+(42.786955, -71.115836)","35 Computer Dr","35 Computer Dr",NA,"Haverhill","MA","01832-1236","US","(42.786955, -71.115836)",42.786955,-71.115836,"06/22/2012 06:17:10 PM",5969
+"Starbucks",7570,"Methuen/The Loop","Company Owned",11932,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-681-5284","90 Pleasant Valley St, Unit 170
+Methuen, MA 01844-7289
+(42.744153230002, -71.157345224281)","90 Pleasant Valley St, Unit 170","90 Pleasant Valley St","Unit 170","Methuen","MA","01844-7289","US","(42.744153230002, -71.157345224281)",42.744153230002,-71.157345224281,"06/22/2012 06:17:10 PM",2843
+"Starbucks",76855,"Target Methuen T-2287","Licensed",6511,NA,"Starbucks Card Mobile",NA,9999,"Unknown","978-983-0013","67 Pleasant Valley St
+Methuen, MA 01844-7202
+(42.741881, -71.160069)","67 Pleasant Valley St","67 Pleasant Valley St",NA,"Methuen","MA","01844-7202","US","(42.741881, -71.160069)",42.741881,-71.160069,"06/22/2012 06:17:10 PM",3660
+"Starbucks",7773,"N Andover/Rte 114","Company Owned",8898,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-975-7229","562 Turnpike Street
+North Andover, MA 01845-5812
+(42.665865, -71.115143)","562 Turnpike Street","562 Turnpike Street",NA,"North Andover","MA","01845-5812","US","(42.665865, -71.115143)",42.665865,-71.115143,"06/22/2012 06:17:10 PM",4008
+"Starbucks",885,"Andover","Company Owned",13579,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-475-7752","14 Main Street
+Andover, MA 01810-3702
+(42.656393, -71.140289)","14 Main Street","14 Main Street",NA,"Andover","MA","01810-3702","US","(42.656393, -71.140289)",42.656393,-71.140289,"06/22/2012 06:17:10 PM",5168
+"Starbucks",7450,"Beverly","Company Owned",12297,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-922-0885","29 Enon Street
+Beverly, MA 01915-1115
+(42.585366, -70.88444)","29 Enon Street","29 Enon Street",NA,"Beverly","MA","01915-1115","US","(42.585366, -70.88444)",42.585366,-70.88444,"06/22/2012 06:17:10 PM",6525
+"Starbucks",14996,"UMASS - Lowell","Licensed",66223,NA,NA,NA,0,"Unknown",NA,"1 Solomont Way
+Lowell, MA 01854-5120
+(42.641549, -71.334888)","1 Solomont Way","1 Solomont Way",NA,"Lowell","MA","01854-5120","US","(42.641549, -71.334888)",42.641549,-71.334888,"06/22/2012 06:17:10 PM",2893
+"Starbucks",5107,"Target Lowell T-2480","Licensed",11012,NA,"Starbucks Card Mobile",NA,9999,"Unknown","978-703-2020","199 Plain St
+Lowell, MA 01852-5132
+(42.62462, -71.31845)","199 Plain St","199 Plain St",NA,"Lowell","MA","01852-5132","US","(42.62462, -71.31845)",42.62462,-71.31845,"06/22/2012 06:17:10 PM",3050
+"Starbucks",11848,"Beverly, 242 Elliott St","Company Owned",10506,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile","Drive-Through",9999,"Unknown","978-927-0748","242 Elliott St.
+Beverly, MA 01915-2419
+(42.556249, -70.890407)","242 Elliott St.","242 Elliott St.",NA,"Beverly","MA","01915-2419","US","(42.556249, -70.890407)",42.556249,-70.890407,"06/22/2012 06:17:10 PM",5560
+"Starbucks",7658,"Chelmsford","Company Owned",15024,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-458-2464","101 Drum Hill Road
+Chelmsford, MA 01824-1519
+(42.623739, -71.36431)","101 Drum Hill Road","101 Drum Hill Road",NA,"Chelmsford","MA","01824-1519","US","(42.623739, -71.36431)",42.623739,-71.36431,"06/22/2012 06:17:10 PM",9718
+"Starbucks",833,"Peabody","Company Owned",15876,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-531-8224","240 Andover Street
+Peabody, MA 01960-1536
+(42.545939, -70.946655)","240 Andover Street","240 Andover Street",NA,"Peabody","MA","01960-1536","US","(42.545939, -70.946655)",42.545939,-70.946655,"06/22/2012 06:17:10 PM",7730
+"Starbucks",2765,"North Shore Mall","Company Owned",13843,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-531-1331","210 Andover Street, Space W 133
+Peabody, MA 01960-1673
+(42.54524, -70.94468)","210 Andover Street, Space W 133","210 Andover Street, Space W 133",NA,"Peabody","MA","01960-1673","US","(42.54524, -70.94468)",42.54524,-70.94468,"06/22/2012 06:17:10 PM",6660
+"Starbucks",11757,"Wilmington Crossing","Company Owned",10569,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","978-658-2541","271 Main St., Space #253
+Wilmington, MA 01887-2321
+(42.555543, -71.181095)","271 Main St., Space #253","271 Main St.","Space #253","Wilmington","MA","01887-2321","US","(42.555543, -71.181095)",42.555543,-71.181095,"06/22/2012 06:17:10 PM",4697
+"Starbucks",8650,"Billerica","Company Owned",9728,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","978-436-9180","199 Boston Road, Unit 15
+Billerica, MA 01862-2328
+(42.581632, -71.289347)","199 Boston Road, Unit 15","199 Boston Road","Unit 15","Billerica","MA","01862-2328","US","(42.581632, -71.289347)",42.581632,-71.289347,"06/22/2012 06:17:10 PM",6658
+"Starbucks",9269,"Reading Walkers Brook","Company Owned",9565,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-942-8290","24 Walkers Brook Drive
+Reading, MA 01867-3224
+(42.519991, -71.093858)","24 Walkers Brook Drive","24 Walkers Brook Drive",NA,"Reading","MA","01867-3224","US","(42.519991, -71.093858)",42.519991,-71.093858,"06/22/2012 06:17:10 PM",7741
+"Starbucks",7356,"Salem-Dodge Street","Company Owned",15999,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-825-0824","211 Washington Street
+Salem, MA 01970-3607
+(42.518951, -70.894874)","211 Washington Street","211 Washington Street",NA,"Salem","MA","01970-3607","US","(42.518951, -70.894874)",42.518951,-70.894874,"06/22/2012 06:17:10 PM",6661
+"Starbucks",7772,"Reading","Company Owned",11531,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-942-0168","288 Main Street
+Reading, MA 01867-3610
+(42.515659, -71.104029)","288 Main Street","288 Main Street",NA,"Reading","MA","01867-3610","US","(42.515659, -71.104029)",42.515659,-71.104029,"06/22/2012 06:17:10 PM",7627
+"Starbucks",15489,"Target Woburn T-1266","Licensed",65856,NA,NA,NA,0,"Unknown","781-904-0002","101 Commerce Way
+Woburn, MA 01801-1007
+(42.518122, -71.135588)","101 Commerce Way","101 Commerce Way",NA,"Woburn","MA","01801-1007","US","(42.518122, -71.135588)",42.518122,-71.135588,"06/22/2012 06:17:10 PM",5498
+"Starbucks",9984,"Woburn, Commerce Way","Company Owned",14595,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","781-933-4672","99 Commerce Way
+Woburn, MA 01801-5199
+(42.517323483467, -71.135712417913)","99 Commerce Way","99 Commerce Way",NA,"Woburn","MA","01801-5199","US","(42.517323483467, -71.135712417913)",42.517323483467,-71.135712417913,"06/22/2012 06:17:10 PM",2792
+"Starbucks",7812,"Woburn, West Cummings Park","Company Owned",15300,"Lunch, Oven-warmed Food, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-938-9305","200 W Cummings Park, 1
+Woburn, MA 01801-6333
+(42.49818, -71.125908)","200 W Cummings Park, 1","200 W Cummings Park","1","Woburn","MA","01801-6333","US","(42.49818, -71.125908)",42.49818,-71.125908,"06/22/2012 06:17:10 PM",5557
+"Starbucks",7522,"Marblehead","Company Owned",14955,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-639-0368","89 Pleasant Street
+Marblehead, MA 01945-3389
+(42.502632, -70.856048)","89 Pleasant Street","89 Pleasant Street",NA,"Marblehead","MA","01945-3389","US","(42.502632, -70.856048)",42.502632,-70.856048,"06/22/2012 06:17:10 PM",7776
+"Starbucks",13978,"Saugus, The Shops at Saugus","Company Owned",7694,"Lunch, Oven-warmed Food","Starbucks Card Mobile","Drive-Through",9999,"Unknown","781-231-4928","366 B Broadway
+Saugus, MA 01906-1902
+(42.488115938014, -71.0194)","366 B Broadway","366 B Broadway",NA,"Saugus","MA","01906-1902","US","(42.488115938014, -71.0194)",42.488115938014,-71.0194,"06/22/2012 06:17:10 PM",1958
+"Starbucks",802,"Swampscot","Company Owned",13568,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-581-9001","1016 Paradise Road
+Swampscott, MA 01907-1352
+(42.484973, -70.901011)","1016 Paradise Road","1016 Paradise Road",NA,"Swampscott","MA","01907-1352","US","(42.484973, -70.901011)",42.484973,-70.901011,"06/22/2012 06:17:10 PM",4283
+"Starbucks",7269,"Saugus","Company Owned",12092,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-233-4173","723 Broadway
+Saugus, MA 01906-3207
+(42.478313, -71.023173)","723 Broadway","723 Broadway",NA,"Saugus","MA","01906-3207","US","(42.478313, -71.023173)",42.478313,-71.023173,"06/22/2012 06:17:10 PM",9480
+"Starbucks",9913,"Westford Valley Marketplace","Company Owned",14566,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-392-5926","174 Littleton Road
+Westford, MA 01886-3191
+(42.566563, -71.421995)","174 Littleton Road","174 Littleton Road",NA,"Westford","MA","01886-3191","US","(42.566563, -71.421995)",42.566563,-71.421995,"06/22/2012 06:17:10 PM",6096
+"Starbucks",7279,"Marketplace at Burlington","Company Owned",16728,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-273-6544","84 Burlington Mall Road, Suite D
+Burlington, MA 01803-4538
+(42.48755, -71.20229)","84 Burlington Mall Road, Suite D","84 Burlington Mall Road","Suite D","Burlington","MA","01803-4538","US","(42.48755, -71.20229)",42.48755,-71.20229,"06/22/2012 06:17:10 PM",4056
+"Starbucks",10598,"Bedford, Great Road","Company Owned",7317,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-275-0992","186 Great Road
+Bedford, MA 01730-2710
+(42.489622, -71.27235)","186 Great Road","186 Great Road",NA,"Bedford","MA","01730-2710","US","(42.489622, -71.27235)",42.489622,-71.27235,"06/22/2012 06:17:10 PM",3073
+"Starbucks",7258,"Melrose Center","Company Owned",12038,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-662-0217","521 Main Street
+Melrose, MA 02176-3835
+(42.455468, -71.064841)","521 Main Street","521 Main Street",NA,"Melrose","MA","02176-3835","US","(42.455468, -71.064841)",42.455468,-71.064841,"06/22/2012 06:17:10 PM",5561
+"Starbucks",876,"Winchester","Company Owned",11748,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-729-1626","542 Main Street
+Winchester, MA 01890-2913
+(42.45203, -71.136821)","542 Main Street","542 Main Street",NA,"Winchester","MA","01890-2913","US","(42.45203, -71.136821)",42.45203,-71.136821,"06/22/2012 06:17:10 PM",3505
+"Starbucks",7553,"Lexington/Bedford Rd","Company Owned",13534,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-863-1189","60 Bedford Street
+Lexington, MA 02420-4334
+(42.453613, -71.233316)","60 Bedford Street","60 Bedford Street",NA,"Lexington","MA","02420-4334","US","(42.453613, -71.233316)",42.453613,-71.233316,"06/22/2012 06:17:10 PM",7691
+"Starbucks",866,"Lexington","Company Owned",13573,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-863-8485","1729 Massachusetts Ave
+Lexington, MA 02420-5306
+(42.4475, -71.226705)","1729 Massachusetts Ave","1729 Massachusetts Ave",NA,"Lexington","MA","02420-5306","US","(42.4475, -71.226705)",42.4475,-71.226705,"06/22/2012 06:17:10 PM",6312
+"Starbucks",7283,"Medford - Star Market","Company Owned",17646,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-396-3630","2151 Mystic Valley Parkway
+Medford, MA 02155-3757
+(42.417173, -71.126646)","2151 Mystic Valley Parkway","2151 Mystic Valley Parkway",NA,"Medford","MA","02155-3757","US","(42.417173, -71.126646)",42.417173,-71.126646,"06/22/2012 06:17:10 PM",8829
+"Starbucks",7364,"Mass. Ave., Arlington","Company Owned",13499,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-646-9366","1465 Massachusetts Ave
+Arlington, MA 02476-4103
+(42.425296, -71.188507)","1465 Massachusetts Ave","1465 Massachusetts Ave",NA,"Arlington","MA","02476-4103","US","(42.425296, -71.188507)",42.425296,-71.188507,"06/22/2012 06:17:10 PM",3007
+"Starbucks",7205,"Arlington","Company Owned",16694,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-641-2893","327 Broadway
+Arlington, MA 02474-5303
+(42.414751, -71.15099)","327 Broadway","327 Broadway",NA,"Arlington","MA","02474-5303","US","(42.414751, -71.15099)",42.414751,-71.15099,"06/22/2012 06:17:10 PM",3540
+"Starbucks",8988,"Station Landing","Company Owned",7158,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-395-0660","5 Revere Beach Pkwy., Station Landing Phase 1
+Medford, MA 02155-5159
+(42.404329, -71.081279)","5 Revere Beach Pkwy., Station Landing Phase 1","5 Revere Beach Pkwy.","Station Landing Phase 1","Medford","MA","02155-5159","US","(42.404329, -71.081279)",42.404329,-71.081279,"06/22/2012 06:17:10 PM",4240
+"Starbucks",76315,"Target Revere T-1942","Licensed",14668,NA,"Starbucks Card Mobile",NA,9999,"Unknown","781-922-6030","36 Furlong Dr
+Revere, MA 02151-4006
+(42.400825, -71.001876)","36 Furlong Dr","36 Furlong Dr",NA,"Revere","MA","02151-4006","US","(42.400825, -71.001876)",42.400825,-71.001876,"06/22/2012 06:17:10 PM",5111
+"Starbucks",816,"Concord","Company Owned",11750,"Clover Crafted Small Batch Coffee, Lunch, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-287-0183","159 Sudbury Road
+Concord, MA 01742-3429
+(42.455669, -71.355854)","159 Sudbury Road","159 Sudbury Road",NA,"Concord","MA","01742-3429","US","(42.455669, -71.355854)",42.455669,-71.355854,"06/22/2012 06:17:10 PM",3452
+"Starbucks",15208,"Target Everett T-1229","Licensed",20298,NA,NA,NA,0,"Unknown","617-420-0000","1 Mystic View Rd
+Everett, MA 02149-2428
+(42.401847, -71.069932)","1 Mystic View Rd","1 Mystic View Rd",NA,"Everett","MA","02149-2428","US","(42.401847, -71.069932)",42.401847,-71.069932,"06/22/2012 06:17:10 PM",3963
+"Starbucks",14138,"East Boston","Company Owned",7561,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","617-561-3704","430 McClellan Highway
+East Boston, MA 02128-1144
+(42.393203, -71.012803)","430 McClellan Highway","430 McClellan Highway",NA,"East Boston","MA","02128-1144","US","(42.393203, -71.012803)",42.393203,-71.012803,"06/22/2012 06:17:10 PM",3892
+"Starbucks",78032,"BOS Term B AA Pre-Security","Licensed",11021,NA,NA,NA,9999,"Airport","617-634-6097","440 McClellan Highway
+Boston, MA 02128-1125
+(42.393095, -71.013054)","440 McClellan Highway","440 McClellan Highway",NA,"Boston","MA","02128-1125","US","(42.393095, -71.013054)",42.393095,-71.013054,"06/22/2012 06:17:10 PM",2205
+"Starbucks",7502,"Davis Square Plaza","Company Owned",14934,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-623-4497","260 Elm Street
+Somerville, MA 02144-2951
+(42.395759, -71.122297)","260 Elm Street","260 Elm Street",NA,"Somerville","MA","02144-2951","US","(42.395759, -71.122297)",42.395759,-71.122297,"06/22/2012 06:17:10 PM",4221
+"Starbucks",871,"Belmont","Company Owned",12022,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-484-3213","47 Leonard St.
+Belmont, MA 02478-2526
+(42.397256, -71.175393)","47 Leonard St.","47 Leonard St.",NA,"Belmont","MA","02478-2526","US","(42.397256, -71.175393)",42.397256,-71.175393,"06/22/2012 06:17:10 PM",8846
+"Starbucks",7835,"Acton, Kelly's Corner","Company Owned",15302,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-264-1992","411 Massachusettes Ave
+Acton, MA 01720-3739
+(42.47491, -71.451609)","411 Massachusettes Ave","411 Massachusettes Ave",NA,"Acton","MA","01720-3739","US","(42.47491, -71.451609)",42.47491,-71.451609,"06/22/2012 06:17:10 PM",4538
+"Starbucks",8873,"Cambridge, Fresh Pond","Company Owned",14891,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-876-1070","222 Alewife Brook Parkway
+Cambridge, MA 02138
+(42.389322, -71.141328)","222 Alewife Brook Parkway","222 Alewife Brook Parkway",NA,"Cambridge","MA","02138","US","(42.389322, -71.141328)",42.389322,-71.141328,"06/22/2012 06:17:10 PM",4966
+"Starbucks",2764,"Somerville Avenue","Company Owned",13954,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-776-6783","711-723 Somerville Ave
+Somerville, MA 02143-3530
+(42.386083, -71.114181)","711-723 Somerville Ave","711-723 Somerville Ave",NA,"Somerville","MA","02143-3530","US","(42.386083, -71.114181)",42.386083,-71.114181,"06/22/2012 06:17:10 PM",4219
+"Starbucks",827,"Shepard Post","Company Owned",12254,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-491-0442","1662 Massachusetts Ave
+Cambridge, MA 02138-1838
+(42.381903, -71.119934)","1662 Massachusetts Ave","1662 Massachusetts Ave",NA,"Cambridge","MA","02138-1838","US","(42.381903, -71.119934)",42.381903,-71.119934,"06/22/2012 06:17:10 PM",5597
+"Starbucks",16917,"Target Somerville T-1441","Licensed",87154,NA,NA,NA,0,"Unknown","617-766-4036","180 Somerville Ave
+Somerville, MA 02143-3405
+(42.377651, -71.090108)","180 Somerville Ave","180 Somerville Ave",NA,"Somerville","MA","02143-3405","US","(42.377651, -71.090108)",42.377651,-71.090108,"06/22/2012 06:17:10 PM",6784
+"Starbucks",75650,"BOS - Terminal E - Food Court","Licensed",7157,NA,NA,NA,9999,"Airport","617-634-6097","Boston Logan Term E Food Court
+East Boston, MA 02128
+(42.370131, -71.019672)","Boston Logan Term E Food Court","Boston Logan Term E Food Court",NA,"East Boston","MA","02128","US","(42.370131, -71.019672)",42.370131,-71.019672,"06/22/2012 06:17:10 PM",8266
+"Starbucks",810,"Broadway Marketplace","Company Owned",12268,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-491-9911","468 Broadway
+Cambridge, MA 02138-3908
+(42.373886, -71.11295)","468 Broadway","468 Broadway",NA,"Cambridge","MA","02138-3908","US","(42.373886, -71.11295)",42.373886,-71.11295,"06/22/2012 06:17:10 PM",9453
+"Starbucks",7241,"31 Church","Company Owned",12074,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-492-7870","31 Church Street
+Cambridge, MA 02138-3715
+(42.374494, -71.12017)","31 Church Street","31 Church Street",NA,"Cambridge","MA","02138-3715","US","(42.374494, -71.12017)",42.374494,-71.12017,"06/22/2012 06:17:10 PM",1527
+"Starbucks",7538,"Belmont/Cushing Sq","Company Owned",13530,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-489-8767","112 Trapelo Rd
+Belmont, MA 02478-1877
+(42.380603, -71.175129)","112 Trapelo Rd","112 Trapelo Rd",NA,"Belmont","MA","02478-1877","US","(42.380603, -71.175129)",42.380603,-71.175129,"06/22/2012 06:17:10 PM",2496
+"Starbucks",7102,"Harvard Yard","Company Owned",20221,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Wireless Hotspot",NA,0,"Unknown","617-354-3726","1380 Mass Ave
+Cambridge, MA 02138
+(42.373456, -71.119328)","1380 Mass Ave","1380 Mass Ave",NA,"Cambridge","MA","02138","US","(42.373456, -71.119328)",42.373456,-71.119328,"06/22/2012 06:17:10 PM",4384
+"Starbucks",861,"Harvard Square","Company Owned",13572,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-492-4881","36 JFK Street
+Cambridge, MA 02138-4910
+(42.372485, -71.119452)","36 JFK Street","36 JFK Street",NA,"Cambridge","MA","02138-4910","US","(42.372485, -71.119452)",42.372485,-71.119452,"06/22/2012 06:17:10 PM",6176
+"Starbucks",75840,"BOS Boston/Logan Airport Term C","Licensed",8151,NA,NA,NA,9999,"Airport","617-594-3506","Logan Airport terminal C
+Boston, MA 02128
+(42.366954, -71.016337)","Logan Airport terminal C","Logan Airport terminal C",NA,"Boston","MA","02128","US","(42.366954, -71.016337)",42.366954,-71.016337,"06/22/2012 06:17:10 PM",9086
+"Starbucks",16158,"BOS Terminal C Pier B","Licensed",87272,NA,NA,NA,0,"Unknown","617-634-6031","300 Terminal C Gate C11
+East Boston, MA 02128
+(42.366954, -71.016337)","300 Terminal C Gate C11","300 Terminal C Gate C11",NA,"East Boston","MA","02128","US","(42.366954, -71.016337)",42.366954,-71.016337,"06/22/2012 06:17:10 PM",6420
+"Starbucks",7436,"Cambridgeside","Company Owned",16661,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-621-9507","100 Cambridgeside Place, Suite E108
+Cambridge, MA 02141-2218
+(42.367158, -71.076366)","100 Cambridgeside Place, Suite E108","100 Cambridgeside Place","Suite E108","Cambridge","MA","02141-2218","US","(42.367158, -71.076366)",42.367158,-71.076366,"06/22/2012 06:17:10 PM",6162
+"Starbucks",75808,"BOS - Terminal A Delta","Licensed",16015,NA,NA,NA,9999,"Airport",NA,"Boston Logan International Airport
+East Boston, MA 02128
+(42.364545, -71.021569)","Boston Logan International Airport","Boston Logan International Airport",NA,"East Boston","MA","02128","US","(42.364545, -71.021569)",42.364545,-71.021569,"06/22/2012 06:17:10 PM",6032
+"Starbucks",7550,"Two Atlantic Avenue","Company Owned",9315,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-723-7819","2 Atlantic Avenue
+Boston, MA 02110-3918
+(42.36392, -71.050292)","2 Atlantic Avenue","2 Atlantic Avenue",NA,"Boston","MA","02110-3918","US","(42.36392, -71.050292)",42.36392,-71.050292,"06/22/2012 06:17:10 PM",6799
+"Starbucks",72417,"BOS - Terminal B - Gates 1-3","Licensed",13172,NA,NA,NA,9999,"Airport",NA,"Boston Logan International Airport, Terminal A
+East Boston, MA 02128
+(42.362659757894, -71.017868742511)","Boston Logan International Airport, Terminal A","Boston Logan International Airport","Terminal A","East Boston","MA","02128","US","(42.362659757894, -71.017868742511)",42.362659757894,-71.017868742511,"06/22/2012 06:17:10 PM",2649
+"Starbucks",75534,"BOS - Gate 25","Licensed",12994,NA,NA,NA,9999,"Airport","617-938-4567","Gate 25
+East Boston, MA 02128
+(42.362417974617, -71.018339108392)","Gate 25","Gate 25",NA,"East Boston","MA","02128","US","(42.362417974617, -71.018339108392)",42.362417974617,-71.018339108392,"06/22/2012 06:17:10 PM",4599
+"Starbucks",7338,"Central Square","Company Owned",16078,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-354-5471","655 Massachussets Ave
+Cambridge, MA 02139-3336
+(42.365661, -71.103707)","655 Massachussets Ave","655 Massachussets Ave",NA,"Cambridge","MA","02139-3336","US","(42.365661, -71.103707)",42.365661,-71.103707,"06/22/2012 06:17:10 PM",9393
+"Starbucks",75649,"BOS - Terminal B - Pier B","Licensed",14288,NA,NA,NA,9999,"Airport","617-634-6097","Boston Logan Term B Pier A-Tampopo
+East Boston, MA 02128
+(42.36205, -71.019871)","Boston Logan Term B Pier A-Tampopo","Boston Logan Term B Pier A-Tampopo",NA,"East Boston","MA","02128","US","(42.36205, -71.019871)",42.36205,-71.019871,"06/22/2012 06:17:10 PM",2713
+"Starbucks",8742,"Cambridge Center","Company Owned",12566,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-577-7511","6 Cambridge Center
+Cambridge, MA 02142-1401
+(42.363719, -71.087931)","6 Cambridge Center","6 Cambridge Center",NA,"Cambridge","MA","02142-1401","US","(42.363719, -71.087931)",42.363719,-71.087931,"06/22/2012 06:17:10 PM",3941
+"Starbucks",72208,"Marriott Boston Cambridge","Licensed",12223,NA,"Wireless Hotspot",NA,9999,"Unknown","617-494-6600","2 Cambridge Center
+Cambridge, MA 02142-1600
+(42.362501, -71.084694)","2 Cambridge Center","2 Cambridge Center",NA,"Cambridge","MA","02142-1600","US","(42.362501, -71.084694)",42.362501,-71.084694,"06/22/2012 06:17:10 PM",7537
+"Starbucks",857,"Cambridge Street","Company Owned",12257,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-227-2959","222 Cambridge Street
+Boston, MA 02114-2710
+(42.361026, -71.066486)","222 Cambridge Street","222 Cambridge Street",NA,"Boston","MA","02114-2710","US","(42.361026, -71.066486)",42.361026,-71.066486,"06/22/2012 06:17:10 PM",1924
+"Starbucks",75637,"Boston Long Wharf Marriott","Licensed",12615,NA,"Wireless Hotspot",NA,9999,"Unknown","617-227-0800","296 State St
+Boston, MA 02109-2607
+(42.359776, -71.05213)","296 State St","296 State St",NA,"Boston","MA","02109-2607","US","(42.359776, -71.05213)",42.359776,-71.05213,"06/22/2012 06:17:10 PM",3180
+"Starbucks",862,"Fanueil Hall","Company Owned",16519,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-227-3821","2-4 Faneuil Hall Market Place
+Boston, MA 02109-6175
+(42.359591, -71.055841)","2-4 Faneuil Hall Market Place","2-4 Faneuil Hall Market Place",NA,"Boston","MA","02109-6175","US","(42.359591, -71.055841)",42.359591,-71.055841,"06/22/2012 06:17:10 PM",3791
+"Starbucks",883,"Steaming Kettle","Company Owned",18393,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-227-2284","63-65 Court Street
+Boston, MA 02108-2109
+(42.359465, -71.059376)","63-65 Court Street","63-65 Court Street",NA,"Boston","MA","02108-2109","US","(42.359465, -71.059376)",42.359465,-71.059376,"06/22/2012 06:17:10 PM",9783
+"Starbucks",9463,"84 State Street","Company Owned",8349,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-523-3053","84 State Street
+Boston, MA 02109-2202
+(42.359121, -71.0556)","84 State Street","84 State Street",NA,"Boston","MA","02109-2202","US","(42.359121, -71.0556)",42.359121,-71.0556,"06/22/2012 06:17:10 PM",8874
+"Starbucks",864,"Charles Street","Company Owned",15879,"Lunch","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-227-3812","97 Charles Street
+Boston, MA 02114-3251
+(42.358883, -71.070565)","97 Charles Street","97 Charles Street",NA,"Boston","MA","02114-3251","US","(42.358883, -71.070565)",42.358883,-71.070565,"06/22/2012 06:17:10 PM",4155
+"Starbucks",875,"Devonshire","Company Owned",13576,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-720-2220","240 Washington St.
+Boston, MA 02108-4603
+(42.357898, -71.057821)","240 Washington St.","240 Washington St.",NA,"Boston","MA","02108-4603","US","(42.357898, -71.057821)",42.357898,-71.057821,"06/22/2012 06:17:10 PM",6587
+"Starbucks",7535,"27 School Street","Company Owned",11398,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-227-7731","27 School Street
+Boston, MA 02108-4633
+(42.357726, -71.05922)","27 School Street","27 School Street",NA,"Boston","MA","02108-4633","US","(42.357726, -71.05922)",42.357726,-71.05922,"06/22/2012 06:17:10 PM",9171
+"Starbucks",7805,"One International Place","Company Owned",15299,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-737-4688","1 International Place
+Boston, MA 02110-2602
+(42.35645, -71.051818)","1 International Place","1 International Place",NA,"Boston","MA","02110-2602","US","(42.35645, -71.051818)",42.35645,-71.051818,"06/22/2012 06:17:10 PM",4895
+"Starbucks",3773,"Target Watertown T-1442","Licensed",18665,NA,"Starbucks Card Mobile",NA,9999,"Unknown",NA,"550 Arsenal Street
+Watertown, MA 02472-2853
+(42.364217, -71.156993)","550 Arsenal Street","550 Arsenal Street",NA,"Watertown","MA","02472-2853","US","(42.364217, -71.156993)",42.364217,-71.156993,"06/22/2012 06:17:10 PM",6958
+"Starbucks",7268,"One Federal Bldg.","Company Owned",16342,"Lunch","Starbucks Card Mobile",NA,9999,"Unknown","617-357-6410","1 Federal Street
+Boston, MA 02110-2012
+(42.356101, -71.056999)","1 Federal Street","1 Federal Street",NA,"Boston","MA","02110-2012","US","(42.356101, -71.056999)",42.356101,-71.056999,"06/22/2012 06:17:10 PM",3087
+"Starbucks",801,"Starbucks Boston Common","Company Owned",13567,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-742-2664","65-66 Beacon
+Boston, MA 02108
+(42.356349, -71.069312)","65-66 Beacon","65-66 Beacon",NA,"Boston","MA","02108","US","(42.356349, -71.069312)",42.356349,-71.069312,"06/22/2012 06:17:10 PM",3835
+"Starbucks",7531,"12 Winter Street","Company Owned",12348,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-542-1313","12 Winter Street
+Boston, MA 02108-4704
+(42.355708, -71.061027)","12 Winter Street","12 Winter Street",NA,"Boston","MA","02108-4704","US","(42.355708, -71.061027)",42.355708,-71.061027,"06/22/2012 06:17:10 PM",1607
+"Starbucks",7382,"Watertown - Mt. Auburn","Company Owned",9216,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-926-4644","75 Mt Auburn Street
+Watertown, MA 02472-3924
+(42.366427, -71.181086)","75 Mt Auburn Street","75 Mt Auburn Street",NA,"Watertown","MA","02472-3924","US","(42.366427, -71.181086)",42.366427,-71.181086,"06/22/2012 06:17:10 PM",6140
+"Starbucks",869,"Federal Street","Company Owned",16520,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-946-0535","75-101 Federal Street
+Boston, MA 02110-1901
+(42.355049, -71.057263)","75-101 Federal Street","75-101 Federal Street",NA,"Boston","MA","02110-1901","US","(42.355049, -71.057263)",42.355049,-71.057263,"06/22/2012 06:17:10 PM",5070
+"Starbucks",7201,"211 Congress","Company Owned",12043,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-542-4439","211 Congress Street
+Boston, MA 02110-2410
+(42.354673, -71.054837)","211 Congress Street","211 Congress Street",NA,"Boston","MA","02110-2410","US","(42.354673, -71.054837)",42.354673,-71.054837,"06/22/2012 06:17:10 PM",4684
+"Starbucks",11684,"Cambridge, Memorial Drive","Company Owned",18038,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile",NA,9999,"Unknown","617-661-5817","750 Memorial Drive
+Cambridge, MA 02139-4614
+(42.357962, -71.115104)","750 Memorial Drive","750 Memorial Drive",NA,"Cambridge","MA","02139-4614","US","(42.357962, -71.115104)",42.357962,-71.115104,"06/22/2012 06:17:10 PM",7026
+"Starbucks",10599,"125 Summer St.","Company Owned",10135,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-737-0250","125 Summer Street
+Boston, MA 02110-1616
+(42.35317, -71.057619)","125 Summer Street","125 Summer Street",NA,"Boston","MA","02110-1616","US","(42.35317, -71.057619)",42.35317,-71.057619,"06/22/2012 06:17:10 PM",7868
+"Starbucks",7377,"One Financial Center-Dewey Sq.","Company Owned",13505,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-428-0019","1 Financial Center
+Boston, MA 02111-2621
+(42.352262, -71.056024)","1 Financial Center","1 Financial Center",NA,"Boston","MA","02111-2621","US","(42.352262, -71.056024)",42.352262,-71.056024,"06/22/2012 06:17:10 PM",2315
+"Starbucks",7564,"62 Boylston","Company Owned",13538,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-338-0067","62 Boylston Street
+Boston, MA 02116-4799
+(42.352251, -71.064439)","62 Boylston Street","62 Boylston Street",NA,"Boston","MA","02116-4799","US","(42.352251, -71.064439)",42.352251,-71.064439,"06/22/2012 06:17:10 PM",4744
+"Starbucks",7686,"Brighton/Soldiers Field","Company Owned",12451,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-782-1325","1660-1670 Soldiers Field Rd
+Brighton, MA 02135-1111
+(42.358906, -71.153598)","1660-1670 Soldiers Field Rd","1660-1670 Soldiers Field Rd",NA,"Brighton","MA","02135-1111","US","(42.358906, -71.153598)",42.358906,-71.153598,"06/22/2012 06:17:10 PM",3013
+"Starbucks",830,"443 Boylston Street","Company Owned",14814,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-536-7177","443 Boylston Street
+Boston, MA 02116-3301
+(42.351504, -71.072997)","443 Boylston Street","443 Boylston Street",NA,"Boston","MA","02116-3301","US","(42.351504, -71.072997)",42.351504,-71.072997,"06/22/2012 06:17:10 PM",7602
+"Starbucks",807,"City Place - Boston","Company Owned",11696,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-227-7332","143 Stuart Street
+Boston, MA 02116-5609
+(42.351076, -71.065945)","143 Stuart Street","143 Stuart Street",NA,"Boston","MA","02116-5609","US","(42.351076, -71.065945)",42.351076,-71.065945,"06/22/2012 06:17:10 PM",5748
+"Starbucks",870,"165 Newbury","Company Owned",8796,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-536-5282","165 Newbury Street
+Boston, MA 02116-2878
+(42.350805, -71.078872)","165 Newbury Street","165 Newbury Street",NA,"Boston","MA","02116-2878","US","(42.350805, -71.078872)",42.350805,-71.078872,"06/22/2012 06:17:10 PM",1384
+"Starbucks",78025,"Boston DoubleTree","Licensed",6924,NA,"Wireless Hotspot",NA,9999,"Unknown","617-956-7900","821 Washington Street
+Boston, MA 02111-1519
+(42.34896, -71.064154)","821 Washington Street","821 Washington Street",NA,"Boston","MA","02111-1519","US","(42.34896, -71.064154)",42.34896,-71.064154,"06/22/2012 06:17:10 PM",8534
+"Starbucks",75830,"Renaissance Boston Harbor Lobby","Licensed",6608,NA,"Wireless Hotspot",NA,9999,"Unknown",NA,"636 Congress St
+Boston, MA 02210-2803
+(42.347946, -71.03967)","636 Congress St","636 Congress St",NA,"Boston","MA","02210-2803","US","(42.347946, -71.03967)",42.347946,-71.03967,"06/22/2012 06:17:10 PM",1982
+"Starbucks",7544,"755 Boylston St","Company Owned",16896,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-450-0310","755 Boylston Street
+Boston, MA 02116-2618
+(42.349256, -71.080937)","755 Boylston Street","755 Boylston Street",NA,"Boston","MA","02116-2618","US","(42.349256, -71.080937)",42.349256,-71.080937,"06/22/2012 06:17:10 PM",7974
+"Starbucks",72111,"George Sherman Union Bldg.","Licensed",18455,NA,"Wireless Hotspot",NA,9999,"Unknown","617-353-2991","775 Commonwealth Ave.
+Boston, MA 02215-1401
+(42.351153, -71.108963)","775 Commonwealth Ave.","775 Commonwealth Ave.",NA,"Boston","MA","02215-1401","US","(42.351153, -71.108963)",42.351153,-71.108963,"06/22/2012 06:17:10 PM",1627
+"Starbucks",75265,"Manulife Financial","Licensed",9657,NA,NA,NA,9999,"Unknown","617-663-3269","601 Congress St
+Boston, MA 02210-2804
+(42.347488, -71.040334)","601 Congress St","601 Congress St",NA,"Boston","MA","02210-2804","US","(42.347488, -71.040334)",42.347488,-71.040334,"06/22/2012 06:17:10 PM",4665
+"Starbucks",822,"441 Stuart Street","Company Owned",14813,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-859-0703","441 Stuart Street
+Boston, MA 02116-5019
+(42.348457, -71.076293)","441 Stuart Street","441 Stuart Street",NA,"Boston","MA","02116-5019","US","(42.348457, -71.076293)",42.348457,-71.076293,"06/22/2012 06:17:10 PM",4836
+"Starbucks",7652,"Westin Hotel Copley","Company Owned",13427,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-867-0491","10 Huntington Ave, Ste D
+Boston, MA 02116-5707
+(42.34844, -71.077587)","10 Huntington Ave, Ste D","10 Huntington Ave","Ste D","Boston","MA","02116-5707","US","(42.34844, -71.077587)",42.34844,-71.077587,"06/22/2012 06:17:10 PM",9336
+"Starbucks",75912,"Westin Boston Waterfront","Licensed",8560,NA,"Wireless Hotspot",NA,9999,"Unknown","617-532-4600","425 Summer St
+Boston, MA 02210-1719
+(42.3471, -71.043673)","425 Summer St","425 Summer St",NA,"Boston","MA","02210-1719","US","(42.3471, -71.043673)",42.3471,-71.043673,"06/22/2012 06:17:10 PM",6841
+"Starbucks",10155,"Newton Corner","Company Owned",8042,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-796-3720","259 Centre Street
+Newton, MA 02458-1624
+(42.359008, -71.185313)","259 Centre Street","259 Centre Street",NA,"Newton","MA","02458-1624","US","(42.359008, -71.185313)",42.359008,-71.185313,"06/22/2012 06:17:10 PM",2990
+"Starbucks",70015,"Boston University-580 Commonwealth","Licensed",7678,NA,"Wireless Hotspot",NA,9999,"Unknown","617-353-5450","580 Commonwealth Ave
+Boston, MA 02215-2522
+(42.349686, -71.10026)","580 Commonwealth Ave","580 Commonwealth Ave",NA,"Boston","MA","02215-2522","US","(42.349686, -71.10026)",42.349686,-71.10026,"06/22/2012 06:17:10 PM",3739
+"Starbucks",7702,"874 Commonwealth Avenue","Company Owned",16166,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-734-3691","874 Commonwealth Ave
+Brookline, MA 02215
+(42.35055, -71.114551)","874 Commonwealth Ave","874 Commonwealth Ave",NA,"Brookline","MA","02215","US","(42.35055, -71.114551)",42.35055,-71.114551,"06/22/2012 06:17:10 PM",4014
+"Starbucks",72107,"School of Management","Licensed",11890,NA,"Wireless Hotspot",NA,9999,"Unknown","617-353-1529","595 Commonwealth Ave
+Boston, MA 02215-1704
+(42.349331, -71.100046)","595 Commonwealth Ave","595 Commonwealth Ave",NA,"Boston","MA","02215-1704","US","(42.349331, -71.100046)",42.349331,-71.100046,"06/22/2012 06:17:10 PM",9238
+"Starbucks",872,"350 Newbury","Company Owned",15880,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-859-5751","350 Newbury Street
+Boston, MA 02115-2718
+(42.34811, -71.08715)","350 Newbury Street","350 Newbury Street",NA,"Boston","MA","02115-2718","US","(42.34811, -71.08715)",42.34811,-71.08715,"06/22/2012 06:17:10 PM",1631
+"Starbucks",75513,"Marriott Boston Copley-Mall Entrnc","Licensed",16418,NA,"Wireless Hotspot",NA,9999,"Unknown","617-236-5800","110 Huntington Ave
+Boston, MA 02116-5783
+(42.346988, -71.079236)","110 Huntington Ave","110 Huntington Ave",NA,"Boston","MA","02116-5783","US","(42.346988, -71.079236)",42.346988,-71.079236,"06/22/2012 06:17:10 PM",9140
+"Starbucks",8741,"Newton","Company Owned",12565,"Lunch, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-964-9690","1269 Centre Street
+Newton Centre, MA 02459-1538
+(42.330258, -71.194991)","1269 Centre Street","1269 Centre Street",NA,"Newton Centre","MA","02459-1538","US","(42.330258, -71.194991)",42.330258,-71.194991,"06/22/2012 06:17:10 PM",4818
+"Starbucks",7234,"Mass Avenue at Havland","Company Owned",17578,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-236-4335","147-151 Massachusetts Avenue
+Boston, MA 02115-2607
+(42.346806, -71.08752)","147-151 Massachusetts Avenue","147-151 Massachusetts Avenue",NA,"Boston","MA","02115-2607","US","(42.346806, -71.08752)",42.346806,-71.08752,"06/22/2012 06:17:10 PM",1794
+"Starbucks",72163,"Boston Sheraton-Main Lobby","Licensed",14378,NA,"Wireless Hotspot",NA,9999,"Unknown","617-378-6210","39 Dalton Street
+Boston, MA 02199-3901
+(42.346573, -71.083844)","39 Dalton Street","39 Dalton Street",NA,"Boston","MA","02199-3901","US","(42.346573, -71.083844)",42.346573,-71.083844,"06/22/2012 06:17:10 PM",2323
+"Starbucks",824,"Harvard Street","Company Owned",13571,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-738-8005","473 Harvard Street
+Brookline, MA 02446-2439
+(42.347042, -71.128464)","473 Harvard Street","473 Harvard Street",NA,"Brookline","MA","02446-2439","US","(42.347042, -71.128464)",42.347042,-71.128464,"06/22/2012 06:17:10 PM",1198
+"Starbucks",11726,"Fenway Triangle Trilogy","Company Owned",17334,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-867-6545","142-148 Brookline Avenue
+Boston, MA 02215-3907
+(42.344278, -71.101407)","142-148 Brookline Avenue","142-148 Brookline Avenue",NA,"Boston","MA","02215-3907","US","(42.344278, -71.101407)",42.344278,-71.101407,"06/22/2012 06:17:10 PM",8867
+"Starbucks",7551,"Tremont-South End","Company Owned",13533,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-236-7879","627 Tremont St, Retail Space #1
+Boston, MA 02118-1649
+(42.342611, -71.074641)","627 Tremont St, Retail Space #1","627 Tremont St","Retail Space #1","Boston","MA","02118-1649","US","(42.342611, -71.074641)",42.342611,-71.074641,"06/22/2012 06:17:10 PM",1628
+"Starbucks",7823,"Brighton Village","Company Owned",12855,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-787-2430","470 Washington St
+Brighton, MA 02135-2674
+(42.348748, -71.159854)","470 Washington St","470 Washington St",NA,"Brighton","MA","02135-2674","US","(42.348748, -71.159854)",42.348748,-71.159854,"06/22/2012 06:17:10 PM",5959
+"Starbucks",2767,"Huntington Plaza","Company Owned",14267,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-536-6501","273 Huntington Ave
+Boston, MA 02115-4506
+(42.342014, -71.086182)","273 Huntington Ave","273 Huntington Ave",NA,"Boston","MA","02115-4506","US","(42.342014, -71.086182)",42.342014,-71.086182,"06/22/2012 06:17:10 PM",9719
+"Starbucks",867,"Coolidge Corner","Company Owned",13574,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-739-3453","277 Harvard St
+Brookline, MA 02446-2908
+(42.342587, -71.12163)","277 Harvard St","277 Harvard St",NA,"Brookline","MA","02446-2908","US","(42.342587, -71.12163)",42.342587,-71.12163,"06/22/2012 06:17:10 PM",2026
+"Starbucks",75363,"Northeastern U - Curry Student Ctr","Licensed",8559,NA,"Wireless Hotspot",NA,9999,"Unknown","617-373-8860","346 Huntington Ave
+Boston, MA 02115-5005
+(42.339585, -71.089353)","346 Huntington Ave","346 Huntington Ave",NA,"Boston","MA","02115-5005","US","(42.339585, -71.089353)",42.339585,-71.089353,"06/22/2012 06:17:10 PM",7640
+"Starbucks",7384,"Newtonville","Company Owned",13507,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-965-5997","16-18 Austin Street
+Newtonville, MA 02460-1820
+(42.350435, -71.207591)","16-18 Austin Street","16-18 Austin Street",NA,"Newtonville","MA","02460-1820","US","(42.350435, -71.207591)",42.350435,-71.207591,"06/22/2012 06:17:10 PM",7341
+"Starbucks",7224,"Beth Israel","Company Owned",16003,"Lunch, Oven-warmed Food","Starbucks Card Mobile",NA,9999,"Unknown","617-277-2350","364 Brookline Ave.
+Boston, MA 02215-5401
+(42.338293, -71.106176)","364 Brookline Ave.","364 Brookline Ave.",NA,"Boston","MA","02215-5401","US","(42.338293, -71.106176)",42.338293,-71.106176,"06/22/2012 06:17:10 PM",5841
+"Starbucks",7804,"Childrens' Hospital","Company Owned",16697,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-277-5202","283 Longwood Avenue
+Boston, MA 02115-5704
+(42.337712, -71.104718)","283 Longwood Avenue","283 Longwood Avenue",NA,"Boston","MA","02115-5704","US","(42.337712, -71.104718)",42.337712,-71.104718,"06/22/2012 06:17:10 PM",3526
+"Starbucks",7336,"Brookline-Washington Sq.","Company Owned",13493,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-232-5940","1655 Beacon Street
+Brookline, MA 02445-4505
+(42.338746, -71.13663)","1655 Beacon Street","1655 Beacon Street",NA,"Brookline","MA","02445-4505","US","(42.338746, -71.13663)",42.338746,-71.13663,"06/22/2012 06:17:10 PM",2068
+"Starbucks",7481,"Brookline Village","Company Owned",8712,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-232-5063","15 Harvard Street
+Brookline, MA 02445-7904
+(42.333719, -71.118719)","15 Harvard Street","15 Harvard Street",NA,"Brookline","MA","02445-7904","US","(42.333719, -71.118719)",42.333719,-71.118719,"06/22/2012 06:17:10 PM",9417
+"Starbucks",16439,"Cleveland Circle","Company Owned",87273,"Lunch, Oven-warmed Food","Wireless Hotspot",NA,0,"Unknown","617-232-0119","1948 Beacon St
+Brighton, MA 02135-7701
+(42.33608, -71.150371)","1948 Beacon St","1948 Beacon St",NA,"Brighton","MA","02135-7701","US","(42.33608, -71.150371)",42.33608,-71.150371,"06/22/2012 06:17:10 PM",5925
+"Starbucks",76139,"Target Dorchester T-1898","Licensed",9121,NA,"Starbucks Card Mobile",NA,9999,"Unknown","617-602-1921","7 Allstate Rd
+Boston, MA 02125-1655
+(42.32887, -71.062881)","7 Allstate Rd","7 Allstate Rd",NA,"Boston","MA","02125-1655","US","(42.32887, -71.062881)",42.32887,-71.062881,"06/22/2012 06:17:10 PM",1310
+"Starbucks",811,"Chestnut Hill","Company Owned",16522,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-738-6939","1154-1160 Boylston Street
+Chestnut Hill, MA 02467-2324
+(42.323624, -71.162437)","1154-1160 Boylston Street","1154-1160 Boylston Street",NA,"Chestnut Hill","MA","02467-2324","US","(42.323624, -71.162437)",42.323624,-71.162437,"06/22/2012 06:17:10 PM",5764
+"Starbucks",835,"Waban","Company Owned",15956,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-244-0390","474 Woodward Street
+Waban, MA 02468-1521
+(42.32642, -71.230214)","474 Woodward Street","474 Woodward Street",NA,"Waban","MA","02468-1521","US","(42.32642, -71.230214)",42.32642,-71.230214,"06/22/2012 06:17:10 PM",5874
+"Starbucks",7797,"Newton Lower Falls","Company Owned",17612,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-630-9870","2322 Washington Street
+Newton, MA 02462
+(42.325456, -71.256504)","2322 Washington Street","2322 Washington Street",NA,"Newton","MA","02462","US","(42.325456, -71.256504)",42.325456,-71.256504,"06/22/2012 06:17:10 PM",9340
+"Starbucks",76403,"Target Leominster T-1965","Licensed",9533,NA,"Starbucks Card Mobile",NA,9999,"Unknown","978-534-2914","86 Orchard Hill Park Dr
+Leominster, MA 01453-7020
+(42.527313, -71.713782)","86 Orchard Hill Park Dr","86 Orchard Hill Park Dr",NA,"Leominster","MA","01453-7020","US","(42.527313, -71.713782)",42.527313,-71.713782,"06/22/2012 06:17:10 PM",7189
+"Starbucks",880,"South Brookline","Company Owned",13577,"Clover Crafted Small Batch Coffee, Lunch, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-325-6261","183 Grove St
+South Brookline, MA 02467
+(42.303253, -71.152063)","183 Grove St","183 Grove St",NA,"South Brookline","MA","02467","US","(42.303253, -71.152063)",42.303253,-71.152063,"06/22/2012 06:17:10 PM",3924
+"Starbucks",7270,"Newton Upper Falls","Company Owned",16000,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-332-8839","244 Needham Street
+Newton, MA 02464
+(42.309391, -71.213785)","244 Needham Street","244 Needham Street",NA,"Newton","MA","02464","US","(42.309391, -71.213785)",42.309391,-71.213785,"06/22/2012 06:17:10 PM",7867
+"Starbucks",8956,"Leominster, Commercial Road","Company Owned",9784,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","978-840-1670","14 Commercial Rd
+Leominster, MA 01453-3338
+(42.53507, -71.741658)","14 Commercial Rd","14 Commercial Rd",NA,"Leominster","MA","01453-3338","US","(42.53507, -71.741658)",42.53507,-71.741658,"06/22/2012 06:17:10 PM",8936
+"Starbucks",7301,"Sudbury","Company Owned",11598,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","978-579-9977","513 Boston Post Road
+Sudbury, MA 01776-3313
+(42.359303, -71.430362)","513 Boston Post Road","513 Boston Post Road",NA,"Sudbury","MA","01776-3313","US","(42.359303, -71.430362)",42.359303,-71.430362,"06/22/2012 06:17:10 PM",5658
+"Starbucks",7808,"West Roxbury- Roche Bros.","Company Owned",16112,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-325-4717","1810 Centre Street
+West Roxbury, MA 02132-1901
+(42.287204, -71.152575)","1810 Centre Street","1810 Centre Street",NA,"West Roxbury","MA","02132-1901","US","(42.287204, -71.152575)",42.287204,-71.152575,"06/22/2012 06:17:10 PM",1916
+"Starbucks",7227,"Needham","Company Owned",13474,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-444-6234","910 Highland Ave.
+Needham, MA 02494
+(42.293244, -71.235098)","910 Highland Ave.","910 Highland Ave.",NA,"Needham","MA","02494","US","(42.293244, -71.235098)",42.293244,-71.235098,"06/22/2012 06:17:10 PM",3947
+"Starbucks",7314,"Wayland","Company Owned",16088,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-655-1109","44 Main Street
+Wayland, MA 01778-5056
+(42.31709, -71.364036)","44 Main Street","44 Main Street",NA,"Wayland","MA","01778-5056","US","(42.31709, -71.364036)",42.31709,-71.364036,"06/22/2012 06:17:10 PM",5363
+"Starbucks",10962,"Wellesley, Linden Square","Company Owned",18037,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-235-2390","101 Linden Street
+Wellesley, MA 02482-7907
+(42.297805, -71.295437)","101 Linden Street","101 Linden Street",NA,"Wellesley","MA","02482-7907","US","(42.297805, -71.295437)",42.297805,-71.295437,"06/22/2012 06:17:10 PM",8265
+"Starbucks",868,"Wellesley","Company Owned",14817,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-237-5282","68A Central Street
+Wellesley, MA 02482-5806
+(42.29598, -71.296342)","68A Central Street","68A Central Street",NA,"Wellesley","MA","02482-5806","US","(42.29598, -71.296342)",42.29598,-71.296342,"06/22/2012 06:17:10 PM",5458
+"Starbucks",16092,"Natick Route 9","Company Owned",69758,"Lunch, Oven-warmed Food","Wireless Hotspot",NA,0,"Unknown","508-655-3423","333 Worcester St
+Natick, MA 01760-2212
+(42.302288, -71.338926)","333 Worcester St","333 Worcester St",NA,"Natick","MA","01760-2212","US","(42.302288, -71.338926)",42.302288,-71.338926,"06/22/2012 06:17:10 PM",9151
+"Starbucks",7565,"East Milton Square(552 Adams St)","Company Owned",14123,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-296-0790","552 Adams Street
+Milton, MA 02186-5629
+(42.25799, -71.039547)","552 Adams Street","552 Adams Street",NA,"Milton","MA","02186-5629","US","(42.25799, -71.039547)",42.25799,-71.039547,"06/22/2012 06:17:10 PM",1392
+"Starbucks",7992,"Quincy, Monroe Place","Company Owned",13434,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","617-770-4953","1245 Hancock Street
+Quincy, MA 02169-4320
+(42.252762, -71.004839)","1245 Hancock Street","1245 Hancock Street",NA,"Quincy","MA","02169-4320","US","(42.252762, -71.004839)",42.252762,-71.004839,"06/22/2012 06:17:10 PM",1539
+"Starbucks",15209,"Target Framingham T-1308","Licensed",20059,NA,"Wireless Hotspot",NA,0,"Unknown","508-628-3136","400 Cochituate Rd
+Framingham, MA 01701-4655
+(42.305604, -71.397713)","400 Cochituate Rd","400 Cochituate Rd",NA,"Framingham","MA","01701-4655","US","(42.305604, -71.397713)",42.305604,-71.397713,"06/22/2012 06:17:10 PM",5882
+"Starbucks",7218,"Framingham (B&N)","Company Owned",17576,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-820-1204","1 Worcester Road
+Framingham, MA 01701-5304
+(42.301904, -71.395998)","1 Worcester Road","1 Worcester Road",NA,"Framingham","MA","01701-5304","US","(42.301904, -71.395998)",42.301904,-71.395998,"06/22/2012 06:17:10 PM",8315
+"Starbucks",874,"Natick","Company Owned",8443,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-650-2081","1346 Worcester Road
+Natick, MA 01760-1501
+(42.298075, -71.38708)","1346 Worcester Road","1346 Worcester Road",NA,"Natick","MA","01760-1501","US","(42.298075, -71.38708)",42.298075,-71.38708,"06/22/2012 06:17:10 PM",1906
+"Starbucks",9523,"Dedham Mall, Pad","Company Owned",8065,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","781-751-9036","300 Providence Highway
+Dedham, MA 02026-1875
+(42.253684, -71.170488)","300 Providence Highway","300 Providence Highway",NA,"Dedham","MA","02026-1875","US","(42.253684, -71.170488)",42.253684,-71.170488,"06/22/2012 06:17:10 PM",3128
+"Starbucks",7328,"Hingham","Company Owned",16670,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-749-5474","184 Lincoln Street
+Hingham, MA 02043-1718
+(42.248889, -70.903786)","184 Lincoln Street","184 Lincoln Street",NA,"Hingham","MA","02043-1718","US","(42.248889, -70.903786)",42.248889,-70.903786,"06/22/2012 06:17:10 PM",4639
+"Starbucks",70090,"Roche Bros - Quincy #513","Licensed",10661,NA,"Wireless Hotspot",NA,9999,"Unknown","617-471-0500","101 Falls Boulevard
+Quincy, MA 02169-8126
+(42.237861, -70.984275)","101 Falls Boulevard","101 Falls Boulevard",NA,"Quincy","MA","02169-8126","US","(42.237861, -70.984275)",42.237861,-70.984275,"06/22/2012 06:17:10 PM",9125
+"Starbucks",7399,"Wild Harvest/Framingham","Company Owned",16720,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-879-9185","25 Prospect St
+Framingham, MA 01701-6800
+(42.298732, -71.422425)","25 Prospect St","25 Prospect St",NA,"Framingham","MA","01701-6800","US","(42.298732, -71.422425)",42.298732,-71.422425,"06/22/2012 06:17:10 PM",8225
+"Starbucks",9985,"Springfield, E. Columbus Blvd","Company Owned",7824,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile","Drive-Through",9999,"Unknown","413-732-5173","1089 East Columbus Ave.
+Springfield, MA 01105-2543
+(42.095938, -72.585034)","1089 East Columbus Ave.","1089 East Columbus Ave.",NA,"Springfield","MA","01105-2543","US","(42.095938, -72.585034)",42.095938,-72.585034,"06/22/2012 06:17:14 PM",3475
+"Starbucks",7400,"Longmeadow Shops/Springfield","Company Owned",16667,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","413-565-5283","708 Bliss Road
+Longmeadow, MA 01106-1557
+(42.056857, -72.554956)","708 Bliss Road","708 Bliss Road",NA,"Longmeadow","MA","01106-1557","US","(42.056857, -72.554956)",42.056857,-72.554956,"06/22/2012 06:17:14 PM",1552
+"Starbucks",10202,"E. Longmeadow Center","Company Owned",8558,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","413-525-3877","42 N. Main Street
+East Longmeadow, MA 01028-2321
+(42.065707, -72.513945)","42 N. Main Street","42 N. Main Street",NA,"East Longmeadow","MA","01028-2321","US","(42.065707, -72.513945)",42.065707,-72.513945,"06/22/2012 06:17:14 PM",5286
+"Starbucks",9834,"Westfield, East Main St","Company Owned",14613,"Lunch, Oven-warmed Food","Starbucks Card Mobile","Drive-Through",9999,"Unknown","413-572-9910","280A East Main Street
+Westfield, MA 01085-3310
+(42.114737, -72.727496)","280A East Main Street","280A East Main Street",NA,"Westfield","MA","01085-3310","US","(42.114737, -72.727496)",42.114737,-72.727496,"06/22/2012 06:17:14 PM",8324
+"Starbucks",11128,"Holyoke Mall","Company Owned",7603,"Lunch, Oven-warmed Food","Starbucks Card Mobile",NA,9999,"Unknown","413-552-3130","50 Holyoke Street, B322
+Holyoke, MA 01040-2709
+(42.169405, -72.641246)","50 Holyoke Street, B322","50 Holyoke Street","B322","Holyoke","MA","01040-2709","US","(42.169405, -72.641246)",42.169405,-72.641246,"06/22/2012 06:17:14 PM",3394
+"Starbucks",8808,"Chicopee","Company Owned",8442,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","413-593-1457","620 Memorial Dr
+Chicopee, MA 01020-5019
+(42.175642, -72.575957)","620 Memorial Dr","620 Memorial Dr",NA,"Chicopee","MA","01020-5019","US","(42.175642, -72.575957)",42.175642,-72.575957,"06/22/2012 06:17:14 PM",9614
+"Starbucks",878,"Northampton","Company Owned",12249,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","413-582-0041","211 Main Street
+Northampton, MA 01060-3122
+(42.318021, -72.632136)","211 Main Street","211 Main Street",NA,"Northampton","MA","01060-3122","US","(42.318021, -72.632136)",42.318021,-72.632136,"06/22/2012 06:17:14 PM",4781
+"Starbucks",4730,"Stop & Shop - Northampton #787","Licensed",10938,NA,NA,NA,9999,"Unknown","413-584-9200","228 King St
+Northampton, MA 01060-2332
+(42.32822, -72.63373)","228 King St","228 King St",NA,"Northampton","MA","01060-2332","US","(42.32822, -72.63373)",42.32822,-72.63373,"06/22/2012 06:17:14 PM",8824
+"Starbucks",7251,"Amherst","Company Owned",16004,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","413-256-1669","71 North Pleasant Street
+Amherst, MA 01002-1962
+(42.376785, -72.519674)","71 North Pleasant Street","71 North Pleasant Street",NA,"Amherst","MA","01002-1962","US","(42.376785, -72.519674)",42.376785,-72.519674,"06/22/2012 06:17:14 PM",3410
+"Starbucks",3434,"Pittsfield","Company Owned",18403,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","413-442-5862","555 Hubbard Avenue
+Pittsfield, MA 01201-3876
+(42.468554, -73.196917)","555 Hubbard Avenue","555 Hubbard Avenue",NA,"Pittsfield","MA","01201-3876","US","(42.468554, -73.196917)",42.468554,-73.196917,"06/22/2012 06:17:14 PM",7071
+"Starbucks",7741,"Auburn Centre","Company Owned",11223,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-721-9475","434A Southbridge Street (Route 12)
+Auburn, MA 01501-4423
+(42.201369, -71.839595)","434A Southbridge Street (Route 12)","434A Southbridge Street (Route 12)",NA,"Auburn","MA","01501-4423","US","(42.201369, -71.839595)",42.201369,-71.839595,"06/22/2012 06:17:14 PM",1148
+"Starbucks",76550,"Target Lanesborough T-2127","Licensed",7055,NA,"Starbucks Card Mobile",NA,9999,"Unknown","413-499-1379","655 Cheshire Rd
+Lanesboro, MA 01237-9706
+(42.544937, -73.183173)","655 Cheshire Rd","655 Cheshire Rd",NA,"Lanesboro","MA","01237-9706","US","(42.544937, -73.183173)",42.544937,-73.183173,"06/22/2012 06:17:14 PM",4409
+"Starbucks",7862,"Worcester, One West Boylston Street","Company Owned",16240,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-595-9315","1 West Boylston Street
+Worcester, MA 01605-1265
+(42.288912, -71.807543)","1 West Boylston Street","1 West Boylston Street",NA,"Worcester","MA","01605-1265","US","(42.288912, -71.807543)",42.288912,-71.807543,"06/22/2012 06:17:14 PM",1591
+"Starbucks",9986,"Worcester, East Central Street","Company Owned",8084,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","508-756-4048","11 East Central Street
+Worcester, MA 01605-3004
+(42.266772, -71.794518)","11 East Central Street","11 East Central Street",NA,"Worcester","MA","01605-3004","US","(42.266772, -71.794518)",42.266772,-71.794518,"06/22/2012 06:17:14 PM",7063
+"Starbucks",15679,"Target Westborough T-1496","Licensed",65670,NA,NA,NA,0,"Unknown","508-366-1426","330 Turnpike Rd
+Westborough, MA 01581-2813
+(42.282608, -71.652668)","330 Turnpike Rd","330 Turnpike Rd",NA,"Westborough","MA","01581-2813","US","(42.282608, -71.652668)",42.282608,-71.652668,"06/22/2012 06:17:14 PM",7123
+"Starbucks",16899,"Northborough","Company Owned",88954,"Lunch, Oven-warmed Food","Wireless Hotspot","Drive-Through",0,"Unknown","508-393-2837","1104 Shops Way
+Northborough, MA 01532
+(42.322009, -71.646878)","1104 Shops Way","1104 Shops Way",NA,"Northborough","MA","01532","US","(42.322009, -71.646878)",42.322009,-71.646878,"06/22/2012 06:17:14 PM",2678
+"Starbucks",10274,"Solomon Pond Mall","Company Owned",8057,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-460-0756","601 Donald Lynch Boulevard, N143
+Marlborough, MA 01752-4730
+(42.354499, -71.61492)","601 Donald Lynch Boulevard, N143","601 Donald Lynch Boulevard","N143","Marlborough","MA","01752-4730","US","(42.354499, -71.61492)",42.354499,-71.61492,"06/22/2012 06:17:14 PM",6281
+"Starbucks",7742,"Westborough Shopping Center","Company Owned",12447,"Clover Crafted Small Batch Coffee, Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-898-9421","140 Turnpike St
+Westborough, MA 01581-2806
+(42.284518, -71.609896)","140 Turnpike St","140 Turnpike St",NA,"Westborough","MA","01581-2806","US","(42.284518, -71.609896)",42.284518,-71.609896,"06/22/2012 06:17:14 PM",6804
+"Starbucks",73864,"Roche Bros - Westboro #119","Licensed",6901,NA,"Wireless Hotspot",NA,9999,"Unknown","508-836-3600","1100 Union St
+Westboro, MA 01581-5409
+(42.269989, -71.608097)","1100 Union St","1100 Union St",NA,"Westboro","MA","01581-5409","US","(42.269989, -71.608097)",42.269989,-71.608097,"06/22/2012 06:17:14 PM",7831
+"Starbucks",845,"Marlborough","Company Owned",9200,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-485-8223","187 Boston Post Road
+Marlborough, MA 01752-1840
+(42.339345, -71.58916)","187 Boston Post Road","187 Boston Post Road",NA,"Marlborough","MA","01752-1840","US","(42.339345, -71.58916)",42.339345,-71.58916,"06/22/2012 06:17:14 PM",5200
+"Starbucks",7831,"Marlborough, South Bolton St","Company Owned",16356,"Lunch, Oven-warmed Food, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-486-9724","23 South Bolton Street
+Marlborough, MA 01752-2843
+(42.346238, -71.546413)","23 South Bolton Street","23 South Bolton Street",NA,"Marlborough","MA","01752-2843","US","(42.346238, -71.546413)",42.346238,-71.546413,"06/22/2012 06:17:14 PM",6870
+"Starbucks",2950,"Southborough","Company Owned",14347,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-486-9909","154 Turnpike Road, Rte 9
+Southborough, MA 01772-2120
+(42.292092, -71.520206)","154 Turnpike Road, Rte 9","154 Turnpike Road, Rte 9",NA,"Southborough","MA","01772-2120","US","(42.292092, -71.520206)",42.292092,-71.520206,"06/22/2012 06:17:14 PM",1454
+"Starbucks",15149,"Target Marlborough T-2570","Licensed",20031,NA,NA,NA,0,"Unknown","508-251-6957","650 Boston Post Rd E
+Marlborough, MA 01752-3724
+(42.349948, -71.505021)","650 Boston Post Rd E","650 Boston Post Rd E",NA,"Marlborough","MA","01752-3724","US","(42.349948, -71.505021)",42.349948,-71.505021,"06/22/2012 06:17:14 PM",9626
+"Starbucks",8958,"Medway","Company Owned",16773,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-533-3620","67A Main Street, Unit 104
+Medway, MA 02053-1817
+(42.152717, -71.404726)","67A Main Street, Unit 104","67A Main Street","Unit 104","Medway","MA","02053-1817","US","(42.152717, -71.404726)",42.152717,-71.404726,"06/22/2012 06:17:15 PM",6180
+"Starbucks",7228,"RT 109/Westwood","Company Owned",12099,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-329-5421","736 High Street
+Westwood, MA 02090-2503
+(42.223196, -71.222667)","736 High Street","736 High Street",NA,"Westwood","MA","02090-2503","US","(42.223196, -71.222667)",42.223196,-71.222667,"06/22/2012 06:17:15 PM",4676
+"Starbucks",76314,"Target Plainville T-1930","Licensed",12270,NA,"Starbucks Card Mobile",NA,9999,"Unknown","508-643-5008","103 Taunton St
+Plainville, MA 02762-1237
+(42.033823, -71.310626)","103 Taunton St","103 Taunton St",NA,"Plainville","MA","02762-1237","US","(42.033823, -71.310626)",42.033823,-71.310626,"06/22/2012 06:17:15 PM",1943
+"Starbucks",10378,"Walpole, Rt. 1","Company Owned",18319,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","508-668-2701","985 Route 1
+Walpole, MA 02081
+(42.140065, -71.21931)","985 Route 1","985 Route 1",NA,"Walpole","MA","02081","US","(42.140065, -71.21931)",42.140065,-71.21931,"06/22/2012 06:17:15 PM",5687
+"Starbucks",3433,"Norwood Rte. 1 North","Company Owned",12538,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","781-255-5805","1000 Providence Highway
+Norwood, MA 02062-5002
+(42.178159, -71.190462)","1000 Providence Highway","1000 Providence Highway",NA,"Norwood","MA","02062-5002","US","(42.178159, -71.190462)",42.178159,-71.190462,"06/22/2012 06:17:15 PM",9047
+"Starbucks",7639,"Canton-Cobbs Corner","Company Owned",15206,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-830-9136","95 Washington Street
+Canton, MA 02021-4006
+(42.140561, -71.147766)","95 Washington Street","95 Washington Street",NA,"Canton","MA","02021-4006","US","(42.140561, -71.147766)",42.140561,-71.147766,"06/22/2012 06:17:17 PM",9550
+"Starbucks",76781,"Target Easton T-2267","Licensed",7651,NA,"Starbucks Card Mobile",NA,9999,"Unknown","508-230-0005","41 Robert Dr
+Easton, MA 02375-1352
+(42.027340017339, -71.143449505102)","41 Robert Dr","41 Robert Dr",NA,"Easton","MA","02375-1352","US","(42.027340017339, -71.143449505102)",42.027340017339,-71.143449505102,"06/22/2012 06:17:17 PM",4633
+"Starbucks",76965,"Target Stoughton T-2258","Licensed",10695,NA,"Starbucks Card Mobile",NA,9999,"Unknown","781-847-4000","1 Hawes Way
+Stoughton, MA 02072-1162
+(42.152479, -71.073044)","1 Hawes Way","1 Hawes Way",NA,"Stoughton","MA","02072-1162","US","(42.152479, -71.073044)",42.152479,-71.073044,"06/22/2012 06:17:17 PM",7399
+"Starbucks",7692,"Seekonk","Company Owned",11820,"Lunch, Oven-warmed Food, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","508-336-8626","2 Commerce Way
+Seekonk, MA 02771-5816
+(41.793401, -71.325299)","2 Commerce Way","2 Commerce Way",NA,"Seekonk","MA","02771-5816","US","(41.793401, -71.325299)",41.793401,-71.325299,"06/22/2012 06:17:17 PM",4166
+"Starbucks",9052,"Target Braintree T-2693","Licensed",19216,NA,NA,NA,0,"Unknown","781-817-8809","250 Granite St
+Braintree, MA 02184-3963
+(42.218684, -71.023694)","250 Granite St","250 Granite St",NA,"Braintree","MA","02184-3963","US","(42.218684, -71.023694)",42.218684,-71.023694,"06/22/2012 06:17:23 PM",7965
+"Starbucks",7712,"Brockton, Belmont Street","Company Owned",16450,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-584-4223","1285 Belmont Street
+Brockton, MA 02301-4440
+(42.058941, -71.068068)","1285 Belmont Street","1285 Belmont Street",NA,"Brockton","MA","02301-4440","US","(42.058941, -71.068068)",42.058941,-71.068068,"06/22/2012 06:17:23 PM",2840
+"Starbucks",7374,"Weymouth","Company Owned",13504,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-331-4851","980 Main St
+Weymouth, MA 02190-1546
+(42.171351, -70.955057)","980 Main St","980 Main St",NA,"Weymouth","MA","02190-1546","US","(42.171351, -70.955057)",42.171351,-70.955057,"06/22/2012 06:17:23 PM",5108
+"Starbucks",76680,"Target Abington T-2173","Licensed",10137,NA,"Starbucks Card Mobile",NA,9999,"Unknown","781-347-9003","375 Centre Ave
+Abington, MA 02351-2209
+(42.11079, -70.93055)","375 Centre Ave","375 Centre Ave",NA,"Abington","MA","02351-2209","US","(42.11079, -70.93055)",42.11079,-70.93055,"06/22/2012 06:17:23 PM",5618
+"Starbucks",10377,"Hingham, Rte. 53","Company Owned",7318,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","781-740-8870","1 Derby Street
+Hingham, MA 02043-3786
+(42.180973, -70.90172)","1 Derby Street","1 Derby Street",NA,"Hingham","MA","02043-3786","US","(42.180973, -70.90172)",42.180973,-70.90172,"06/22/2012 06:17:23 PM",2129
+"Starbucks",7726,"Taunton Depot","Company Owned",13556,"Lunch, Oven-warmed Food, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-822-8381","65 H Taunton Depot Drive
+Taunton, MA 02780-6962
+(41.879002, -71.066607)","65 H Taunton Depot Drive","65 H Taunton Depot Drive",NA,"Taunton","MA","02780-6962","US","(41.879002, -71.066607)",41.879002,-71.066607,"06/22/2012 06:17:23 PM",1911
+"Starbucks",15819,"Target Taunton T-1189","Licensed",63180,NA,NA,NA,0,"Unknown","508-824-8004","81 Taunton Depot Dr
+Taunton, MA 02780-6915
+(41.8786, -71.065732)","81 Taunton Depot Dr","81 Taunton Depot Dr",NA,"Taunton","MA","02780-6915","US","(41.8786, -71.065732)",41.8786,-71.065732,"06/22/2012 06:17:23 PM",4460
+"Starbucks",11630,"Hanover, Washington St","Company Owned",10568,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","781-681-9170","1972 Washington St.
+Hanover, MA 02339-1617
+(42.152876, -70.84664)","1972 Washington St.","1972 Washington St.",NA,"Hanover","MA","02339-1617","US","(42.152876, -70.84664)",42.152876,-70.84664,"06/22/2012 06:17:23 PM",2866
+"Starbucks",5104,"Target Hanover T-2532","Licensed",11010,NA,"Starbucks Card Mobile",NA,9999,"Unknown","781-499-1961","1167 Washington Street
+Hanover, MA 02339-1643
+(42.13529, -70.84106)","1167 Washington Street","1167 Washington Street",NA,"Hanover","MA","02339-1643","US","(42.13529, -70.84106)",42.13529,-70.84106,"06/22/2012 06:17:23 PM",2117
+"Starbucks",7885,"Cohasset","Company Owned",12734,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","781-383-8760","790 Chief Justice Hwy
+Cohasset, MA 02025-2140
+(42.221207, -70.800098)","790 Chief Justice Hwy","790 Chief Justice Hwy",NA,"Cohasset","MA","02025-2140","US","(42.221207, -70.800098)",42.221207,-70.800098,"06/22/2012 06:17:23 PM",8002
+"Starbucks",15780,"Target Swansea T-2607","Licensed",65672,NA,NA,NA,0,"Unknown","774-488-3684","579 Grand Army Hwy
+Swansea, MA 02777
+(41.747711, -71.206702)","579 Grand Army Hwy","579 Grand Army Hwy",NA,"Swansea","MA","02777","US","(41.747711, -71.206702)",41.747711,-71.206702,"06/22/2012 06:17:23 PM",1534
+"Starbucks",7602,"Marshfield","Company Owned",11911,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","781-834-6598","784 Plain St, Rte 139
+Marshfield, MA 02050-2107
+(42.106232, -70.746918)","784 Plain St, Rte 139","784 Plain St","Rte 139","Marshfield","MA","02050-2107","US","(42.106232, -70.746918)",42.106232,-70.746918,"06/22/2012 06:17:23 PM",2719
+"Starbucks",11849,"Plymouth, Colony Place","Company Owned",6727,"Lunch, Oven-warmed Food, Reserve Amenity","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","508-732-9216","100 Colony Place, Rt. 44
+Plymouth, MA 02360-7233
+(41.952999, -70.714528)","100 Colony Place, Rt. 44","100 Colony Place, Rt. 44",NA,"Plymouth","MA","02360-7233","US","(41.952999, -70.714528)",41.952999,-70.714528,"06/22/2012 06:17:23 PM",5432
+"Starbucks",5022,"Stop & Shop-Plymouth #469","Licensed",11011,NA,NA,NA,9999,"Unknown","508-746-1444","127 Samoset Street
+Plymouth, MA 02360-4893
+(41.953785, -70.684105)","127 Samoset Street","127 Samoset Street",NA,"Plymouth","MA","02360-4893","US","(41.953785, -70.684105)",41.953785,-70.684105,"06/22/2012 06:17:23 PM",3976
+"Starbucks",76700,"Target North Dartmouth T-2167","Licensed",10136,NA,"Starbucks Card Mobile",NA,9999,"Unknown","508-979-7530","479 State Rd
+North Dartmouth, MA 02747-4309
+(41.638403, -71.002497)","479 State Rd","479 State Rd",NA,"North Dartmouth","MA","02747-4309","US","(41.638403, -71.002497)",41.638403,-71.002497,"06/22/2012 06:17:27 PM",7755
+"Starbucks",76837,"Target Wareham T-2292","Licensed",6509,NA,"Starbucks Card Mobile",NA,9999,"Unknown","508-273-0436","2421 Cranberry Hwy
+Wareham, MA 02571-5021
+(41.777279, -70.747245)","2421 Cranberry Hwy","2421 Cranberry Hwy",NA,"Wareham","MA","02571-5021","US","(41.777279, -70.747245)",41.777279,-70.747245,"06/22/2012 06:17:27 PM",4915
+"Starbucks",14474,"Bourne, Rt. 6","Company Owned",6631,"Lunch, Oven-warmed Food","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","508-743-0351","2 Bridge Approach Street
+Bourne, MA 02532-5679
+(41.751891, -70.594271)","2 Bridge Approach Street","2 Bridge Approach Street",NA,"Bourne","MA","02532-5679","US","(41.751891, -70.594271)",41.751891,-70.594271,"06/22/2012 06:17:51 PM",4496
+"Starbucks",7250,"Mashpee","Company Owned",17707,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot",NA,9999,"Unknown","508-477-5806","6 Market Street
+Mashpee, MA 02649
+(41.616103214342, -70.4854)","6 Market Street","6 Market Street",NA,"Mashpee","MA","02649","US","(41.616103214342, -70.4854)",41.616103214342,-70.4854,"06/22/2012 06:17:57 PM",4623
+"Starbucks",73958,"Roche Bros - Mashpee #117","Licensed",10790,NA,NA,NA,9999,"Unknown","508-477-5558","11 Donnas Lane
+Mashpee, MA 02649
+(41.611585537247, -70.488444303454)","11 Donnas Lane","11 Donnas Lane",NA,"Mashpee","MA","02649","US","(41.611585537247, -70.488444303454)",41.611585537247,-70.488444303454,"06/22/2012 06:17:57 PM",7500
+"Starbucks",7418,"Falmouth","Company Owned",13513,"Lunch, Oven-warmed Food, Reserve Amenity, Sirena Espresso Machine","Starbucks Card Mobile, Wireless Hotspot","Drive-Through",9999,"Unknown","508-540-4949","11 Davis Straights/ Route 28
+Falmouth, MA 02540-3905
+(41.555502, -70.599396)","11 Davis Straights/ Route 28","11 Davis Straights/ Route 28",NA,"Falmouth","MA","02540-3905","US","(41.555502, -70.599396)",41.555502,-70.599396,"06/22/2012 06:17:57 PM",1616
+"Starbucks",15703,"Hyannis, Iyannough Rd","Company Owned",88902,"Lunch, Oven-warmed Food","Wireless Hotspot",NA,0,"Unknown","508-771-4880","655 Iyannough Rd, 6
+Hyannis, MA 02601-1900
+(41.667193, -70.291905)","655 Iyannough Rd, 6","655 Iyannough Rd","6","Hyannis","MA","02601-1900","US","(41.667193, -70.291905)",41.667193,-70.291905,"06/22/2012 06:17:57 PM",8800
+"Starbucks",73943,"Stop & Shop-South Dennis #461","Licensed",10748,NA,NA,NA,9999,"Unknown","508-394-4535","500 Rte 134
+South Dennis, MA 02660-3707
+(41.695540977658, -70.150576427081)","500 Rte 134","500 Rte 134",NA,"South Dennis","MA","02660-3707","US","(41.695540977658, -70.150576427081)",41.695540977658,-70.150576427081,"06/22/2012 06:17:57 PM",1239
+"Starbucks",73778,"Stop & Shop-Harwich #475","Licensed",7488,NA,"Wireless Hotspot",NA,9999,"Unknown",NA,"SR-39 &amp; SR-137
+Harwich, MA 02645
+(41.706937, -70.019119)","SR-39 & SR-137","SR-39 & SR-137",NA,"Harwich","MA","02645","US","(41.706937, -70.019119)",41.706937,-70.019119,"06/22/2012 06:17:57 PM",3868
+"Starbucks",4193,"Stop & Shop-Orleans #64","Licensed",18716,NA,NA,NA,0,"Unknown","508-255-5288","2110 Cranberry Cove Plaza
+Orleans, MA 02653
+(41.7762, -69.9742)","2110 Cranberry Cove Plaza","2110 Cranberry Cove Plaza",NA,"Orleans","MA","02653","US","(41.7762, -69.9742)",41.7762,-69.9742,"06/22/2012 06:17:57 PM",7092

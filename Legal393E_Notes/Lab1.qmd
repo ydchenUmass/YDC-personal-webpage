@@ -1,0 +1,269 @@
+---
+title: "Legel 393E Spring 2025: Lab Meeting#1: Tutorial#1 Quiz Solutions & More on R Basics"
+author: "EricoYu"
+description: "R Basics"
+date: "02/08/2024"
+format:
+  html:
+    df-print: paged
+    css: "styles.css"
+categories:
+  - lab meeting
+  - Additional practices and materials
+---
+
+## RStudio Layout: Inputting and Running R codes.
+
+As I introduced in class, [the RStudio interface has four panels/panes](https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html). You can enter the R codes you learn and get them running in two ways. First, you can directly type in the codes in the R console pane and hit "enter," and the immediate output will display below.
+
+Second, in the source/script pane, you can create a new script (.r) by selecting "File/New File/R Script." You can enter your codes in this script file. Once you are done, you can select one or multiple lines and hit the "Run" button on the upper right of the pane. The codes you run, and the outputs will be displayed on the R console pane. If you plot graphs or figures, the output will appear in the "Plots" window on the Output pane at the bottom right.
+
+In practice, we generally use the second way to work on codes and analyze data in R. This .r script file is like a notebook or .txt file (if you have some programming background before). It allows you to write and edit multiple lines of code, write short functions or programs, make notes for your codes, and save all these codes and notes in this .r script file. You can also share this .r script file with others or open one existing .r script file in your RStudio and run the codes. It is very convenient to manage a project with multiple parts of code (reading data, processing data, coding and recoding, summary statistics, running models and getting results, creating visualizations, etc.).
+
+## Tutorial#1 Quiz Answers
+
+Question 1. How does R evaluate (21+19)/2 + 1 \> 20?
+
+Answer: We can simply enter the inequation and see the output.
+
+```{r}
+ (21+19)/2 + 1 > 20
+
+```
+
+Question 2. Which of the following is the assignment operator?
+
+Answer: \<-.
+
+Question 3. What is the highest grade (as a percentage) in new_grades?
+
+Answer: This question is based on the materials in the "Vectors" section of Tutorial#1. The vector **new_grades** is generated as below.
+
+Note: You can use this operator, "#," in tutorials and many R coding blocks. This operator tells R not to run the content after it and to move on to the next, so it is a way to provide line-by-line commentary without interrupting R’s ability to run the script.
+
+```{r}
+#The second quiz
+new_scores <- c(13,12,11,9,12,13,15,12,6,14)
+new_scores
+
+
+
+#Solution of Exercise 1
+
+#new_grades variable is calculated dividing the scores by 15
+new_grades <- new_scores/15
+#multiply new_grades by 100 for clean percentages
+new_grades <- new_grades*100
+
+#preview all the numbers of "new_grades"
+new_grades
+
+```
+
+How can we extract the maximum from this vector or a string of 10 numbers? We can simply use a basic R function, max():
+
+```{r}
+#getting the maximum number 
+max(new_grades)
+```
+
+Question#4. What is the highest grade (as a percentage) in final_grades after weighting by adding 5 points to everyone's grade?
+
+Answer: we first need to take the average of the sum of grades of the two quizzes to get the final_grades.
+
+```{r}
+#getting the grades of the first quiz. This is the same codes shown in the first part of the "Vector" section of the tutorials.
+
+#The first quiz
+scores <- c(14,13,12,15,16,14,15,10,8,12) #creating a vector of 10 students' grades of Quiz 1 by c(), and assign it as variable "scores".
+
+#Creating a second variable called "grades" by dividing the scores by 17
+grades <- scores/17
+
+#convert it to percentage
+grades <- grades *100
+
+#preview all the numbers of "grades"
+grades
+
+
+#now we can create the variable, "final_grades", by averaging the sum of the two quizzes:
+final_grades <- (grades+new_grades)/2
+
+#show final_grades to dobule-check
+final_grades
+
+```
+
+Finally, we just need to weight all the final grades by adding 5 points.
+
+```{r}
+#weight the grades by 5 points
+weighted_grades <- final_grades + 5
+
+#What is the highest grade? Again, use the max() function.
+max(weighted_grades)
+```
+
+Surely, when you are more familiar with coding in R, you can rewrite the above multiple lines of codes into one line (just like merging multiple steps of calculation) and make your codes more clean and concise. However, you may still want to do this step by step to make sure the result of each step is correct.
+
+```{r}
+max((scores/17 + new_scores/15)*100/2+5)
+```
+
+Question.5 In R, c(1,2,3,4) would create:
+
+Answer: This one is simple. A vector. If you want to get the sum of these four numbers using the following mutliple ways:
+
+```{r}
+1+2+3+4
+
+#or
+vector <- c(1,2,3,4)
+sum(vector)
+
+#or
+sum(1:4)
+
+#or
+sum(1,2,3,4)
+
+```
+
+## Additional Introduction to R Basic Operations
+
+Although this is not an R coding course, I would suggest you do more research to learn R, including reading this suggested textbook. Besides providing your the tutorials and the lab days, i will also provide some additional notes on R coding practices.
+
+This week, I want to introduce you to three things: working directory, packages, and functions. For each part, I attach the link of the readings for your to refer to.
+
+### Working Directory: [Readings](https://r4ds.had.co.nz/workflow-projects.html?q=working%20directory#where-does-your-analysis-live)
+
+1.  First, let's start with some simple tasks to refresh the basics of R & RStudio. 1.Check your working directory (type your code below and run it)
+
+```{r}
+getwd()
+```
+
+2.  You can use setwd() to change your working directory to any location in your device, such as desktop, for example. (for students using Posit Cloud, change the working directory to /cloud/)
+
+```{r}
+
+```
+
+**If see a warning message, please refer to [this answer on Piazza](https://piazza.com/class/llz8y8zf8f16be/post/15_f3) to see the solution.**
+
+### Packages; Installing & Loading Packages
+
+Packages in R Programming language are a set of R functions, compiled code, and sample data. These are stored under a directory called “library” within the R environment. By default, R installs a group of packages during installation. Once we start the R console, only the default packages are available by default. Other packages that are already installed need to be loaded explicitly to be utilized by the R program that’s getting to use them.
+
+R is an open-source programming language, which means that everyone can write their own packages.
+
+There are two ways of installing packages. Let's try the less intuitive way by using the function install.packages(). Say, if we want to install package "foreign," how can you do it?
+
+```{r}
+#install.packages('foreign') #delete the previous "#" to run
+```
+
+pros: flexible; can install multiple packages per time; cons: less intuitive; you need to know the names of the packages you want to install.
+
+loading a package (always make sure do this first)
+
+```{r}
+library(foreign)
+```
+
+**Question: is there a way that we can load multiple packages (tidyverse, ggplot2, foreign) at the same time?**
+
+```{r}
+needed.packages<-c('tidyverse','ggplot2','haven')
+lapply(needed.packages, require, character.only = TRUE)
+```
+
+We can use this R base function: lapply(), which applies a function over a list or vector. In this case, we first assign a list of characters including all the packages' names. Then we use lapply() to go over this list.
+
+```{r}
+#What if the package is not installed? 
+# Install packages not yet installed
+#installed_packages <- packages %in% rownames(installed.packages())
+#if (any(installed_packages == FALSE)) {
+#  install.packages(packages[!installed_packages])
+#}
+```
+
+### Functions: [Reading](https://r4ds.had.co.nz/functions.html)
+
+A function is a block of code that only runs when it is called. In R, many functions are already built-in and ready to call and run. Different functions are also included in other packages. When you install and load the packages, they are also ready to be used.
+
+In the Tutorial#1 Quiz Answers above, I have shown you one of the default function in R. functions: max().
+
+Let's try to do some practices with some built-in functions.
+
+```{r}
+#Creating a vector of 15 users' ratings of Iphone 15.
+
+rating_iphone15 <- sample(1:10, 50, replace = T) # replace = T allow duplicated numbers
+
+
+#Creating a vector of the age of death of US presidents born before 1900.
+
+PrezAge_1900 <- c(67, 90, 83, 85, 73, 80,
+                  78, 79, 68, 71, 53, 65,
+                  74, 64, NA, 56, 49, 57,
+                  71, 67, 71, 58, 60, 72,
+                  67, 57, 60, 90, 63, 88,
+                  78)
+
+
+
+```
+
+1.  **Please calculate the following basic stasitics of the above two vectors: mean, max, min, and median**
+
+```{r}
+mean(rating_iphone15)
+min(rating_iphone15)
+max(rating_iphone15)
+median(rating_iphone15)
+```
+
+```{r}
+mean(PrezAge_1900, na.rm = T) #na.rm is an argument in R, meaning that we want to remove the Non applicable data or or null data in the vector. So in this function, we tell R to calcualte the mean of this string of numbers while ignoring all the NAs.  
+min(PrezAge_1900, na.rm = T)
+max(PrezAge_1900, na.rm = T)
+median(PrezAge_1900, na.rm = T)
+```
+
+2.  **In base R, there is a built-in function we use a lot for all the above descriptive statistics: summary(). Try it with the above two vectors.**
+
+```{r}
+summary(PrezAge_1900)
+summary(rating_iphone15)
+```
+
+Question: what about the modes(the most frequent number in a sequence) of these vectors? Does mode() help us to get the number?
+
+```{r}
+#Note that R does not have a built-in function to calculate mode. Although we don't ususally show mode in data analysis, if we have to get the mode, we will need to write our own codes.
+
+getmode<-function(vector){
+  unique_value<-unique(vector)# Find unique values in the input vector by removing all duplicated elements
+  counts <-tabulate(match(vector, unique_value))  # Create a table of counts for each unique value in the vector
+  mode_index<-which.max(counts) #which.max(): determine the location or index of the element (numeric) of the maximum value  
+  mode<-unique_value[mode_index] #Return the unique value corresponding to the mode
+  return(mode)
+} 
+
+#So in the above blocks of code, I actually writing my own function, using the function "function()". After I define the function, getmode(), I can just use it to get the modes of a string of numbers! For example:
+
+```
+
+3.  **Next, try a few useful base functions with these two vectors: sort(), unique(), and table().**
+
+```{r}
+sort(rating_iphone15) #this helps to sort the numbers (in ascending order by defaut)
+sort(rating_iphone15, decreasing = T)#and we can make it in a descending order
+unique(rating_iphone15) #unique returns a vector, data frame or array like x but with duplicate elements/rows removed.
+table(rating_iphone15)
+```
+
+### 

@@ -1,0 +1,361 @@
+---
+title: "Legel 393E Spring 2025: Lab Meeting#3: Tutorial#3-4 Quiz Solutions"
+author: "EricoYu"
+description: "Visualization and Summary Statiscis"
+date: "04/18/2024"
+format:
+  html:
+    df-print: paged
+    css: "styles.css"
+categories:
+  - lab meeting
+  - Additional practices and materials
+---
+
+This week, we will go over the solutions for Quiz 3, 4 and 5. In addition, I will give some additional notes on how to explain regression results.
+
+Next time, we will discuss data cleaning and other additional operations in R.
+
+## Loading the necessary datasets.
+
+```{r}
+#create a vector contains the names of the needed packages, and assign a name "needed.packages" for it.
+needed.packages<-c('readxl','readr','haven','dplyr','ggplot2')
+
+#lapply() allows us to loop over and execute every element in the object "needed.packages".
+lapply(needed.packages, require, character.only = TRUE)
+```
+
+### Electricity data
+
+```{r}
+#Check working directory
+getwd()
+electric <- read_csv("data/API_EG.ELC.ACCS.ZS_DS2_en_csv_v2_76137.csv", 
+    skip = 3)
+
+head(electric) #preview the dataset and the types of each column
+```
+
+```{r}
+#using dplyr packages (a tidyverse family package)to help to edit and change dataset. Since we have loaded the package above, we don't have to load it again.
+
+electric <- electric %>% 
+  select("Country Name", "Country Code", as.character(1990:2016)) # using select() for us to keep only the columns we want.
+
+
+#Preview the data again
+head(electric)
+
+#Show the dataset dimension
+dim(electric)
+```
+
+### Loading pseo data
+
+```{r}
+pseo <- read_csv("https://raw.githubusercontent.com/RosemaryPang/Data-for-teaching/main/pseo_601.csv")
+
+head(pseo)
+
+dim(pseo)
+```
+
+### Loading anes data
+
+```{r}
+anes<- read_csv("https://raw.githubusercontent.com/RosemaryPang/Data-for-teaching/main/anes_601.csv")   
+head(anes)   
+dim(anes)
+
+#recode v162136x as Econ_Mobility, v162034a as Vote_16 and v162132 as Class.
+
+anes<-anes%>%
+  mutate(Econ_Mobility = case_when(
+         v162136x == 1 ~ "Much Easier",
+         v162136x == 2 ~ "Moderately Easier",
+         v162136x == 3 ~ "Slightly Easier",
+         v162136x == 4 ~ "The Same",
+         v162136x == 5 ~ "Slightly Harder",
+         v162136x == 6 ~ "Moderately Harder",
+         v162136x == 7 ~ "Much Harder"
+         )) %>%
+  mutate(Vote_16 = case_when(
+         v162034a == 1 ~ "Clinton",
+         v162034a == 2 ~ "Trump",
+         v162034a == 3 ~ "Johnson",
+         v162034a == 4 ~ "Stein"
+         )) %>%
+  mutate(Class = case_when(
+    v162132 == 1 ~ "Lower Class",
+    v162132 == 2 ~ "Working Class",
+    v162132 == 3 ~ "Middle Class",
+    v162132 == 4 ~ "Upper Class"
+  ))
+
+
+```
+
+## Tutorial#3 Quiz Answers
+
+### Question 1. In the ANES data, among which class of voters did Gary Johnson earn 19 votes in the 2016 presidential election?
+
+Answer: we can answer this question by creating a crosstabs of social class and voter choice.
+
+```{r}
+#Make crosstabs for Vote_16 and Econ_Mobility
+xtabs(~ Class + Vote_16, anes)
+
+```
+
+So the answer is Middle Class.
+
+### **Question 2. In ggplot2, you can add multiple layers and options to your plots.**
+
+Answer: Yes. As we know, ggplot2() provides a unifying framework (a grammar) to program visualizations. Starting with the basic `ggplot()` , we pass our dataset and create an empty plot object. From there, we use `aes()` within `ggplot()` to specify the model and variables. Next, we add (`+`) geometry layers to specify the graphic items and graphic types. Finally, we add other layers to customize the graph notations.
+
+For example, let me introduce how to make a stacked-to-100% barplot. Note the argument in `geom_bar()` function: `position="fill"` tells R that the percentage of each subgroup is represented within a bar, allowing to study the evolution of their proportion in the whole.
+
+```{r}
+
+
+#Plotting class and vote choice of ANES data
+ggplot(filter(anes, !is.na(Class)), aes(fill=Class,x = Vote_16))+
+  #!is.na() remove N/A or missing data in a variable;
+  #make sure "+" is following the ggplot() and the layer function!
+  #The fill color of the bars will be determined by the Class variable.
+ geom_bar(position="fill")  +
+ labs(title = "Class and Voting", y = "2016 American National Election Study", x = "Voting for Presidential Candidates")
+               
+
+```
+
+### Question 3. In which of the following years do the most countries have no or close to zero access to electricity?
+
+Answer:
+
+**Note: the electric data used in this demonstration is not the same as the one in Tutorial#3. So the results will be different. The correct answer is 1990.**
+
+The simpliest way is to plot the three years (1990, 2003, and 2016) and compare. For example, 1990:
+
+#Make sure you exclude NA before plotting. You can do it in the ggplot() function using `!is.na()` like below, or you can filter out all NAs before plotting like this `electric_clean <- electric_long %>% filter(!is.na(access))`
+
+```{r}
+ggplot(electric %>% filter(!is.na(`1990`)), 
+       aes(x = reorder(`Country Name`, `1990`), y = `1990`)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "Electricity Access by Country in 1990",
+       x = "Country",
+       y = "Access to Electricity (%)") +
+  theme_minimal()
+```
+
+The graph definitely look messy since there are so many countries and they stack over each others. Solutions?
+
+We can actually plot a histogram! Because a histogram allows us to define the binwidth to customize the size or the range of values represnted by each bar, we can group countries.
+
+```{r}
+ggplot(electric %>% filter(!is.na(`1990`)), aes(x = `1990`)) +
+  geom_histogram(binwidth = 10, fill = "red", color = "white") +
+  labs(title = "Distribution of Electricity Access in 1990",
+       x = "Access to Electricity (%)",
+       y = "Number of Countries") +
+  theme_minimal()
+```
+
+And we can actually present three graphs on the same panel to compare. Let me introduce one way of doing this: `grid.arrange()`.
+
+```{r}
+p1990<-ggplot(electric %>% filter(!is.na(`1990`)), aes(x = `1990`)) +
+  geom_histogram(binwidth = 10, fill = "red", color = "white") +
+  labs(title = "Distribution of Electricity Access in 1990",
+       x = "Access to Electricity (%)",
+       y = "Number of Countries") +
+  theme_minimal()
+
+p2003<-ggplot(electric %>% filter(!is.na(`2003`)), aes(x = `2003`)) +
+  geom_histogram(binwidth = 10, fill = "red", color = "white") +
+  labs(title = "Distribution of Electricity Access in 2003",
+       x = "Access to Electricity (%)",
+       y = "Number of Countries") +
+  theme_minimal()
+
+p2016<-ggplot(electric %>% filter(!is.na(`2016`)), aes(x = `2016`)) +
+  geom_histogram(binwidth = 10, fill = "red", color = "white") +
+  labs(title = "Distribution of Electricity Access in 2016",
+       x = "Access to Electricity (%)",
+       y = "Number of Countries") +
+  theme_minimal()
+
+library(gridExtra)
+
+grid.arrange(p1990, p2003, p2016, ncol = 2) #column layout; alternatively, we can use nrow = 2 for horizontal layout; we can specify how many numbers of graph to be presented on the same row or column.
+```
+
+### Question 4. How would you add the "minimal" theme to a ggplot figure?
+
+Answer: simply just `+theme_minimal()`
+
+### Question 5. You can add a smoothed density curve to your ggplot histogram object by adding " + geom_density()"
+
+Answer: the answer is yes. As we see in the tutorial example:
+
+```{r}
+ggplot(pseo, aes(p50_earnings)) + 
+  geom_histogram(aes(y = ..density..), alpha = 0.5) +
+  geom_density(alpha = 0.2, fill="red")
+```
+
+However, if we want to do a smooth curve, or a best-fitting line, for scatterplots, we need to use `geom_smooth()`. For example
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") + # fits a linear model (straight line), or 
+  #geom_smooth() + # Without assuming linearity; LOESS fits local curve; nonlinear and flexible;
+  labs(title = "Fuel Efficiency vs. Car Weight",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon (MPG)") +
+  theme_minimal()
+```
+
+## Tutorial#4 Quiz Answers:
+
+### Question 1. What is the mean value of access to electricity in 2015? 
+
+Answer: This one is pretty straightforward. But don't forget to remove missing data before doing any statistics.
+
+```{r}
+mean(electric$`2015`, na.rm =T)
+```
+
+### Question 2. How could you calculate the mean of a vector containing missing values?
+
+Answer: `summarize(data, new.variable = mean(old.variable, na.rm = TRUE))`
+
+### Question 3. What's the median of p50_earnings in the pseo dataset?
+
+Answer:
+
+```{r}
+summarize(pseo, median(p50_earnings, na.rm = TRUE))
+#or just
+median(pseo$p50_earnings, na.rm = T)
+```
+
+### Question 4. The function summarise_all()
+
+Answer: Provides a summary statistic (or statistics) for each variable in a dataframe.
+
+### Question 4. You can calculate the standard deviation of a variable using the function sd()
+
+Answer: True.
+
+## Additional Introduction to R Basic Operations
+
+### 1. Other useful summary statistics tools
+
+(1)The R built-in `summary()` function.
+
+This is a one-stop function allows you to get the most common summary and descriptive statistics of your data. For example:
+
+```{r}
+summary(pseo)
+
+```
+
+or I can just specify one variable in the data:
+
+```{r}
+summary(pseo$p25_earnings)
+```
+
+\(2\) Package `summarytools`
+
+This package provides a coherent set of functions centered on data exploration and simple reporting. You can check out the [user mannual here](https://cran.r-project.org/web/packages/summarytools/vignettes/introduction.html).
+
+The most commonly used function is: `dfSummary()`. It provides type-specific information for all variables: univariate statistics and/or frequency distributions, bar charts or histograms, as well as missing data counts and proportions. Very useful to quickly, detect anomalies and identify trends at a glance.
+
+For example:
+
+```{r}
+library(summarytools)
+view(dfSummary(pseo$p25_earnings))
+```
+
+### 2. Calculating Mode (most frequent value):
+
+As we mentioned in the lecture on introducing summary functions, R does not have a built-in function for mode. To calculate or to get it from a data, we will have to write out own function.
+
+A function is a block of code that only runs when it is called. In R, many functions are already built-in and ready to call and run. But you can also **write your own** using the `function()` keyword.
+
+How to Write a Function?
+
+Here is the basic structure:
+
+```{r}
+my_function <- function(argument1, argument2, ...) {
+  # Code that does something with the inputs
+  result <- do_something_with(argument1, argument1)
+  return(result)  # Optional, but good practice
+}
+```
+
+In this above example:
+
+`my_function <- function(argument1, argument2, ...)`
+
+-   `my_function` is the **name** you are assigning to the function. You can call it anything you like (e.g., `calculate_total`, `greet_user`, etc.).
+
+-   `<- function(...)` tells R: “I’m defining a new function.”
+
+-   Inside the parentheses `(...)` are the **arguments** (inputs) that the function will take.
+
+    -   `argument1` and `argument2` are examples of named inputs.
+
+    -   `...` is optional and means “allow extra arguments.” You don’t always need it, but it's useful if your function might take flexible inputs (like `plot()` or `mean(..., na.rm = TRUE)`).
+
+Next:
+
+``` result <- do_something_with(``argument1``,``argument2``) ```
+
+-   Inside the function, you usually want to **process the inputs** somehow.
+
+<!-- -->
+
+-   This line creates a new variable `result` by calling a fake function called `do_something_with()` on `argument1` and `argument2`.
+
+-   In real life, you'd replace this with something with the existing built-in functions like `result <- argument1 + argument2` or `mean(c(argument1, argument2))`.
+
+Finally:
+
+`return(result)`
+
+-   tells R what value to give back when the function is used. This is **optional** in R: if you omit it, R will return the last evaluated line — but using `return()` makes your code clearer, especially for beginners.
+
+So here is an example of customize function to get mode from a string of values:
+
+```{r}
+get_mode <- function(x) {
+  x <- na.omit(x)  # Remove NA values
+  uniq_x <- unique(x) #This gets all the unique values in x
+  freq <- tabulate(match(x, uniq_x)) 
+  #this operation is two steps:
+  #first, match(x, uniq_x) turns the values in x into positions based on where they appear in uniq_x. For example: match(c(2, 2, 3), c(2, 3, 4)) returns 1 1 2.
+  #tabulate(...) then counts how many times each index appears:tabulate(c(1, 1, 2)) → 2 1 0
+  
+  mode_val <- uniq_x[which.max(freq)]
+  #which.max(freq) gives the position of the most frequent value.
+  #uniq_x[...] pulls out the actual mode.
+  return(mode_val)
+}
+```
+
+Let's try it
+
+```{r}
+example<-c(1,2,3,3,3,4,6,7,6)
+
+get_mode(example)
+
+```

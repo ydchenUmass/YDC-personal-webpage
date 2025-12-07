@@ -1,0 +1,114 @@
+---
+title: "Interactive Map"
+author: "Erico Yu"
+description: "Interactive Graph"
+date: "11/17/2024"
+format:
+  html:
+    df-print: paged
+    css: "styles.css"
+    embed-resources: true
+    self-contained-math: true
+categories:
+  - Projects
+---
+
+**Make sure you change the author's name in the above YAML header.**
+
+## Setup
+
+If you have not installed the following packages, please install them before loading them.
+
+```{r}
+#| label: setup
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(readxl)
+library(haven) #for loading other datafiles (SAS, STATA, SPSS, etc.)
+library(stringr) # if you have not installed this package, please install it.
+library(ggplot2) # if you have not installed this package, please install it.
+library(sf) 
+library(mapview)
+#Loading colorblind-friendly color map package: viridisLite
+library(viridis)
+
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+## Part 1. Starbucks Map
+
+1.  **Loading the example data of starbuck locations**
+
+```{r}
+#read the data: 
+starbucks <- read_csv("https://raw.githubusercontent.com/libjohn/mapping-with-R/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv", show_col_types = FALSE)
+head(starbucks)
+
+##Create a column of "gross profit" and assign random numbers to it:
+starbucks <- starbucks |>
+  mutate(gross_profit = sample(1000:10000, size = n(), replace = TRUE))
+
+head(starbucks)
+
+```
+
+subset locations data to MA
+
+```{r}
+starbucksMA <- starbucks  |>
+  filter(State %in% c("MA"))
+
+write.csv(starbucksMA, "starbucksMA.csv", row.names = FALSE)
+```
+
+Convert the dataset into a spatial object (sf)
+
+```{r}
+starbucks_sf <- starbucksMA |>
+  st_as_sf(coords = c("Longitude", "Latitude"), crs = 4326)
+
+
+```
+
+let's compare the difference between using size and brightness
+
+Size:
+
+```{r}
+
+mapview(starbucks_sf, col.regions = "red", cex = "gross_profit", legend = TRUE, map.types = "OpenStreetMap")
+#col.region: Sets all bubbles to a fixed color
+#cex:sets the bubble size to be proportional to a specific column
+```
+
+Brightness:
+
+```{r}
+mapview(starbucks_sf, zcol = "gross_profit", cex = 3, legend = TRUE, map.types = "OpenStreetMap")
+#zcol = specifies that the colors (brightness or color/hue depends on if the variable is continous or not) of the bubbles should vary by the values of a particular column
+
+
+
+```
+
+## Part 2. Animated Graph (mtcars)
+
+```{r}
+library(gganimate)
+library(gifski)
+
+# Example animation
+p <- ggplot(mtcars, aes(mpg, wt)) +
+  geom_point() +
+  transition_states(gear, transition_length = 2, state_length = 1) +
+  ggtitle('Gear: {closest_state}')
+
+# Use gifski_renderer for GIF animations
+animate(p, renderer = gifski_renderer())
+
+# You can try different setup, such as duration, fps, size of the graph):
+#animate(p, duration = 25, fps = 10, width = 1000, height = 1000, renderer = #gifski_renderer())
+
+```

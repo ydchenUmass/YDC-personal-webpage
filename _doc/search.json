@@ -1,0 +1,149 @@
+[
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Below I am going to demonstrate how to link to the project html files."
+  },
+  {
+    "objectID": "projects.html#syllabus-pdf-file",
+    "href": "projects.html#syllabus-pdf-file",
+    "title": "Projects",
+    "section": "Syllabus (PDF file)",
+    "text": "Syllabus (PDF file)\nOpen Syllabus"
+  },
+  {
+    "objectID": "projects.html#solutions-a-standalone-.html-file",
+    "href": "projects.html#solutions-a-standalone-.html-file",
+    "title": "Projects",
+    "section": "Solutions (A standalone .html file)",
+    "text": "Solutions (A standalone .html file)\nOpen the Standalone Page"
+  },
+  {
+    "objectID": "projects.html#a-project-with-live-map-and-animation",
+    "href": "projects.html#a-project-with-live-map-and-animation",
+    "title": "Projects",
+    "section": "A Project with live map and animation;",
+    "text": "A Project with live map and animation;\nProject 1"
+  },
+  {
+    "objectID": "projects.html#a-project-with-data-and-.qmd-file",
+    "href": "projects.html#a-project-with-data-and-.qmd-file",
+    "title": "Projects",
+    "section": "A Project with data and .qmd file",
+    "text": "A Project with data and .qmd file\nProject 2"
+  },
+  {
+    "objectID": "Project1/starbucks.html",
+    "href": "Project1/starbucks.html",
+    "title": "Interactive Map",
+    "section": "",
+    "text": "Make sure you change the author’s name in the above YAML header."
+  },
+  {
+    "objectID": "Project1/starbucks.html#setup",
+    "href": "Project1/starbucks.html#setup",
+    "title": "Interactive Map",
+    "section": "Setup",
+    "text": "Setup\nIf you have not installed the following packages, please install them before loading them.\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(haven) #for loading other datafiles (SAS, STATA, SPSS, etc.)\nlibrary(stringr) # if you have not installed this package, please install it.\nlibrary(ggplot2) # if you have not installed this package, please install it.\nlibrary(sf) \nlibrary(mapview)\n#Loading colorblind-friendly color map package: viridisLite\nlibrary(viridis)\n\nknitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)"
+  },
+  {
+    "objectID": "Project1/starbucks.html#part-1.-starbucks-map",
+    "href": "Project1/starbucks.html#part-1.-starbucks-map",
+    "title": "Interactive Map",
+    "section": "Part 1. Starbucks Map",
+    "text": "Part 1. Starbucks Map\n\nLoading the example data of starbuck locations\n\n\n#read the data: \nstarbucks &lt;- read_csv(\"https://raw.githubusercontent.com/libjohn/mapping-with-R/master/data/All_Starbucks_Locations_in_the_US_-_Map.csv\", show_col_types = FALSE)\nhead(starbucks)\n\n\n  \n\n\n##Create a column of \"gross profit\" and assign random numbers to it:\nstarbucks &lt;- starbucks |&gt;\n  mutate(gross_profit = sample(1000:10000, size = n(), replace = TRUE))\n\nhead(starbucks)\n\n\n  \n\n\n\nsubset locations data to MA\n\nstarbucksMA &lt;- starbucks  |&gt;\n  filter(State %in% c(\"MA\"))\n\nConvert the dataset into a spatial object (sf)\n\nstarbucks_sf &lt;- starbucksMA |&gt;\n  st_as_sf(coords = c(\"Longitude\", \"Latitude\"), crs = 4326)\n\nlet’s compare the difference between using size and brightness\nSize:\n\nmapview(starbucks_sf, col.regions = \"red\", cex = \"gross_profit\", legend = TRUE, map.types = \"OpenStreetMap\")\n\n\n\n\n#col.region: Sets all bubbles to a fixed color\n#cex:sets the bubble size to be proportional to a specific column\n\nBrightness:\n\nmapview(starbucks_sf, zcol = \"gross_profit\", cex = 3, legend = TRUE, map.types = \"OpenStreetMap\")\n\n\n\n\n#zcol = specifies that the colors (brightness or color/hue depends on if the variable is continous or not) of the bubbles should vary by the values of a particular column"
+  },
+  {
+    "objectID": "Project1/starbucks.html#part-2.-animated-graph-mtcars",
+    "href": "Project1/starbucks.html#part-2.-animated-graph-mtcars",
+    "title": "Interactive Map",
+    "section": "Part 2. Animated Graph (mtcars)",
+    "text": "Part 2. Animated Graph (mtcars)\n\nlibrary(gganimate)\nlibrary(gifski)\n\n# Example animation\np &lt;- ggplot(mtcars, aes(mpg, wt)) +\n  geom_point() +\n  transition_states(gear, transition_length = 2, state_length = 1) +\n  ggtitle('Gear: {closest_state}')\n\n# Use gifski_renderer for GIF animations\nanimate(p, renderer = gifski_renderer())\n\n\n\n\n\n\n\n# You can try different setup, such as duration, fps, size of the graph):\n#animate(p, duration = 25, fps = 10, width = 1000, height = 1000, renderer = #gifski_renderer())"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Teach the class to host webpage and projects using GitHub.\n\n\n\nUIowa\nUPitt\nSun Yat-sen U\n\n\n\nDACSS UMass\nPoli Sci, Grinnell College\nCarter Center\nThanks for checking out my web site!"
+  },
+  {
+    "objectID": "index.html#goals",
+    "href": "index.html#goals",
+    "title": "About Me",
+    "section": "",
+    "text": "Teach the class to host webpage and projects using GitHub."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "About Me",
+    "section": "",
+    "text": "UIowa\nUPitt\nSun Yat-sen U"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "About Me",
+    "section": "",
+    "text": "DACSS UMass\nPoli Sci, Grinnell College\nCarter Center"
+  },
+  {
+    "objectID": "Project2/challenge_4_Fall23_solutions.html",
+    "href": "Project2/challenge_4_Fall23_solutions.html",
+    "title": "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs",
+    "section": "",
+    "text": "Make sure you change the author’s name in the above YAML header."
+  },
+  {
+    "objectID": "Project2/challenge_4_Fall23_solutions.html#setup",
+    "href": "Project2/challenge_4_Fall23_solutions.html#setup",
+    "title": "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs",
+    "section": "Setup",
+    "text": "Setup\nIf you have not installed the following packages, please install them before loading them.\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(haven) #for loading other datafiles (SAS, STATA, SPSS, etc.)\nlibrary(stringr) # if you have not installed this package, please install it.\nlibrary(ggplot2) # if you have not installed this package, please install it.\nknitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)"
+  },
+  {
+    "objectID": "Project2/challenge_4_Fall23_solutions.html#challenge-overview",
+    "href": "Project2/challenge_4_Fall23_solutions.html#challenge-overview",
+    "title": "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs",
+    "section": "Challenge Overview",
+    "text": "Challenge Overview\nIn this challenge, we will practice with the data we worked on in the previous challenges and the data you choose to do some simple data visualizations using the ggplot2 package.\nThere will be coding components and writing components. Please read the instructions for each part and complete your challenges."
+  },
+  {
+    "objectID": "Project2/challenge_4_Fall23_solutions.html#datasets",
+    "href": "Project2/challenge_4_Fall23_solutions.html#datasets",
+    "title": "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs",
+    "section": "Datasets",
+    "text": "Datasets\n\nPart 1 the ESS_Polity Data (created in Challenge#3) ⭐⭐\nPart 2: the Australia Data⭐⭐\nPart 3: see Part 3. Practice plotting with a dataset of your choice (25% of the total grade). For online platforms of free data, see Appendix: sources for data to be used in Part 3.\n\nFind the _data folder, then read the datasets using the correct R command."
+  },
+  {
+    "objectID": "Project2/challenge_4_Fall23_solutions.html#part-1.-univariate-and-multivariate-graphs-45-of-the-total-grade",
+    "href": "Project2/challenge_4_Fall23_solutions.html#part-1.-univariate-and-multivariate-graphs-45-of-the-total-grade",
+    "title": "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs",
+    "section": "Part 1. Univariate and Multivariate Graphs (45% of the total grade)",
+    "text": "Part 1. Univariate and Multivariate Graphs (45% of the total grade)\nWe have been working with these two data in the previous three challenges. Suppose we have a research project that studies European citizens’ social behaviors and public opinions, and we are interested in how the countries that respondents live in influence their behavior and opinion. In this challenge, let’s work with the combined dataset ESS_Polity and create some visualizations.\n\nRead the combined data you created last time. (2.5%)\n\n\n#read the data: \nESS_Polity &lt;- read_csv(\"ESS_Polity.csv\")\n\nSuppose we are interested in the central tendencies and distributions of the following variables. At the individual level: age, male, edu, income_10, and vote. At the country level: democ.\n(1) Recode the “vote” column: if the value is 1, recode it as 1; if the value is 2, recode it as 0; if the value is 3, recode it as NA. Make sure to include a sanity check for the recoded data. (2.5%)\n\n#recoding the vote column: 1.5%\nESS_Polity&lt;-ESS_Polity|&gt;\n  mutate(vote = case_when(\n    vote == 1 ~ 1,\n    vote == 2 ~ 0,\n    vote == 3 ~ NA,\n    TRUE ~ vote))\n\n#Sanity check for if vote is correctly coded: 1%\nunique(ESS_Polity$vote)\n\n[1] NA  0  1\n\n\n(2) For each of the five variables (age, edu, income_10, vote, and democ), please choose an appropriate type of univariate graph to plot the central tendencies and distribution of the variables. Explain why you choose this type of graph to present a particular variable (for example: “For example, I use a histogram to plot age because it is a continuous numeric variable”). (25%)\n(Note: You should use at least two types of univariate graphs covered in the lecture.)\nAnswer: First, I do summary statistics for the five variables to check their range, number of values, and measurement. This step would help me to determine which type of graph I should choose. This is optional, but strongly recommended when you are working on any data projects.\n\n##I am using a user-defined function created in Challenge#3, but you can use other descriptive statistics functions along with the baseR (such as summary()) or other packages.\n\nsum_stat &lt;- function(x){\n  stat &lt;- tibble(\n    range=range(x, na.rm = T),\n    mean=mean(x, na.rm = T),\n    sd=sd(x,na.rm=T),\n    na = sum(is.na(x)),\n    unique = length(unique(x)),\n    class = typeof(x)\n  )\n  return(stat)\n}\n\nsum_stat(ESS_Polity$age) #has 88 unique values and it is numeric (double): continous variable. Appropriate univariate graph type: boxplot, violin chart, density, histogram\n\n\n  \n\n\nsum_stat(ESS_Polity$edu) #has 4 unique values and it is numeric (double): continous or ordinal categorial variable (depends on if it is originally coded as the level of education or the years of education). Appropriate univariate graph type: histogram or barplot \n\n\n  \n\n\nsum_stat(ESS_Polity$income_10) #has 10 unique values and it is numeric (double):orordinal categorial variable (10 income groups, so can be treated as a contionus variable). Appropriate univariate graph type: boxplot, violin chart, histogram\n\n\n  \n\n\nsum_stat(ESS_Polity$vote)#has 2 unique values and it is numeric (double): binary variable (only 1 and 0). Appropriate univariate graph type: scatterplot or barplot\n\n\n  \n\n\nsum_stat(ESS_Polity$democ)#has 6 unique values and it is numeric (double): ordinal categorial variable (originally a contionus variable, but since there are less than 10 values, we can treat it as an ordinal categorical variable when plotting): bar plot \n\n\n  \n\n\n\nIf you only plotted the figure without explaining why you chose the specific type of figure, and if you chose an inappropriate type of figure for a variable: - 4%.\nIf you give explanations on why you chose the specific type of figure, and it is not an inappropriate type of figure for that variable: - 2%.\n\nAge:\n\n\n#For age, I choose a box plot. Noted that when we plot a boxplot, NA are automatically removed.\n\nage_boxplot&lt;-ggplot(ESS_Polity) +\n  geom_boxplot(aes(x = age), fill=\"slateblue\", alpha=0.2)+\n    labs(title = \"Distribution of Respondents' Age\",\n       x = \"Age\",\n       caption = \"source: combined dataset of ESS (round 2010) and Polity V\")\n  \n\nage_boxplot\n\n\n\n\n\n\n\n\nOr I can do a histogram. Note that it is important to select an appropriate bin size. In this example, a bin size between 4 and 8 should show a similar distirbution pattern. If you use a different bin size: - 1%\n\n#Noted that when we plot a histogram, NA are automatically removed.\nage_hist&lt;-ggplot(ESS_Polity) +\n  geom_histogram(binwidth=4, aes(x = age), fill=\"slateblue\", alpha=0.2)+\n    labs(title = \"Distribution of Respondents' Age\",\n       x = \"Age\",\n       caption = \"source: combined dataset of ESS (round 2010) and Polity V\")\n  \n\nage_hist\n\n\n\n\n\n\n\n\n\nEducation:\n\n\n#For edu, I can also choose a bar plot:\nedu_bar &lt;- ggplot(ESS_Polity, aes(x=edu)) + \n  geom_bar()+\n  labs(title = \"Distribution of Respondents' Levels of Education\",\n       x = \"Levels of Education\",\n       caption = \"source: combined dataset of ESS (round 2010) and Polity V\")\nedu_bar\n\n\n\n\n\n\n\n\nNoted that when we plot a bar plot, NAs are not automatically removed (the warning message showing 150). NA has no numerical meaning (and should not be ranked as the highest in visualization). Generally for plots showing data distribution, we should remove it from the graphs (if not removing NA in a barplot orf showing data distribution, we can remove it from the graphs (if not removing NA in a barplot or : -1%).\n\nedu_bar &lt;- ggplot(data = subset(ESS_Polity, !is.na(edu)), aes(x = as.factor(edu))) + \n  geom_bar()+\n  labs(title = \"Distribution of Respondents' Levels of Education\",\n       x = \"Levels of Education (na removed)\",\n       caption = \"source: combined dataset of ESS (round 2010) and Polity V\")\n  \nedu_bar\n\n\n\n\n\n\n\n\nAs we can see, the shape of the bars is similar to the graph without removing NA, since there are few NAs in education.\n\nIncome:\n\n\n#For income groups, I can also choose a bar plot:\n\nincome_bar &lt;- ggplot(ESS_Polity, aes(x=as.factor(income_10))) + #I use as.factor to force R to recognize income_10 as an ordinal category, so that the x-axis tick mark labels can automatically represent all categories.\n  geom_bar(fill=\"#69b3a2\", color=\"#e9ecef\", alpha=0.8)+\n  labs(title = \"Distribution of Respondents' Income Levels\",\n       x = \"Income Levels (10 ordinal groups)\",\n       caption = \"source: combined dataset of ESS (round 2010) and Polity V\")\n\nincome_bar\n\n\n\n\n\n\n\n\n\nIn this graph, we can see that a huge proportion of the income data is NAs. They actually affect the presentation by making the shape of the distribution not so obvious. Let’s remove them.\n\n\nincome_bar &lt;- ggplot(subset(ESS_Polity, !is.na(income_10)), aes(x=as.factor(income_10))) + \n  geom_bar(fill=\"#69b3a2\", color=\"#e9ecef\", alpha=0.8)+\n  labs(title = \"Distribution of Respondents' Income Levels\",\n       x = \"Income Levels (10 ordinal groups, na removed)\",\n       caption = \"source: combined dataset of ESS (round 2010) and Polity V\")\n\nincome_bar\n\n\n\n\n\n\n\n\n\nVote:\n\n\n#For vote, I choose a bar plot.\n\nvote_bar &lt;- ggplot(subset(ESS_Polity, !is.na(vote)), aes(x=as.factor(vote))) + \n  geom_bar(fill=\"blue\", color=\"grey\", alpha=0.8)+\n  labs(title = \"Distribution of Respondents' Voter Turnout\",\n       x = \"Vote Choice (binary, na removed)\",\n       caption = \"source: combined dataset of ESS (round 2010) and Polity V\")+\n  scale_x_discrete(labels=c(\"0\" = \"Didn't Vote\", \"1\" = \"Voted\"))\n\nvote_bar\n\n\n\n\n\n\n\n\n\nDemocracy:\n\n\n#For democ, I choose a bar plot.\n\ndemocracy_bar &lt;- ESS_Polity|&gt;\n  subset(!is.na(democ))|&gt;\n  ggplot(aes(x=as.factor(democ))) + \n  geom_bar(fill=\"red\", color=\"grey\", alpha=0.8)+\n  labs(title = \"Distribution of the Democracy Score of Countries by Respondents\",\n       x = \"Democracy Score (na removed)\",\n       y = \"Count of Respondents\", \n       caption = \"source: combined dataset of ESS (round 2010) and Polity V\")\n\ndemocracy_bar \n\n\n\n\n\n\n\n\n\nWe want to test two hypotheses on the relationships of two pairs of variables. Please use the appropriate type of graphs we learned to visualize these two pairs of variables. Briefly describe the graph you plot, and answer: Does the graph we create from the data support the hypothesis?\n\n\n\n(1) Hypothesis#1: The more years of education (edu) a person completed, the higher income (income_10) they earn. (7.5%)\nAnswer: edu is a variable with only four values. We can treat it as an ordinal categorical variable. Income has 10 values, and we can treat it as either a continuous or an ordinal categorical variable. In this case, we have several options: a stacked bar or a groupped bar.\n\n#don't forget to remove NAs (if not, -2%)\nedu_income&lt;-ESS_Polity|&gt;\n  subset(!is.na(income_10))|&gt; #remove na in income\n  subset(!is.na(edu))|&gt; #remove na in edu\n  ggplot(aes(x = as.factor(income_10), fill = as.factor(edu))) + \n    geom_bar()\n\nedu_income\n\n\n\n\n\n\n\n\nWe can clearly see as in the higher income group, the proportion of highest education level (4) increases. This is more obvious if we do a stacked percentage bar plot.\n\nedu_income&lt;-ESS_Polity|&gt;\n  subset(!is.na(income_10))|&gt; #remove na in income\n  subset(!is.na(edu))|&gt; #remove na in edu\n  ggplot(aes(x = as.factor(income_10), fill = as.factor(edu))) + \n    geom_bar(position=\"fill\")\n\nedu_income\n\n\n\n\n\n\n\n\nWe can also do a boxplot of income grouped (since income has 10 values, we can treat it as a continous variable) by education level:\n\nedu_income&lt;-ESS_Polity|&gt;\n  subset(!is.na(income_10))|&gt; #remove na in income\n  subset(!is.na(edu))|&gt; \n  ggplot(aes (x = as.factor(edu), y = income_10)) +\n  geom_boxplot(fill=\"slateblue\", alpha=0.2) \n\nedu_income\n\n\n\n\n\n\n\n\nHowever, scatter plots will look very strange and it is hard to estimate the pattern of variables with less than 10 values.\n\nedu_income&lt;-ESS_Polity|&gt;\n  subset(!is.na(income_10))|&gt; #remove na in income\n  subset(!is.na(edu))|&gt; \n  ggplot(aes(x = as.factor(income_10), y = as.factor(edu))) + \n  geom_point()+\n  geom_smooth()\n\nedu_income\n\n\n\n\n\n\n\n\nSo in conclusion, this hypothesis is supportive.\n(2) Hypothesis#2: There is a gender disparity (male) in voting behavior (vote). (Either men are more likely to vote, or women are more likely to vote). (7.5%)\nAnswer: both gender and vote are binary variables. So our option is either bar plots or .\n\nmale_vote&lt;-ESS_Polity|&gt;\n  subset(!is.na(male))|&gt; #remove na in income\n  subset(!is.na(vote))|&gt; \n  ggplot(aes(x = as.factor(male), fill = as.factor(vote))) + \n    geom_bar(position=\"fill\")\n\nmale_vote\n\n\n\n\n\n\n\n\n\nHmm, the average turnouts of male voters and female voters are very similar. It does seem that gender determines people’s voting decisions. In fact, if you use group_by and summarise(), you will find that one is 0.767 (female), and another is 0.759 (male). In conclusion, the second hypothesis does seem to be valid.\n\nESS_Polity|&gt;\n  group_by(male)|&gt;\n  subset(!is.na(male))|&gt; #remove na in income\n  subset(!is.na(vote))|&gt;\n  summarise(mean(vote))"
+  },
+  {
+    "objectID": "Project2/challenge_4_Fall23_solutions.html#part-2.-comparing-between-partial-and-whole-and-among-groups-30-of-the-total-grade",
+    "href": "Project2/challenge_4_Fall23_solutions.html#part-2.-comparing-between-partial-and-whole-and-among-groups-30-of-the-total-grade",
+    "title": "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs",
+    "section": "Part 2. Comparing between Partial and Whole, and among Groups (30% of the total grade)",
+    "text": "Part 2. Comparing between Partial and Whole, and among Groups (30% of the total grade)\nIn this part, we will use the clean version of the Australian public opinion poll on Same-Sex Marriage to generate graphs and plots. You may need to do the data transformation or mutation needed to help graphing.\n\nRead in data. (2.5%)\n\naustralian_data &lt;- read_csv(\"australian_data.csv\")\n\nUse a barplot to graph the Australian data based on their responses: yes, no, illegible, and no response. The y-axis should be the count of responses, and each response should be represented by one individual bar (so there should be four bars). (7.5%)\n(you can use either geom_bar() or geom_col())\nAnswer: First we need to reshape the data to convert it:\n\naus_long &lt;- australian_data |&gt;\n  pivot_longer(\ncols = Yes:`No Response`,\nnames_to = \"Response\",\nvalues_to = \"Count\"\n  )\nhead(aus_long)\n\n\n  \n\n\n\nAfter reshaping the data, we can plot it now:\n\n#Plot the barchart for repsonses:\n\nresponse_bar&lt;-ggplot(aus_long, aes(x=Response, y=Count))+\n  geom_bar(stat=\"identity\",fill=\"purple\")\n\nresponse_bar\n\n\n\n\n\n\n\n\nWe can customize the bar plot by reordering the bars, presenting the raw numbers of each response, and editing title and labels. We even change the y-axis tick marks from count to percentage (not required in the question).\n\n\nresponse_bar&lt;-aus_long|&gt;\n  mutate(Response = as_factor(Response), #we need to first force R to recognize \"Response\" as factor\n         Response = fct_relevel(Response, \"Yes\", \"No\", \"Illegible\"))|&gt; #then we can use fct_relvel to specify the order of the bars.\n  group_by(Response)|&gt;\n  summarise(Count = sum(Count))|&gt; # try without specifying group_by and ungroup, what do we got?\n  ungroup()|&gt; \n  mutate(perc = Count/sum(Count))|&gt;\n  ggplot(aes(y=perc, x=Response))+\n  geom_col()+\n  labs(title = \"The National Distribution of Resesponse\")+\n  scale_y_continuous(name= \"Percent of Citizens\", \n                     label = scales::percent) +\n  geom_text(aes(label = Count), size=3, vjust=-.5)\n  \nresponse_bar\n\n\n\n\n\n\n\n\n\nThe previous graph only shows the difference in amount. Let’s create a stacked-to-100% barplot to show the proportion of each of the four responses (by % of the total response). (7.5%)\n(you can use either geom_bar() or geom_col())\n\n#We will use the original data to plot this stacked-to-100% bar.\n\nresponse_stack&lt;-ggplot(aus_long, aes(fill = Response, x = '', y = Count)) + \n  geom_bar(stat = \"identity\", position = \"fill\") +\n  labs(title = \"The National Distribution of Resesponse\", x = NULL, y = \"Proportion\") +\n  scale_y_continuous(labels = scales::percent_format(scale = 100))\n\nresponse_stack\n\n\n\n\n\n\n\n\nLet’s see if there’s a relationship between Division and Response - that is, are certain divisions more likely to respond one way compared to other divisions? Again, we will use barplot(s) to present the visualization. (12.5%)\n(you can use either geom_bar() or geom_col())\n\ndivision_stack&lt;- ggplot(aus_long, aes(fill = Response, x = Division, y = Count)) + \n  geom_bar(stat = \"identity\", position = \"fill\") +\n  labs(title = \"The National Distribution of Resesponse\", x = NULL, y = \"Proportion\") +\n  scale_y_continuous(labels = scales::percent_format(scale = 100)) +\n  theme(axis.text.x=element_text(angle=60, hjust=1))\n\ndivision_stack\n\n\n\n\n\n\n\n\nMaybe it is difficult to see in stacked bars. Let’s plot regular side-by-side bar plots for each devision and use facet to combine multiple plots.\n\ndivision_facet&lt;-aus_long|&gt;\n  mutate(Response = as_factor(Response),\n         Response = fct_relevel(Response, \"Yes\", \"No\", \"Illegible\"),\n         Division=str_remove(Division,\" Divisions\")) |&gt;\n  group_by(Division,Response)|&gt;\n  summarise(Count = sum(Count))|&gt;\n  group_by(Division)|&gt;\n  mutate(perc = Count/sum(Count))|&gt;\n  ggplot(aes(y=perc, x=Response,fill=Response))+\n  geom_col()+\n  facet_wrap(vars(Division))+\n  labs(title = \"The Distribution of Resesponse by Division\") +\n  scale_y_continuous(name= \"Percent of Citizens\", \n                     label = scales::percent)+\n  theme(axis.text.x=element_text(angle = 60, hjust=1))\n\ndivision_facet"
+  },
+  {
+    "objectID": "Project2/challenge_4_Fall23_solutions.html#part-3.-practice-plotting-with-a-dataset-of-your-choice-25-of-the-total-grade",
+    "href": "Project2/challenge_4_Fall23_solutions.html#part-3.-practice-plotting-with-a-dataset-of-your-choice-25-of-the-total-grade",
+    "title": "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs",
+    "section": "Part 3. Practice plotting with a dataset of your choice (25% of the total grade)",
+    "text": "Part 3. Practice plotting with a dataset of your choice (25% of the total grade)\nIn this part, you will choose data of your interests for graphing and plotting. This data can be tidy/ready-to-be-used or raw data that needs cleaning. If the data is very large (for example, more than 20 columns), you should definitely subset the data by selecting less than 10 variables of your interests to avoid taking too much room in your R memory.\n\nInclude a link to the data page (this page should include the introduction or description and the link to download this dataset). (2%)\nRead the data you choose and briefly answer the following questions. (Optional: you may need to subset, clean, and transform the data if necessary). (8%)\n\n#type of your code/command here.\n\n(1) what is the structure (dimension) of the data;\n(2) what is the unit of observation?\n(3) what does each column mean in this data?\nChoose two columns/variables of your interests. Plot one univariate graph for each of the variables. (5%)\n\n#type of your code/command here.\n\n\n\n\nChoose a pair of variables you suspect or hypothesize may be correlated and a graph (scatter plot or barplot) using them. Based on the visual evidence, do you see any potential correlation between the two variables (10%)\n\n#type of your code/command here."
+  },
+  {
+    "objectID": "Project2/challenge_4_Fall23_solutions.html#appendix-sources-for-data-to-be-used-in-part-3",
+    "href": "Project2/challenge_4_Fall23_solutions.html#appendix-sources-for-data-to-be-used-in-part-3",
+    "title": "Challenge_4: Intro to Visulization: Univariate and Multivariate Graphs",
+    "section": "Appendix: sources for data to be used in Part 3",
+    "text": "Appendix: sources for data to be used in Part 3\nHere are some online sources and popular Online Dataset Hub:\n\nMany US governments (usually at the federal and state levels),  bureaus, and departments have open data archives on their websites, allowing the public to access, download, and use them. Just use Google to search for them.\n\n\n\nThe Harvard Dataverse Repository is a free data repository open to all researchers from any discipline, inside and outside the Harvard community, where you can share, archive, cite, access, and explore research data. Each individual Dataverse collection is a customizable collection of datasets (or a virtual repository) for organizing, managing, and showcasing datasets.\n\n\n\nInter-university Consortium for Political and Social Research (ICPSR) of the University of Michigan-Ann Arbor provides leadership and training in data access, curation, and methods of analysis for the social science research community. \n\n\n\nUN: https://data.un.org/\n\n\n\nOECD Data:  economic and development data of the most developed countries in the world.\n\n\n\nThe upper five sources are mainly for social science data; there is another very big community and open data archives for machine-learning and data science: Kaggle."
+  }
+]

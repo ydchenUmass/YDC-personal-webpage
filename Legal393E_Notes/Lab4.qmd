@@ -1,0 +1,361 @@
+---
+title: "Legel 393E Spring 2025: Lab Meeting#4: Tutorial#5 Quiz Solutions"
+author: "EricoYu"
+description: "Regression: Results Explanation and Visualization"
+date: "04/23/2024"
+format:
+  html:
+    df-print: paged
+    css: "styles.css"
+categories:
+  - lab meeting
+  - Additional practices and materials
+---
+
+This week, we will go over the solutions for Quiz 5 and some additional notes on how to explain regression results.
+
+## Loading the necessary datasets.
+
+```{r}
+#create a vector contains the names of the needed packages, and assign a name "needed.packages" for it.
+needed.packages<-c('readxl','readr','haven','dplyr','broom','ggplot2', 'dotwhisker')
+
+#lapply() allows us to loop over and execute every element in the object "needed.packages".
+lapply(needed.packages, require, character.only = TRUE)
+```
+
+We will need to load ANES and PSEO dataset. The other datasets (sleep, infert, faithful, chickwts, and cars) are preinstalled in R. For these pre-installed data, we can use data() to call up the datasets and load them in the R memory.
+
+```{r}
+#Check working directory
+getwd()
+```
+
+### Loading anes data
+
+```{r}
+anes<- read_csv("https://raw.githubusercontent.com/RosemaryPang/Data-for-teaching/main/anes_601.csv")   
+head(anes)   
+dim(anes)
+
+#recode v162136x as Econ_Mobility, v162034a as Vote_16 and v162132 as Class.
+
+anes<-anes%>%
+  mutate(Econ_Mobility = case_when(
+         v162136x == 1 ~ "Much Easier",
+         v162136x == 2 ~ "Moderately Easier",
+         v162136x == 3 ~ "Slightly Easier",
+         v162136x == 4 ~ "The Same",
+         v162136x == 5 ~ "Slightly Harder",
+         v162136x == 6 ~ "Moderately Harder",
+         v162136x == 7 ~ "Much Harder"
+         )) %>%
+  mutate(Vote_16 = case_when(
+         v162034a == 1 ~ "Clinton",
+         v162034a == 2 ~ "Trump",
+         v162034a == 3 ~ "Johnson",
+         v162034a == 4 ~ "Stein"
+         )) %>%
+  mutate(Class = case_when(
+    v162132 == 1 ~ "Lower Class",
+    v162132 == 2 ~ "Working Class",
+    v162132 == 3 ~ "Middle Class",
+    v162132 == 4 ~ "Upper Class"
+  )) %>%
+   mutate(party = case_when(
+         v162030 == 1 ~ "Democratic",
+         v162030 == 2 ~ "Republican"
+         )) %>%
+  mutate(business = v162100) %>%
+  mutate(liberals = v162097) %>%
+  mutate(rich = v162105)
+
+
+```
+
+### Loading pseo data
+
+```{r}
+pseo <- read_csv("https://raw.githubusercontent.com/RosemaryPang/Data-for-teaching/main/pseo_601.csv")
+
+head(pseo)
+
+dim(pseo)
+```
+
+## Tutorial#5 Quiz Answers
+
+### Question 1. There is a significant difference in the group means of feeling thermometer measure towards "Rich People" between Democrats and Republican respondents.
+
+Answer: this question is about the ANES data. Since it is testing the "statistical difference" between groups, we know that we will need to conduct a t test. You can refer to the slides of Week6 on how to do two-sample t-test step by step.
+
+First, unlike the tutorial, I want to do an F-test to test whether the two samples have the same variance. We need to do this test before t-test because we need to determine what types of t-test we need to do (Student's t for two groups have the SAME population variance (homoskedasticity); Welch's t for otherwise).
+
+```{r}
+var.test(rich~party, data = anes)
+
+```
+
+The p-value of the F-test is 0.1537, meaning that we cannot reject the null hypothesis that the two groups have the same variance. So, we should proceed with student's t-test as tutorial teaches us.
+
+```{r}
+t.test(rich~party, var.equal = TRUE, data=anes) #
+```
+
+Agian, the p-value is greater than 0.05 and we cannot reject the null hypothesis: there is no significant difference in the group means between Democrat and Republican respondents on the rich people. Interestingly, this result has been repeatedly confirmed by numerous studies, including a few recent published ones.
+
+### **Question 2. Relative to the baseline, a post-baccalaureate certificate is associated with significantly increased median earnings (p \< 0.05) among survey respondents in our regression model.**
+
+Answer:
+
+(Noted that since the question only asks you to investigate a bivariate relationship, so you can actually use either ANOVA or regression to investigate the statistical significance).
+
+The difficult part of this study is to explain the regression results, not the method itself. Let's run the codes first:
+
+```{r}
+model1<-lm(p50_earnings ~ deglevl, data = pseo)
+summary(model1)
+
+```
+
+Noted the regression results: it looks very different from other regression results of two continous variables. For example:
+
+```{r}
+data(mtcars)
+model2<-lm(mpg ~ wt, data = mtcars)
+summary(model2)
+```
+
+Why?
+
+Because the independent variable of `deglevl` is categorical (an ordinal variable of degree level), not a continuous variable like `wt` (weight of a car). When interpreting the results of a categorical independent variable in an OLS linear regression, each coefficient represents the **difference in the outcome variable** between that category and the **reference (baseline) category**, which is automatically chosen by the software (usually the first alphabetically unless specified). The **intercept** gives the predicted value of the dependent variable for the reference group. Each coefficient tells us how much **higher or lower** the predicted value is for that group **compared to the reference**, holding all else constant.
+
+Therefore, the results of Model 1 show the effects of the specific IV value (degree level) in contrast to the baseline degree level. Recall Question#2: it is about comparing the "baseline" and the "post-baccalaureate certificate". So what is the baseline degree level in this model? We will need to check the coding of `deglevl:`
+
+```{r}
+typeof(pseo$deglevl)
+#opps, it seems like deglevel is coded by characters, not in numerical values. So we will have to convert it to factor (integer) so that we can present the different "values" of it.
+
+pseo$deglevl <- factor(pseo$deglevl)
+typeof(pseo$deglevl)
+
+#use levels() to present different values given the variable is labeled by characters.
+
+levels(pseo$deglevl)
+```
+
+Ok. Now we can see in our regression results, which category is missing? The missing category is the baseline category.
+
+So here is how we explain the results (comparing post-baccalaureate certificate and associate degree):
+
+"Individuals whose highest degree is a **Post-Baccalaureate Certificate** earn, on average, **\$14,541 more (the coefficient)** in median earnings than those in the **baseline group** (**associate degree).** The difference is statistically significant at the 0.05 level (p \< 0.05)."
+
+Additional note: we can easily change the baseline level by using the relevel() function.
+
+```{r}
+pseo$deglevl <- factor(pseo$deglevl)  # Ensure it's a factor
+pseo$deglevl <- relevel(pseo$deglevl, ref = "Baccalaureate") #set Baccalaureate as the new baseline
+
+
+model1_bacc <- lm(p50_earnings ~ deglevl, data = pseo)
+summary(model1_bacc)
+
+```
+
+One more thing:
+
+You may also realize I assign names for models (model 1, model 1.1, model 2), instead of just running the R functions and calling the results. There are two reasons why I do so: (1) you can type the model name to call the model without retyping the model specification and methods you apply to the model, this saves a lot of time especially if your model contains multiple variables; and (2) when we applying other functions to plot graphs (such as dot-whisker plot) and present results in a table (such as presenting multiple models in one table), calling models by their assigned names makes your coding easier and more tidy.
+
+### Question 3. **According to our bivariate regression model, median earnings (p50_earnings) for graduates increases by what amount each year after graduation, on average?**
+
+Answer: this is similar to the last question, but we are runnign a bivariate regression model with two continuous variables (earning and years after graduation).
+
+```{r}
+model3<-lm(p50_earnings ~ year_postgrad, data = pseo)
+
+summary(model3)
+```
+
+The answer is 2,981.09.
+
+### Question 4. According to our bivariate regression model, median earnings (p50_earnings) for graduates in the year after they graduate (year_postgrad == 0) is on average:
+
+Answer: this is a simple one. So the above regression formula can be written in the following way: $earnings = \alpha + \beta*years$, or $earnings = intercept + slope * years$, thus $earnings = 39880.13 + 2921.09*years$. If year_postgrad = 0, the predicted earning is \$39,880.13.
+
+### Question 5. Say we have two variables, X and Y. What function would calculate the correlation between those two variables?
+
+Just simple as `cor(X, Y)`.
+
+## Additional Introduction to Present Regression Results.
+
+### 1. Creating dot-whisker plots to visually present regression results.
+
+You may remember we introduced a few graphs to visualize the results in week#10. Among them, the dot-whisker plot with the reference level (the dasheded line of 0) and the bands of the confidence interval for each variable is a great way to present regression results. In R, we can easily apply a function in the `dotwhisker` pacakge (an extension based on ggplot2) to do so:
+
+```{r}
+library(dotwhisker)
+library(broom)
+
+#Tidy the model
+m1_tidy <- tidy(model1) #The tidy() function converts a model object (like lm, glm, etc.) into a clean, easy-to-read data frame — with one row per model term (e.g., intercept, predictors).
+
+
+#Relabel the variable so it looks clear. This step is optional, but strongly suggested, especially for continous/numerical values.
+library(dplyr)
+
+m1_tidy <- m1_tidy %>%
+  mutate(term = recode(term,
+    "(Intercept)" = "Baseline: Associate Degree",
+    "deglevlBaccalaureate" = "Bachelor's Degree",
+    "deglevlMasters" = "Master's Degree",
+    "deglevlDoctoral - Professional Practice" = "Doctoral (Professional)",
+    "deglevlDoctoral - Research/Scholarship" = "Doctoral (Research)",
+    "deglevlCertificate, <1 year" = "Certificate (<1 year)",
+    "deglevlCertificate,1-2 years" = "Certificate (1–2 years)",
+    "deglevlPost-Bacc Certificate" = "Post-Bacc Certificate"
+  ))
+
+
+
+#Finally, plot the graph
+dwplot(m1_tidy, by_2sd = FALSE) +
+  theme_minimal() +
+  labs(
+    title = "Model 1: Reference Group = Associate Degree",
+    x = "Coefficient Estimate (in dollars)",
+    y = "",
+    caption = "Each point shows the estimated difference in median earnings"
+  ) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray")
+
+```
+
+We can also plot two models on the same graph:
+
+```{r}
+# Tidy both models
+model1_tidy <- tidy(model1) %>% mutate(model = "Reference: Associate")
+model2_tidy <- tidy(model1_bacc) %>% mutate(model = "Reference: Baccalaureate")
+
+# Combine models
+combined_models <- bind_rows(model1_tidy, model2_tidy)
+
+# Plot dot-whisker plot
+dwplot(combined_models, by_2sd = FALSE) +
+  theme_minimal() +
+  labs(
+    title = "Effect of Degree Level on Median Earnings",
+    x = "Coefficient Estimate (in dollars)",
+    y = "",
+    caption = "Based on OLS regressions with two different reference groups"
+  ) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray")
+```
+
+You can check out the [user mannual here](https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html) to see how to cutomize the colors, labels, position of legends, and adding a reference line.
+
+### 2. Visualizing the effect of degree level on predicted earnings (Marginal effects)
+
+A **marginal effect** tells us how the **expected value of the dependent variable** (e.g., earnings) **changes** when we **change one independent variable**, while **holding all others constant**.
+
+-    For **categorical variables** (like degree level), it shows the **expected difference in outcomes** between each category and a **baseline.**
+
+-    For **continuous variables**, it represents the **slope** — the expected change in the outcome for each unit increase in the predictor.
+
+In general, presenting a marginal effect plot allows us to see the differences more intuitively. This is especially helpful when we try to interpret the results of models with binary or catetgorical dependent variables.
+
+Let's take a look at the pseo example of earning and years of graduation.
+
+```{r}
+
+#Step#1: run the linear regression (we already ran it above)
+# model3 <- lm(p50_earnings ~ year_postgrad, data = pseo)
+
+
+#step#2: create a prediction datase contains a sequence of values for year_postgrad (e.g., 0, 1, 2, ..., 10) 
+newdata <- data.frame(year_postgrad = seq(min(pseo$year_postgrad, na.rm = TRUE),
+                                          max(pseo$year_postgrad, na.rm = TRUE),
+                                          by = 1)) #we specify the interval of year is 1.
+
+#Step#3: Use predict() to Get Fitted Values and Confidence Intervals 
+predicted <- predict(model3, newdata = newdata, interval = "confidence")
+predicted_df <- cbind(newdata, as.data.frame(predicted))
+
+
+
+#Step#4: Plot it with ggplot2 using scatterplot geom_point():
+ggplot(predicted_df, aes(x = year_postgrad, y = fit)) +
+  #fit = the predicted average earnings (based on your model)
+  geom_line(color = "blue")  +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), fill = "blue", alpha = 0.2)  +
+  #lwr and upr = lower and upper bounds of the 95% confidence interval
+  labs(
+    title = "Predicted Median Earnings by Years Post-Graduation",
+    x = "Years After Graduation",
+    y = "Predicted Median Earnings (USD)"
+  ) +
+  theme_minimal()
+```
+
+Some of you may ask why don't use `geom_point()` ? The reason is that the years of graduation is a continous variable with fixed interval (each gap is a full year, not fractional like earnings (1.7, 300.2); or we call this a discrete variable). If we plot it using geom_point() plot each **predicted value as a dot** (instead of a connected line). And it emphasizes the **individual predictions** more than the trend.
+
+```{r}
+ggplot(predicted_df, aes(x = year_postgrad, y = fit)) +
+  geom_point(size = 3, color = "blue") +
+  geom_errorbar(aes(ymin = lwr, ymax = upr), width = 0.3, color = "blue") +
+  labs(
+    title = "Predicted Median Earnings by Years Post-Graduation",
+    x = "Years After Graduation",
+    y = "Predicted Median Earnings (USD)"
+  ) +
+  theme_minimal()
+```
+
+### 3. Explaining logistic regression (Week 9 and Week 10)
+
+Let's take a look at an example of the dataset which we didn't cover briefly in the class.
+
+```{r}
+library(mlbench)
+data("PimaIndiansDiabetes", package = "mlbench")
+pima<-PimaIndiansDiabetes #use the abbreiviation
+head(pima)
+summary(pima)
+```
+
+The data set `PimaIndiansDiabetes2` contains a corrected version of the original data set. While the UCI repository index claims that there are no missing values, closer inspection of the data shows several physical impossibilities, e.g., blood pressure or body mass index of 0. In `PimaIndiansDiabetes2`, all zero values of `glucose`, `pressure`, `triceps`, `insulin` and `mass` have been set to `NA`, see also Wahba et al (1995) and Ripley (1996).
+
+Suppose we are studying how glucose level and body mass affect **the probability of getting diabete**, we can model the regression below:
+
+```{r}
+model_diabete<-glm(diabetes ~ glucose + mass, data = pima,
+family = binomial(link = "logit"))
+
+summary(model_diabete)
+```
+
+**Note: since we are doing log-odd transformation for the dependent variable to fit a lienar regression model, we cannot use the same way to explain the coefficients of the logistic regression.**
+
+In other words, what the result presented here is corresponding to this model:
+
+![And we want to get $p$.](images/clipboard-1731553282.png)
+
+![](images/clipboard-1848559080.png)
+
+Suppose someone has glucose = 120 and mass = 35. To calculate the probability of getting diabete, we can do manually calculation by
+
+![![](images/clipboard-1158562396.png)](images/clipboard-1944980661.png)
+
+So how do we explain this? it means that: "For an individual with a **glucose level of 120** and **BMI of 35**, the **model predicts** that they have a **34.1% chance of having diabetes**."
+
+We can also do this in R:
+
+```{r}
+newdata <- data.frame(glucose = 120, mass = 35)
+
+predict(model_diabete, newdata = newdata, type = "response")
+
+newdata$predicted_prob <- predict(model_diabete, newdata = newdata, type = "response")
+
+print(newdata)
+```

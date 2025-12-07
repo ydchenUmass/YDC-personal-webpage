@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="EricoYu">
+<meta name="dcterms.date" content="2025-04-30">
+<meta name="description" content="Data Cleaning and Descriptive Statistics Guide (with Simulated Data)">
+
+<title>Legel 393E Spring 2025: Group Project Lab(1) – Erico Yu’s Home Page</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Erico Yu’s Home Page</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/dongericoyu" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://x.com/DY_erico" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#load-the-dataset" id="toc-load-the-dataset" class="nav-link active" data-scroll-target="#load-the-dataset">Load the dataset</a></li>
+  <li><a href="#part-1-understanding-the-dataset" id="toc-part-1-understanding-the-dataset" class="nav-link" data-scroll-target="#part-1-understanding-the-dataset">Part 1: Understanding the Dataset</a></li>
+  <li><a href="#part-2-data-cleaning-and-recoding" id="toc-part-2-data-cleaning-and-recoding" class="nav-link" data-scroll-target="#part-2-data-cleaning-and-recoding">Part 2: Data Cleaning and Recoding</a>
+  <ul class="collapse">
+  <li><a href="#recode-character-responses-numeric" id="toc-recode-character-responses-numeric" class="nav-link" data-scroll-target="#recode-character-responses-numeric">2.1 Recode Character Responses → Numeric</a></li>
+  <li><a href="#in-class-exercise-a" id="toc-in-class-exercise-a" class="nav-link" data-scroll-target="#in-class-exercise-a">In-class Exercise A</a></li>
+  <li><a href="#recode-to-binary-variables" id="toc-recode-to-binary-variables" class="nav-link" data-scroll-target="#recode-to-binary-variables">2.2 Recode to Binary Variables</a></li>
+  <li><a href="#in-class-exercise-b" id="toc-in-class-exercise-b" class="nav-link" data-scroll-target="#in-class-exercise-b">In-class Exercise B</a></li>
+  <li><a href="#handling-prefer-not-to-answer-or-missing-values" id="toc-handling-prefer-not-to-answer-or-missing-values" class="nav-link" data-scroll-target="#handling-prefer-not-to-answer-or-missing-values">2.3 Handling “Prefer not to answer” or Missing Values</a></li>
+  <li><a href="#review-how-we-handle-missing-data-in-this-class" id="toc-review-how-we-handle-missing-data-in-this-class" class="nav-link" data-scroll-target="#review-how-we-handle-missing-data-in-this-class">Review: How We Handle Missing Data in This Class?</a></li>
+  </ul></li>
+  <li><a href="#part-3-descriptive-statistics-and-plots" id="toc-part-3-descriptive-statistics-and-plots" class="nav-link" data-scroll-target="#part-3-descriptive-statistics-and-plots">Part 3: Descriptive Statistics and Plots</a>
+  <ul class="collapse">
+  <li><a href="#univariate-statistics-single-variable" id="toc-univariate-statistics-single-variable" class="nav-link" data-scroll-target="#univariate-statistics-single-variable">3.1 Univariate Statistics (Single Variable)</a></li>
+  <li><a href="#bivariate-plots" id="toc-bivariate-plots" class="nav-link" data-scroll-target="#bivariate-plots">3.2 Bivariate Plots</a></li>
+  <li><a href="#in-class-exercise-c" id="toc-in-class-exercise-c" class="nav-link" data-scroll-target="#in-class-exercise-c">In-Class Exercise C</a></li>
+  </ul></li>
+  <li><a href="#final-section-group-project-lab-2-preview" id="toc-final-section-group-project-lab-2-preview" class="nav-link" data-scroll-target="#final-section-group-project-lab-2-preview">Final Section: Group Project Lab (2) Preview</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Legel 393E Spring 2025: Group Project Lab(1)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">lab meeting</div>
+    <div class="quarto-category">Group Project</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Data Cleaning and Descriptive Statistics Guide (with Simulated Data)
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>EricoYu </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 30, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#create a vector contains the names of the needed packages, and assign a name "needed.packages" for it.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>needed.packages<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">'readxl'</span>,<span class="st">'readr'</span>,<span class="st">'haven'</span>,<span class="st">'dplyr'</span>,<span class="st">'broom'</span>,<span class="st">'ggplot2'</span>,<span class="st">'dotwhisker'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#lapply() allows us to loop over and execute every element in the object "needed.packages".</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(needed.packages, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: readxl</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: readr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: haven</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: dplyr</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: broom</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: ggplot2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: dotwhisker</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] TRUE
+
+[[2]]
+[1] TRUE
+
+[[3]]
+[1] TRUE
+
+[[4]]
+[1] TRUE
+
+[[5]]
+[1] TRUE
+
+[[6]]
+[1] TRUE
+
+[[7]]
+[1] TRUE</code></pre>
+</div>
+</div>
+<p>assign a name “needed.packages” for it.</p>
+<p>needed.packages&lt;-c(‘readxl’,‘readr’,‘haven’,‘dplyr’,‘broom’,‘ggplot2’,‘dotwhisker’)</p>
+<p>#lapply() allows us to loop over and execute every element in the object “needed.packages”.</p>
+<p>lapply(needed.packages, require, character.only = TRUE)</p>
+<section id="load-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="load-the-dataset">Load the dataset</h2>
+<p>Before we explore the data, we need to <strong>import</strong> the survey responses (CSV file) into R.<br>
+Make sure the file <code>simulated_legal393_survey_responses.csv</code> is in the same folder as this <code>.qmd</code> file.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read CSV file</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"simulated_legal393_survey_responses.csv"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview first few rows</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["user_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["consent"],"name":[2],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[3],"type":["chr"],"align":["left"]},{"label":["birth_year"],"name":[4],"type":["int"],"align":["right"]},{"label":["ethnicity"],"name":[5],"type":["chr"],"align":["left"]},{"label":["hispanic_origin"],"name":[6],"type":["chr"],"align":["left"]},{"label":["education"],"name":[7],"type":["chr"],"align":["left"]},{"label":["employment"],"name":[8],"type":["chr"],"align":["left"]},{"label":["income"],"name":[9],"type":["chr"],"align":["left"]},{"label":["residency_state"],"name":[10],"type":["chr"],"align":["left"]},{"label":["residency_type"],"name":[11],"type":["chr"],"align":["left"]},{"label":["citizenship"],"name":[12],"type":["chr"],"align":["left"]},{"label":["social_media"],"name":[13],"type":["chr"],"align":["left"]},{"label":["political_ideology"],"name":[14],"type":["chr"],"align":["left"]},{"label":["party_affiliation"],"name":[15],"type":["chr"],"align":["left"]},{"label":["vote_2020"],"name":[16],"type":["chr"],"align":["left"]},{"label":["criminal_record"],"name":[17],"type":["chr"],"align":["left"]},{"label":["abortion_legality"],"name":[18],"type":["chr"],"align":["left"]},{"label":["med_abortion_legal"],"name":[19],"type":["chr"],"align":["left"]},{"label":["abortion_access_difficulty"],"name":[20],"type":["chr"],"align":["left"]},{"label":["abortion_access_should_be"],"name":[21],"type":["chr"],"align":["left"]},{"label":["immig_pop_size"],"name":[22],"type":["int"],"align":["right"]},{"label":["immig_policy_adequacy"],"name":[23],"type":["int"],"align":["right"]},{"label":["immig_policy_impact"],"name":[24],"type":["int"],"align":["right"]},{"label":["immig_crime_change"],"name":[25],"type":["chr"],"align":["left"]},{"label":["immig_safety_feeling"],"name":[26],"type":["chr"],"align":["left"]},{"label":["immig_belief_1"],"name":[27],"type":["chr"],"align":["left"]},{"label":["immig_belief_2"],"name":[28],"type":["chr"],"align":["left"]},{"label":["immig_belief_3"],"name":[29],"type":["chr"],"align":["left"]},{"label":["immig_belief_4"],"name":[30],"type":["chr"],"align":["left"]},{"label":["speech_express_likelihood"],"name":[31],"type":["int"],"align":["right"]},{"label":["speech_backlash_likelihood"],"name":[32],"type":["int"],"align":["right"]},{"label":["scotus_fairness"],"name":[33],"type":["int"],"align":["right"]},{"label":["scotus_trust"],"name":[34],"type":["int"],"align":["right"]},{"label":["scotus_politics_influence"],"name":[35],"type":["chr"],"align":["left"]},{"label":["trust_us_courts"],"name":[36],"type":["chr"],"align":["left"]},{"label":["trust_io"],"name":[37],"type":["chr"],"align":["left"]},{"label":["importance_us_io"],"name":[38],"type":["chr"],"align":["left"]},{"label":["us_intervene"],"name":[39],"type":["chr"],"align":["left"]},{"label":["icc_familiarity"],"name":[40],"type":["chr"],"align":["left"]},{"label":["icc_reliable"],"name":[41],"type":["chr"],"align":["left"]},{"label":["icc_fair"],"name":[42],"type":["chr"],"align":["left"]},{"label":["icc_effective"],"name":[43],"type":["chr"],"align":["left"]},{"label":["icc_bias"],"name":[44],"type":["chr"],"align":["left"]},{"label":["manip_check"],"name":[45],"type":["chr"],"align":["left"]}],"data":[{"1":"2e750639","2":"Yes","3":"Female","4":"1994","5":"Black","6":"Hispanic or Latino","7":"Bachelor’s degree","8":"Other","9":"$100k-$149k","10":"MA","11":"Rural","12":"Naturalized","13":"YouTube","14":"Somewhat Liberal","15":"Republican","16":"Republican","17":"Prefer not to disclose","18":"Illegal most","19":"Not sure","20":"Very difficult","21":"About the same","22":"4","23":"4","24":"7","25":"Increase","26":"Somewhat safer","27":"Neutral","28":"Disagree","29":"Strongly agree","30":"Strongly disagree","31":"3","32":"5","33":"2","34":"3","35":"Yes","36":"Not much","37":"None","38":"Somewhat","39":"Only if interest","40":"Never heard","41":"Strongly agree","42":"Agree","43":"Strongly disagree","44":"Neutral","45":"AI in campaign finance","_rn_":"1"},{"1":"2af57c72","2":"No","3":"Non-Binary","4":"1997","5":"Other","6":"Hispanic or Latino","7":"Graduate or professional degree","8":"Part-time","9":"$150k+","10":"CA","11":"Urban","12":"Other","13":"Facebook","14":"Very Conservative","15":"Strong Democrat","16":"Other","17":"No","18":"Unsure","19":"Legal","20":"Somewhat difficult","21":"Harder","22":"4","23":"6","24":"2","25":"Increase","26":"Much more dangerous","27":"Agree","28":"Strongly agree","29":"Neutral","30":"Agree","31":"7","32":"2","33":"5","34":"5","35":"Yes","36":"Moderate","37":"Some","38":"Very","39":"Only if interest","40":"Never heard","41":"Strongly disagree","42":"Strongly agree","43":"Agree","44":"Somewhat unbiased","45":"AI in campaign finance","_rn_":"2"},{"1":"1fb7bdb8","2":"Yes","3":"Male","4":"1978","5":"White","6":"Hispanic or Latino","7":"Graduate or professional degree","8":"Part-time","9":"$25k-$49k","10":"FL","11":"Suburban","12":"Visa","13":"TikTok","14":"Somewhat Conservative","15":"Republican","16":"Did not vote","17":"Other","18":"Legal all","19":"Not sure","20":"Very difficult","21":"Easier","22":"7","23":"6","24":"1","25":"Same","26":"Same","27":"Disagree","28":"Strongly agree","29":"Neutral","30":"Strongly agree","31":"2","32":"6","33":"1","34":"5","35":"No","36":"None","37":"Great deal","38":"Very","39":"Yes even no interest","40":"Somewhat","41":"Strongly agree","42":"Strongly agree","43":"Disagree","44":"Extremely biased","45":"AI in campaign finance","_rn_":"3"},{"1":"d372a2cb","2":"No","3":"Female","4":"1992","5":"Black","6":"Not Hispanic or Latino","7":"Some college, no degree","8":"Homemaker","9":"$150k+","10":"FL","11":"Suburban","12":"Visa","13":"Reddit","14":"Somewhat Liberal","15":"Lean Republican","16":"Democrat","17":"Yes","18":"Legal most","19":"Illegal","20":"Somewhat difficult","21":"About the same","22":"6","23":"7","24":"6","25":"Decrease","26":"Somewhat safer","27":"Disagree","28":"Disagree","29":"Strongly disagree","30":"Strongly disagree","31":"6","32":"10","33":"2","34":"8","35":"No","36":"Great deal","37":"Some","38":"Extremely","39":"Only if interest","40":"Heard of it","41":"Neutral","42":"Neutral","43":"Disagree","44":"Neutral","45":"Political expression","_rn_":"4"},{"1":"1812262b","2":"Yes","3":"Other","4":"1988","5":"Hispanic","6":"Not Hispanic or Latino","7":"Associates or technical degree","8":"Unemployed","9":"Less than $25k","10":"NY","11":"Urban","12":"Other","13":"None","14":"Very Liberal","15":"Independent","16":"Democrat","17":"Yes","18":"Illegal all","19":"Illegal","20":"Very difficult","21":"About the same","22":"2","23":"3","24":"4","25":"Decrease","26":"Much more dangerous","27":"Disagree","28":"Disagree","29":"Neutral","30":"Agree","31":"4","32":"7","33":"10","34":"10","35":"No","36":"Great deal","37":"Some","38":"Very","39":"Only if interest","40":"Heard of it","41":"Strongly agree","42":"Neutral","43":"Agree","44":"Somewhat unbiased","45":"AI in campaign finance","_rn_":"5"},{"1":"5a72fda1","2":"No","3":"Non-Binary","4":"1964","5":"Hispanic","6":"Hispanic or Latino","7":"Graduate or professional degree","8":"Part-time","9":"$75k-$99k","10":"NY","11":"Urban","12":"Visa","13":"None","14":"Somewhat Liberal","15":"Democrat","16":"Democrat","17":"Prefer not to disclose","18":"Unsure","19":"Not sure","20":"Somewhat easy","21":"Harder","22":"6","23":"2","24":"1","25":"Same","26":"Somewhat safer","27":"Strongly agree","28":"Strongly disagree","29":"Strongly agree","30":"Disagree","31":"5","32":"10","33":"10","34":"9","35":"No","36":"Great deal","37":"Very little","38":"Somewhat","39":"Only if interest","40":"Very familiar","41":"Disagree","42":"Disagree","43":"Strongly disagree","44":"Completely unbiased","45":"AI in campaign finance","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-1-understanding-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-understanding-the-dataset">Part 1: Understanding the Dataset</h2>
+<p>Before we clean or analyze any data, we need to understand what the dataset looks like. This step includes:</p>
+<ul>
+<li><p>Checking the overall structure of the data.</p></li>
+<li><p>Viewing variable names and sample entries.</p></li>
+<li><p>Ensure values are stored in the expected format (e.g., text, numbers).</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data)       <span class="co"># View the dataset structure (variables, types, and first few values)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 250
+Columns: 45
+$ user_id                    &lt;chr&gt; "2e750639", "2af57c72", "1fb7bdb8", "d372a2…
+$ consent                    &lt;chr&gt; "Yes", "No", "Yes", "No", "Yes", "No", "No"…
+$ gender                     &lt;chr&gt; "Female", "Non-Binary", "Male", "Female", "…
+$ birth_year                 &lt;int&gt; 1994, 1997, 1978, 1992, 1988, 1964, 1972, 1…
+$ ethnicity                  &lt;chr&gt; "Black", "Other", "White", "Black", "Hispan…
+$ hispanic_origin            &lt;chr&gt; "Hispanic or Latino", "Hispanic or Latino",…
+$ education                  &lt;chr&gt; "Bachelor’s degree", "Graduate or professio…
+$ employment                 &lt;chr&gt; "Other", "Part-time", "Part-time", "Homemak…
+$ income                     &lt;chr&gt; "$100k-$149k", "$150k+", "$25k-$49k", "$150…
+$ residency_state            &lt;chr&gt; "MA", "CA", "FL", "FL", "NY", "NY", "NY", "…
+$ residency_type             &lt;chr&gt; "Rural", "Urban", "Suburban", "Suburban", "…
+$ citizenship                &lt;chr&gt; "Naturalized", "Other", "Visa", "Visa", "Ot…
+$ social_media               &lt;chr&gt; "YouTube", "Facebook", "TikTok", "Reddit", …
+$ political_ideology         &lt;chr&gt; "Somewhat Liberal", "Very Conservative", "S…
+$ party_affiliation          &lt;chr&gt; "Republican", "Strong Democrat", "Republica…
+$ vote_2020                  &lt;chr&gt; "Republican", "Other", "Did not vote", "Dem…
+$ criminal_record            &lt;chr&gt; "Prefer not to disclose", "No", "Other", "Y…
+$ abortion_legality          &lt;chr&gt; "Illegal most", "Unsure", "Legal all", "Leg…
+$ med_abortion_legal         &lt;chr&gt; "Not sure", "Legal", "Not sure", "Illegal",…
+$ abortion_access_difficulty &lt;chr&gt; "Very difficult", "Somewhat difficult", "Ve…
+$ abortion_access_should_be  &lt;chr&gt; "About the same", "Harder", "Easier", "Abou…
+$ immig_pop_size             &lt;int&gt; 4, 4, 7, 6, 2, 6, 1, 4, 3, 5, 7, 5, 4, 1, 4…
+$ immig_policy_adequacy      &lt;int&gt; 4, 6, 6, 7, 3, 2, 5, 5, 7, 1, 6, 1, 6, 2, 2…
+$ immig_policy_impact        &lt;int&gt; 7, 2, 1, 6, 4, 1, 4, 6, 5, 5, 5, 3, 5, 1, 6…
+$ immig_crime_change         &lt;chr&gt; "Increase", "Increase", "Same", "Decrease",…
+$ immig_safety_feeling       &lt;chr&gt; "Somewhat safer", "Much more dangerous", "S…
+$ immig_belief_1             &lt;chr&gt; "Neutral", "Agree", "Disagree", "Disagree",…
+$ immig_belief_2             &lt;chr&gt; "Disagree", "Strongly agree", "Strongly agr…
+$ immig_belief_3             &lt;chr&gt; "Strongly agree", "Neutral", "Neutral", "St…
+$ immig_belief_4             &lt;chr&gt; "Strongly disagree", "Agree", "Strongly agr…
+$ speech_express_likelihood  &lt;int&gt; 3, 7, 2, 6, 4, 5, 5, 1, 5, 2, 10, 2, 1, 3, …
+$ speech_backlash_likelihood &lt;int&gt; 5, 2, 6, 10, 7, 10, 4, 8, 1, 9, 5, 1, 8, 7,…
+$ scotus_fairness            &lt;int&gt; 2, 5, 1, 2, 10, 10, 8, 9, 2, 3, 4, 9, 2, 2,…
+$ scotus_trust               &lt;int&gt; 3, 5, 5, 8, 10, 9, 5, 4, 9, 9, 3, 5, 4, 1, …
+$ scotus_politics_influence  &lt;chr&gt; "Yes", "Yes", "No", "No", "No", "No", "Yes"…
+$ trust_us_courts            &lt;chr&gt; "Not much", "Moderate", "None", "Great deal…
+$ trust_io                   &lt;chr&gt; "None", "Some", "Great deal", "Some", "Some…
+$ importance_us_io           &lt;chr&gt; "Somewhat", "Very", "Very", "Extremely", "V…
+$ us_intervene               &lt;chr&gt; "Only if interest", "Only if interest", "Ye…
+$ icc_familiarity            &lt;chr&gt; "Never heard", "Never heard", "Somewhat", "…
+$ icc_reliable               &lt;chr&gt; "Strongly agree", "Strongly disagree", "Str…
+$ icc_fair                   &lt;chr&gt; "Agree", "Strongly agree", "Strongly agree"…
+$ icc_effective              &lt;chr&gt; "Strongly disagree", "Agree", "Disagree", "…
+$ icc_bias                   &lt;chr&gt; "Neutral", "Somewhat unbiased", "Extremely …
+$ manip_check                &lt;chr&gt; "AI in campaign finance", "AI in campaign f…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data)           <span class="co"># View numbers of rows (number of unique respondents) and columns (number of questions)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 250  45</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data)         <span class="co"># Print the names of all variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "user_id"                    "consent"                   
+ [3] "gender"                     "birth_year"                
+ [5] "ethnicity"                  "hispanic_origin"           
+ [7] "education"                  "employment"                
+ [9] "income"                     "residency_state"           
+[11] "residency_type"             "citizenship"               
+[13] "social_media"               "political_ideology"        
+[15] "party_affiliation"          "vote_2020"                 
+[17] "criminal_record"            "abortion_legality"         
+[19] "med_abortion_legal"         "abortion_access_difficulty"
+[21] "abortion_access_should_be"  "immig_pop_size"            
+[23] "immig_policy_adequacy"      "immig_policy_impact"       
+[25] "immig_crime_change"         "immig_safety_feeling"      
+[27] "immig_belief_1"             "immig_belief_2"            
+[29] "immig_belief_3"             "immig_belief_4"            
+[31] "speech_express_likelihood"  "speech_backlash_likelihood"
+[33] "scotus_fairness"            "scotus_trust"              
+[35] "scotus_politics_influence"  "trust_us_courts"           
+[37] "trust_io"                   "importance_us_io"          
+[39] "us_intervene"               "icc_familiarity"           
+[41] "icc_reliable"               "icc_fair"                  
+[43] "icc_effective"              "icc_bias"                  
+[45] "manip_check"               </code></pre>
+</div>
+</div>
+<hr>
+<p><strong>What to look for:</strong></p>
+<ul>
+<li><p>Are demographic variables like <code>gender</code>, <code>education</code>, and <code>birth_year</code> stored as characters or numbers?</p></li>
+<li><p>Is the format of each variable suitable for statistical analysis?</p></li>
+</ul>
+</section>
+<section id="part-2-data-cleaning-and-recoding" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-data-cleaning-and-recoding">Part 2: Data Cleaning and Recoding</h2>
+<p>This section focuses on:</p>
+<ol type="1">
+<li><p>Reformatting responses so they are usable in statistical models.</p></li>
+<li><p>Turning text into numbers (especially for ordinal variables).</p></li>
+<li><p>Recoding binary and categorical variables</p></li>
+<li><p>Handling missing or ambiguous responses.</p></li>
+</ol>
+<section id="recode-character-responses-numeric" class="level3">
+<h3 class="anchored" data-anchor-id="recode-character-responses-numeric">2.1 Recode Character Responses → Numeric</h3>
+<p>Many variables use text responses (e.g., “Urban”, “Suburban”) but have an implied order or coding. We must convert these into numeric values for summary statistics or modeling.</p>
+<section id="example-1-recode-birth_year-into-age" class="level4">
+<h4 class="anchored" data-anchor-id="example-1-recode-birth_year-into-age">Example 1: Recode <code>birth_year</code> into <code>age</code></h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#always check the original column/variable:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>birth_year)<span class="co">#for continous variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1960    1972    1986    1985    1998    2010 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#table(data$birth_year)#use table for ordinal or nominal variables</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> <span class="dv">2025</span> <span class="sc">-</span> <span class="fu">as.numeric</span>(birth_year)) </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#in this line, we create a new column/variable called "age" by using 2025 minus the birth year variable.</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#as.numeric() ensures R treats the values of the specific variables "numeric", so that we can conduct math operation.</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>age) <span class="co">#Always inspect your new variable after you recode or create a new one!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  15.00   27.25   39.00   40.14   53.00   65.00 </code></pre>
+</div>
+</div>
+<p>We can see that the <code>age</code> values are within a reasonable range (e.g., 15–80). There are no obvious errors or NAs created during conversion. This looks good.</p>
+</section>
+<section id="example-2-recode-residency_type-into-numeric-categories-based-on-the-original-corresponding-valuescodes-of-the-responses." class="level4">
+<h4 class="anchored" data-anchor-id="example-2-recode-residency_type-into-numeric-categories-based-on-the-original-corresponding-valuescodes-of-the-responses.">Example 2: Recode <code>residency_type</code> into numeric categories based on the original corresponding values/codes of the responses.</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residency_type_num =</span> <span class="fu">case_when</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    residency_type <span class="sc">==</span> <span class="st">"Urban"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    residency_type <span class="sc">==</span> <span class="st">"Suburban"</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    residency_type <span class="sc">==</span> <span class="st">"Rural"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">4</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>residency_type_num)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 1  2  3 
+93 85 72 </code></pre>
+</div>
+</div>
+<p><br>
+This recoding helps when we want to use <code>residency_type</code> as a predictor or control variable in a model. By assigning numbers, we can group or summarize responses more easily.</p>
+</section>
+</section>
+<section id="in-class-exercise-a" class="level3">
+<h3 class="anchored" data-anchor-id="in-class-exercise-a">In-class Exercise A</h3>
+<p>Each of you, choose <strong>one variable</strong> from the list below and do the following:</p>
+<ul>
+<li><p>Look at the response categories (from urvey questionnaire (in Word) or the survey project on Qualtrics).</p></li>
+<li><p>Write your own recoding from character → numeric. Use the <code>mutate()</code> + <code>case_when()</code> pattern, or other pattern or codes you want (for example, <code>ifelse()</code>)..</p></li>
+<li><p>Explain your reasoning (you will need to do this in your final group project writing).</p></li>
+</ul>
+<p>Suggested variables:</p>
+<ul>
+<li><p><code>gender</code></p></li>
+<li><p><code>education</code></p></li>
+<li><p><code>citizenship</code></p></li>
+<li><p><code>political_ideology</code></p></li>
+<li><p><code>party_affiliation</code></p></li>
+<li><p><code>vote_2020</code></p></li>
+<li><p><code>criminal_record</code></p></li>
+</ul>
+<p>Use the <code>mutate()</code> + <code>case_when()</code> pattern.</p>
+<hr>
+</section>
+<section id="recode-to-binary-variables" class="level3">
+<h3 class="anchored" data-anchor-id="recode-to-binary-variables">2.2 Recode to Binary Variables</h3>
+<p>Some research questions need yes/no answers or binary contrasts. We create binary variables from:</p>
+<ul>
+<li><p><strong>Nominal</strong> categories (e.g., “White” vs.&nbsp;Others)</p></li>
+<li><p><strong>Ordinal</strong> categories (e.g., “College degree or higher” vs.&nbsp;not)</p></li>
+</ul>
+<section id="example-3-nominal-binary-ethnicity-white-1-others-0" class="level4">
+<h4 class="anchored" data-anchor-id="example-3-nominal-binary-ethnicity-white-1-others-0">Example 3: Nominal → Binary: Ethnicity — White = 1, Others = 0</h4>
+<p>The <code>mutate()</code> + <code>case_when()</code> approach:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ethnicity_white =</span> <span class="fu">case_when</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    ethnicity <span class="sc">==</span> <span class="st">"White"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span> <span class="co">#everyone else (including NA) is assigned 0</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>ethnicity_white)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+207  43 </code></pre>
+</div>
+</div>
+<p>A simpler and more straight forward method: <code>ifelse()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">white =</span> <span class="fu">ifelse</span>(ethnicity <span class="sc">==</span> <span class="st">"White"</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>white) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   0.000   0.000   0.172   0.000   1.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>white) <span class="co">#just checking</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+207  43 </code></pre>
+</div>
+</div>
+</section>
+<section id="example-4-ordinal-binary-education-bachelors-degree-or-higher-1-others-0" class="level4">
+<h4 class="anchored" data-anchor-id="example-4-ordinal-binary-education-bachelors-degree-or-higher-1-others-0">Example 4: Ordinal → Binary: Education — Bachelor’s degree or higher = 1, others = 0</h4>
+<p>The <code>mutate()</code> + <code>case_when()</code> approach:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edu_collegeplus =</span> <span class="fu">case_when</span>(</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    education <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Bachelor’s degree"</span>, <span class="st">"Graduate or professional degree"</span>) <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># The %in% operator in R checks whether elements of a vector belong to a specified set of values. It is usually used with strings (characters, words, phrases, etc.)</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">0</span> <span class="co">#everyone else (including NA) is assigned 0</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>edu_collegeplus) <span class="co">#Confirm logic worked</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+166  84 </code></pre>
+</div>
+</div>
+<p>A simpler and more straight forward method would do the same thing: <code>ifelse()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">edu_collegeplus =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    education <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Bachelor’s degree"</span>, <span class="st">"Graduate or professional degree"</span>), <span class="dv">1</span>, <span class="dv">0</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>edu_collegeplus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  0   1 
+166  84 </code></pre>
+</div>
+</div>
+<p><strong>Why this matter?</strong> Creating binary variables is important when testing hypotheses like “Are college-educated individuals more likely to support Policy X?” If your experiment contains only two conditions, you can think of recoding your independent variable in such a way.</p>
+</section>
+</section>
+<section id="in-class-exercise-b" class="level3">
+<h3 class="anchored" data-anchor-id="in-class-exercise-b">In-class Exercise B</h3>
+<p>Using the same variable you chose in Exercise A:</p>
+<ul>
+<li><p>Recode that variable into a binary format (0/1).</p></li>
+<li><p>Decide what counts as 1 (e.g., Female? Democrat? High education?).</p></li>
+</ul>
+<pre><code>You may work and compare your logic with other students in your group.</code></pre>
+<hr>
+</section>
+<section id="handling-prefer-not-to-answer-or-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="handling-prefer-not-to-answer-or-missing-values">2.3 Handling “Prefer not to answer” or Missing Values</h3>
+<p>Before we decide how to handle missing responses like <code>"Prefer not to disclose"</code> or <code>NA</code>, let’s review <strong>three types of missing data</strong> in statistics:</p>
+<table class="caption-top table">
+<caption>Missing Data: Types and Methods of Handling Them</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+<th>Example</th>
+<th>Col5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Missing Completely at Random (<strong>MCAR</strong>)</td>
+<td>The missingness is unrelated to any values, observed or unobserved.</td>
+<td>A random technical glitch skips a question.</td>
+<td>Drop rows, or use mean/median/mode imputation.</td>
+</tr>
+<tr class="even">
+<td>Missing at Random (<strong>MAR)</strong></td>
+<td>Missingness is related to observed data, but not the value itself.</td>
+<td>Older people are more likely to skip income question.</td>
+<td>Use imputation based on other variables (e.g., regression, stratified mean using age, edu, employment to predict income).</td>
+</tr>
+<tr class="odd">
+<td>Missing Not at Random (<strong>MNAR</strong>)</td>
+<td>Missingness is related to the missing value itself.</td>
+<td>People with criminal records are more likely to choose “Prefer not to disclose.”</td>
+<td>Cannot be fixed by simple imputation—requires careful modeling or logic-based assumptions.</td>
+</tr>
+</tbody>
+</table>
+<section id="application-to-our-data" class="level4">
+<h4 class="anchored" data-anchor-id="application-to-our-data">Application to Our Data:</h4>
+<p>Let’s apply this to a real variable: <code>criminal_record.</code></p>
+<p>The response of “Prefer not to disclose” might reflect <strong>MNAR</strong> — people with a criminal record may be more likely to refuse answering. Based on this assumption, That means <strong>we shouldn’t treat it as just missing</strong> — we can <strong>logically recode it as “Yes”</strong> if we want to be conservative.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#the original coding of criminal record: </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>criminal_record)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+                    No                  Other Prefer not to disclose 
+                    52                     62                     65 
+                   Yes 
+                    71 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#recode:</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">criminal_record_clean =</span> <span class="fu">case_when</span>(</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    criminal_record <span class="sc">==</span> <span class="st">"Prefer not to disclose"</span> <span class="sc">~</span> <span class="st">"Yes"</span>,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> criminal_record</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co">#confirm recoding variable:</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>criminal_record_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   No Other   Yes 
+   52    62   136 </code></pre>
+</div>
+</div>
+<ul>
+<li>For other variables (e.g., <code>education</code>), <strong>missingness may be MAR or MCAR</strong>, and we can safely fill it with <strong>mode</strong>, <strong>mean</strong> or <strong>median</strong>. In the following case, because education is an ordinal variable, we cannot directly use mean or mean. We use <strong>mode</strong> to replace “prefer not to say”.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write a function to get mode</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>get_mode <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(x)  <span class="co"># Remove NA values</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  uniq_x <span class="ot">&lt;-</span> <span class="fu">unique</span>(x) <span class="co">#This gets all the unique values in x</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  freq <span class="ot">&lt;-</span> <span class="fu">tabulate</span>(<span class="fu">match</span>(x, uniq_x)) </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#this operation is two steps:</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#first, match(x, uniq_x) turns the values in x into positions based on where they appear in uniq_x. For example: match(c(2, 2, 3), c(2, 3, 4)) returns 1 1 2.</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#tabulate(...) then counts how many times each index appears:tabulate(c(1, 1, 2)) → 2 1 0</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  mode_val <span class="ot">&lt;-</span> uniq_x[<span class="fu">which.max</span>(freq)]</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#which.max(freq) gives the position of the most frequent value.</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#uniq_x[...] pulls out the actual mode.</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(mode_val)</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>mode_edu <span class="ot">&lt;-</span> <span class="fu">get_mode</span>(data<span class="sc">$</span>education)</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a><span class="co">#originally education</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>education)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Associates or technical degree               Bachelor’s degree 
+                             63                              40 
+Graduate or professional degree      High school diploma or GED 
+                             44                              40 
+        Some college, no degree        Some high school or less 
+                             22                              41 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#filling prefer not to say with mode of education</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">education_filled =</span> <span class="fu">case_when</span>(</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    education <span class="sc">==</span> <span class="st">"Prefer not to say"</span> <span class="sc">~</span> mode_edu,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> education))</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co">#check the filled education variable</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>education_filled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Associates or technical degree               Bachelor’s degree 
+                             63                              40 
+Graduate or professional degree      High school diploma or GED 
+                             44                              40 
+        Some college, no degree        Some high school or less 
+                             22                              41 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="review-how-we-handle-missing-data-in-this-class" class="level3">
+<h3 class="anchored" data-anchor-id="review-how-we-handle-missing-data-in-this-class">Review: How We Handle Missing Data in This Class?</h3>
+<ul>
+<li>For <strong>MAR</strong> and <strong>MNAR</strong> situations (like <code>criminal_record</code>), we <strong>have not learned advanced imputation techniques yet</strong>, such as multiple imputation or model-based imputation.</li>
+<li>Therefore, we will use <strong>simple strategies</strong> like:
+<ul>
+<li><strong>Logic-based recoding</strong> (e.g., treating “Prefer not to disclose” as “Yes”)</li>
+<li><strong>Mean / mode / median imputation</strong> for numeric or categorical variables</li>
+</ul></li>
+</ul>
+<section id="recommendation-for-your-group-projects" class="level4">
+<h4 class="anchored" data-anchor-id="recommendation-for-your-group-projects">Recommendation for Your Group Projects</h4>
+<p>In the final project, I will help you to handle the missing data in the standard questions (demographic, socio-economic status, and personal-others). When you analyze your group’s experimental variables (IVs and DVs), please:</p>
+<ol type="1">
+<li><strong>Run your model using only complete cases</strong> (i.e., drop any rows with missing data using <code>na.omit()</code> or <code>drop_na()</code>).</li>
+<li>Then, <strong>run the same model again after applying simple imputations</strong> (like using <code>mean()</code> or <code>mode()</code> to fill missing values).</li>
+<li><strong>Compare the results</strong>, and note whether your conclusions change. This will help you reflect on how missing data affects analysis.</li>
+</ol>
+<hr>
+</section>
+</section>
+</section>
+<section id="part-3-descriptive-statistics-and-plots" class="level2">
+<h2 class="anchored" data-anchor-id="part-3-descriptive-statistics-and-plots">Part 3: Descriptive Statistics and Plots</h2>
+<p>Once your data is cleaned and recoded, the next step is to <strong>explore and summarize</strong> it. This section reviews how to:</p>
+<ul>
+<li><p>Generate basic summary statistics</p></li>
+<li><p>Create simple visualizations to display data distribution of a variable (make sure you check the previous lecture note to decide what types of graph you should choose to plot).</p></li>
+<li><p>Describe the data distribution based on the summary statistics and the graphs. For example, in the third graph below, are there more Democrats or Republicans in the sample? Is there a strong skew in political identity?</p></li>
+<li><p>Explore relationships between variables</p></li>
+</ul>
+<section id="univariate-statistics-single-variable" class="level3">
+<h3 class="anchored" data-anchor-id="univariate-statistics-single-variable">3.1 Univariate Statistics (Single Variable)</h3>
+<section id="example-1-age-numeric-variable" class="level4">
+<h4 class="anchored" data-anchor-id="example-1-age-numeric-variable">Example 1: Age (numeric variable);</h4>
+<p>Since age is a continuous variable, we can use boxplot to present its min, max, mean, median, and quartiles. We can also do histogram.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summary statistics</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  15.00   27.25   39.00   40.14   53.00   65.00 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#boxplot to present distribution</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> age)) <span class="sc">+</span> </span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Age"</span>) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggtitle</span>(<span class="st">"Distribution of Respondent Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="legal393_data_cleaning_guide_v2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="example-2-gender-nominal" class="level4">
+<h4 class="anchored" data-anchor-id="example-2-gender-nominal">Example 2: Gender (nominal)</h4>
+<p>Since gender is a nominal variable, we can use barplot to present the proportion of each gender group. We can also use pie-chart to do so.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(data<span class="sc">$</span>gender))<span class="co">#use prop.table to show proportion of different groups of a  nominal variable </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Female       Male Non-Binary      Other 
+     0.192      0.280      0.268      0.260 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting barplot</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> gender)) <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Gender"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Gender Breakdown in Sample"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="legal393_data_cleaning_guide_v2_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="example-3-party-affiliation-ordinal" class="level4">
+<h4 class="anchored" data-anchor-id="example-3-party-affiliation-ordinal">Example 3: Party affiliation (ordinal)</h4>
+<p>Since Party affiliation is an ordinal variable (7-point scale), we can use a barplot to present the proportion of each gender group. If an ordinal variable has more than 10 values, we can also choose a histogram. But do not use a boxplot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#the following code is crucial for handling ordered categorical variables in R when you want to treat them as numbers (e.g., for plotting or modeling).</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>party_numeric <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(data<span class="sc">$</span>party_affiliation, <span class="co">#step2: as.numeric(factor): converts that ordered factor into numbers 1 to 7, matching the ideological spectrum.</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Strong Republican"</span>, <span class="st">"Republican"</span>, <span class="st">"Lean Republican"</span>,</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Independent"</span>, <span class="st">"Lean Democrat"</span>, <span class="st">"Democrat"</span>, <span class="st">"Strong  Democrat"</span>) <span class="co">#step1: levels = c: it first converts a text variable (party_affiliation) into a factor with explicit order based on political ideology (from conservative to liberal).</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co">#However, my personal practice is that I would recode all these variables by assigining responses with numerical values in Part#1.</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="co">#If you already do so </span></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> party_numeric)) <span class="sc">+</span></span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Party Affiliation (1 = Strong R → 7 = Strong D)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Party Identification of Survey Respondents"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 29 rows containing non-finite outside the scale range
+(`stat_count()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="legal393_data_cleaning_guide_v2_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="bivariate-plots" class="level3">
+<h3 class="anchored" data-anchor-id="bivariate-plots">3.2 Bivariate Plots</h3>
+<p>Let’s examine how <strong>two variables relate</strong> to each other.</p>
+<section id="example-4-party-affiliation-numeric-vs-age" class="level4">
+<h4 class="anchored" data-anchor-id="example-4-party-affiliation-numeric-vs-age">Example 4: Party affiliation (numeric) vs Age</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(party_numeric), <span class="at">y =</span> age)) <span class="sc">+</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Party Affiliation"</span>, <span class="at">y =</span> <span class="st">"Age"</span>) <span class="sc">+</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Age Differences by Party Affiliation"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="legal393_data_cleaning_guide_v2_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="in-class-exercise-c" class="level3">
+<h3 class="anchored" data-anchor-id="in-class-exercise-c">In-Class Exercise C</h3>
+<p>Choose any <strong>two variables</strong> from your dataset:</p>
+<ul>
+<li><p>One <strong>numeric</strong> (e.g., <code>age</code>, <code>party_numeric</code>, <code>speech_express_likelihood</code>)</p></li>
+<li><p>One <strong>categorical</strong> (e.g., <code>gender</code>, <code>education</code>, <code>ethnicity_white</code>)</p></li>
+</ul>
+<p>For each variable:</p>
+<ol type="1">
+<li><p>Generate summary statistics using <code>summary()</code> or <code>table()</code>.</p></li>
+<li><p>Make a plot using <code>ggplot2</code> (e.g., boxplot, bar chart, or histogram).</p></li>
+<li><p>(Optional) Write down <strong>one sentence interpreting what you observe</strong>. You will need to do this in your final group report.</p></li>
+</ol>
+<p>✔️ <strong>Tip</strong>: Use <code>labs()</code> to label your plot axes meaningfully.</p>
+<hr>
+</section>
+</section>
+<section id="final-section-group-project-lab-2-preview" class="level2">
+<h2 class="anchored" data-anchor-id="final-section-group-project-lab-2-preview">Final Section: Group Project Lab (2) Preview</h2>
+<p>For your <strong>group project</strong>, you will work with your own experimental questions. This week, we are practicing using <strong>simulated data</strong>. But you can still start writing the codes.</p>
+<p>Each group should:</p>
+<ol type="1">
+<li><p><strong>Identify your experimental variables</strong> (the dependent variable questions that measure the attitude and behavior in your experiment) from the survey</p></li>
+<li><p>Write the code to recode your group’s DVs in a proper form using <code>mutate()</code> + <code>case_when()</code>.</p>
+<p>Don’t worry about the demographic, socioeconomic and personal-other variables, I will clean them for you.</p></li>
+<li><p>Apply the same cleaning and checking habits from today:</p></li>
+</ol>
+<div>
+<pre><code>-   Try out the codes for summary stats
+
+-   Write the codes for plotting distribution graphs. </code></pre>
+</div>
+<ol start="4" type="1">
+<li>Save your codes with the .R file.</li>
+</ol>
+<p><strong>On Friday (real data release day):</strong></p>
+<p>You will <strong>reuse your cleaned code</strong> on the real dataset.</p>
+<ol start="5" type="1">
+<li><p>Then, you will perform:</p>
+<ul>
+<li><p>Simple regressions or t-tests (depending on design)</p></li>
+<li><p>Multiple regression including all control variables.</p></li>
+<li><p>Hypothesis testing and results interpretation</p></li>
+</ul></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Erico Yu. All rights reserved.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

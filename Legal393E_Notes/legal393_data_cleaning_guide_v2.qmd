@@ -1,0 +1,447 @@
+---
+title: "Legel 393E Spring 2025: Group Project Lab(1)"
+author: "EricoYu"
+description: "Data Cleaning and Descriptive Statistics Guide (with Simulated Data)"
+date: "04/30/2025"
+format:
+  html:
+    df-print: paged
+    css: "styles.css"
+categories:
+  - lab meeting
+  - Group Project
+---
+
+```{r}
+#create a vector contains the names of the needed packages, and assign a name "needed.packages" for it.
+needed.packages<-c('readxl','readr','haven','dplyr','broom','ggplot2','dotwhisker')
+
+#lapply() allows us to loop over and execute every element in the object "needed.packages".
+lapply(needed.packages, require, character.only = TRUE)
+```
+
+assign a name "needed.packages" for it.
+
+needed.packages\<-c('readxl','readr','haven','dplyr','broom','ggplot2','dotwhisker')
+
+#lapply() allows us to loop over and execute every element in the object "needed.packages".
+
+lapply(needed.packages, require, character.only = TRUE)
+
+## Load the dataset
+
+Before we explore the data, we need to **import** the survey responses (CSV file) into R.\
+Make sure the file `simulated_legal393_survey_responses.csv` is in the same folder as this `.qmd` file.
+
+```{r}
+# Read CSV file
+data <- read.csv("simulated_legal393_survey_responses.csv")
+
+# Preview first few rows
+head(data)
+```
+
+------------------------------------------------------------------------
+
+## Part 1: Understanding the Dataset
+
+Before we clean or analyze any data, we need to understand what the dataset looks like. This step includes:
+
+-   Checking the overall structure of the data.
+
+-   Viewing variable names and sample entries.
+
+-   Ensure values are stored in the expected format (e.g., text, numbers).
+
+```{r}
+glimpse(data)       # View the dataset structure (variables, types, and first few values)
+dim(data)           # View numbers of rows (number of unique respondents) and columns (number of questions)
+names(data)         # Print the names of all variables
+```
+
+------------------------------------------------------------------------
+
+**What to look for:**
+
+-   Are demographic variables like `gender`, `education`, and `birth_year` stored as characters or numbers?
+
+-   Is the format of each variable suitable for statistical analysis?
+
+## Part 2: Data Cleaning and Recoding
+
+This section focuses on:
+
+1.  Reformatting responses so they are usable in statistical models.
+
+2.  Turning text into numbers (especially for ordinal variables).
+
+3.  Recoding binary and categorical variables
+
+4.  Handling missing or ambiguous responses.
+
+### 2.1 Recode Character Responses → Numeric
+
+Many variables use text responses (e.g., "Urban", "Suburban") but have an implied order or coding. We must convert these into numeric values for summary statistics or modeling.
+
+#### Example 1: Recode `birth_year` into `age`
+
+```{r}
+#always check the original column/variable:
+summary(data$birth_year)#for continous variables
+#table(data$birth_year)#use table for ordinal or nominal variables
+
+data <- data %>%
+  mutate(age = 2025 - as.numeric(birth_year)) 
+#in this line, we create a new column/variable called "age" by using 2025 minus the birth year variable.
+#as.numeric() ensures R treats the values of the specific variables "numeric", so that we can conduct math operation.
+
+
+summary(data$age) #Always inspect your new variable after you recode or create a new one!
+```
+
+We can see that the `age` values are within a reasonable range (e.g., 15–80). There are no obvious errors or NAs created during conversion. This looks good.
+
+#### Example 2: Recode `residency_type` into numeric categories based on the original corresponding values/codes of the responses.
+
+```{r}
+data <- data %>%
+  mutate(residency_type_num = case_when(
+    residency_type == "Urban" ~ 1,
+    residency_type == "Suburban" ~ 2,
+    residency_type == "Rural" ~ 3,
+    TRUE ~ 4
+  ))
+
+table(data$residency_type_num)
+
+```
+
+\
+This recoding helps when we want to use `residency_type` as a predictor or control variable in a model. By assigning numbers, we can group or summarize responses more easily.
+
+### In-class Exercise A
+
+Each of you, choose **one variable** from the list below and do the following:
+
+-   Look at the response categories (from urvey questionnaire (in Word) or the survey project on Qualtrics).
+
+-   Write your own recoding from character → numeric. Use the `mutate()` + `case_when()` pattern, or other pattern or codes you want (for example, `ifelse()`)..
+
+-   Explain your reasoning (you will need to do this in your final group project writing).
+
+Suggested variables:
+
+-   `gender`
+
+-   `education`
+
+-   `citizenship`
+
+-   `political_ideology`
+
+-   `party_affiliation`
+
+-   `vote_2020`
+
+-   `criminal_record`
+
+Use the `mutate()` + `case_when()` pattern.
+
+------------------------------------------------------------------------
+
+### 2.2 Recode to Binary Variables
+
+Some research questions need yes/no answers or binary contrasts. We create binary variables from:
+
+-   **Nominal** categories (e.g., “White” vs. Others)
+
+-   **Ordinal** categories (e.g., “College degree or higher” vs. not)
+
+#### Example 3: Nominal → Binary: Ethnicity — White = 1, Others = 0
+
+The `mutate()` + `case_when()` approach:
+
+```{r}
+data <- data %>%
+  mutate(ethnicity_white = case_when(
+    ethnicity == "White" ~ 1,
+    TRUE ~ 0 #everyone else (including NA) is assigned 0
+  ))
+
+table(data$ethnicity_white)
+```
+
+A simpler and more straight forward method: `ifelse()`
+
+```{r}
+data <- data %>%
+  mutate(white = ifelse(ethnicity == "White", 1, 0))
+
+summary(data$white) 
+table(data$white) #just checking
+```
+
+#### Example 4: Ordinal → Binary: Education — Bachelor’s degree or higher = 1, others = 0
+
+The `mutate()` + `case_when()` approach:
+
+```{r}
+data <- data %>%
+  mutate(edu_collegeplus = case_when(
+    education %in% c("Bachelor’s degree", "Graduate or professional degree") ~ 1, # The %in% operator in R checks whether elements of a vector belong to a specified set of values. It is usually used with strings (characters, words, phrases, etc.)
+    TRUE ~ 0 #everyone else (including NA) is assigned 0
+  ))
+
+table(data$edu_collegeplus) #Confirm logic worked
+```
+
+A simpler and more straight forward method would do the same thing: `ifelse()`
+
+```{r}
+data <- data %>%
+  mutate(edu_collegeplus = ifelse(
+    education %in% c("Bachelor’s degree", "Graduate or professional degree"), 1, 0
+  ))
+
+table(data$edu_collegeplus)
+```
+
+**Why this matter?** Creating binary variables is important when testing hypotheses like “Are college-educated individuals more likely to support Policy X?” If your experiment contains only two conditions, you can think of recoding your independent variable in such a way.
+
+### In-class Exercise B
+
+Using the same variable you chose in Exercise A:
+
+-   Recode that variable into a binary format (0/1).
+
+-   Decide what counts as 1 (e.g., Female? Democrat? High education?).
+
+```         
+You may work and compare your logic with other students in your group.
+```
+
+------------------------------------------------------------------------
+
+### 2.3 Handling “Prefer not to answer” or Missing Values
+
+Before we decide how to handle missing responses like `"Prefer not to disclose"` or `NA`, let’s review **three types of missing data** in statistics:
+
+| Name | Description | Example | Col5 |
+|------------------|------------------|------------------|------------------|
+| Missing Completely at Random (**MCAR**) | The missingness is unrelated to any values, observed or unobserved. | A random technical glitch skips a question. | Drop rows, or use mean/median/mode imputation. |
+| Missing at Random (**MAR)** | Missingness is related to observed data, but not the value itself. | Older people are more likely to skip income question. | Use imputation based on other variables (e.g., regression, stratified mean using age, edu, employment to predict income). |
+| Missing Not at Random (**MNAR**) | Missingness is related to the missing value itself. | People with criminal records are more likely to choose “Prefer not to disclose.” | Cannot be fixed by simple imputation—requires careful modeling or logic-based assumptions. |
+
+: Missing Data: Types and Methods of Handling Them
+
+#### Application to Our Data:
+
+Let’s apply this to a real variable: `criminal_record.`
+
+The response of "Prefer not to disclose" might reflect **MNAR** — people with a criminal record may be more likely to refuse answering. Based on this assumption, That means **we shouldn’t treat it as just missing** — we can **logically recode it as "Yes"** if we want to be conservative.
+
+```{r}
+#the original coding of criminal record: 
+table(data$criminal_record)
+#recode:
+data <- data %>%
+  mutate(criminal_record_clean = case_when(
+    criminal_record == "Prefer not to disclose" ~ "Yes",
+    TRUE ~ criminal_record
+  ))
+
+#confirm recoding variable:
+table(data$criminal_record_clean)
+
+```
+
+-   For other variables (e.g., `education`), **missingness may be MAR or MCAR**, and we can safely fill it with **mode**, **mean** or **median**. In the following case, because education is an ordinal variable, we cannot directly use mean or mean. We use **mode** to replace "prefer not to say".
+
+```{r}
+#write a function to get mode
+
+get_mode <- function(x) {
+  x <- na.omit(x)  # Remove NA values
+  uniq_x <- unique(x) #This gets all the unique values in x
+  freq <- tabulate(match(x, uniq_x)) 
+  #this operation is two steps:
+  #first, match(x, uniq_x) turns the values in x into positions based on where they appear in uniq_x. For example: match(c(2, 2, 3), c(2, 3, 4)) returns 1 1 2.
+  #tabulate(...) then counts how many times each index appears:tabulate(c(1, 1, 2)) → 2 1 0
+  
+  mode_val <- uniq_x[which.max(freq)]
+  #which.max(freq) gives the position of the most frequent value.
+  #uniq_x[...] pulls out the actual mode.
+  return(mode_val)
+}
+
+mode_edu <- get_mode(data$education)
+
+#originally education
+table(data$education)
+
+#filling prefer not to say with mode of education
+data <- data %>%
+  mutate(education_filled = case_when(
+    education == "Prefer not to say" ~ mode_edu,
+    TRUE ~ education))
+
+#check the filled education variable
+table(data$education_filled)
+```
+
+### Review: How We Handle Missing Data in This Class?
+
+-   For **MAR** and **MNAR** situations (like `criminal_record`), we **have not learned advanced imputation techniques yet**, such as multiple imputation or model-based imputation.
+-   Therefore, we will use **simple strategies** like:
+    -   **Logic-based recoding** (e.g., treating "Prefer not to disclose" as "Yes")
+    -   **Mean / mode / median imputation** for numeric or categorical variables
+
+#### Recommendation for Your Group Projects
+
+In the final project, I will help you to handle the missing data in the standard questions (demographic, socio-economic status, and personal-others). When you analyze your group’s experimental variables (IVs and DVs), please:
+
+1.  **Run your model using only complete cases** (i.e., drop any rows with missing data using `na.omit()` or `drop_na()`).
+2.  Then, **run the same model again after applying simple imputations** (like using `mean()` or `mode()` to fill missing values).
+3.  **Compare the results**, and note whether your conclusions change. This will help you reflect on how missing data affects analysis.
+
+------------------------------------------------------------------------
+
+## Part 3: Descriptive Statistics and Plots
+
+Once your data is cleaned and recoded, the next step is to **explore and summarize** it. This section reviews how to:
+
+-   Generate basic summary statistics
+
+-   Create simple visualizations to display data distribution of a variable (make sure you check the previous lecture note to decide what types of graph you should choose to plot).
+
+-   Describe the data distribution based on the summary statistics and the graphs. For example, in the third graph below, are there more Democrats or Republicans in the sample? Is there a strong skew in political identity?
+
+-   Explore relationships between variables
+
+### 3.1 Univariate Statistics (Single Variable)
+
+#### Example 1: Age (numeric variable);
+
+Since age is a continuous variable, we can use boxplot to present its min, max, mean, median, and quartiles. We can also do histogram.
+
+```{r}
+#summary statistics
+summary(data$age)
+
+#boxplot to present distribution
+ggplot(data, aes(x = "", y = age)) + 
+ geom_boxplot() +
+ labs(y = "Age") +
+ ggtitle("Distribution of Respondent Age")
+```
+
+#### Example 2: Gender (nominal)
+
+Since gender is a nominal variable, we can use barplot to present the proportion of each gender group. We can also use pie-chart to do so.
+
+```{r}
+prop.table(table(data$gender))#use prop.table to show proportion of different groups of a  nominal variable 
+
+#plotting barplot
+ggplot(data, aes(x = gender)) +
+  geom_bar() +
+  labs(x = "Gender", y = "Count") +
+  ggtitle("Gender Breakdown in Sample")
+```
+
+#### Example 3: Party affiliation (ordinal)
+
+Since Party affiliation is an ordinal variable (7-point scale), we can use a barplot to present the proportion of each gender group. If an ordinal variable has more than 10 values, we can also choose a histogram. But do not use a boxplot.
+
+```{r}
+#the following code is crucial for handling ordered categorical variables in R when you want to treat them as numbers (e.g., for plotting or modeling).
+
+data$party_numeric <- as.numeric(factor(data$party_affiliation, #step2: as.numeric(factor): converts that ordered factor into numbers 1 to 7, matching the ideological spectrum.
+  levels = c("Strong Republican", "Republican", "Lean Republican",
+             "Independent", "Lean Democrat", "Democrat", "Strong  Democrat") #step1: levels = c: it first converts a text variable (party_affiliation) into a factor with explicit order based on political ideology (from conservative to liberal).
+))
+
+#However, my personal practice is that I would recode all these variables by assigining responses with numerical values in Part#1.
+
+#If you already do so 
+
+
+ggplot(data, aes(x = party_numeric)) +
+  geom_bar() +
+  labs(x = "Party Affiliation (1 = Strong R → 7 = Strong D)", y = "Count") +
+  ggtitle("Party Identification of Survey Respondents")
+
+```
+
+------------------------------------------------------------------------
+
+### 3.2 Bivariate Plots
+
+Let’s examine how **two variables relate** to each other.
+
+#### Example 4: Party affiliation (numeric) vs Age
+
+```{r}
+ggplot(data, aes(x = factor(party_numeric), y = age)) +
+  geom_boxplot() +
+  labs(x = "Party Affiliation", y = "Age") +
+  ggtitle("Age Differences by Party Affiliation")
+```
+
+### In-Class Exercise C
+
+Choose any **two variables** from your dataset:
+
+-   One **numeric** (e.g., `age`, `party_numeric`, `speech_express_likelihood`)
+
+-   One **categorical** (e.g., `gender`, `education`, `ethnicity_white`)
+
+For each variable:
+
+1.  Generate summary statistics using `summary()` or `table()`.
+
+2.  Make a plot using `ggplot2` (e.g., boxplot, bar chart, or histogram).
+
+3.  (Optional) Write down **one sentence interpreting what you observe**. You will need to do this in your final group report.
+
+✔️ **Tip**: Use `labs()` to label your plot axes meaningfully.
+
+------------------------------------------------------------------------
+
+## Final Section: Group Project Lab (2) Preview
+
+For your **group project**, you will work with your own experimental questions. This week, we are practicing using **simulated data**. But you can still start writing the codes.
+
+Each group should:
+
+1.  **Identify your experimental variables** (the dependent variable questions that measure the attitude and behavior in your experiment) from the survey
+
+2.  Write the code to recode your group's DVs in a proper form using `mutate()` + `case_when()`.
+
+    Don't worry about the demographic, socioeconomic and personal-other variables, I will clean them for you.
+
+3.  Apply the same cleaning and checking habits from today:
+
+<div>
+
+```         
+-   Try out the codes for summary stats
+
+-   Write the codes for plotting distribution graphs. 
+```
+
+</div>
+
+4.  Save your codes with the .R file.
+
+**On Friday (real data release day):**
+
+You will **reuse your cleaned code** on the real dataset.
+
+5.  Then, you will perform:
+
+    -   Simple regressions or t-tests (depending on design)
+
+    -   Multiple regression including all control variables.
+
+    -   Hypothesis testing and results interpretation
